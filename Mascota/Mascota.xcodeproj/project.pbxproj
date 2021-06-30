@@ -23,6 +23,7 @@
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
 		2EE6649AA9D11B528378830D /* Pods_Mascota_MascotaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */; };
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
+		48964DC8268C56BF00751BFA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48964DC7268C56BF00751BFA /* UIFont+Extension.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD8E5D8C268C2C6200D698F2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8E5D8B268C2C6200D698F2 /* Colors.xcassets */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
@@ -69,6 +70,10 @@
 		1AEAF6A99A34E44C31FF0642 /* Pods-Mascota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.debug.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.debug.xcconfig"; sourceTree = "<group>"; };
 		35A74EECCFA306560984A74C /* Pods-Mascota-MascotaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
+		48964DC2268C535900751BFA /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		48964DC3268C535900751BFA /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		48964DC4268C535900751BFA /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		48964DC7268C56BF00751BFA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +164,7 @@
 		18AE88DB268AE5CB00EBC129 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				48964DC1268C4E9700751BFA /* Fonts */,
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
 				DD8E5D8B268C2C6200D698F2 /* Colors.xcassets */,
 				18AE88DE268AE6AC00EBC129 /* Storyboards */,
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */,
+				48964DC7268C56BF00751BFA /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +275,16 @@
 				7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		48964DC1268C4E9700751BFA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				48964DC2268C535900751BFA /* NotoSansCJKkr-Bold.otf */,
+				48964DC3268C535900751BFA /* NotoSansCJKkr-Medium.otf */,
+				48964DC4268C535900751BFA /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		76E8EF9FF63D77402E82AE91 /* Frameworks */ = {
@@ -547,6 +564,7 @@
 				18AE88ED268AE76400EBC129 /* cell.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
+				48964DC8268C56BF00751BFA /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
