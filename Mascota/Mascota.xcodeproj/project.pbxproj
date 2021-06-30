@@ -26,6 +26,8 @@
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
 		DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92BCAB268C52CD00A95A75 /* Colors.xcassets */; };
+		DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92BCAD268C576B00A95A75 /* BookPageView.swift */; };
+		DD92BCB0268C604200A95A75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92BCAF268C604200A95A75 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		D5AB90B6090251464E4BE991 /* Pods-MascotaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.debug.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DD92BCAB268C52CD00A95A75 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DD92BCAD268C576B00A95A75 /* BookPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageView.swift; sourceTree = "<group>"; };
+		DD92BCAF268C604200A95A75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,10 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
+				DD92BCAB268C52CD00A95A75 /* Colors.xcassets */,
 				18AE88DE268AE6AC00EBC129 /* Storyboards */,
 				18AE88DD268AE69E00EBC129 /* Constants */,
 				18AE88B9268AE58C00EBC129 /* Info.plist */,
-				DD92BCAB268C52CD00A95A75 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				18AE88DF268AE6F100EBC129 /* AppConstants.swift */,
+				DD92BCAF268C604200A95A75 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				18AE88E8268AE75200EBC129 /* view.swift */,
+				DD92BCAD268C576B00A95A75 /* BookPageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +553,8 @@
 				18AE88ED268AE76400EBC129 /* cell.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
+				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
+				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
