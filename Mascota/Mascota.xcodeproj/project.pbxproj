@@ -24,8 +24,8 @@
 		2EE6649AA9D11B528378830D /* Pods_Mascota_MascotaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */; };
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
-		DD8E5D8C268C2C6200D698F2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD8E5D8B268C2C6200D698F2 /* Colors.xcassets */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
+		DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92BCAB268C52CD00A95A75 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +74,8 @@
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MascotaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5AB90B6090251464E4BE991 /* Pods-MascotaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.debug.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DD8E5D8B268C2C6200D698F2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		DD92BCAB268C52CD00A95A75 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,10 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
-				DD8E5D8B268C2C6200D698F2 /* Colors.xcassets */,
 				18AE88DE268AE6AC00EBC129 /* Storyboards */,
 				18AE88DD268AE69E00EBC129 /* Constants */,
 				18AE88B9268AE58C00EBC129 /* Info.plist */,
+				DD92BCAB268C52CD00A95A75 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
-				DD8E5D8C268C2C6200D698F2 /* Colors.xcassets in Resources */,
+				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
 			);
