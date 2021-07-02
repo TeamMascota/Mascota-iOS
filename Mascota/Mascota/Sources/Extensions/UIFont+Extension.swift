@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/*
 extension UIFont {
     class func NotoSansCJKkr(type: NotoSansCJKkrType, size: CGFloat) -> UIFont! {
         guard let font = UIFont(name: type.name, size: size) else {
@@ -25,4 +25,4 @@ extension UIFont {
         }
     }
 }
-
+*/
