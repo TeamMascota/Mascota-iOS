@@ -15,7 +15,7 @@ class BookContentView: UIView {
         $0.font = .boldSystemFont(ofSize: 14)
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
-        $0.numberOfLines = 0
+        $0.numberOfLines = 1
         $0.textAlignment = .left
     }
 
@@ -23,7 +23,7 @@ class BookContentView: UIView {
         $0.font = .boldSystemFont(ofSize: 14)
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
-        $0.numberOfLines = 0
+        $0.numberOfLines = 1
         $0.textAlignment = .left
     }
 
@@ -38,12 +38,12 @@ class BookContentView: UIView {
         $0.font = .systemFont(ofSize: 14)
         $0.sizeToFit()
         $0.textColor = .macoGray
-        $0.numberOfLines = 0
+        $0.numberOfLines = 1
         $0.textAlignment = .left
     }
 
     private lazy var faceImageView = UIImageView().then {
-        $0.image = .checkmark
+        $0.image = .add
     }
     
     private lazy var logoView = UIImageView().then {
@@ -107,14 +107,19 @@ class BookContentView: UIView {
             subtitleLabel.text = subtitle
             contentLabel.text = content
             dateLabel.text = date
-            
+
             contentLabel.setLineSpacing(lineHeightMultiple: 1.5)
             contentLabel.lineBreakMode = .byTruncatingTail
-            
+
+            [titleLabel, subtitleLabel, contentLabel, dateLabel, faceImageView].forEach {
+                $0.isHidden = false
+            }
+
             logoView.isHidden = true
+
         } else {
             logoView.isHidden = false
-            
+
             [titleLabel, subtitleLabel, contentLabel, dateLabel, faceImageView].forEach {
                 $0.isHidden = true
             }
