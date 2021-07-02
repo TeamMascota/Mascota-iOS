@@ -11,27 +11,15 @@ import SnapKit
 import Then
 
 enum BookType {
-    case homeMain
-    case homeEmpty
+    case home
     case rainbow
     
     fileprivate func color() -> UIColor {
         switch self {
-        case .homeMain, .homeEmpty:
+        case .home:
             return .macoOrange
         case .rainbow:
             return .macoBlue
-        }
-    }
-    
-    fileprivate func page() -> [UIView] {
-        switch self {
-        case .homeMain:
-            return [BookContentView(), BookWriteView()]
-        case .homeEmpty:
-            return [BookEmptyView(), BookWriteView()]
-        case .rainbow:
-            return [BookContentView(), BookContentView()]
         }
     }
     
@@ -40,9 +28,6 @@ enum BookType {
 class BookPageView: UIView {
     
     private lazy var color = UIColor.macoOrange
-    
-    private lazy var leftPageView = UIView()
-    private lazy var rightPageView = UIView()
     
     private lazy var backgroundView = UIView().then {
         $0.layer.borderWidth = Constant.border1
@@ -59,15 +44,13 @@ class BookPageView: UIView {
         $0.backgroundColor = .macoIvory
     }
     
-    private lazy var centerLine = UIView().then {
+    public lazy var centerLine = UIView().then {
         $0.backgroundColor = color
     }
     
     public init(type: BookType) {
         super.init(frame: CGRect.zero)
         self.color = type.color()
-        self.leftPageView = type.page()[0]
-        self.rightPageView = type.page()[1]
         setView()
     }
     
@@ -76,7 +59,7 @@ class BookPageView: UIView {
     }
     
     private func setView() {
-        addSubviews(backgroundView, frontView, centerLine, leftPageView, rightPageView)
+        addSubviews(backgroundView, frontView, centerLine)
         
         backgroundView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
@@ -97,14 +80,5 @@ class BookPageView: UIView {
             $0.centerX.equalTo(frontView)
         }
         
-        leftPageView.snp.makeConstraints {
-            $0.leading.top.bottom.equalToSuperview()
-            $0.trailing.equalTo(centerLine.snp.leading)
-        }
-        
-        rightPageView.snp.makeConstraints {
-            $0.trailing.top.bottom.equalToSuperview()
-            $0.leading.equalTo(centerLine.snp.trailing)
-        }
     }
 }
