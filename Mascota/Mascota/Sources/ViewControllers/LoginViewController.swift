@@ -12,37 +12,45 @@ class LoginViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var idEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet var lineViewUnderTextield: [UIView]!
+    @IBOutlet var underlineView: [UIView]!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var sigunUpButton: UIButton!
     
-    // MARK: IBActions
+    // MARK: - IBActions
     
-    // MARK: Life Cycle
-    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTextField()
+        
+    }
+    
+    func setTextField() {
         self.idEmailTextField.delegate = self
         self.passwordTextField.delegate = self
         
         idEmailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if textField == idEmailTextField {
+        switch textField {
+        case idEmailTextField:
             if textField.text!.count == 0 {
-                lineViewUnderTextield[0].backgroundColor = UIColor.black
+                underlineView[0].backgroundColor = UIColor.black
             } else {
-                lineViewUnderTextield[0].backgroundColor = UIColor.blue}
-        } else {
-            if textField.text!.count == 0 {
-                lineViewUnderTextield[1].backgroundColor = UIColor.black
-            } else {
-                lineViewUnderTextield[1].backgroundColor = UIColor.green
+                underlineView[0].backgroundColor = UIColor.blue
             }
+        case passwordTextField:
+            if textField.text!.count == 0 {
+                underlineView[1].backgroundColor = UIColor.black
+            } else {
+                underlineView[1].backgroundColor = UIColor.green
+            }
+        default:
+            underlineView[0].backgroundColor = UIColor.black
+            underlineView[1].backgroundColor = UIColor.black
         }
         
         if !idEmailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
@@ -55,7 +63,7 @@ class LoginViewController: UIViewController {
     
 }
 
-// MARK : - Delegate
+// MARK: - Delegate
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ sender: UITextField) -> Bool {
         if sender == idEmailTextField {
@@ -65,4 +73,5 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }

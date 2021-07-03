@@ -25,7 +25,6 @@
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
 		4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809D067268E304C0060F5EB /* LoginViewController.swift */; };
-		48964DC8268C56BF00751BFA /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48964DC7268C56BF00751BFA /* UIFont+Extension.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
 		DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92BCAB268C52CD00A95A75 /* Colors.xcassets */; };
@@ -74,10 +73,6 @@
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
 		4809D065268E1BAD0060F5EB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4809D067268E304C0060F5EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		48964DC2268C535900751BFA /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Bold.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
-		48964DC3268C535900751BFA /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Medium.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
-		48964DC4268C535900751BFA /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansCJKkr-Regular.otf"; path = "../../../../../../NotoSansCJKkr-hinted/NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
-		48964DC7268C56BF00751BFA /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */,
-				48964DC7268C56BF00751BFA /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,9 +280,6 @@
 		4881542A268EED4100E1D739 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4881542C268EED5000E1D739 /* NotoSansCJKkr-Bold.otf */,
-				4881542B268EED4F00E1D739 /* NotoSansCJKkr-Medium.otf */,
-				4881542D268EED5100E1D739 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -572,7 +563,6 @@
 				18AE88ED268AE76400EBC129 /* cell.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
-				48964DC8268C56BF00751BFA /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

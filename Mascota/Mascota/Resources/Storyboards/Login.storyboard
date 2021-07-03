@@ -167,8 +167,8 @@
                         <outlet property="loginButton" destination="j9W-5t-LpJ" id="qEK-x5-wbY"/>
                         <outlet property="passwordTextField" destination="jBq-A8-xfA" id="axv-dI-uJE"/>
                         <outlet property="sigunUpButton" destination="7pG-fz-uPr" id="wgo-3W-PF6"/>
-                        <outletCollection property="lineViewUnderTextield" destination="osG-Zl-kTk" collectionClass="NSMutableArray" id="vKI-U5-PEq"/>
-                        <outletCollection property="lineViewUnderTextield" destination="BzF-OR-4tc" collectionClass="NSMutableArray" id="tNZ-LK-eaw"/>
+                        <outletCollection property="underlineView" destination="osG-Zl-kTk" collectionClass="NSMutableArray" id="vKI-U5-PEq"/>
+                        <outletCollection property="underlineView" destination="BzF-OR-4tc" collectionClass="NSMutableArray" id="tNZ-LK-eaw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufd-1F-rvC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
