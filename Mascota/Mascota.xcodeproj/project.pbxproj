@@ -168,7 +168,7 @@
 		18AE88DB268AE5CB00EBC129 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				48964DC1268C4E9700751BFA /* Fonts */,
+				4881542A268EED4100E1D739 /* Fonts */,
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
 				18AE88DE268AE6AC00EBC129 /* Storyboards */,
 				18AE88DD268AE69E00EBC129 /* Constants */,
@@ -283,12 +283,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		48964DC1268C4E9700751BFA /* Fonts */ = {
+		4881542A268EED4100E1D739 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				48964DC2268C535900751BFA /* NotoSansCJKkr-Bold.otf */,
-				48964DC3268C535900751BFA /* NotoSansCJKkr-Medium.otf */,
-				48964DC4268C535900751BFA /* NotoSansCJKkr-Regular.otf */,
+				4881542C268EED5000E1D739 /* NotoSansCJKkr-Bold.otf */,
+				4881542B268EED4F00E1D739 /* NotoSansCJKkr-Medium.otf */,
+				4881542D268EED5100E1D739 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";

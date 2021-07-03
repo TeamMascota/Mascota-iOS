@@ -9,40 +9,60 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // MARK:- IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var idEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var lineViewUnderTextield: UIView!
+    @IBOutlet var lineViewUnderTextield: [UIView]!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var sigunUpButton: UIButton!
-
-    // MARK:- IBActions
-
-    @IBAction func changeViewColor(_ sender: UITextField) {
-        if !idEmailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
-            loginButton.backgroundColor =  UIColor(red: 230.0/255.0, green: 120.0/255.0, blue: 40.0/255.0, alpha: 1)
-        }
-    }
     
-    // MARK:- Life Cycle
+    // MARK: IBActions
+    
+    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.sigunUpButton.backgroundColor = UIColor.macoYellow
-        
         self.idEmailTextField.delegate = self
         self.passwordTextField.delegate = self
+        
+        idEmailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField == idEmailTextField {
+            if textField.text!.count == 0 {
+                lineViewUnderTextield[0].backgroundColor = UIColor.black
+            } else {
+                lineViewUnderTextield[0].backgroundColor = UIColor.blue}
+        } else {
+            if textField.text!.count == 0 {
+                lineViewUnderTextield[1].backgroundColor = UIColor.black
+            } else {
+                lineViewUnderTextield[1].backgroundColor = UIColor.green
+            }
+        }
+        
+        if !idEmailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
+            loginButton.backgroundColor = UIColor.red
+        } else {
+            
+            loginButton.backgroundColor = UIColor.blue
+        }
+    }
+    
 }
 
 // MARK : - Delegate
 extension LoginViewController: UITextFieldDelegate {
-  func textFieldShouldReturn(_ sender: UITextField) -> Bool {
-    if sender == idEmailTextField {
-      passwordTextField.becomeFirstResponder()
-    } else {
-      passwordTextField.resignFirstResponder()
+    func textFieldShouldReturn(_ sender: UITextField) -> Bool {
+        if sender == idEmailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
     }
-    return true
-  }
 }
