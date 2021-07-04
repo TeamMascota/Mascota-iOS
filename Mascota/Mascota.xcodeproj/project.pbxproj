@@ -29,7 +29,6 @@
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
-		DD6C9B1826908FE1004223ED /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1726908FE1004223ED /* BaseViewController.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
 		DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */; };
@@ -39,6 +38,7 @@
 		DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */; };
 		DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */; };
 		DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */; };
+		DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
 		DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92BCAB268C52CD00A95A75 /* Colors.xcassets */; };
 		DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92BCAD268C576B00A95A75 /* BookPageView.swift */; };
@@ -102,7 +102,6 @@
 		D5AB90B6090251464E4BE991 /* Pods-MascotaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.debug.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		DD6C9B1726908FE1004223ED /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
 		DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationBarView.swift; sourceTree = "<group>"; };
 		DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DD92BCAB268C52CD00A95A75 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DD92BCAD268C576B00A95A75 /* BookPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageView.swift; sourceTree = "<group>"; };
@@ -308,6 +308,7 @@
 				DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */,
 				DD95C99E268EC801002B35A1 /* BookHomePageView.swift */,
 				DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */,
+				DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,7 +319,6 @@
 				18AE88AF268AE58A00EBC129 /* ViewController.swift */,
 				4809D067268E304C0060F5EB /* LoginViewController.swift */,
 				DD931B2E268E0B5A001DA072 /* RainbowViewController.swift */,
-				DD6C9B1726908FE1004223ED /* BaseViewController.swift */,
 				483DA2512690DAA8005DBA86 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
@@ -637,12 +637,12 @@
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
-				DD6C9B1826908FE1004223ED /* BaseViewController.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
+				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
