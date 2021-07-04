@@ -8,10 +8,8 @@
 import UIKit
 
 extension UIFont {
-    class func macoFont(type: NotoSansCJKkrType, size: CGFloat) -> UIFont! {
-        guard let font = UIFont(name: type.name, size: size) else {
-            return nil
-        }
+    class func macoFont(type: NotoSansCJKkrType, size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: type.name, size: size) else { return .systemFont(ofSize: 3) }
         return font
     }
 
