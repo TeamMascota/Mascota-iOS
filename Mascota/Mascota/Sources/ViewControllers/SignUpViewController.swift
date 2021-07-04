@@ -14,6 +14,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordCheckTextField: UITextField!
     @IBOutlet var underlineView: [UIView]!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    // MARK: - IBActions
+    @IBAction func tapSignUpButton() {
+        
+    }
+    
+    
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
