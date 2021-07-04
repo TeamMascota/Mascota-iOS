@@ -34,7 +34,11 @@
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
 		DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */; };
 		DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A6268C8F8500E6E2DC /* BookContentView.swift */; };
-		DD878EA22691681900856EE2 /* UIString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD878EA12691681900856EE2 /* UIString+Extension.swift */; };
+		DD878EA22691681900856EE2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD878EA12691681900856EE2 /* String+Extension.swift */; };
+		DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */; };
+		DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */; };
+		DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */; };
+		DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */; };
 		DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */; };
 		DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD92BCAB268C52CD00A95A75 /* Colors.xcassets */; };
 		DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92BCAD268C576B00A95A75 /* BookPageView.swift */; };
@@ -103,7 +107,11 @@
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
 		DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		DD7112A6268C8F8500E6E2DC /* BookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookContentView.swift; sourceTree = "<group>"; };
-		DD878EA12691681900856EE2 /* UIString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Extension.swift"; sourceTree = "<group>"; };
+		DD878EA12691681900856EE2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		DD8E5D8D268C302100D698F2 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DD92BCAB268C52CD00A95A75 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DD92BCAD268C576B00A95A75 /* BookPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageView.swift; sourceTree = "<group>"; };
@@ -285,7 +293,8 @@
 				DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */,
 				DD931B2C268DE9C7001DA072 /* UILabel+Extension.swift */,
 				DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */,
-				DD878EA12691681900856EE2 /* UIString+Extension.swift */,
+				DD878EA12691681900856EE2 /* String+Extension.swift */,
+				DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +340,9 @@
 		4881542A268EED4100E1D739 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */,
+				DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */,
+				DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -455,12 +467,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
+				DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
 				DD95C9A4268F0309002B35A1 /* RainbowViewController.storyboard in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
+				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
+				DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +626,8 @@
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,
-				DD878EA22691681900856EE2 /* UIString+Extension.swift in Sources */,
+				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
+				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
