@@ -1,5 +1,5 @@
 //
-//  RegisterMyPetCollectionViewCell.swift
+//  MakePlusCollectionViewCell.swift
 //  Mascota
 //
 //  Created by DYS on 2021/07/05.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterMyPetCollectionViewCell: UICollectionViewCell {
+class MakePlusCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var myPetImage: UIImageView!
     @IBOutlet weak var characterNumberLabel: UILabel!

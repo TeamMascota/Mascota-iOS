@@ -49,47 +49,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="registerMyPetCell" id="i2L-xv-nvS" customClass="RegisterMyPetCollectionViewCell" customModule="Mascota" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RegisterMyPetCollectionViewCell" id="Ec3-nC-NzU">
                                         <rect key="frame" x="0.0" y="0.0" width="98" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="chl-bZ-rGl">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hHB-z4-eg2">
                                             <rect key="frame" x="0.0" y="0.0" width="98" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주인공 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnL-6O-cXS">
-                                                    <rect key="frame" x="0.0" y="100" width="98" height="32"/>
-                                                    <color key="backgroundColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="4iM-EX-GNj"/>
-                                                        <constraint firstAttribute="height" constant="32" id="DcN-gx-6wI"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" name="macoWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-Mn-vhF">
-                                                    <rect key="frame" x="0.0" y="0.5" width="98" height="99"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="tintColor" name="macoGray"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="TnL-6O-cXS" secondAttribute="trailing" id="Med-WE-6cf"/>
-                                                <constraint firstItem="TnL-6O-cXS" firstAttribute="top" secondItem="D6K-Mn-vhF" secondAttribute="bottom" id="ZkF-Fs-hnF"/>
-                                                <constraint firstAttribute="trailing" secondItem="D6K-Mn-vhF" secondAttribute="trailing" id="dal-M6-FCf"/>
-                                                <constraint firstItem="D6K-Mn-vhF" firstAttribute="leading" secondItem="chl-bZ-rGl" secondAttribute="leading" id="eJ3-nR-Oo0"/>
-                                                <constraint firstItem="D6K-Mn-vhF" firstAttribute="top" secondItem="chl-bZ-rGl" secondAttribute="top" id="ehx-Wv-dWu"/>
-                                                <constraint firstItem="TnL-6O-cXS" firstAttribute="leading" secondItem="chl-bZ-rGl" secondAttribute="leading" id="ghD-eP-O2b"/>
-                                                <constraint firstAttribute="bottom" secondItem="TnL-6O-cXS" secondAttribute="bottom" id="ipI-gv-UfV"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="98" height="132"/>
-                                        <connections>
-                                            <outlet property="characterNumberLabel" destination="TnL-6O-cXS" id="iUE-8q-XvH"/>
-                                            <outlet property="myPetImage" destination="D6K-Mn-vhF" id="c3n-lD-pCi"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -179,13 +145,6 @@
                                 <rect key="frame" x="28" y="502.5" width="82.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="macoDarkGray"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(0/6)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBH-Ak-VeM">
-                                <rect key="frame" x="344" y="399" width="32" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" name="macoLightGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-0b-hw9">
@@ -312,6 +271,16 @@
                                     <color key="titleColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilD-oC-WjM">
+                                <rect key="frame" x="69" y="541" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UXe-8s-uG5"/>
+                                    <constraint firstAttribute="width" constant="85" id="Y35-v0-aJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="macoIvory"/>
@@ -327,6 +296,7 @@
                             <constraint firstItem="vrH-xS-aMU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="FSu-HE-8XU"/>
                             <constraint firstItem="Qqp-bb-iml" firstAttribute="trailing" secondItem="WVG-ZV-vxy" secondAttribute="trailing" constant="-3" id="GZW-M2-7b1"/>
                             <constraint firstItem="vrH-xS-aMU" firstAttribute="top" secondItem="MwY-f8-v5E" secondAttribute="bottom" constant="28" id="M1y-eP-g7I"/>
+                            <constraint firstItem="ilD-oC-WjM" firstAttribute="top" secondItem="u0G-vW-Fay" secondAttribute="bottom" constant="18" id="M5n-lw-kSO"/>
                             <constraint firstItem="RTL-Nn-erG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="N6y-f7-SBE"/>
                             <constraint firstItem="gYy-0b-hw9" firstAttribute="top" secondItem="u0G-vW-Fay" secondAttribute="bottom" constant="8" id="OQ1-XV-hDY"/>
                             <constraint firstItem="yUC-gF-3hY" firstAttribute="top" secondItem="Qqp-bb-iml" secondAttribute="bottom" constant="16" id="OVJ-oO-bEE"/>
@@ -339,6 +309,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zcx-Ty-JFI" secondAttribute="trailing" constant="27.5" id="Wx5-Xd-ixd"/>
                             <constraint firstItem="MwY-f8-v5E" firstAttribute="top" secondItem="gYy-0b-hw9" secondAttribute="bottom" id="ZAA-SV-8vr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yUC-gF-3hY" secondAttribute="trailing" constant="136" id="ZP8-M9-bBE"/>
+                            <constraint firstItem="ilD-oC-WjM" firstAttribute="leading" secondItem="rIA-ZG-Hmv" secondAttribute="trailing" constant="9" id="ZRe-Xn-0Vy"/>
                             <constraint firstItem="MwY-f8-v5E" firstAttribute="trailing" secondItem="gYy-0b-hw9" secondAttribute="trailing" id="boG-3y-ehT"/>
                             <constraint firstItem="84a-pt-WcT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="cAY-G3-Jwa"/>
                             <constraint firstItem="WVG-ZV-vxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="d59-d6-TMf"/>
@@ -355,6 +326,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="becomeFamilyDateLabel" destination="ilD-oC-WjM" id="jor-7F-Agh"/>
                         <outlet property="catButton" destination="0Rn-JP-QbS" id="gX9-3r-gbD"/>
                         <outlet property="catOrDogStackView" destination="yUC-gF-3hY" id="CHD-od-glk"/>
                         <outlet property="dogButton" destination="ekE-eN-Ixh" id="RgJ-An-xiF"/>
@@ -371,7 +343,6 @@
     </scenes>
     <resources>
         <image name="calendar1" width="20" height="19.5"/>
-        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <namedColor name="macoDarkGray">
             <color red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -380,9 +351,6 @@
         </namedColor>
         <namedColor name="macoIvory">
             <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="macoLightGray">
-            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="macoOrange">
             <color red="0.90196078431372551" green="0.47058823529411764" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

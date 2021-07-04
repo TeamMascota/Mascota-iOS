@@ -15,6 +15,8 @@ class RegisterMyPetViewController: UIViewController {
     @IBOutlet weak var dogButton: UIButton!
     @IBOutlet weak var catButton: UIButton!
     @IBOutlet var genderButton: [UIButton]!
+    @IBOutlet weak var becomeFamilyDateLabel: UILabel!
+    var myPetsArray = [RegisterMyPetModel]()
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -39,12 +41,28 @@ class RegisterMyPetViewController: UIViewController {
         super.viewDidLoad()
         setCollectionView()
         setButtons()
+        setLabelPlaceholder()
+        //setRandomData()
+    }
+    
+    func setRandomData() {
+        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
+        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
     }
     
     // MARK: - Functions
+    
+    func setLabelPlaceholder() {
+        becomeFamilyDateLabel.text = "YYYY.MM.DD"
+        becomeFamilyDateLabel.textColor = UIColor.macoLightGray
+    }
+    
     func setCollectionView() {
         registerPetCollectionView.dataSource = self
         registerPetCollectionView.delegate = self
+        registerPetCollectionView.register(UINib(nibName: "MakePlusCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "MakePlusCollectionViewCell")
+        registerPetCollectionView.register(UINib(nibName: "RegisterMyPetCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "RegisterMyPetCollectionViewCell")
+        
         registerPetCollectionView.backgroundColor = UIColor.macoIvory
     }
     
@@ -74,38 +92,47 @@ class RegisterMyPetViewController: UIViewController {
 // MARK: - CollectionView
 extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return myPetsArray.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "registerMyPetCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.layer.borderWidth = 1.0
-        
         switch indexPath.row {
-        case 0:
+        case myPetsArray.count: // 마지막셀
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MakePlusCollectionViewCell", for: indexPath) as? MakePlusCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.macoOrange.cgColor
+            cell.characterNumberLabel.backgroundColor = UIColor.macoGray
+            cell.characterNumberLabel.textColor = UIColor.white
+            
+            return cell
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.layer.borderWidth = 1.0
             cell.layer.borderColor = UIColor.macoOrange.cgColor
             cell.characterNumberLabel.backgroundColor = UIColor.macoOrange
             cell.characterNumberLabel.textColor = UIColor.white
-        default:
-            cell.layer.borderColor = UIColor.macoLightGray.cgColor
-            cell.characterNumberLabel.backgroundColor = UIColor.macoLightGray
-            cell.characterNumberLabel.textColor = UIColor.white
+            
+            return cell
         }
-        return cell
+        
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == myPetsArray.count {
+            print("마지막셀 클릭됨")
+        }
+    }
 }
 
 extension RegisterMyPetViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = UIScreen.main.bounds.width
-        
-        let cellWidth = width * (100 / 374)
+        let cellWidth = Constant.Size.width * (100 / 374)
         let cellHeight = cellWidth * (132 / 100)
         
         return CGSize(width: cellWidth, height: cellHeight)
