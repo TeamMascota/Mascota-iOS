@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register My Pet View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="RegisterMyPetViewController" customModule="Mascota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주인공의 정보를 등록해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTL-Nn-erG">
+                                <rect key="frame" x="28" y="115" width="235" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gff-Fd-5Lh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="macoDarkGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 등록된 반려동물 주인공 0마리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uja-JO-YSM">
+                                <rect key="frame" x="28" y="146" width="193.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oQv-Xf-gz0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="macoGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2ty-nU-7M3">
+                                <rect key="frame" x="28" y="195" width="386" height="132"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="xUT-US-qum"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vQh-kX-of4">
+                                    <size key="itemSize" width="98" height="132"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="registerMyPetCell" id="i2L-xv-nvS" customClass="RegisterMyPetCollectionViewCell" customModule="Mascota" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="98" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="chl-bZ-rGl">
+                                            <rect key="frame" x="0.0" y="0.0" width="98" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주인공 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnL-6O-cXS">
+                                                    <rect key="frame" x="0.0" y="100" width="98" height="32"/>
+                                                    <color key="backgroundColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="4iM-EX-GNj"/>
+                                                        <constraint firstAttribute="height" constant="32" id="DcN-gx-6wI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="macoWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-Mn-vhF">
+                                                    <rect key="frame" x="0.0" y="0.5" width="98" height="99"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="tintColor" name="macoGray"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="TnL-6O-cXS" secondAttribute="trailing" id="Med-WE-6cf"/>
+                                                <constraint firstItem="TnL-6O-cXS" firstAttribute="top" secondItem="D6K-Mn-vhF" secondAttribute="bottom" id="ZkF-Fs-hnF"/>
+                                                <constraint firstAttribute="trailing" secondItem="D6K-Mn-vhF" secondAttribute="trailing" id="dal-M6-FCf"/>
+                                                <constraint firstItem="D6K-Mn-vhF" firstAttribute="leading" secondItem="chl-bZ-rGl" secondAttribute="leading" id="eJ3-nR-Oo0"/>
+                                                <constraint firstItem="D6K-Mn-vhF" firstAttribute="top" secondItem="chl-bZ-rGl" secondAttribute="top" id="ehx-Wv-dWu"/>
+                                                <constraint firstItem="TnL-6O-cXS" firstAttribute="leading" secondItem="chl-bZ-rGl" secondAttribute="leading" id="ghD-eP-O2b"/>
+                                                <constraint firstAttribute="bottom" secondItem="TnL-6O-cXS" secondAttribute="bottom" id="ipI-gv-UfV"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="98" height="132"/>
+                                        <connections>
+                                            <outlet property="characterNumberLabel" destination="TnL-6O-cXS" id="iUE-8q-XvH"/>
+                                            <outlet property="myPetImage" destination="D6K-Mn-vhF" id="c3n-lD-pCi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84a-pt-WcT">
+                                <rect key="frame" x="28" y="359" width="29.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="macoDarkGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="반려동물의 이름을 입력해 주세요        " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVG-ZV-vxy">
+                                <rect key="frame" x="28" y="387.5" width="359" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zHU-sy-EcH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqp-bb-iml">
+                                <rect key="frame" x="31" y="427.5" width="353" height="1"/>
+                                <color key="backgroundColor" name="macoOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="x1K-4J-tjp"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="yUC-gF-3hY">
+                                <rect key="frame" x="28" y="444.5" width="250" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mi8-wR-0sR">
+                                        <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toJ-QG-h4i">
+                                                <rect key="frame" x="42.5" y="6.5" width="36.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="macoOrange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-JP-QbS">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                <connections>
+                                                    <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0Ii-xV-4iP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="macoWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0Rn-JP-QbS" secondAttribute="trailing" id="4sm-ea-xcC"/>
+                                            <constraint firstItem="toJ-QG-h4i" firstAttribute="centerX" secondItem="Mi8-wR-0sR" secondAttribute="centerX" id="BCz-hn-wvZ"/>
+                                            <constraint firstItem="0Rn-JP-QbS" firstAttribute="top" secondItem="Mi8-wR-0sR" secondAttribute="top" id="LG4-2u-X13"/>
+                                            <constraint firstItem="toJ-QG-h4i" firstAttribute="centerY" secondItem="Mi8-wR-0sR" secondAttribute="centerY" id="S8U-0u-cTC"/>
+                                            <constraint firstItem="0Rn-JP-QbS" firstAttribute="leading" secondItem="Mi8-wR-0sR" secondAttribute="leading" id="rqi-xx-Tue"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Rn-JP-QbS" secondAttribute="bottom" id="y2Q-Ce-G37"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-aq-Exn">
+                                        <rect key="frame" x="128.5" y="0.0" width="121.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강아지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKW-Kj-cxx">
+                                                <rect key="frame" x="42.5" y="6.5" width="36.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="macoOrange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-eN-Ixh">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                <connections>
+                                                    <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EBY-Qe-cI6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="macoWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="VKW-Kj-cxx" firstAttribute="centerX" secondItem="9gZ-aq-Exn" secondAttribute="centerX" id="Off-wG-rcK"/>
+                                            <constraint firstItem="ekE-eN-Ixh" firstAttribute="top" secondItem="9gZ-aq-Exn" secondAttribute="top" id="WN4-ek-223"/>
+                                            <constraint firstAttribute="trailing" secondItem="ekE-eN-Ixh" secondAttribute="trailing" id="Znw-zY-CDB"/>
+                                            <constraint firstAttribute="bottom" secondItem="ekE-eN-Ixh" secondAttribute="bottom" id="cls-mo-el9"/>
+                                            <constraint firstItem="VKW-Kj-cxx" firstAttribute="centerY" secondItem="9gZ-aq-Exn" secondAttribute="centerY" id="d9x-mM-CVV"/>
+                                            <constraint firstItem="ekE-eN-Ixh" firstAttribute="leading" secondItem="9gZ-aq-Exn" secondAttribute="leading" id="v2f-ds-zNI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="macoIvory"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rwt-cA-fh9"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가족이 된 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0G-vW-Fay">
+                                <rect key="frame" x="28" y="502.5" width="82.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="macoDarkGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(0/6)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBH-Ak-VeM">
+                                <rect key="frame" x="344" y="399" width="32" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="macoLightGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-0b-hw9">
+                                <rect key="frame" x="28" y="531" width="359" height="40"/>
+                                <color key="backgroundColor" name="macoWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6PP-cc-7Os"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar1" translatesAutoresizingMaskIntoConstraints="NO" id="rIA-ZG-Hmv">
+                                <rect key="frame" x="40" y="541" width="20" height="19.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrH-xS-aMU">
+                                <rect key="frame" x="28" y="600" width="29.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwY-f8-v5E">
+                                <rect key="frame" x="28" y="571" width="359" height="1"/>
+                                <color key="backgroundColor" name="macoOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="HBv-LG-PAV"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="NJC-WF-PAJ">
+                                <rect key="frame" x="28" y="628.5" width="359" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-U0-xln">
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kl-IK-Q0G">
+                                                <rect key="frame" x="51.5" y="6.5" width="12.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="macoOrange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Feo-If-MxZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <connections>
+                                                    <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D1z-fu-wbu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="macoWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Feo-If-MxZ" firstAttribute="leading" secondItem="bFn-U0-xln" secondAttribute="leading" id="5Zy-zF-p0m"/>
+                                            <constraint firstItem="7kl-IK-Q0G" firstAttribute="centerY" secondItem="bFn-U0-xln" secondAttribute="centerY" id="Dcx-sE-gbQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Feo-If-MxZ" secondAttribute="bottom" id="Gmc-AL-Uy9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Feo-If-MxZ" secondAttribute="trailing" id="aAh-LB-Dzc"/>
+                                            <constraint firstItem="Feo-If-MxZ" firstAttribute="top" secondItem="bFn-U0-xln" secondAttribute="top" id="gUb-PW-vh3"/>
+                                            <constraint firstItem="7kl-IK-Q0G" firstAttribute="centerX" secondItem="bFn-U0-xln" secondAttribute="centerX" id="yoK-XP-0JQ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obU-8f-nQB">
+                                        <rect key="frame" x="122" y="0.0" width="115" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3Z-vN-Lum">
+                                                <rect key="frame" x="51.5" y="6.5" width="12.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="macoOrange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-Ry-k8F">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <connections>
+                                                    <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Kc5-N3-1fq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="macoWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="G3Z-vN-Lum" firstAttribute="centerY" secondItem="obU-8f-nQB" secondAttribute="centerY" id="4Yg-CF-0ZK"/>
+                                            <constraint firstAttribute="trailing" secondItem="rEW-Ry-k8F" secondAttribute="trailing" id="DyO-D9-H7o"/>
+                                            <constraint firstItem="rEW-Ry-k8F" firstAttribute="leading" secondItem="obU-8f-nQB" secondAttribute="leading" id="I0i-6J-QiK"/>
+                                            <constraint firstItem="G3Z-vN-Lum" firstAttribute="centerX" secondItem="obU-8f-nQB" secondAttribute="centerX" id="KeR-Qt-Fm8"/>
+                                            <constraint firstItem="rEW-Ry-k8F" firstAttribute="top" secondItem="obU-8f-nQB" secondAttribute="top" id="Pyj-lu-uya"/>
+                                            <constraint firstAttribute="bottom" secondItem="rEW-Ry-k8F" secondAttribute="bottom" id="nW2-3l-zpT"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKK-If-yku">
+                                        <rect key="frame" x="244" y="0.0" width="115" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meb-xu-qNs">
+                                                <rect key="frame" x="45.5" y="6.5" width="24.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="macoOrange"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-kM-K0y">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <connections>
+                                                    <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Zt-6A-pBo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="macoWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="FKG-kM-K0y" secondAttribute="trailing" id="02V-y0-513"/>
+                                            <constraint firstItem="meb-xu-qNs" firstAttribute="centerY" secondItem="KKK-If-yku" secondAttribute="centerY" id="9RJ-SQ-NBv"/>
+                                            <constraint firstItem="meb-xu-qNs" firstAttribute="centerX" secondItem="KKK-If-yku" secondAttribute="centerX" id="FEm-wl-QoM"/>
+                                            <constraint firstItem="FKG-kM-K0y" firstAttribute="leading" secondItem="KKK-If-yku" secondAttribute="leading" id="j7Y-Cq-Wmx"/>
+                                            <constraint firstAttribute="bottom" secondItem="FKG-kM-K0y" secondAttribute="bottom" id="uM8-ZQ-Psz"/>
+                                            <constraint firstItem="FKG-kM-K0y" firstAttribute="top" secondItem="KKK-If-yku" secondAttribute="top" id="ug7-Ox-wQe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="macoIvory"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9B0-bJ-js6"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-Ty-JFI">
+                                <rect key="frame" x="27.5" y="703.5" width="359" height="50"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.89411764709999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wzU-i8-oHW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" red="0.76862745099999996" green="0.76862745099999996" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="macoIvory"/>
+                        <constraints>
+                            <constraint firstItem="84a-pt-WcT" firstAttribute="top" secondItem="2ty-nU-7M3" secondAttribute="bottom" constant="32" id="0wG-w0-Vs1"/>
+                            <constraint firstItem="uja-JO-YSM" firstAttribute="top" secondItem="RTL-Nn-erG" secondAttribute="bottom" constant="1" id="1Bt-te-yhG"/>
+                            <constraint firstItem="rIA-ZG-Hmv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="54B-cS-hoH"/>
+                            <constraint firstItem="RTL-Nn-erG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="71" id="5wc-LS-999"/>
+                            <constraint firstItem="gYy-0b-hw9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="7Oh-iq-sAc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2ty-nU-7M3" secondAttribute="trailing" id="8N8-4o-lkY"/>
+                            <constraint firstItem="u0G-vW-Fay" firstAttribute="top" secondItem="yUC-gF-3hY" secondAttribute="bottom" constant="28" id="9F8-qw-oeR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WVG-ZV-vxy" secondAttribute="trailing" constant="27" id="BsE-fp-B4q"/>
+                            <constraint firstItem="vrH-xS-aMU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="FSu-HE-8XU"/>
+                            <constraint firstItem="Qqp-bb-iml" firstAttribute="trailing" secondItem="WVG-ZV-vxy" secondAttribute="trailing" constant="-3" id="GZW-M2-7b1"/>
+                            <constraint firstItem="vrH-xS-aMU" firstAttribute="top" secondItem="MwY-f8-v5E" secondAttribute="bottom" constant="28" id="M1y-eP-g7I"/>
+                            <constraint firstItem="RTL-Nn-erG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="N6y-f7-SBE"/>
+                            <constraint firstItem="gYy-0b-hw9" firstAttribute="top" secondItem="u0G-vW-Fay" secondAttribute="bottom" constant="8" id="OQ1-XV-hDY"/>
+                            <constraint firstItem="yUC-gF-3hY" firstAttribute="top" secondItem="Qqp-bb-iml" secondAttribute="bottom" constant="16" id="OVJ-oO-bEE"/>
+                            <constraint firstItem="2ty-nU-7M3" firstAttribute="top" secondItem="uja-JO-YSM" secondAttribute="bottom" constant="28" id="Syg-3U-mK4"/>
+                            <constraint firstItem="NJC-WF-PAJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="TVc-dr-ocX"/>
+                            <constraint firstItem="2ty-nU-7M3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="VYU-2i-I5v"/>
+                            <constraint firstItem="NJC-WF-PAJ" firstAttribute="top" secondItem="vrH-xS-aMU" secondAttribute="bottom" constant="8" id="Vl5-lP-6mh"/>
+                            <constraint firstItem="Zcx-Ty-JFI" firstAttribute="top" secondItem="NJC-WF-PAJ" secondAttribute="bottom" constant="45" id="Vm1-p6-8jG"/>
+                            <constraint firstItem="uja-JO-YSM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="WSc-ht-DpO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zcx-Ty-JFI" secondAttribute="trailing" constant="27.5" id="Wx5-Xd-ixd"/>
+                            <constraint firstItem="MwY-f8-v5E" firstAttribute="top" secondItem="gYy-0b-hw9" secondAttribute="bottom" id="ZAA-SV-8vr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yUC-gF-3hY" secondAttribute="trailing" constant="136" id="ZP8-M9-bBE"/>
+                            <constraint firstItem="MwY-f8-v5E" firstAttribute="trailing" secondItem="gYy-0b-hw9" secondAttribute="trailing" id="boG-3y-ehT"/>
+                            <constraint firstItem="84a-pt-WcT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="cAY-G3-Jwa"/>
+                            <constraint firstItem="WVG-ZV-vxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="d59-d6-TMf"/>
+                            <constraint firstItem="yUC-gF-3hY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="dj7-gU-hnQ"/>
+                            <constraint firstItem="WVG-ZV-vxy" firstAttribute="top" secondItem="84a-pt-WcT" secondAttribute="bottom" constant="8" id="gNm-pO-qaJ"/>
+                            <constraint firstItem="Qqp-bb-iml" firstAttribute="leading" secondItem="WVG-ZV-vxy" secondAttribute="leading" constant="3" id="it7-Hl-tSX"/>
+                            <constraint firstItem="rIA-ZG-Hmv" firstAttribute="top" secondItem="u0G-vW-Fay" secondAttribute="bottom" constant="18" id="kDl-Kc-1bV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NJC-WF-PAJ" secondAttribute="trailing" constant="27" id="rED-9K-M00"/>
+                            <constraint firstItem="Qqp-bb-iml" firstAttribute="top" secondItem="WVG-ZV-vxy" secondAttribute="bottom" id="sTm-5x-Io4"/>
+                            <constraint firstItem="Zcx-Ty-JFI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="27.5" id="ubn-mS-7xl"/>
+                            <constraint firstItem="MwY-f8-v5E" firstAttribute="leading" secondItem="gYy-0b-hw9" secondAttribute="leading" id="vWq-4t-qnW"/>
+                            <constraint firstItem="u0G-vW-Fay" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="vwy-Ne-l0v"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gYy-0b-hw9" secondAttribute="trailing" constant="27" id="xRE-d2-N86"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="catButton" destination="0Rn-JP-QbS" id="gX9-3r-gbD"/>
+                        <outlet property="catOrDogStackView" destination="yUC-gF-3hY" id="CHD-od-glk"/>
+                        <outlet property="dogButton" destination="ekE-eN-Ixh" id="RgJ-An-xiF"/>
+                        <outlet property="registerPetCollectionView" destination="2ty-nU-7M3" id="r2l-QK-wtp"/>
+                        <outletCollection property="genderButton" destination="Feo-If-MxZ" collectionClass="NSMutableArray" id="1a4-iY-tyv"/>
+                        <outletCollection property="genderButton" destination="rEW-Ry-k8F" collectionClass="NSMutableArray" id="7C5-OG-hnu"/>
+                        <outletCollection property="genderButton" destination="FKG-kM-K0y" collectionClass="NSMutableArray" id="7Gq-Pj-iTW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="53.571428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar1" width="20" height="19.5"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="macoDarkGray">
+            <color red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoGray">
+            <color red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoIvory">
+            <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoLightGray">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoOrange">
+            <color red="0.90196078431372551" green="0.47058823529411764" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
