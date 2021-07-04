@@ -10,21 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-enum BookType {
-    case home
-    case rainbow
-    
-    fileprivate func color() -> UIColor {
-        switch self {
-        case .home:
-            return .macoOrange
-        case .rainbow:
-            return .macoBlue
-        }
-    }
-    
-}
-
 class BookPageView: UIView {
     
     private lazy var color = UIColor.macoOrange
