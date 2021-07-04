@@ -7,11 +7,13 @@
 
 import UIKit
 
-class RainbowViewController: UIViewController {
+import SnapKit
+import Then
 
+class RainbowViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
 }
