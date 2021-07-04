@@ -30,6 +30,7 @@ class BaseViewController: UIViewController {
     private lazy var profileButton = CircleProfileButton()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setTopBarView()
     }
     
