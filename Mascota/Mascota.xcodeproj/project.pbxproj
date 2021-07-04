@@ -24,6 +24,8 @@
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
 		4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809D067268E304C0060F5EB /* LoginViewController.swift */; };
+		483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DA24F2690D1CD005DBA86 /* SignUp.storyboard */; };
+		483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA2512690DAA8005DBA86 /* SignUpViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
@@ -87,6 +89,8 @@
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
 		4809D065268E1BAD0060F5EB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4809D067268E304C0060F5EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		483DA24F2690D1CD005DBA86 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		483DA2512690DAA8005DBA86 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				18AE88B6268AE58C00EBC129 /* LaunchScreen.storyboard */,
 				DD95C9A3268F0309002B35A1 /* RainbowViewController.storyboard */,
 				4809D065268E1BAD0060F5EB /* Login.storyboard */,
+				483DA24F2690D1CD005DBA86 /* SignUp.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				4809D067268E304C0060F5EB /* LoginViewController.swift */,
 				DD931B2E268E0B5A001DA072 /* RainbowViewController.swift */,
 				DD6C9B1726908FE1004223ED /* BaseViewController.swift */,
+				483DA2512690DAA8005DBA86 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
 				DD95C9A4268F0309002B35A1 /* RainbowViewController.storyboard in Resources */,
+				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
@@ -616,6 +623,7 @@
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
 				DD6C9B1826908FE1004223ED /* BaseViewController.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
+				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
@@ -623,7 +631,6 @@
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
 				DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
