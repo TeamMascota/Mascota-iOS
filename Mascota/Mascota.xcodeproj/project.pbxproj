@@ -48,7 +48,6 @@
 		DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */; };
 		DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99C268EC16C002B35A1 /* PageTextModel.swift */; };
 		DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99E268EC801002B35A1 /* BookHomePageView.swift */; };
-		DD95C9A4268F0309002B35A1 /* RainbowViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD95C9A3268F0309002B35A1 /* RainbowViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +120,6 @@
 		DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRainbowPageView.swift; sourceTree = "<group>"; };
 		DD95C99C268EC16C002B35A1 /* PageTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTextModel.swift; sourceTree = "<group>"; };
 		DD95C99E268EC801002B35A1 /* BookHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHomePageView.swift; sourceTree = "<group>"; };
-		DD95C9A3268F0309002B35A1 /* RainbowViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RainbowViewController.storyboard; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -246,7 +244,6 @@
 			children = (
 				18AE88B1268AE58A00EBC129 /* Main.storyboard */,
 				18AE88B6268AE58C00EBC129 /* LaunchScreen.storyboard */,
-				DD95C9A3268F0309002B35A1 /* RainbowViewController.storyboard */,
 				4809D065268E1BAD0060F5EB /* Login.storyboard */,
 				483DA24F2690D1CD005DBA86 /* SignUp.storyboard */,
 			);
@@ -469,7 +466,6 @@
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
 				DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
-				DD95C9A4268F0309002B35A1 /* RainbowViewController.storyboard in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
 				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
