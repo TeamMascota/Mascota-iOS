@@ -21,11 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            let navigationController = UINavigationController()
             let viewcontroller = RainbowViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-            navigationController.viewControllers = [viewcontroller]
-            window.rootViewController = viewcontroller
+            let rootNC = UINavigationController(rootViewController: viewcontroller)
+            window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
             window.makeKeyAndVisible()
         }
