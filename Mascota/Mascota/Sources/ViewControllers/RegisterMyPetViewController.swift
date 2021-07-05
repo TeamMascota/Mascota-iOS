@@ -17,6 +17,8 @@ class RegisterMyPetViewController: UIViewController {
     @IBOutlet var genderButton: [UIButton]!
     @IBOutlet weak var becomeFamilyDateLabel: UILabel!
     var myPetsArray = [RegisterMyPetModel]()
+    var toolBar = UIToolbar()
+    var datePicker  = UIDatePicker()
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -49,36 +51,56 @@ class RegisterMyPetViewController: UIViewController {
         }
     }
     
+    @IBAction func showDatePicker() {
+        datePicker = UIDatePicker.init()
+        datePicker.backgroundColor = UIColor.white
+        
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(datePicker)
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        //toolBar.barStyle = .blackTranslucent
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        self.view.addSubview(toolBar)
+    }
+
+        @objc func dateChanged(_ sender: UIDatePicker?) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .none
+                
+            if let date = sender?.date {
+                print("Picked the date \(dateFormatter.string(from: date))")
+                becomeFamilyDateLabel.text = dateFormatter.string(from: date)
+            }
+        }
+
+        @objc func onDoneButtonClick() {
+            toolBar.removeFromSuperview()
+            datePicker.removeFromSuperview()
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtons()
         setDateLabelPlaceholder()
-        setRandomData()
+        appendEmptyElement()
         registerCollectionView()
         registerCollectionViewCell()
-        //setRandomData()
     }
     
-    func setRandomData() {
-        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
-//        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
+    func appendEmptyElement() {
+        myPetsArray.append(RegisterMyPetModel(petImage: "", petName: "", petKind: "", familyDate: "", petGender: ""))
     }
     
-    // MARK: - Functions
-    
-    func setSelectedButton(_ sender: UIButton) {
-        sender.isSelected = true
-        sender.setTitleColor(.macoWhite, for: .selected)
-        sender.setBackgroundColor(.macoOrange, for: .selected)
-        sender.layer.cornerRadius = 3.0
-    }
-    
-    func setDateLabelPlaceholder() {
-        becomeFamilyDateLabel.text = "YYYY.MM.DD"
-        becomeFamilyDateLabel.textColor = UIColor.macoLightGray
-    }
-    
+    // MARK: - Register CollectionView
     func registerCollectionView() {
         registerPetCollectionView.dataSource = self
         registerPetCollectionView.delegate = self
@@ -89,6 +111,14 @@ class RegisterMyPetViewController: UIViewController {
         registerPetCollectionView.register(UINib(nibName: "MakePlusCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "MakePlusCollectionViewCell")
         registerPetCollectionView.register(UINib(nibName: "RegisterMyPetCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "RegisterMyPetCollectionViewCell")
         
+    }
+    
+    // MARK: - Set Buttons
+    func setSelectedButton(_ sender: UIButton) {
+        sender.isSelected = true
+        sender.setTitleColor(.macoWhite, for: .selected)
+        sender.setBackgroundColor(.macoOrange, for: .selected)
+        sender.layer.cornerRadius = 3.0
     }
     
     func setButtons() {
@@ -104,6 +134,12 @@ class RegisterMyPetViewController: UIViewController {
         sender.layer.borderColor = color.cgColor
         sender.layer.cornerRadius = 3.0
     }
+    
+    func setDateLabelPlaceholder() {
+        becomeFamilyDateLabel.text = "YYYY.MM.DD"
+        becomeFamilyDateLabel.textColor = UIColor.macoLightGray
+    }
+
 }
 
 // MARK: - CollectionView
@@ -119,20 +155,20 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            setRegisterCell(cell, color: .macoOrange)
+            setRegisterCell(cell,.macoOrange, 1)
             return cell
         case myPetsArray.count: // 마지막셀
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MakePlusCollectionViewCell", for: indexPath) as? MakePlusCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            setPlusCell(cell, color: .macoLightGray)
+            setPlusCell(cell, .macoLightGray , myPetsArray.count + 1)
             return cell
             
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            setRegisterCell(cell, color: .macoOrange)
+            setRegisterCell(cell, .macoOrange,indexPath.row + 1)
             return cell
         }
         
@@ -147,19 +183,20 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
     }
     
     // MARK: - Set CollectionViewCell
-    func setPlusCell(_ sender: MakePlusCollectionViewCell, color: UIColor) {
+    func setPlusCell(_ sender: MakePlusCollectionViewCell,_ color: UIColor,_ index: Int) {
         sender.layer.borderWidth = 1.0
         sender.layer.cornerRadius = 3.0
         sender.layer.borderColor = color.cgColor
-        //sender.characterNumberLabel.text = "주인공 " + String(myPetsArray.count)
+        sender.characterNumberLabel.text = "주인공 " + String(index)
         sender.characterNumberLabel.backgroundColor = color
         sender.characterNumberLabel.textColor = UIColor.white
     }
     
-    func setRegisterCell(_ sender: RegisterMyPetCollectionViewCell, color: UIColor) {
+    func setRegisterCell(_ sender: RegisterMyPetCollectionViewCell,_ color: UIColor,_ index: Int) {
         sender.layer.borderWidth = 1.0
         sender.layer.cornerRadius = 3.0
         sender.layer.borderColor = color.cgColor
+        sender.characterNumberLabel.text = "주인공 " + String(index)
         sender.characterNumberLabel.backgroundColor = color
         sender.characterNumberLabel.textColor = UIColor.white
     }
