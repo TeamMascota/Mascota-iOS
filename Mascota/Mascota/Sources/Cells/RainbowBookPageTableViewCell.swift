@@ -48,5 +48,9 @@ class RainbowBookPageTableViewCell: UITableViewCell {
         bookPageView.setContentText()
     
     }
+    
+    public func setContentText(pages: [PageTextModel]?) {
+        bookPageView.setContentText(pages: pages)
+    }
 
 }
