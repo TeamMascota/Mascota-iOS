@@ -3,52 +3,76 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RegisterMyPetCollectionViewCell" id="gTV-IL-0wX" customClass="RegisterMyPetCollectionViewCell" customModule="Mascota" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RegisterMyPetCollectionViewCell" id="tOr-Ll-5BD" customClass="RegisterMyPetCollectionViewCell" customModule="Mascota" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="100" height="132"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="100" height="132"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-fa-b4z">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        <color key="tintColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="KuZ-k6-R7h"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5v-tY-8xr">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GO-Zu-gXC">
                         <rect key="frame" x="0.0" y="100" width="100" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3s-Zi-Usj">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icImg" translatesAutoresizingMaskIntoConstraints="NO" id="hvG-Ov-0uK">
+                                <rect key="frame" x="40" y="43" width="20" height="20"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-fC-bnN">
+                                <rect key="frame" x="75.5" y="14" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="hXx-93-bxs"/>
+                                    <constraint firstAttribute="width" constant="12" id="lhc-JG-ov3"/>
+                                </constraints>
+                                <state key="normal" image="btnIconQuit"/>
+                                <connections>
+                                    <action selector="tapDeleteButton" destination="tOr-Ll-5BD" eventType="touchUpInside" id="FIg-io-bvv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="macoWhite"/>
+                        <constraints>
+                            <constraint firstItem="hvG-Ov-0uK" firstAttribute="centerX" secondItem="r3s-Zi-Usj" secondAttribute="centerX" id="FGR-EK-voz"/>
+                            <constraint firstItem="hvG-Ov-0uK" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="top" constant="43" id="H3R-nN-K20"/>
+                            <constraint firstAttribute="height" constant="100" id="Lm8-rJ-ifR"/>
+                            <constraint firstItem="EUo-fC-bnN" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="top" constant="14" id="lVS-nC-FMF"/>
+                            <constraint firstAttribute="trailing" secondItem="EUo-fC-bnN" secondAttribute="trailing" constant="12.300000000000001" id="q31-1K-75k"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <viewLayoutGuide key="safeArea" id="2GP-ee-fnf"/>
             <constraints>
-                <constraint firstItem="i5v-tY-8xr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BrT-qf-51i"/>
-                <constraint firstItem="BAW-fa-b4z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Dji-0n-4Fk"/>
-                <constraint firstAttribute="trailing" secondItem="BAW-fa-b4z" secondAttribute="trailing" id="FOD-f2-j2c"/>
-                <constraint firstItem="i5v-tY-8xr" firstAttribute="top" secondItem="BAW-fa-b4z" secondAttribute="bottom" id="U47-kJ-USr"/>
-                <constraint firstAttribute="bottom" secondItem="i5v-tY-8xr" secondAttribute="bottom" id="dFF-W1-Oc6"/>
-                <constraint firstAttribute="trailing" secondItem="i5v-tY-8xr" secondAttribute="trailing" id="qoH-Lm-19O"/>
-                <constraint firstItem="BAW-fa-b4z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zWy-Wq-faK"/>
+                <constraint firstItem="r3s-Zi-Usj" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" id="9rc-3g-Bu9"/>
+                <constraint firstItem="r3s-Zi-Usj" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="C0E-bj-QOa"/>
+                <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="bottom" id="IhG-3k-Qyo"/>
+                <constraint firstAttribute="trailing" secondItem="r3s-Zi-Usj" secondAttribute="trailing" id="Mg8-wm-UDw"/>
+                <constraint firstItem="4GO-Zu-gXC" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="gdf-Sg-m53"/>
+                <constraint firstAttribute="trailing" secondItem="4GO-Zu-gXC" secondAttribute="trailing" id="pSf-Bn-eak"/>
+                <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" id="vnd-cP-soK"/>
             </constraints>
             <connections>
-                <outlet property="characterNumberLabel" destination="i5v-tY-8xr" id="7Cg-dp-eub"/>
-                <outlet property="myPetImage" destination="BAW-fa-b4z" id="OW3-nr-Cpb"/>
+                <outlet property="characterNumberLabel" destination="4GO-Zu-gXC" id="q7X-qW-aYI"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>
+            <point key="canvasLocation" x="234.78260869565219" y="67.633928571428569"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
+        <image name="btnIconQuit" width="33" height="32"/>
+        <image name="icImg" width="20" height="20"/>
+        <namedColor name="macoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

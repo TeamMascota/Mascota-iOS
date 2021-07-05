@@ -52,15 +52,17 @@ class RegisterMyPetViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionView()
         setButtons()
         setDateLabelPlaceholder()
+        setRandomData()
+        registerCollectionView()
+        registerCollectionViewCell()
         //setRandomData()
     }
     
     func setRandomData() {
         myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
-        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
+//        myPetsArray.append(RegisterMyPetModel(petImage: "ee", petName: "ee", petKind: "ff", familyDate: "ggg", petGender: "eee"))
     }
     
     // MARK: - Functions
@@ -77,35 +79,30 @@ class RegisterMyPetViewController: UIViewController {
         becomeFamilyDateLabel.textColor = UIColor.macoLightGray
     }
     
-    func setCollectionView() {
+    func registerCollectionView() {
         registerPetCollectionView.dataSource = self
         registerPetCollectionView.delegate = self
-        registerPetCollectionView.register(UINib(nibName: "MakePlusCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "MakePlusCollectionViewCell")
-        registerPetCollectionView.register(UINib(nibName: "RegisterMyPetCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "RegisterMyPetCollectionViewCell")
-        
         registerPetCollectionView.backgroundColor = UIColor.macoIvory
     }
     
+    func registerCollectionViewCell() {
+        registerPetCollectionView.register(UINib(nibName: "MakePlusCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "MakePlusCollectionViewCell")
+        registerPetCollectionView.register(UINib(nibName: "RegisterMyPetCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "RegisterMyPetCollectionViewCell")
+        
+    }
+    
     func setButtons() {
-        dogButton.layer.borderWidth = 1.0
-        dogButton.layer.borderColor = UIColor.macoOrange.cgColor
-        dogButton.layer.cornerRadius = 3.0
-        
-        catButton.layer.borderWidth = 1.0
-        catButton.layer.borderColor = UIColor.macoOrange.cgColor
-        catButton.layer.cornerRadius = 3.0
-        
-        genderButton[0].layer.borderWidth = 1.0
-        genderButton[0].layer.borderColor = UIColor.macoOrange.cgColor
-        genderButton[0].layer.cornerRadius = 3.0
-        
-        genderButton[1].layer.borderWidth = 1.0
-        genderButton[1].layer.borderColor = UIColor.macoOrange.cgColor
-        genderButton[1].layer.cornerRadius = 3.0
-        
-        genderButton[2].layer.borderWidth = 1.0
-        genderButton[2].layer.borderColor = UIColor.macoOrange.cgColor
-        genderButton[2].layer.cornerRadius = 3.0
+        setButtonView(dogButton, color: .macoOrange)
+        setButtonView(catButton, color: .macoOrange)
+        setButtonView(genderButton[0], color: .macoOrange)
+        setButtonView(genderButton[1], color: .macoOrange)
+        setButtonView(genderButton[2], color: .macoOrange)
+    }
+    
+    func setButtonView(_ sender: UIButton, color: UIColor) {
+        sender.layer.borderWidth = 1.0
+        sender.layer.borderColor = color.cgColor
+        sender.layer.cornerRadius = 3.0
     }
 }
 
@@ -113,11 +110,7 @@ class RegisterMyPetViewController: UIViewController {
 extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if myPetsArray.count == 0 {
-            return 2
-        } else {
-            return myPetsArray.count + 1
-        }
+        return myPetsArray.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,7 +121,6 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             }
             setRegisterCell(cell, color: .macoOrange)
             return cell
- 
         case myPetsArray.count: // 마지막셀
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MakePlusCollectionViewCell", for: indexPath) as? MakePlusCollectionViewCell else {
                 return UICollectionViewCell()
@@ -146,7 +138,7 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
         
     }
     
-    // MARK: - DidSelectCollectionCell
+    // MARK: - Add CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == myPetsArray.count {
             myPetsArray.append(RegisterMyPetModel(petImage: "", petName: "", petKind: "", familyDate: "", petGender: ""))
@@ -159,6 +151,7 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
         sender.layer.borderWidth = 1.0
         sender.layer.cornerRadius = 3.0
         sender.layer.borderColor = color.cgColor
+        //sender.characterNumberLabel.text = "주인공 " + String(myPetsArray.count)
         sender.characterNumberLabel.backgroundColor = color
         sender.characterNumberLabel.textColor = UIColor.white
     }
