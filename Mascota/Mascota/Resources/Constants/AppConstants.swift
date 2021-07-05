@@ -30,7 +30,7 @@ struct AppConstants {
     
     struct CollectionViewHeaders {
         static let homeIndexCollectionReusableView: String = "HomeIndexCollectionReusableView"
-
+    }
 
     struct TableCells {
         static let bookPage: String = "BookPageTableViewCell"

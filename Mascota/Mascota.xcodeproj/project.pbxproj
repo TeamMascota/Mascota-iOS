@@ -15,6 +15,8 @@
 		18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */; };
 		188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188AD00D26919A74008F4284 /* HomeStart.storyboard */; };
 		188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AD00F26919A8E008F4284 /* HomeStartViewController.swift */; };
+		18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB71912693577100FADF9B /* RainbowBestSectionHeaderView.swift */; };
+		18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB71942693578E00FADF9B /* RainbowBestSectionFooterView.swift */; };
 		18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AB268AE58A00EBC129 /* AppDelegate.swift */; };
 		18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */; };
 		18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AF268AE58A00EBC129 /* ViewController.swift */; };
@@ -40,7 +42,6 @@
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
-		DD11DB44269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB43269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
@@ -68,7 +69,6 @@
 		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
 		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
-		DDDCA7AB269344F900DB1B8F /* RainbowBestSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AA269344F900DB1B8F /* RainbowBestSectionFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +97,8 @@
 		18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		188AD00D26919A74008F4284 /* HomeStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStart.storyboard; sourceTree = "<group>"; };
 		188AD00F26919A8E008F4284 /* HomeStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStartViewController.swift; sourceTree = "<group>"; };
+		18AB71912693577100FADF9B /* RainbowBestSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionHeaderView.swift; sourceTree = "<group>"; };
+		18AB71942693578E00FADF9B /* RainbowBestSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionFooterView.swift; sourceTree = "<group>"; };
 		18AE88A8268AE58A00EBC129 /* Mascota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mascota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AE88AB268AE58A00EBC129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +135,6 @@
 		D5AB90B6090251464E4BE991 /* Pods-MascotaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.debug.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-		DD11DB43269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionHeaderView.swift; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
@@ -161,7 +162,6 @@
 		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
 		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
-		DDDCA7AA269344F900DB1B8F /* RainbowBestSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionFooterView.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,10 +196,19 @@
 		188AD0152691CC91008F4284 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				18AB71912693577100FADF9B /* RainbowBestSectionHeaderView.swift */,
 				185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */,
 				185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		18AB71932693577800FADF9B /* Footers */ = {
+			isa = PBXGroup;
+			children = (
+				18AB71942693578E00FADF9B /* RainbowBestSectionFooterView.swift */,
+			);
+			path = Footers;
 			sourceTree = "<group>";
 		};
 		18AE889F268AE58A00EBC129 = {
@@ -267,6 +276,7 @@
 		18AE88DC268AE5D800EBC129 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18AB71932693577800FADF9B /* Footers */,
 				18AE88AB268AE58A00EBC129 /* AppDelegate.swift */,
 				18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */,
 				DDC360DC2692DAD2003EF8D7 /* MascotaUI */,
@@ -340,7 +350,6 @@
 				18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */,
 				182C1D6826934518006C6511 /* PartCollectionViewCell.swift */,
 				182C1D6926934518006C6511 /* PartCollectionViewCell.xib */,
-				18AE88EC268AE76400EBC129 /* cell.swift */,
 				DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */,
 				DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */,
 				DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */,
@@ -366,13 +375,11 @@
 		18AE88E6268AE73800EBC129 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD11DB43269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift */,
 				DD92BCAD268C576B00A95A75 /* BookPageView.swift */,
 				DD7112A6268C8F8500E6E2DC /* BookContentView.swift */,
 				DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */,
 				DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */,
 				DD95C99E268EC801002B35A1 /* BookHomePageView.swift */,
-				DDDCA7AA269344F900DB1B8F /* RainbowBestSectionFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -709,14 +716,15 @@
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
-				DDDCA7AB269344F900DB1B8F /* RainbowBestSectionFooterView.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
+				18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
 				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
+				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
 				182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */,
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
 				DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */,
@@ -742,7 +750,6 @@
 				185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */,
 				DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
-				DD11DB44269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift in Sources */,
 				DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

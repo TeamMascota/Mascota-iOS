@@ -19,7 +19,7 @@ class HomeStartViewController: UIViewController {
     
     // MARK: - Properties
     private lazy var mainNavigationBar: MainNavigationBarView = MainNavigationBarView(type: .home).then {
-        $0.setBookTitleLabel(text: "ZZZZZZ")
+        $0.setNavigationBarText(title: "zzzzzzz")
     }
     
     private lazy var homeStartCollectionView: UICollectionView = UICollectionView(frame: .init(x: 0, y: 0, width: 100, height: 100),
