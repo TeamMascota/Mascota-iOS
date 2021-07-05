@@ -31,7 +31,7 @@ extension String {
         
         if let unwrappedSize = fontSize {
             text.addAttribute(.font,
-                              value: UIFont.macoFont(type: .regular, size: unwrappedSize) ?? UIFont(),
+                              value: UIFont.macoFont(type: .regular, size: unwrappedSize) ,
                               range: NSRange(location: 0, length: self.count))
         }
         
