@@ -51,9 +51,9 @@ class MacoButton: UIButton {
         
         switch type {
         case .white:
-            titleLabel?.textColor = .macoBlue
+            setTitleColor(.macoBlue, for: state)
         case .orange, .blue:
-            titleLabel?.textColor = .macoWhite
+            setTitleColor(.macoWhite, for: state)
         }
     }
 }
