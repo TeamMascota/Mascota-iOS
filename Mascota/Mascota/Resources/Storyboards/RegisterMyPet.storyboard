@@ -86,14 +86,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mi8-wR-0sR">
                                         <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고양이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toJ-QG-h4i">
-                                                <rect key="frame" x="42.5" y="6.5" width="36.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="macoOrange"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-JP-QbS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-JP-QbS">
                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="고양이">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0Ii-xV-4iP"/>
                                                 </connections>
@@ -102,9 +100,7 @@
                                         <color key="backgroundColor" name="macoWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="0Rn-JP-QbS" secondAttribute="trailing" id="4sm-ea-xcC"/>
-                                            <constraint firstItem="toJ-QG-h4i" firstAttribute="centerX" secondItem="Mi8-wR-0sR" secondAttribute="centerX" id="BCz-hn-wvZ"/>
                                             <constraint firstItem="0Rn-JP-QbS" firstAttribute="top" secondItem="Mi8-wR-0sR" secondAttribute="top" id="LG4-2u-X13"/>
-                                            <constraint firstItem="toJ-QG-h4i" firstAttribute="centerY" secondItem="Mi8-wR-0sR" secondAttribute="centerY" id="S8U-0u-cTC"/>
                                             <constraint firstItem="0Rn-JP-QbS" firstAttribute="leading" secondItem="Mi8-wR-0sR" secondAttribute="leading" id="rqi-xx-Tue"/>
                                             <constraint firstAttribute="bottom" secondItem="0Rn-JP-QbS" secondAttribute="bottom" id="y2Q-Ce-G37"/>
                                         </constraints>
@@ -112,14 +108,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-aq-Exn">
                                         <rect key="frame" x="128.5" y="0.0" width="121.5" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강아지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKW-Kj-cxx">
-                                                <rect key="frame" x="42.5" y="6.5" width="36.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="macoOrange"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-eN-Ixh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekE-eN-Ixh">
                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="강아지">
+                                                    <color key="titleColor" name="macoOrange"/>
+                                                </state>
+                                                <state key="selected" title="강아지">
+                                                    <color key="titleColor" name="macoOrange"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EBY-Qe-cI6"/>
                                                 </connections>
@@ -127,11 +124,9 @@
                                         </subviews>
                                         <color key="backgroundColor" name="macoWhite"/>
                                         <constraints>
-                                            <constraint firstItem="VKW-Kj-cxx" firstAttribute="centerX" secondItem="9gZ-aq-Exn" secondAttribute="centerX" id="Off-wG-rcK"/>
                                             <constraint firstItem="ekE-eN-Ixh" firstAttribute="top" secondItem="9gZ-aq-Exn" secondAttribute="top" id="WN4-ek-223"/>
                                             <constraint firstAttribute="trailing" secondItem="ekE-eN-Ixh" secondAttribute="trailing" id="Znw-zY-CDB"/>
                                             <constraint firstAttribute="bottom" secondItem="ekE-eN-Ixh" secondAttribute="bottom" id="cls-mo-el9"/>
-                                            <constraint firstItem="VKW-Kj-cxx" firstAttribute="centerY" secondItem="9gZ-aq-Exn" secondAttribute="centerY" id="d9x-mM-CVV"/>
                                             <constraint firstItem="ekE-eN-Ixh" firstAttribute="leading" secondItem="9gZ-aq-Exn" secondAttribute="leading" id="v2f-ds-zNI"/>
                                         </constraints>
                                     </view>
@@ -179,14 +174,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFn-U0-xln">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kl-IK-Q0G">
-                                                <rect key="frame" x="51.5" y="6.5" width="12.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="macoOrange"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Feo-If-MxZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Feo-If-MxZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="남">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D1z-fu-wbu"/>
                                                 </connections>
@@ -195,24 +188,20 @@
                                         <color key="backgroundColor" name="macoWhite"/>
                                         <constraints>
                                             <constraint firstItem="Feo-If-MxZ" firstAttribute="leading" secondItem="bFn-U0-xln" secondAttribute="leading" id="5Zy-zF-p0m"/>
-                                            <constraint firstItem="7kl-IK-Q0G" firstAttribute="centerY" secondItem="bFn-U0-xln" secondAttribute="centerY" id="Dcx-sE-gbQ"/>
                                             <constraint firstAttribute="bottom" secondItem="Feo-If-MxZ" secondAttribute="bottom" id="Gmc-AL-Uy9"/>
                                             <constraint firstAttribute="trailing" secondItem="Feo-If-MxZ" secondAttribute="trailing" id="aAh-LB-Dzc"/>
                                             <constraint firstItem="Feo-If-MxZ" firstAttribute="top" secondItem="bFn-U0-xln" secondAttribute="top" id="gUb-PW-vh3"/>
-                                            <constraint firstItem="7kl-IK-Q0G" firstAttribute="centerX" secondItem="bFn-U0-xln" secondAttribute="centerX" id="yoK-XP-0JQ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obU-8f-nQB">
                                         <rect key="frame" x="122" y="0.0" width="115" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3Z-vN-Lum">
-                                                <rect key="frame" x="51.5" y="6.5" width="12.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="macoOrange"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-Ry-k8F">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEW-Ry-k8F">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="여">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Kc5-N3-1fq"/>
                                                 </connections>
@@ -220,10 +209,8 @@
                                         </subviews>
                                         <color key="backgroundColor" name="macoWhite"/>
                                         <constraints>
-                                            <constraint firstItem="G3Z-vN-Lum" firstAttribute="centerY" secondItem="obU-8f-nQB" secondAttribute="centerY" id="4Yg-CF-0ZK"/>
                                             <constraint firstAttribute="trailing" secondItem="rEW-Ry-k8F" secondAttribute="trailing" id="DyO-D9-H7o"/>
                                             <constraint firstItem="rEW-Ry-k8F" firstAttribute="leading" secondItem="obU-8f-nQB" secondAttribute="leading" id="I0i-6J-QiK"/>
-                                            <constraint firstItem="G3Z-vN-Lum" firstAttribute="centerX" secondItem="obU-8f-nQB" secondAttribute="centerX" id="KeR-Qt-Fm8"/>
                                             <constraint firstItem="rEW-Ry-k8F" firstAttribute="top" secondItem="obU-8f-nQB" secondAttribute="top" id="Pyj-lu-uya"/>
                                             <constraint firstAttribute="bottom" secondItem="rEW-Ry-k8F" secondAttribute="bottom" id="nW2-3l-zpT"/>
                                         </constraints>
@@ -231,14 +218,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKK-If-yku">
                                         <rect key="frame" x="244" y="0.0" width="115" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meb-xu-qNs">
-                                                <rect key="frame" x="45.5" y="6.5" width="24.5" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" name="macoOrange"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-kM-K0y">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-kM-K0y">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="비밀">
+                                                    <color key="titleColor" red="0.90196078430000004" green="0.47058823529999999" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="clickCatOrDogButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Zt-6A-pBo"/>
                                                 </connections>
@@ -247,8 +232,6 @@
                                         <color key="backgroundColor" name="macoWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="FKG-kM-K0y" secondAttribute="trailing" id="02V-y0-513"/>
-                                            <constraint firstItem="meb-xu-qNs" firstAttribute="centerY" secondItem="KKK-If-yku" secondAttribute="centerY" id="9RJ-SQ-NBv"/>
-                                            <constraint firstItem="meb-xu-qNs" firstAttribute="centerX" secondItem="KKK-If-yku" secondAttribute="centerX" id="FEm-wl-QoM"/>
                                             <constraint firstItem="FKG-kM-K0y" firstAttribute="leading" secondItem="KKK-If-yku" secondAttribute="leading" id="j7Y-Cq-Wmx"/>
                                             <constraint firstAttribute="bottom" secondItem="FKG-kM-K0y" secondAttribute="bottom" id="uM8-ZQ-Psz"/>
                                             <constraint firstItem="FKG-kM-K0y" firstAttribute="top" secondItem="KKK-If-yku" secondAttribute="top" id="ug7-Ox-wQe"/>

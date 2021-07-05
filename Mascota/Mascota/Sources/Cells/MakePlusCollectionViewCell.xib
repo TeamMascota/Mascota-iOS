@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,39 +17,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="132"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BB3-3q-GJd">
-                        <rect key="frame" x="0.0" y="0.5" width="100" height="99"/>
-                        <color key="tintColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="100" id="q5u-eG-wXU"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHs-8v-UbO">
                         <rect key="frame" x="0.0" y="100" width="100" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-9A-kda">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnIconPlus" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-6q-0Jt">
+                                <rect key="frame" x="36" y="43" width="28" height="28"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="macoIvory"/>
+                        <constraints>
+                            <constraint firstItem="pfN-6q-0Jt" firstAttribute="top" secondItem="wA0-9A-kda" secondAttribute="top" constant="43" id="Ygl-4a-KrM"/>
+                            <constraint firstItem="pfN-6q-0Jt" firstAttribute="centerX" secondItem="wA0-9A-kda" secondAttribute="centerX" id="mOt-xu-RYh"/>
+                            <constraint firstAttribute="height" constant="100" id="ogT-oH-44Y"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="crF-ag-nD1"/>
             <constraints>
-                <constraint firstItem="hHs-8v-UbO" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="GdV-uz-toY"/>
-                <constraint firstAttribute="trailing" secondItem="hHs-8v-UbO" secondAttribute="trailing" id="KRA-ZG-MaU"/>
-                <constraint firstAttribute="bottom" secondItem="hHs-8v-UbO" secondAttribute="bottom" id="N0E-Vn-dOx"/>
-                <constraint firstItem="BB3-3q-GJd" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="QCR-5L-lzy"/>
-                <constraint firstItem="BB3-3q-GJd" firstAttribute="top" secondItem="6YY-AF-moF" secondAttribute="top" id="RhU-9u-gM0"/>
-                <constraint firstItem="hHs-8v-UbO" firstAttribute="top" secondItem="BB3-3q-GJd" secondAttribute="bottom" id="ckq-mZ-LvB"/>
-                <constraint firstAttribute="trailing" secondItem="BB3-3q-GJd" secondAttribute="trailing" id="gne-cp-UuA"/>
+                <constraint firstItem="wA0-9A-kda" firstAttribute="top" secondItem="6YY-AF-moF" secondAttribute="top" id="6tl-yz-mdM"/>
+                <constraint firstItem="hHs-8v-UbO" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="HyO-St-Igw"/>
+                <constraint firstAttribute="trailing" secondItem="wA0-9A-kda" secondAttribute="trailing" id="PWP-bd-raj"/>
+                <constraint firstAttribute="trailing" secondItem="hHs-8v-UbO" secondAttribute="trailing" id="PYR-kb-Lod"/>
+                <constraint firstItem="wA0-9A-kda" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="TZE-yj-Fr7"/>
+                <constraint firstAttribute="bottom" secondItem="hHs-8v-UbO" secondAttribute="bottom" id="WIU-xu-eXP"/>
+                <constraint firstItem="hHs-8v-UbO" firstAttribute="top" secondItem="wA0-9A-kda" secondAttribute="bottom" id="WMg-vm-nyv"/>
             </constraints>
             <connections>
                 <outlet property="characterNumberLabel" destination="hHs-8v-UbO" id="WYU-u4-m0b"/>
-                <outlet property="myPetImage" destination="BB3-3q-GJd" id="8Vj-3p-7CO"/>
             </connections>
-            <point key="canvasLocation" x="66.666666666666671" y="73.660714285714278"/>
+            <point key="canvasLocation" x="66.666666666666671" y="72.991071428571431"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="btnIconPlus" width="28" height="28"/>
+        <namedColor name="macoIvory">
+            <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
