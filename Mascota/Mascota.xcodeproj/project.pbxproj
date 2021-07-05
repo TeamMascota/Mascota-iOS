@@ -51,6 +51,7 @@
 		DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99E268EC801002B35A1 /* BookHomePageView.swift */; };
 		DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */; };
 		DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */; };
+		DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		DD95C99E268EC801002B35A1 /* BookHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHomePageView.swift; sourceTree = "<group>"; };
 		DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBookPageTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowHelpCardTableViewCell.swift; sourceTree = "<group>"; };
+		DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoButton.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 		18AE88DC268AE5D800EBC129 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DDC360DC2692DAD2003EF8D7 /* MascotaUI */,
 				18AE88AB268AE58A00EBC129 /* AppDelegate.swift */,
 				18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */,
 				18AE88E7268AE73C00EBC129 /* ViewControllers */,
@@ -313,8 +316,6 @@
 				DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */,
 				DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */,
 				DD95C99E268EC801002B35A1 /* BookHomePageView.swift */,
-				DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */,
-				DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +362,16 @@
 				B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDC360DC2692DAD2003EF8D7 /* MascotaUI */ = {
+			isa = PBXGroup;
+			children = (
+				DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */,
+				DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */,
+				DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */,
+			);
+			path = MascotaUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -652,6 +663,7 @@
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
+				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
 				DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */,
