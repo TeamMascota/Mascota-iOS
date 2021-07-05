@@ -27,6 +27,7 @@ struct AppConstants {
         static let rainbowBookPage: String = "RainbowBookPageTableViewCell"
         static let rainbowHelpHeader: String = "RainbowHelpHeaderTableViewCell"
         static let rainbowHelpCard: String = "RainbowHelpCardTableViewCell"
+        static let rainbowButton: String = "RainbowButtonTableViewCell"
     }
 
     struct TableHeaders {

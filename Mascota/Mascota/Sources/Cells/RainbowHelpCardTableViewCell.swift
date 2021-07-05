@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Then
 
 class RainbowHelpCardTableViewCell: UITableViewCell {
     
@@ -69,7 +70,7 @@ class RainbowHelpCardTableViewCell: UITableViewCell {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(6)
+            $0.bottom.equalToSuperview().inset(12)
         }
     }
     

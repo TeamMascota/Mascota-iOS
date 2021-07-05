@@ -62,6 +62,7 @@ class RainbowViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
         
         view.addSubviews(tableView)
 
@@ -76,6 +77,7 @@ class RainbowViewController: UIViewController {
         tableView.register(RainbowBookPageTableViewCell.self, forCellReuseIdentifier: AppConstants.TableCells.rainbowBookPage)
         tableView.register(RainbowHelpHeaderTableViewCell.self, forCellReuseIdentifier: AppConstants.TableCells.rainbowHelpHeader)
         tableView.register(RainbowHelpCardTableViewCell.self, forCellReuseIdentifier: AppConstants.TableCells.rainbowHelpCard)
+        tableView.register(RainbowButtonTableViewCell.self, forCellReuseIdentifier: AppConstants.TableCells.rainbowButton)
     }
     
 }
@@ -95,13 +97,15 @@ extension RainbowViewController: UITableViewDataSource {
             return 1
         case 2:
             return model.count
+        case 3:
+            return 1
         default:
             return 1
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,6 +129,13 @@ extension RainbowViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.setCardText(kind: model[indexPath.row].kind, text: model[indexPath.row].text)
             return cell
+        
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
+            else { return UITableViewCell() }
+            cell.selectionStyle = .none
+         
+            return cell
             
         default:
             return UITableViewCell()
@@ -134,7 +145,7 @@ extension RainbowViewController: UITableViewDataSource {
     
 }
 
-struct HelpCardModel{
+struct HelpCardModel {
     let kind: String
     let text: String
 }
