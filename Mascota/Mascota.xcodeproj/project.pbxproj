@@ -69,6 +69,7 @@
 		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
 		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
+		DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
 		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
+		DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowCommentViewController.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -393,6 +395,7 @@
 				483DA2512690DAA8005DBA86 /* SignUpViewController.swift */,
 				188AD00F26919A8E008F4284 /* HomeStartViewController.swift */,
 				DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */,
+				DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
+				DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */,

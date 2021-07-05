@@ -19,6 +19,7 @@ class BookPageView: UIView {
         $0.layer.cornerRadius = Constant.round3
         $0.layer.borderColor = color.cgColor
         $0.layer.masksToBounds = true
+        $0.backgroundColor = .macoIvory
     }
     
     private lazy var frontView = UIView().then {
