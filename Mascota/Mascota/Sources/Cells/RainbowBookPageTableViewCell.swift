@@ -41,7 +41,7 @@ class RainbowBookPageTableViewCell: UITableViewCell {
             $0.top.equalToSuperview().offset(6)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo((Constant.DeviceSize.width - 32) * 220 / 343 )
+            $0.height.equalTo(225)
             $0.bottom.equalToSuperview()
         }
         
