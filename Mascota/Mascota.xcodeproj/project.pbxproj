@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C1D6826934518006C6511 /* PartCollectionViewCell.swift */; };
+		182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C1D6926934518006C6511 /* PartCollectionViewCell.xib */; };
+		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
+		185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */; };
+		18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */; };
+		18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */; };
+		188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188AD00D26919A74008F4284 /* HomeStart.storyboard */; };
+		188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AD00F26919A8E008F4284 /* HomeStartViewController.swift */; };
 		18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AB268AE58A00EBC129 /* AppDelegate.swift */; };
 		18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */; };
 		18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AF268AE58A00EBC129 /* ViewController.swift */; };
@@ -16,10 +24,13 @@
 		18AE88C3268AE58C00EBC129 /* MascotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88C2268AE58C00EBC129 /* MascotaTests.swift */; };
 		18AE88CE268AE58C00EBC129 /* MascotaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88CD268AE58C00EBC129 /* MascotaUITests.swift */; };
 		18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88DF268AE6F100EBC129 /* AppConstants.swift */; };
-		18AE88ED268AE76400EBC129 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88EC268AE76400EBC129 /* cell.swift */; };
 		18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88EE268AE76E00EBC129 /* appmodel.swift */; };
 		18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F0268AE77800EBC129 /* apiservice.swift */; };
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
+		18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */; };
+		18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */; };
+		18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */; };
+		18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */; };
 		2EE6649AA9D11B528378830D /* Pods_Mascota_MascotaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */; };
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
@@ -78,6 +89,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182C1D6826934518006C6511 /* PartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartCollectionViewCell.swift; sourceTree = "<group>"; };
+		182C1D6926934518006C6511 /* PartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartCollectionViewCell.xib; sourceTree = "<group>"; };
+		185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionReusableView.swift; sourceTree = "<group>"; };
+		185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeIndexCollectionReusableView.xib; sourceTree = "<group>"; };
+		18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		188AD00D26919A74008F4284 /* HomeStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStart.storyboard; sourceTree = "<group>"; };
+		188AD00F26919A8E008F4284 /* HomeStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStartViewController.swift; sourceTree = "<group>"; };
 		18AE88A8268AE58A00EBC129 /* Mascota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mascota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AE88AB268AE58A00EBC129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,10 +112,13 @@
 		18AE88CD268AE58C00EBC129 /* MascotaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaUITests.swift; sourceTree = "<group>"; };
 		18AE88CF268AE58C00EBC129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AE88DF268AE6F100EBC129 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
-		18AE88EC268AE76400EBC129 /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 		18AE88EE268AE76E00EBC129 /* appmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appmodel.swift; sourceTree = "<group>"; };
 		18AE88F0268AE77800EBC129 /* apiservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiservice.swift; sourceTree = "<group>"; };
 		18AE88F2268AE78100EBC129 /* apimodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apimodel.swift; sourceTree = "<group>"; };
+		18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionViewCell.swift; sourceTree = "<group>"; };
+		18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCollectionViewCell.xib; sourceTree = "<group>"; };
+		18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaPeopleImageCell.swift; sourceTree = "<group>"; };
+		18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MascotaPeopleImageCell.xib; sourceTree = "<group>"; };
 		1AEAF6A99A34E44C31FF0642 /* Pods-Mascota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.debug.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.debug.xcconfig"; sourceTree = "<group>"; };
 		35A74EECCFA306560984A74C /* Pods-Mascota-MascotaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +193,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		188AD0152691CC91008F4284 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */,
+				185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		18AE889F268AE58A00EBC129 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +272,7 @@
 				DDC360DC2692DAD2003EF8D7 /* MascotaUI */,
 				18AE88E7268AE73C00EBC129 /* ViewControllers */,
 				18AE88E6268AE73800EBC129 /* View */,
+				188AD0152691CC91008F4284 /* Headers */,
 				18AE88E5268AE72F00EBC129 /* Extensions */,
 				18AE88E4268AE72B00EBC129 /* Cells */,
 				18AE88E3268AE71900EBC129 /* AppModels */,
@@ -267,6 +299,7 @@
 				18AE88B6268AE58C00EBC129 /* LaunchScreen.storyboard */,
 				4809D065268E1BAD0060F5EB /* Login.storyboard */,
 				483DA24F2690D1CD005DBA86 /* SignUp.storyboard */,
+				188AD00D26919A74008F4284 /* HomeStart.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -299,6 +332,14 @@
 		18AE88E4268AE72B00EBC129 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */,
+				18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */,
+				18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */,
+				18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */,
+				18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */,
+				18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */,
+				182C1D6826934518006C6511 /* PartCollectionViewCell.swift */,
+				182C1D6926934518006C6511 /* PartCollectionViewCell.xib */,
 				18AE88EC268AE76400EBC129 /* cell.swift */,
 				DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */,
 				DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */,
@@ -343,6 +384,7 @@
 				4809D067268E304C0060F5EB /* LoginViewController.swift */,
 				DD931B2E268E0B5A001DA072 /* RainbowViewController.swift */,
 				483DA2512690DAA8005DBA86 /* SignUpViewController.swift */,
+				188AD00F26919A8E008F4284 /* HomeStartViewController.swift */,
 				DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */,
 			);
 			path = ViewControllers;
@@ -501,12 +543,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */,
+				188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */,
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
+				18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */,
+				182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */,
 				DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
 				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
+				18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */,
+				18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
 				DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */,
@@ -654,9 +702,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
 				DD931B2D268DE9C7001DA072 /* UILabel+Extension.swift in Sources */,
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
+				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				DDDCA7AB269344F900DB1B8F /* RainbowBestSectionFooterView.swift in Sources */,
@@ -667,11 +717,12 @@
 				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
+				182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */,
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
 				DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */,
 				DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */,
 				18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */,
-				18AE88ED268AE76400EBC129 /* cell.swift in Sources */,
+				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
@@ -680,6 +731,7 @@
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
+				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
@@ -687,6 +739,7 @@
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
+				185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */,
 				DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
 				DD11DB44269327AA001D3CE7 /* RainbowBestSectionHeaderView.swift in Sources */,
