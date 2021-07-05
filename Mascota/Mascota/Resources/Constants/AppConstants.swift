@@ -22,7 +22,14 @@ struct AppConstants {
         static let homeStart: String = "HomeStartViewController"
     }
     
-    struct TableCells {
-        static let bookPage: String = "BookPageTableViewCell"
+    struct CollectionViewCells {
+        static let bookPageCollectionViewCell: String = "BookPageCollectionViewCell"
+        static let homeIndexCollectionViewCell: String = "HomeIndexCollectionViewCell"
+        static let mascotaPeopleImageCell: String = "MascotaPeopleImageCell"
+        static let partCollectionViewCell: String = "PartCollectionViewCell"
+    }
+    
+    struct CollectionViewHeaders {
+        static let homeIndexCollectionReusableView: String = "HomeIndexCollectionReusableView"
     }
 }
