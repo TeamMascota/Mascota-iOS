@@ -14,7 +14,6 @@ struct AppConstants {
         static let signUp: String = "SignUp"
         static let homeStart: String = "HomeStart"
     }
-    
     struct ViewController {
         static let login: String = "LoginViewController"
         static let rainbow: String = "RainbowViewController"
@@ -31,5 +30,14 @@ struct AppConstants {
     
     struct CollectionViewHeaders {
         static let homeIndexCollectionReusableView: String = "HomeIndexCollectionReusableView"
+
+
+    struct TableCells {
+        static let bookPage: String = "BookPageTableViewCell"
+        static let rainbowBookPage: String = "RainbowBookPageTableViewCell"
+        static let rainbowHelpHeader: String = "RainbowHelpHeaderTableViewCell"
+        static let rainbowHelpCard: String = "RainbowHelpCardTableViewCell"
+        static let rainbowButton: String = "RainbowButtonTableViewCell"
     }
+
 }

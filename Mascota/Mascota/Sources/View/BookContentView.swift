@@ -67,8 +67,8 @@ class BookContentView: UIView {
         
         logoView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalTo(62 / Constant.DesignSize.width * Constant.Size.width)
-            $0.height.equalTo(51 / Constant.DesignSize.height * Constant.Size.height)
+            $0.width.equalTo(62 / Constant.DesignSize.width * Constant.DeviceSize.width)
+            $0.height.equalTo(51 / Constant.DesignSize.height * Constant.DeviceSize.height)
         }
 
         titleLabel.snp.makeConstraints {

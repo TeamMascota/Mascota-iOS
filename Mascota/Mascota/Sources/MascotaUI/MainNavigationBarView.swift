@@ -15,12 +15,11 @@ class MainNavigationBarView: UIView {
     
     private lazy var bookPartLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: 20)
-        $0.text = type.text()
         $0.textColor = type.color()
     }
     
     private lazy var bookTitleLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 20)
+        $0.font = type.titleFont()
         $0.textColor = .macoBlack
     }
     
@@ -29,9 +28,8 @@ class MainNavigationBarView: UIView {
     public init(type: BookType) {
         super.init(frame: CGRect.zero)
         self.type = type
-        setNavigationBarView()
         
-        backgroundColor = .blue
+        setNavigationBarView()
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +37,8 @@ class MainNavigationBarView: UIView {
     }
     
     private func setNavigationBarView() {
+        backgroundColor = .macoIvory
+        
         addSubviews(bookPartLabel, bookTitleLabel, profileButton)
         
         profileButton.snp.makeConstraints {
@@ -61,9 +61,15 @@ class MainNavigationBarView: UIView {
     
     //  Public Function
 
-    public func setBookTitleLabel(text: String) {
+    public func setNavigationBarText(part: String? = nil, title: String) {
+        if let part = part {
+            _ = bookPartLabel.then {
+                $0.text = part
+            }
+        }
+        
         _ = bookTitleLabel.then {
-            $0.text = text.maxLength(length: 11)
+            $0.text = title.maxLength(length: 11)
         }
     }
 }
