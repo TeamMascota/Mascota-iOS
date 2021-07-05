@@ -54,7 +54,7 @@ class RainbowBestSectionHeaderView: UIView {
         
         contentLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(23)
-            $0.trailing.equalToSuperview().offset(44)
+            $0.trailing.equalToSuperview().inset(44)
             $0.top.equalTo(imageView.snp.bottom).offset(6)
             $0.bottom.equalToSuperview().inset(21)
         }
