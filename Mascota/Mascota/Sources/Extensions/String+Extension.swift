@@ -5,7 +5,7 @@
 //  Created by 김윤서 on 2021/07/04.
 //
 
-import Foundation
+import UIKit
 
 extension String {
    func maxLength(length: Int) -> String {
@@ -20,4 +20,22 @@ extension String {
        }
        return  str
    }
+    func convertColorFont(color: UIColor? = nil, fontSize: CGFloat? = nil, type: UIFont.NotoSansCJKkrType) -> NSAttributedString {
+        let text = NSMutableAttributedString(string: self)
+
+        if let unwrappedColor = color {
+            text.addAttribute(.foregroundColor,
+                              value: unwrappedColor,
+                              range: NSRange(location: 0, length: self.count))
+        }
+        
+        if let unwrappedSize = fontSize {
+            text.addAttribute(.font,
+                              value: UIFont.macoFont(type: .regular, size: unwrappedSize) ?? UIFont(),
+                              range: NSRange(location: 0, length: self.count))
+        }
+        
+        return text
+        
+    }
 }
