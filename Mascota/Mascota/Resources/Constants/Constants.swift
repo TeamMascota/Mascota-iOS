@@ -16,7 +16,7 @@ public enum Constant {
     public static let round3: CGFloat = 3.0
     public static let round5: CGFloat = 5.0
     
-    public enum Size {
+    public enum DeviceSize {
         public static let width: CGFloat = UIScreen.main.bounds.width
         public static let height: CGFloat = UIScreen.main.bounds.height
     }
