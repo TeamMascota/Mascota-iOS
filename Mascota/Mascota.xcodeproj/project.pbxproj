@@ -33,6 +33,7 @@
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
 		DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */; };
 		DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A6268C8F8500E6E2DC /* BookContentView.swift */; };
+		DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */; };
 		DD878EA22691681900856EE2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD878EA12691681900856EE2 /* String+Extension.swift */; };
 		DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */; };
 		DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */; };
@@ -48,6 +49,10 @@
 		DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */; };
 		DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99C268EC16C002B35A1 /* PageTextModel.swift */; };
 		DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95C99E268EC801002B35A1 /* BookHomePageView.swift */; };
+		DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */; };
+		DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */; };
+		DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */; };
+		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +110,7 @@
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
 		DD7112A4268C84BB00E6E2DC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		DD7112A6268C8F8500E6E2DC /* BookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookContentView.swift; sourceTree = "<group>"; };
+		DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowHelpHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DD878EA12691681900856EE2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
@@ -120,6 +126,10 @@
 		DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRainbowPageView.swift; sourceTree = "<group>"; };
 		DD95C99C268EC16C002B35A1 /* PageTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTextModel.swift; sourceTree = "<group>"; };
 		DD95C99E268EC801002B35A1 /* BookHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHomePageView.swift; sourceTree = "<group>"; };
+		DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBookPageTableViewCell.swift; sourceTree = "<group>"; };
+		DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowHelpCardTableViewCell.swift; sourceTree = "<group>"; };
+		DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoButton.swift; sourceTree = "<group>"; };
+		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,6 +228,7 @@
 			children = (
 				18AE88AB268AE58A00EBC129 /* AppDelegate.swift */,
 				18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */,
+				DDC360DC2692DAD2003EF8D7 /* MascotaUI */,
 				18AE88E7268AE73C00EBC129 /* ViewControllers */,
 				18AE88E6268AE73800EBC129 /* View */,
 				18AE88E5268AE72F00EBC129 /* Extensions */,
@@ -279,6 +290,10 @@
 			isa = PBXGroup;
 			children = (
 				18AE88EC268AE76400EBC129 /* cell.swift */,
+				DDAD356A26920D8C005559BE /* RainbowBookPageTableViewCell.swift */,
+				DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */,
+				DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */,
+				DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -304,8 +319,6 @@
 				DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */,
 				DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */,
 				DD95C99E268EC801002B35A1 /* BookHomePageView.swift */,
-				DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */,
-				DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +365,16 @@
 				B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDC360DC2692DAD2003EF8D7 /* MascotaUI */ = {
+			isa = PBXGroup;
+			children = (
+				DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */,
+				DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */,
+				DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */,
+			);
+			path = MascotaUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,6 +648,7 @@
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
+				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
 				DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */,
@@ -633,13 +657,17 @@
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
+				DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
+				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
+				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
+				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
 				DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */,
