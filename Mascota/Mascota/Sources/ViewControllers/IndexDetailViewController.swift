@@ -166,6 +166,22 @@ extension IndexDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 83
     }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let editAction = UIContextualAction(style: .normal, title: "수정") {_,_,_ in
+            print("edited")
+        }.then {
+            let label = UILabel().then {
+                $0.font = UIFont.macoFont(type: .regular, size: 12)
+                $0.textColor = UIColor.white
+                $0.backgroundColor = UIColor.yellow
+                $0.sizeToFit()
+            }
+            $0.image = UIImage(view: label)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [editAction])
+    }
 }
 
 extension IndexDetailViewController: UITableViewDataSource {
