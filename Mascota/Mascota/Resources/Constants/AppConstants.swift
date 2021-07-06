@@ -13,12 +13,14 @@ struct AppConstants {
         static let login: String = "Login"
         static let signUp: String = "SignUp"
         static let homeStart: String = "HomeStart"
+        static let indexEdit: String = "IndexEdit"
     }
     struct ViewController {
         static let login: String = "LoginViewController"
         static let rainbow: String = "RainbowViewController"
         static let signUp: String = "SignUpViewController"
         static let homeStart: String = "HomeStartViewController"
+        static let indexEdit: String = "IndexEditViewController"
     }
     
     struct CollectionViewCells {
@@ -26,6 +28,8 @@ struct AppConstants {
         static let homeIndexCollectionViewCell: String = "HomeIndexCollectionViewCell"
         static let mascotaPeopleImageCell: String = "MascotaPeopleImageCell"
         static let partCollectionViewCell: String = "PartCollectionViewCell"
+        static let indexEditCollectionViewCell: String = "IndexEditCollectionViewCell"
+        static let indexEditPrologueCollectionViewCell: String = "IndexEditPrologueCollectionViewCell"
     }
     
     struct CollectionViewHeaders {
