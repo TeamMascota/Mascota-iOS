@@ -59,7 +59,8 @@ class RegisterMyPetViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
         self.view.addSubview(datePicker)
         
-        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.tintColor = .macoOrange
         toolBar.sizeToFit()
         self.view.addSubview(toolBar)
     }
