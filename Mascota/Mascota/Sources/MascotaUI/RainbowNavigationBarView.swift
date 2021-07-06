@@ -32,14 +32,25 @@ class RainbowNavigationBarView: UIView {
         $0.textColor = .macoWhite
     }
     
+    private lazy var subtitleLabel = UILabel().then {
+        $0.font = .macoFont(type: .regular, size: 14)
+        $0.textColor = .macoWhite
+    }
+    
+    private lazy var hStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+    }
+    
     private lazy var underLineView = UIView().then {
         $0.backgroundColor = .macoWhite
     }
     
-    public init(style: NavigationStyle, title: String) {
+    public init(style: NavigationStyle, title: String, subtitle: String? = nil) {
         super.init(frame: CGRect.zero)
         self.style = style
-        titleLabel.text = title
+        
+        setNavigationBarText(title: title, subtitle: subtitle)
         setNavigationBarView()
     }
     
@@ -47,11 +58,21 @@ class RainbowNavigationBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setNavigationBarText(title: String, subtitle: String? = nil) {
+        titleLabel.text = title
+        
+        if let subtitle = subtitle {
+            subtitleLabel.text = subtitle
+        }
+    }
+    
     private func setNavigationBarView() {
         backgroundColor = .macoBlue
         
-        addSubviews(titleLabel, underLineView)
-        titleLabel.snp.makeConstraints {
+        addSubviews(hStackView, underLineView)
+        hStackView.addArrangedSubviews(subtitleLabel, titleLabel)
+        
+        hStackView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
         
