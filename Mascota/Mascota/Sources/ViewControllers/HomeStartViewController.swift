@@ -143,7 +143,6 @@ extension HomeStartViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.homeIndexCollectionViewCell, for: indexPath) as? HomeIndexCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.indexType = .home
             cell.intializeData()
             cell.indexDetailButton.addTarget(self, action: #selector(touchIndexDetailButton(_:)), for: .touchUpInside)
             return cell
