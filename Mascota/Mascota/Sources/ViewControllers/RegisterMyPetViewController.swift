@@ -19,6 +19,7 @@ class RegisterMyPetViewController: UIViewController {
     var myPetsArray = [RegisterMyPetModel]()
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
+    var datePickerBackgroundView = UIView()
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -52,38 +53,30 @@ class RegisterMyPetViewController: UIViewController {
     }
     
     @IBAction func showDatePicker() {
-        datePicker = UIDatePicker.init()
-        datePicker.backgroundColor = UIColor.white
-        
-        datePicker.autoresizingMask = .flexibleWidth
-        datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .wheels
+        setDatePickerView()
+        self.view.addSubview(datePickerBackgroundView)
         
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
         self.view.addSubview(datePicker)
         
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        //toolBar.barStyle = .blackTranslucent
         toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
         toolBar.sizeToFit()
         self.view.addSubview(toolBar)
     }
 
-        @objc func dateChanged(_ sender: UIDatePicker?) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .long
-            dateFormatter.timeStyle = .none
-                
-            if let date = sender?.date {
-                print("Picked the date \(dateFormatter.string(from: date))")
-                becomeFamilyDateLabel.text = dateFormatter.string(from: date)
-            }
+    @objc func dateChanged(_ sender: UIDatePicker?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        
+        if let date = sender?.date {
+            becomeFamilyDateLabel.text = dateFormatter.string(from: date)
         }
-
-        @objc func onDoneButtonClick() {
-            toolBar.removeFromSuperview()
-            datePicker.removeFromSuperview()
+    }
+    
+    @objc func onDoneButtonClick() {
+        datePickerBackgroundView.removeFromSuperview()
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
     }
     
     // MARK: - Life Cycle
@@ -98,6 +91,23 @@ class RegisterMyPetViewController: UIViewController {
     
     func appendEmptyElement() {
         myPetsArray.append(RegisterMyPetModel(petImage: "", petName: "", petKind: "", familyDate: "", petGender: ""))
+    }
+    
+    func setDatePickerView() {
+        datePicker = UIDatePicker.init()
+        datePicker.backgroundColor = .clear
+        
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        
+        datePickerBackgroundView.backgroundColor = .macoWhite
+        datePickerBackgroundView.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
     }
     
     // MARK: - Register CollectionView
