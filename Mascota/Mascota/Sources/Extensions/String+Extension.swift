@@ -20,6 +20,7 @@ extension String {
        }
        return  str
    }
+    
     func convertColorFont(color: UIColor? = nil, fontSize: CGFloat? = nil, type: UIFont.NotoSansCJKkrType) -> NSAttributedString {
         let text = NSMutableAttributedString(string: self)
 
@@ -31,11 +32,10 @@ extension String {
         
         if let unwrappedSize = fontSize {
             text.addAttribute(.font,
-                              value: UIFont.macoFont(type: .regular, size: unwrappedSize) ,
+                              value: UIFont.macoFont(type: type, size: unwrappedSize) ,
                               range: NSRange(location: 0, length: self.count))
         }
         
         return text
-        
     }
 }
