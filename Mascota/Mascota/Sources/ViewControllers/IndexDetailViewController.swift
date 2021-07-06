@@ -17,6 +17,19 @@ class IndexDetailViewController: UIViewController {
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var indexTitle: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
+    
+    let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
+    
+    var isToggled: Bool = false
+    
+    lazy var indexStackView: UIStackView = UIStackView().then {
+        $0.alignment = .center
+        $0.spacing = 0
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.alpha = 0.0
+    }
+    
     lazy var indexDetailTableView: UITableView = UITableView().then {
         $0.separatorStyle = .none
         $0.allowsSelection = false
@@ -32,6 +45,7 @@ class IndexDetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         layoutComponents()
+        layoutStackView()
         registerTableView()
         registerTableViewCells()
     }
@@ -45,8 +59,76 @@ class IndexDetailViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-17)
             $0.bottom.equalToSuperview()
         }
+        
+        self.view.addSubview(indexStackView)
+        
+        indexStackView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(320)
+            $0.top.equalTo(navigationView.snp.bottom)
+            $0.height.equalTo(42 * temp.count)
+        }
+
     }
-    
+
+    private func layoutStackView() {
+        for (index, text) in temp.enumerated() {
+            let view: UIView = UIView().then {
+                $0.backgroundColor = UIColor.macoIvory
+            }
+            
+            let seperateorView: UIView = UIView().then {
+                $0.backgroundColor = UIColor.macoLightGray
+            }
+            
+            let dropDownIndexLabel: UILabel = UILabel().then {
+                $0.font = UIFont.macoFont(type: .regular, size: 14)
+                $0.textColor = UIColor.macoDarkGray
+                $0.textAlignment = .left
+                $0.text = index == 0 ? "프롤로그" : "제 \(index)장"
+            }
+            
+            let dropDownIndexTitleLabel: UILabel = UILabel().then {
+                $0.font = UIFont.macoFont(type: .regular, size: 16)
+                $0.textColor = UIColor.macoBlack
+                $0.textAlignment = .left
+                $0.text = text
+            }
+            
+            indexStackView.addArrangedSubview(view)
+            view.addSubviews(dropDownIndexLabel, dropDownIndexTitleLabel, seperateorView)
+            
+            view.snp.makeConstraints {
+                $0.height.equalTo(42)
+                $0.leading.equalToSuperview()
+                $0.trailing.equalToSuperview()
+            }
+            
+            view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                             action: #selector(touchDropDownView(_:))))
+            
+            seperateorView.snp.makeConstraints {
+                $0.height.equalTo(1)
+                $0.leading.equalToSuperview()
+                $0.bottom.equalToSuperview()
+                $0.trailing.equalToSuperview()
+            }
+            
+            dropDownIndexLabel.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.width.equalTo(55)
+                $0.leading.equalToSuperview().offset(21)
+            }
+            
+            dropDownIndexTitleLabel.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(-5)
+                $0.trailing.equalToSuperview().offset(21)
+            }
+            
+        }
+    }
+
     private func registerTableView() {
         self.indexDetailTableView.delegate = self
         self.indexDetailTableView.dataSource = self
@@ -60,11 +142,18 @@ class IndexDetailViewController: UIViewController {
                                            forHeaderFooterViewReuseIdentifier: AppConstants.TableViewHeaders.indexDetailHeaderView)
     }
     
+    @objc
+    func touchDropDownView(_ sender: UITapGestureRecognizer) {
+        print(1)
+    }
+    
     @IBAction func touchToggleButton(_ sender: Any) {
+    
         UIView.animate(withDuration: 0.5) {
-            self.toggleButton.transform = CGAffineTransform(rotationAngle: .pi)
+            self.toggleButton.transform = self.isToggled ? CGAffineTransform(rotationAngle: .pi * 2): CGAffineTransform(rotationAngle: .pi)
+            self.indexStackView.alpha = self.isToggled ? 0.0 : 1.0
         }
-        
+        isToggled.toggle()
     }
   
 }
@@ -104,6 +193,5 @@ extension IndexDetailViewController: UITableViewDataSource {
         cell.initializeData()
         return cell
     }
-    
     
 }
