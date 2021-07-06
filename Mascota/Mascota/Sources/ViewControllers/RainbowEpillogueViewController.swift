@@ -1,5 +1,5 @@
 //
-//  RainbowEpillogeuViewController.swift
+//  RainbowEpillogueViewController.swift
 //  Mascota
 //
 //  Created by 김윤서 on 2021/07/06.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RainbowEpillogeuViewController: UIViewController {
+class RainbowEpillogueViewController: UIViewController {
     
     private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "작가의 말", subtitle: "에필로그")
     
@@ -177,7 +177,7 @@ class RainbowEpillogeuViewController: UIViewController {
     
 }
 
-extension RainbowEpillogeuViewController: UITextViewDelegate {
+extension RainbowEpillogueViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if textView.textColor == .macoGray {

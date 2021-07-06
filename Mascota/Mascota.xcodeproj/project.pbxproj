@@ -55,7 +55,7 @@
 		DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */; };
 		DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */; };
 		DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */; };
-		DD8DE350269419A4000F03C3 /* RainbowEpillogeuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE34F269419A4000F03C3 /* RainbowEpillogeuViewController.swift */; };
+		DD8DE350269419A4000F03C3 /* RainbowEpillogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */; };
 		DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE35126941C49000F03C3 /* UIStackView+Extension.swift */; };
 		DD8DE354269426E1000F03C3 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE353269426E1000F03C3 /* UITextField+Extension.swift */; };
 		DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE35526943EA3000F03C3 /* UITextView+Extension.swift */; };
@@ -157,7 +157,7 @@
 		DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationBarView.swift; sourceTree = "<group>"; };
 		DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
-		DD8DE34F269419A4000F03C3 /* RainbowEpillogeuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowEpillogeuViewController.swift; sourceTree = "<group>"; };
+		DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowEpillogueViewController.swift; sourceTree = "<group>"; };
 		DD8DE35126941C49000F03C3 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		DD8DE353269426E1000F03C3 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		DD8DE35526943EA3000F03C3 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
@@ -419,7 +419,7 @@
 				DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */,
 				DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */,
 				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
-				DD8DE34F269419A4000F03C3 /* RainbowEpillogeuViewController.swift */,
+				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -743,7 +743,7 @@
 				DD931B2D268DE9C7001DA072 /* UILabel+Extension.swift in Sources */,
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
-				DD8DE350269419A4000F03C3 /* RainbowEpillogeuViewController.swift in Sources */,
+				DD8DE350269419A4000F03C3 /* RainbowEpillogueViewController.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */,
