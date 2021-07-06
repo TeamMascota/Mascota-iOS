@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            let viewcontroller = RainbowBookCoverViewController()
+            let viewcontroller = RainbowEpillogeuViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
