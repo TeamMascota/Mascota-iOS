@@ -46,12 +46,18 @@ class RainbowNavigationBarView: UIView {
         $0.backgroundColor = .macoWhite
     }
     
-    public init(style: NavigationStyle, title: String, subtitle: String? = nil) {
+    public init(style: NavigationStyle, title: String, subtitle: String? = nil, underLineHidden: Bool? = false) {
         super.init(frame: CGRect.zero)
         self.style = style
         
         setNavigationBarText(title: title, subtitle: subtitle)
         setNavigationBarView()
+        
+        guard let underLineHidden = underLineHidden else { return }
+        
+        if !underLineHidden {
+            setUnderLine()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -69,18 +75,11 @@ class RainbowNavigationBarView: UIView {
     private func setNavigationBarView() {
         backgroundColor = .macoBlue
         
-        addSubviews(hStackView, underLineView)
+        addSubviews(hStackView)
         hStackView.addArrangedSubviews(subtitleLabel, titleLabel)
         
         hStackView.snp.makeConstraints {
             $0.center.equalToSuperview()
-        }
-        
-        underLineView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.height.equalTo(1)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
         }
         
         switch style {
@@ -109,6 +108,17 @@ class RainbowNavigationBarView: UIView {
                 $0.centerY.equalToSuperview()
             }
         }
-        
     }
+    
+    private func setUnderLine() {
+        addSubviews(underLineView)
+        
+        underLineView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(1)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
 }
