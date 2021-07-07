@@ -17,12 +17,11 @@ extension UITextField {
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         layer.cornerRadius = Constant.round3
         
-        borderStyle            = .none
-        layer.masksToBounds    = false
-        layer.shadowColor      = color?.cgColor
-        layer.shadowOffset     = CGSize(width: 0.0, height: 1.0)
-        layer.shadowOpacity    = 1
-        layer.shadowRadius     = 0.0
+        let border = UIView()
+        border.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        border.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.height - 1, width: self.frame.width, height: 1)
+        border.backgroundColor = color
+        superview?.insertSubview(border, aboveSubview: self)
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
         leftView = paddingView

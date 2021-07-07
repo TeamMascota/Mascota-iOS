@@ -19,9 +19,10 @@ extension UITextView {
     }
     
     func setUnderLine(color: UIColor? = .macoOrange) {
-        let border = CALayer()
-        border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.width, height: 1)
-        border.backgroundColor = UIColor.macoBlue.cgColor
-        layer.addSublayer(border)
+        let border = UIView()
+        border.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        border.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y + self.frame.height - 1, width: self.frame.width, height: 1)
+        border.backgroundColor = color
+        superview?.insertSubview(border, aboveSubview: self)
     }
 }
