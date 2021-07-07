@@ -82,12 +82,7 @@ class RainbowEpillogueViewController: UIViewController {
         setRainbowNavigationBar()
         
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-    }
-    
+   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textView.setUnderLine(color: .macoBlue)
