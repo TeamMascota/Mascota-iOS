@@ -8,16 +8,9 @@
 import UIKit
 
 extension UITextField {
-    func setBottomBorder(color: UIColor? = .macoBlue) {
-        self.borderStyle            = .none
-        self.layer.masksToBounds    = false
-        self.layer.shadowColor      = color?.cgColor
-        self.layer.shadowOffset     = CGSize(width: 0.0, height: 1.0)
-        self.layer.shadowOpacity    = 0.8
-        self.layer.shadowRadius     = 0.0
-    }
-    
     func setMacoTextField(color: UIColor? = .macoOrange) {
+        tintColor = color
+        
         layer.masksToBounds = true
         backgroundColor = .macoWhite
         
@@ -30,5 +23,13 @@ extension UITextField {
         layer.shadowOffset     = CGSize(width: 0.0, height: 1.0)
         layer.shadowOpacity    = 1
         layer.shadowRadius     = 0.0
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
+        leftView = paddingView
+        leftViewMode = ViewMode.always
+        
+        rightView = paddingView
+        rightViewMode = ViewMode.always
+        
     }
 }
