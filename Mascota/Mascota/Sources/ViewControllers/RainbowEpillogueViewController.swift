@@ -40,7 +40,7 @@ class RainbowEpillogueViewController: UIViewController {
     }
     
     private lazy var epilogueTitleTextField = UITextField().then {
-        $0.addDoneButtonOnKeyboard()
+        $0.addDoneButtonOnKeyboard(color: .macoBlue)
     }
     
     private lazy var epilogueLabel = UILabel().then {
@@ -52,7 +52,7 @@ class RainbowEpillogueViewController: UIViewController {
     private lazy var textView = UITextView().then {
         $0.setMacoTextView(color: .macoBlue)
         $0.textContainerInset = UIEdgeInsets(top: 15, left: 12, bottom: 10, right: 12)
-        $0.addDoneButtonOnKeyboard()
+        $0.addDoneButtonOnKeyboard(color: .macoBlue)
     }
     
     private lazy var continueLabel = UILabel().then {
