@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // If using a storyboard, the `window` property will autuomatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
        
@@ -21,8 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            let viewcontroller = RainbowBookCoverViewController()
+//            let viewcontroller = RainbowBookCoverViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
+//            let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
+            let viewcontroller = UIStoryboard(name: "IndexEdit", bundle: nil).instantiateViewController(withIdentifier: "IndexEditViewController") as! IndexEditViewController
+//            let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory

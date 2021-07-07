@@ -22,15 +22,21 @@ class IndexEditViewController: UIViewController {
         $0.backgroundColor = UIColor.macoIvory
     }
     
+    lazy var tempView: UIView = UIView().then {
+        $0.backgroundColor = UIColor.black
+    }
+    
+    var confirmHandler: ((UIAlertAction) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         layoutComponents()
         registerCollectionView()
         registerCollectionViewCell()
-        if let flowLayout = indexCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = .zero
-            }
+        confirmHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -78,6 +84,8 @@ class IndexEditViewController: UIViewController {
     }
     
     @IBAction func touchPlusButton(_ sender: Any) {
+        self.presentSingleCustomAlert(view: tempView,
+                                      preferredSize: CGSize(width: 1000, height: 100), confirmHandler: confirmHandler)
         print("touchPlusButton")
     }
 
