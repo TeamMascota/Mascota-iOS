@@ -41,7 +41,14 @@ extension String {
 }
 
 extension String {
-  func attributedString(font: UIFont, color: UIColor? = nil, customLineHeight: CGFloat? = nil, alignment: NSTextAlignment? = nil, kern: Double? = nil, lineBreakMode: NSLineBreakMode? = nil, underlineStyle: NSUnderlineStyle? = nil, strikeThroughStyle: NSUnderlineStyle? = nil) -> NSAttributedString {
+  func attributedString(font: UIFont,
+                        color: UIColor? = nil,
+                        customLineHeight: CGFloat? = nil,
+                        alignment: NSTextAlignment? = nil,
+                        kern: Double? = nil,
+                        lineBreakMode: NSLineBreakMode? = nil,
+                        underlineStyle: NSUnderlineStyle? = nil,
+                        strikeThroughStyle: NSUnderlineStyle? = nil) -> NSAttributedString {
     
     let finalKern: Double = kern ?? 0.0
     let finalLineHeight: CGFloat = customLineHeight ?? font.lineHeight
