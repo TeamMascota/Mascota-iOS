@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0, lineHeight: CGFloat? = nil) {
+    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0, lineHeight: CGFloat? = 0.0) {
 
         guard let labelText = self.text else { return }
 
@@ -17,7 +17,7 @@ extension UILabel {
         paragraphStyle.lineHeightMultiple = lineHeightMultiple
         
         if let lineHeight = lineHeight {
-            paragraphStyle.lineSpacing = lineSpacing - lineHeight
+            paragraphStyle.lineSpacing = lineHeight - self.font.pointSize
         }
 
         let attributedString: NSMutableAttributedString
