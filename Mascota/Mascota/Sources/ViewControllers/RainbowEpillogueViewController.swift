@@ -39,7 +39,9 @@ class RainbowEpillogueViewController: UIViewController {
         $0.text = "에필로그 제목"
     }
     
-    private lazy var epilogueTitleTextField = UITextField()
+    private lazy var epilogueTitleTextField = UITextField().then {
+        $0.addDoneButtonOnKeyboard()
+    }
     
     private lazy var epilogueLabel = UILabel().then {
         $0.font = .macoFont(type: .medium, size: 17)
@@ -50,6 +52,7 @@ class RainbowEpillogueViewController: UIViewController {
     private lazy var textView = UITextView().then {
         $0.setMacoTextView(color: .macoBlue)
         $0.textContainerInset = UIEdgeInsets(top: 15, left: 12, bottom: 10, right: 12)
+        $0.addDoneButtonOnKeyboard()
     }
     
     private lazy var continueLabel = UILabel().then {
@@ -76,32 +79,39 @@ class RainbowEpillogueViewController: UIViewController {
         setTitleTextField()
         setTextView()
         
+        setRainbowNavigationBar()
+        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         textView.setUnderLine(color: .macoBlue)
         epilogueTitleTextField.setMacoTextField(color: .macoBlue)
     }
     
     private func initRainbowEpillogeuViewController() {
-        view.backgroundColor = .macoBlue
         
-        setRainbowNavigationBar()
+        view.backgroundColor = .macoBlue
        
         view.addSubviews(backgroundView, bookMarkImageView)
         
         backgroundView.snp.makeConstraints {
-            $0.top.equalTo(rainbowNavigationBar.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         bookMarkImageView.snp.makeConstraints {
-            $0.top.equalTo(rainbowNavigationBar.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(topBarHeight)
             $0.trailing.equalToSuperview().inset(15)
             $0.width.equalTo(30)
             $0.height.equalTo(85)
         }
+        
     }
     
     private func setRainbowNavigationBar() {
@@ -132,7 +142,8 @@ class RainbowEpillogueViewController: UIViewController {
         view.addSubviews(contentLabel, epilogueLabel)
         
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(rainbowNavigationBar.snp.bottom).offset(43)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(topBarHeight + 43)
+           
             $0.leading.equalToSuperview().offset(28)
             $0.trailing.equalToSuperview().inset(28)
         }
@@ -186,6 +197,7 @@ class RainbowEpillogueViewController: UIViewController {
             $0.top.equalTo(textView.snp.bottom).offset(8)
             $0.trailing.equalTo(contentLabel.snp.trailing)
         }
+        
     }
     
     private func setContentText() {
@@ -220,17 +232,23 @@ extension RainbowEpillogueViewController: UITextFieldDelegate {
 }
 
 extension RainbowEpillogueViewController: UITextViewDelegate {
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
         if textView.textColor == .macoGray {
             textView.text = nil
         }
+        
+        animateViewMoving(position: 250, upward: true)
+
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             setPlaceholder()
         }
+        
+        animateViewMoving(position: 0, upward: false)
+
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -249,5 +267,35 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
         textView.font = .macoFont(type: .regular, size: 14)
         
         endButton.isEnabled = checkEndButtonEnabled()
+    }
+    
+}
+
+extension RainbowEpillogueViewController {
+    func animateViewMoving(position: CGFloat, upward: Bool) {
+        
+        self.view.frame.origin.y = -position
+
+        let height = self.navigationController?.navigationBar.frame.height ?? 0
+        
+        if upward {
+            let backView = UIView().then {
+                $0.backgroundColor = .macoBlue
+            }
+            
+            view.addSubviews(backView)
+
+            backView.snp.makeConstraints {
+                $0.top.equalToSuperview()
+                $0.leading.trailing.equalToSuperview()
+                $0.bottom.equalTo(self.rainbowNavigationBar.snp.top)
+            }
+        }
+        
+        self.rainbowNavigationBar.snp.remakeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(position)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(height)
+        }
     }
 }
