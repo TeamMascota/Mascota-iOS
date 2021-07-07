@@ -66,6 +66,8 @@ class RainbowEpillogueViewController: UIViewController {
     
     private lazy var name: String = "가나다라마바사"
     
+    private lazy var keyboardHeight: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,8 +90,19 @@ class RainbowEpillogueViewController: UIViewController {
         textView.setUnderLine(color: .macoBlue)
         epilogueTitleTextField.setMacoTextField(color: .macoBlue)
     }
+
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     private func initRainbowEpillogeuViewController() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
         
         view.backgroundColor = .macoBlue
        
@@ -226,6 +239,16 @@ extension RainbowEpillogueViewController: UITextFieldDelegate {
     
 }
 
+extension RainbowEpillogueViewController {
+    @objc
+    func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            keyboardHeight = keyboardRectangle.height
+        }
+    }
+}
+
 extension RainbowEpillogueViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -233,7 +256,11 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
             textView.text = nil
         }
         
-        animateViewMoving(position: 250, upward: true)
+        if UIDevice.current.hasNotch {
+            animateViewMoving(position: keyboardHeight - 80 - view.safeAreaInsets.bottom, upward: true)
+        } else {
+            animateViewMoving(position: keyboardHeight - 80, upward: true)
+        }
 
     }
     
