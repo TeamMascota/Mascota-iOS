@@ -11,14 +11,13 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var myPetImage: UIImageView!
     @IBOutlet weak var characterNumberLabel: UILabel!
+    @IBOutlet weak var imageViewButton: UIButton!
+    
     @IBAction func tapDeleteButton() {
         print("closed")
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }

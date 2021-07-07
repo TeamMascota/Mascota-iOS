@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,61 +17,61 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GO-Zu-gXC">
-                        <rect key="frame" x="0.0" y="100" width="100" height="32"/>
+                        <rect key="frame" x="0.0" y="101" width="100" height="31"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r3s-Zi-Usj">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icImg" translatesAutoresizingMaskIntoConstraints="NO" id="hvG-Ov-0uK">
-                                <rect key="frame" x="40" y="43" width="20" height="20"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUo-fC-bnN">
-                                <rect key="frame" x="75.5" y="14" width="12" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="hXx-93-bxs"/>
-                                    <constraint firstAttribute="width" constant="12" id="lhc-JG-ov3"/>
-                                </constraints>
-                                <state key="normal" image="btnIconQuit"/>
-                                <connections>
-                                    <action selector="tapDeleteButton" destination="tOr-Ll-5BD" eventType="touchUpInside" id="FIg-io-bvv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" name="macoWhite"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-w0-I5B">
+                        <rect key="frame" x="0.0" y="1" width="100" height="100"/>
                         <constraints>
-                            <constraint firstItem="hvG-Ov-0uK" firstAttribute="centerX" secondItem="r3s-Zi-Usj" secondAttribute="centerX" id="FGR-EK-voz"/>
-                            <constraint firstItem="hvG-Ov-0uK" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="top" constant="43" id="H3R-nN-K20"/>
-                            <constraint firstAttribute="height" constant="100" id="Lm8-rJ-ifR"/>
-                            <constraint firstItem="EUo-fC-bnN" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="top" constant="14" id="lVS-nC-FMF"/>
-                            <constraint firstAttribute="trailing" secondItem="EUo-fC-bnN" secondAttribute="trailing" constant="12.300000000000001" id="q31-1K-75k"/>
+                            <constraint firstAttribute="width" constant="100" id="Vbv-aH-tHV"/>
+                            <constraint firstAttribute="height" constant="100" id="jH0-h0-EJb"/>
                         </constraints>
-                    </view>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw1-7e-Fmv">
+                        <rect key="frame" x="0.0" y="28" width="100" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="66" id="unD-lz-iuw"/>
+                        </constraints>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSj-ga-5pZ">
+                        <rect key="frame" x="73" y="9" width="19" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="19" id="lUf-Mc-cvT"/>
+                            <constraint firstAttribute="height" constant="19" id="roi-Jb-WXF"/>
+                        </constraints>
+                        <state key="normal" image="btnIconQuit"/>
+                        <connections>
+                            <action selector="tapDeleteButton" destination="tOr-Ll-5BD" eventType="touchUpInside" id="yQK-x2-oNH"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="2GP-ee-fnf"/>
             <constraints>
-                <constraint firstItem="r3s-Zi-Usj" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" id="9rc-3g-Bu9"/>
-                <constraint firstItem="r3s-Zi-Usj" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="C0E-bj-QOa"/>
-                <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="r3s-Zi-Usj" secondAttribute="bottom" id="IhG-3k-Qyo"/>
-                <constraint firstAttribute="trailing" secondItem="r3s-Zi-Usj" secondAttribute="trailing" id="Mg8-wm-UDw"/>
+                <constraint firstAttribute="trailing" secondItem="cw1-7e-Fmv" secondAttribute="trailing" id="0Rf-MT-zvh"/>
+                <constraint firstItem="cw1-7e-Fmv" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="FUK-7B-dqS"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="1" id="Jga-O1-4Dm"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="Z1C-E7-RKU"/>
+                <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="ZSa-w0-I5B" secondAttribute="bottom" id="bph-uk-n4W"/>
+                <constraint firstAttribute="trailing" secondItem="tSj-ga-5pZ" secondAttribute="trailing" constant="8" id="bsd-Vg-EXq"/>
+                <constraint firstItem="cw1-7e-Fmv" firstAttribute="top" secondItem="tSj-ga-5pZ" secondAttribute="bottom" constant="0.10000000000000001" id="cu9-Hj-uRx"/>
                 <constraint firstItem="4GO-Zu-gXC" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="gdf-Sg-m53"/>
+                <constraint firstItem="tSj-ga-5pZ" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="9" id="isQ-jw-nWM"/>
+                <constraint firstAttribute="trailing" secondItem="ZSa-w0-I5B" secondAttribute="trailing" id="mJZ-Vq-Sui"/>
                 <constraint firstAttribute="trailing" secondItem="4GO-Zu-gXC" secondAttribute="trailing" id="pSf-Bn-eak"/>
-                <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" id="vnd-cP-soK"/>
+                <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" constant="0.20000000000000001" id="vnd-cP-soK"/>
             </constraints>
             <connections>
                 <outlet property="characterNumberLabel" destination="4GO-Zu-gXC" id="q7X-qW-aYI"/>
+                <outlet property="imageViewButton" destination="cw1-7e-Fmv" id="Jbq-sb-wgj"/>
+                <outlet property="myPetImage" destination="ZSa-w0-I5B" id="khH-EK-5dp"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="67.633928571428569"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="btnIconQuit" width="33" height="32"/>
-        <image name="icImg" width="20" height="20"/>
-        <namedColor name="macoWhite">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

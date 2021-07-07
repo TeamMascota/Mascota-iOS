@@ -270,6 +270,12 @@
                                     <action selector="showDatePicker" destination="Y6W-OH-hqX" eventType="touchUpInside" id="a13-9p-KWy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/6)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kq6-89-2qV">
+                                <rect key="frame" x="345" y="397.5" width="32" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="macoLightGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="macoIvory"/>
@@ -291,6 +297,7 @@
                             <constraint firstItem="RTL-Nn-erG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="N6y-f7-SBE"/>
                             <constraint firstItem="gYy-0b-hw9" firstAttribute="top" secondItem="u0G-vW-Fay" secondAttribute="bottom" constant="8" id="OQ1-XV-hDY"/>
                             <constraint firstItem="yUC-gF-3hY" firstAttribute="top" secondItem="Qqp-bb-iml" secondAttribute="bottom" constant="16" id="OVJ-oO-bEE"/>
+                            <constraint firstItem="kq6-89-2qV" firstAttribute="top" secondItem="WVG-ZV-vxy" secondAttribute="top" constant="10" id="Qmp-vb-wfv"/>
                             <constraint firstItem="2ty-nU-7M3" firstAttribute="top" secondItem="uja-JO-YSM" secondAttribute="bottom" constant="28" id="Syg-3U-mK4"/>
                             <constraint firstItem="oeD-JG-4Dy" firstAttribute="leading" secondItem="ilD-oC-WjM" secondAttribute="leading" id="TNp-s5-QVd"/>
                             <constraint firstItem="NJC-WF-PAJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="TVc-dr-ocX"/>
@@ -313,6 +320,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NJC-WF-PAJ" secondAttribute="trailing" constant="27" id="rED-9K-M00"/>
                             <constraint firstItem="Qqp-bb-iml" firstAttribute="top" secondItem="WVG-ZV-vxy" secondAttribute="bottom" id="sTm-5x-Io4"/>
                             <constraint firstItem="Zcx-Ty-JFI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="27.5" id="ubn-mS-7xl"/>
+                            <constraint firstItem="kq6-89-2qV" firstAttribute="trailing" secondItem="WVG-ZV-vxy" secondAttribute="trailing" constant="-10" id="uec-4g-aoC"/>
                             <constraint firstItem="MwY-f8-v5E" firstAttribute="leading" secondItem="gYy-0b-hw9" secondAttribute="leading" id="vWq-4t-qnW"/>
                             <constraint firstItem="oeD-JG-4Dy" firstAttribute="top" secondItem="ilD-oC-WjM" secondAttribute="top" id="vps-OT-dkR"/>
                             <constraint firstItem="u0G-vW-Fay" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="vwy-Ne-l0v"/>
@@ -345,6 +353,9 @@
         </namedColor>
         <namedColor name="macoIvory">
             <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoLightGray">
+            <color red="0.7686274509803922" green="0.7686274509803922" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="macoOrange">
             <color red="0.90196078431372551" green="0.47058823529411764" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

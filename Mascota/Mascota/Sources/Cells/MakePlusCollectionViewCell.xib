@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHs-8v-UbO">
-                        <rect key="frame" x="0.0" y="100" width="100" height="32"/>
+                        <rect key="frame" x="0.0" y="101" width="100" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-9A-kda">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <rect key="frame" x="0.0" y="1" width="100" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnIconPlus" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-6q-0Jt">
                                 <rect key="frame" x="36" y="43" width="28" height="28"/>
@@ -41,12 +41,12 @@
             </view>
             <viewLayoutGuide key="safeArea" id="crF-ag-nD1"/>
             <constraints>
-                <constraint firstItem="wA0-9A-kda" firstAttribute="top" secondItem="6YY-AF-moF" secondAttribute="top" id="6tl-yz-mdM"/>
+                <constraint firstItem="wA0-9A-kda" firstAttribute="top" secondItem="6YY-AF-moF" secondAttribute="top" constant="1" id="6tl-yz-mdM"/>
                 <constraint firstItem="hHs-8v-UbO" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="HyO-St-Igw"/>
                 <constraint firstAttribute="trailing" secondItem="wA0-9A-kda" secondAttribute="trailing" id="PWP-bd-raj"/>
                 <constraint firstAttribute="trailing" secondItem="hHs-8v-UbO" secondAttribute="trailing" id="PYR-kb-Lod"/>
                 <constraint firstItem="wA0-9A-kda" firstAttribute="leading" secondItem="6YY-AF-moF" secondAttribute="leading" id="TZE-yj-Fr7"/>
-                <constraint firstAttribute="bottom" secondItem="hHs-8v-UbO" secondAttribute="bottom" id="WIU-xu-eXP"/>
+                <constraint firstAttribute="bottom" secondItem="hHs-8v-UbO" secondAttribute="bottom" constant="1" id="WIU-xu-eXP"/>
                 <constraint firstItem="hHs-8v-UbO" firstAttribute="top" secondItem="wA0-9A-kda" secondAttribute="bottom" id="WMg-vm-nyv"/>
             </constraints>
             <connections>

@@ -26,6 +26,7 @@
 		4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809D067268E304C0060F5EB /* LoginViewController.swift */; };
 		483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DA24F2690D1CD005DBA86 /* SignUp.storyboard */; };
 		483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA2512690DAA8005DBA86 /* SignUpViewController.swift */; };
+		48429B622695A7EB00C7904A /* UIAlertAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48429B612695A7EB00C7904A /* UIAlertAction+Extension.swift */; };
 		4888036826919BA3000CB8F2 /* RegisterMyPet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */; };
 		4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */; };
 		488803712692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888036F2692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift */; };
@@ -102,6 +103,7 @@
 		4809D067268E304C0060F5EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		483DA24F2690D1CD005DBA86 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		483DA2512690DAA8005DBA86 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		48429B612695A7EB00C7904A /* UIAlertAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Extension.swift"; sourceTree = "<group>"; };
 		4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterMyPet.storyboard; sourceTree = "<group>"; };
 		4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetViewController.swift; sourceTree = "<group>"; };
 		4888036F2692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */,
 				DD878EA12691681900856EE2 /* String+Extension.swift */,
 				DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */,
+				48429B612695A7EB00C7904A /* UIAlertAction+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
 				48880374269218F8000CB8F2 /* RegisterMyPetModel.swift in Sources */,
+				48429B622695A7EB00C7904A /* UIAlertAction+Extension.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
