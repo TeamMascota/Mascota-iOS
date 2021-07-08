@@ -37,11 +37,13 @@ class RainbowBookPageTableViewCell: UITableViewCell {
         
         addSubviews(bookPageView)
         
+        let bookHeight = (Constant.DeviceSize.width - 32) * 0.6
+        
         bookPageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(6)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(225)
+            $0.height.equalTo(Int(bookHeight))
             $0.bottom.equalToSuperview()
         }
         
