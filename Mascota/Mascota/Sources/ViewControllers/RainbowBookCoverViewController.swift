@@ -9,7 +9,7 @@ import UIKit
 
 class RainbowBookCoverViewController: UIViewController {
 
-    private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "이별하는 무지개 다리")
+//    private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "이별하는 무지개 다리")
     
     private lazy var nextButton = MacoButton(color: .white).then {
         $0.setMacoButtonTitle("다음", for: .normal)
@@ -26,21 +26,29 @@ class RainbowBookCoverViewController: UIViewController {
     
     private lazy var bookCoverView = BookCoverView()
     
+    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
+    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initRainbowBookCoverViewController()
         
         setAddTarget()
-        setRainbowNavigationBar()
+//        setRainbowNavigationBar()
         setLabel()
         setBookCoverView()
         setButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setRainbowNavigationBar()
+    }
+    
     private func setAddTarget() {
-        rainbowNavigationBar.backButton.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
-        rainbowNavigationBar.closeButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
+//        rainbowNavigationBar.backButton.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
+//        rainbowNavigationBar.closeButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
     }
     
@@ -49,15 +57,10 @@ class RainbowBookCoverViewController: UIViewController {
     }
     
     private func setRainbowNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-        
-        view.addSubviews(rainbowNavigationBar)
-        
-        rainbowNavigationBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(topBarHeight)
-        }
+        navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
+        navigationItem.setTitle(title: "무지개 다리")
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = closeButton
     }
     
     private func setButton() {
@@ -75,7 +78,7 @@ class RainbowBookCoverViewController: UIViewController {
         view.addSubviews(episodeLabel, dateLabel)
         
         episodeLabel.snp.makeConstraints {
-            $0.top.equalTo(rainbowNavigationBar.snp.bottom).offset(23)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(23)
             $0.leading.equalToSuperview().offset(23)
         }
         
@@ -124,18 +127,20 @@ class RainbowBookCoverViewController: UIViewController {
 extension RainbowBookCoverViewController {
     
     @objc
-    func tapCloseButton() {
-        print("tapCloseButton")
+    func tapBackButton(_ sender: UIBarButtonItem) {
+        print("click")
+        navigationController?.popViewController(animated: true)
     }
     
     @objc
-    func tapBackButton() {
-        print("tapBackButton")
+    func tapCloseButton(_ sender: UIBarButtonItem) {
+        print("click")
     }
     
     @objc
-    func tapNextButton() {
+    func tapNextButton(_ sender: UIButton) {
         print("tapNextButton")
+        navigationController?.pushViewController(RainbowBestViewController(), animated: true)
     }
     
 }
