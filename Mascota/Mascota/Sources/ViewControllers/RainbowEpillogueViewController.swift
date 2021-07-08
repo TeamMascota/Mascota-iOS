@@ -10,11 +10,7 @@ import UIKit
 class RainbowEpillogueViewController: UIViewController {
     
     private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "작가의 말", subtitle: "에필로그", underLineHidden: true)
-    
-    private lazy var backgroundView = UIView().then {
-        $0.backgroundColor = .macoIvory
-    }
-    
+
     private lazy var bookMarkImageView = UIImageView().then {
         $0.image = .checkmark // 이미지 넣기
         $0.backgroundColor = .blue
@@ -61,8 +57,10 @@ class RainbowEpillogueViewController: UIViewController {
         continueAttr.append("에서 계속".convertColorFont(color: .macoDarkGray, fontSize: 14, type: .regular))
 
         $0.attributedText = continueAttr
-        
     }
+    
+    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
+    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
     
     private lazy var name: String = "가나다라마바사"
     
@@ -91,7 +89,6 @@ class RainbowEpillogueViewController: UIViewController {
         epilogueTitleTextField.setMacoTextField(color: .macoBlue)
     }
 
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -104,17 +101,12 @@ class RainbowEpillogueViewController: UIViewController {
             object: nil
         )
         
-        view.backgroundColor = .macoBlue
+        view.backgroundColor = .macoIvory
        
-        view.addSubviews(backgroundView, bookMarkImageView)
-        
-        backgroundView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
+        view.addSubviews(bookMarkImageView)
         
         bookMarkImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(topBarHeight)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.trailing.equalToSuperview().inset(15)
             $0.width.equalTo(30)
             $0.height.equalTo(85)
@@ -123,15 +115,11 @@ class RainbowEpillogueViewController: UIViewController {
     }
     
     private func setRainbowNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-        
-        view.addSubviews(rainbowNavigationBar)
-        
-        rainbowNavigationBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(topBarHeight)
-        }
+        navigationController?.navigationBar.barTintColor = .macoBlue
+        navigationController?.navigationBar.tintColor = .macoWhite
+        navigationItem.setTitle(title: "작가의 말", subtitle: "에필로그")
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = closeButton
     }
     
     private func setEndButton() {
@@ -150,8 +138,7 @@ class RainbowEpillogueViewController: UIViewController {
         view.addSubviews(contentLabel, epilogueLabel)
         
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(topBarHeight + 43)
-           
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(43)
             $0.leading.equalToSuperview().offset(28)
             $0.trailing.equalToSuperview().inset(28)
         }
@@ -217,6 +204,25 @@ class RainbowEpillogueViewController: UIViewController {
         name = "뮨서"
     }
     
+}
+
+extension RainbowEpillogueViewController: UITextFieldDelegate {
+    
+}
+
+extension RainbowEpillogueViewController {
+    @objc
+    func tapBackButton(_ sender: UIBarButtonItem) {
+        print("click")
+    }
+    
+    @objc
+    func tapCloseButton(_ sender: UIBarButtonItem) {
+        print("click")
+    }
+}
+
+extension RainbowEpillogueViewController {
     @objc
     func textFieldDidChange(_ textField: UITextField) {
         endButton.isEnabled = checkEndButtonEnabled()
@@ -232,11 +238,6 @@ class RainbowEpillogueViewController: UIViewController {
         }
         
     }
-    
-}
-
-extension RainbowEpillogueViewController: UITextFieldDelegate {
-    
 }
 
 extension RainbowEpillogueViewController {
@@ -296,28 +297,9 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
 extension RainbowEpillogueViewController {
     func animateViewMoving(position: CGFloat, upward: Bool) {
         
-        self.view.frame.origin.y = -position
-
-        let height = self.navigationController?.navigationBar.frame.height ?? 0
-        
-        if upward {
-            let backView = UIView().then {
-                $0.backgroundColor = .macoBlue
-            }
-            
-            view.addSubviews(backView)
-
-            backView.snp.makeConstraints {
-                $0.top.equalToSuperview()
-                $0.leading.trailing.equalToSuperview()
-                $0.bottom.equalTo(self.rainbowNavigationBar.snp.top)
-            }
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut) {
+            self.view.frame.origin.y = -position
         }
-        
-        self.rainbowNavigationBar.snp.remakeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(position)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(height)
-        }
+
     }
 }

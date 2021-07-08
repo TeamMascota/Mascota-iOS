@@ -41,6 +41,7 @@
 		483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA2512690DAA8005DBA86 /* SignUpViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
+		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
@@ -143,6 +144,7 @@
 		B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MascotaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5AB90B6090251464E4BE991 /* Pods-MascotaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.debug.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
+		DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				DD8DE353269426E1000F03C3 /* UITextField+Extension.swift */,
 				DD8DE35526943EA3000F03C3 /* UITextView+Extension.swift */,
 				DD8DE35B26945242000F03C3 /* UIButton+Extension.swift */,
+				DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD8DE350269419A4000F03C3 /* RainbowEpillogueViewController.swift in Sources */,
+				DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */,
