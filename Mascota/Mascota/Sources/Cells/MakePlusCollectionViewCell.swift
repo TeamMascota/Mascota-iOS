@@ -9,6 +9,7 @@ import UIKit
 
 class MakePlusCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var myPetImage: UIImageView!
     @IBOutlet weak var characterNumberLabel: UILabel!
     
     override func awakeFromNib() {

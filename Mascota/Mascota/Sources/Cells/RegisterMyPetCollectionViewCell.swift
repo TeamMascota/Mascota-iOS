@@ -18,10 +18,11 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        characterNumberLabel.font = .macoFont(type: .regular, size: 15.0)
     }
     
     override func prepareForReuse() {
-        myPetImage = nil
+        myPetImage.image = nil
     }
 
 }
