@@ -17,24 +17,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GO-Zu-gXC">
-                        <rect key="frame" x="0.0" y="101" width="100" height="31"/>
+                        <rect key="frame" x="0.0" y="100.5" width="100" height="31.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-w0-I5B">
-                        <rect key="frame" x="0.0" y="1" width="100" height="100"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yeonseo" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-w0-I5B">
+                        <rect key="frame" x="0.5" y="0.5" width="99" height="100"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="Vbv-aH-tHV"/>
-                            <constraint firstAttribute="height" constant="100" id="jH0-h0-EJb"/>
+                            <constraint firstAttribute="height" constant="99.900000000000006" id="1va-t9-DlQ"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw1-7e-Fmv">
-                        <rect key="frame" x="0.0" y="28" width="100" height="66"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="66" id="unD-lz-iuw"/>
-                        </constraints>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSj-ga-5pZ">
                         <rect key="frame" x="73" y="9" width="19" height="19"/>
                         <constraints>
@@ -50,22 +43,18 @@
             </view>
             <viewLayoutGuide key="safeArea" id="2GP-ee-fnf"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="cw1-7e-Fmv" secondAttribute="trailing" id="0Rf-MT-zvh"/>
-                <constraint firstItem="cw1-7e-Fmv" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="FUK-7B-dqS"/>
-                <constraint firstItem="ZSa-w0-I5B" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="1" id="Jga-O1-4Dm"/>
-                <constraint firstItem="ZSa-w0-I5B" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="Z1C-E7-RKU"/>
-                <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="ZSa-w0-I5B" secondAttribute="bottom" id="bph-uk-n4W"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" constant="0.5" id="5zP-4w-nog"/>
+                <constraint firstItem="4GO-Zu-gXC" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="7Cq-Xj-Xfy"/>
+                <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" id="DT3-na-UuG"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="0.5" id="LMf-8n-gcM"/>
                 <constraint firstAttribute="trailing" secondItem="tSj-ga-5pZ" secondAttribute="trailing" constant="8" id="bsd-Vg-EXq"/>
-                <constraint firstItem="cw1-7e-Fmv" firstAttribute="top" secondItem="tSj-ga-5pZ" secondAttribute="bottom" constant="0.10000000000000001" id="cu9-Hj-uRx"/>
-                <constraint firstItem="4GO-Zu-gXC" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="gdf-Sg-m53"/>
+                <constraint firstAttribute="trailing" secondItem="4GO-Zu-gXC" secondAttribute="trailing" id="fIP-lX-3up"/>
                 <constraint firstItem="tSj-ga-5pZ" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="9" id="isQ-jw-nWM"/>
-                <constraint firstAttribute="trailing" secondItem="ZSa-w0-I5B" secondAttribute="trailing" id="mJZ-Vq-Sui"/>
-                <constraint firstAttribute="trailing" secondItem="4GO-Zu-gXC" secondAttribute="trailing" id="pSf-Bn-eak"/>
-                <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" constant="0.20000000000000001" id="vnd-cP-soK"/>
+                <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="ZSa-w0-I5B" secondAttribute="bottom" id="pHx-Gl-Yr5"/>
+                <constraint firstAttribute="trailing" secondItem="ZSa-w0-I5B" secondAttribute="trailing" constant="0.5" id="sCN-mI-CdB"/>
             </constraints>
             <connections>
                 <outlet property="characterNumberLabel" destination="4GO-Zu-gXC" id="q7X-qW-aYI"/>
-                <outlet property="imageViewButton" destination="cw1-7e-Fmv" id="Jbq-sb-wgj"/>
                 <outlet property="myPetImage" destination="ZSa-w0-I5B" id="khH-EK-5dp"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="67.633928571428569"/>
@@ -73,5 +62,6 @@
     </objects>
     <resources>
         <image name="btnIconQuit" width="33" height="32"/>
+        <image name="yeonseo" width="100" height="100.5"/>
     </resources>
 </document>

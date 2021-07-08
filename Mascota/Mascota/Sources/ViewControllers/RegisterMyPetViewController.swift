@@ -16,12 +16,17 @@ class RegisterMyPetViewController: UIViewController {
     @IBOutlet weak var catButton: UIButton!
     @IBOutlet var genderButton: [UIButton]!
     @IBOutlet weak var becomeFamilyDateLabel: UILabel!
+    @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     var myPetsArray = [RegisterMyPetModel]()
+    var myPetImageArray = [UIImage]()
+    
     var toolBar = UIToolbar()
-    var datePicker  = UIDatePicker()
+    var datePicker = UIDatePicker()
     let picker = UIImagePickerController()
     var datePickerBackgroundView = UIView()
-    var currentCellNum = 1
+    var currentCellNum = 0
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -61,9 +66,15 @@ class RegisterMyPetViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
         self.view.addSubview(datePicker)
         
-        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.onDoneButtonClick))]
-        toolBar.tintColor = .macoOrange
-        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(self.onDoneButtonClick))
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.cancelButtonClick))
+        let blankSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        cancelButton.tintColor = .macoLightGray
+        doneButton.tintColor = .macoOrange
+        toolBar.items = [cancelButton, blankSpace, doneButton]
+        
+        //toolBar.sizeToFit()
         self.view.addSubview(toolBar)
     }
     
@@ -71,18 +82,27 @@ class RegisterMyPetViewController: UIViewController {
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
-        
+
         if let date = sender?.date {
             becomeFamilyDateLabel.text = dateFormatter.string(from: date)
         }
     }
     
     @objc func onDoneButtonClick() {
+        calendarButton.imageView?.image = UIImage(named: "icCalendarFill")
         datePickerBackgroundView.removeFromSuperview()
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }
     
+    
+    @objc func cancelButtonClick() {
+        datePickerBackgroundView.removeFromSuperview()
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+    }
+    
+    /*
     @objc func tapImageButton() {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         
@@ -109,10 +129,21 @@ class RegisterMyPetViewController: UIViewController {
         
         present(alertController, animated: true)
     }
+    */
+     
+    // MARK: - Navigation Bar
+    
+    func setNavigationBar() {
+        self.navigationBar.backgroundColor = .macoIvory
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.macoBlack]
+        self.navigationController?.navigationBar.shadowImage = nil
+        //self.navigationItem.backBarButtonItem?.image = UIImage(named: "btnIconBack")
+    }
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         setButtons()
         setDateLabelPlaceholder()
         appendEmptyElement()
@@ -121,7 +152,7 @@ class RegisterMyPetViewController: UIViewController {
     }
     
     func appendEmptyElement() {
-        myPetsArray.append(RegisterMyPetModel(petImage: "", petName: "", petKind: "", familyDate: "", petGender: ""))
+        myPetsArray.append(RegisterMyPetModel(petImage: UIImage(named: "yeonseo") ?? UIImage(), petName: "", petKind: "", familyDate: "", petGender: ""))
     }
     
     func setDatePickerView() {
@@ -186,17 +217,37 @@ class RegisterMyPetViewController: UIViewController {
 extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myPetsArray.count+1
+        return myPetsArray.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
+        if indexPath.row == myPetsArray.count {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MakePlusCollectionViewCell", for: indexPath) as? MakePlusCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            setPlusCell(cell, .macoLightGray, indexPath.row + 1)
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            setRegisterCell(cell, .macoOrange, indexPath.row + 1)
+            print("indexpath.row")
+            print(indexPath.row)
+      
+            cell.myPetImage.image = myPetsArray[indexPath.row].petImage
+            return cell
+        }
+    }
+/*
+         switch indexPath.row {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
                 return UICollectionViewCell()
             }
             setRegisterCell(cell, .macoOrange, 1)
-            cell.imageViewButton.addTarget(self, action: #selector(tapImageButton), for: .touchUpInside)
+            cell.myPetImage.image = myPetsArray[currentCellNum].petImage
+            //cell.imageViewButton.addTarget(self, action: #selector(tapImageButton), for: .touchUpInside)
             return cell
             
         case myPetsArray.count: // 마지막셀
@@ -211,19 +262,26 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
                 return UICollectionViewCell()
             }
             setRegisterCell(cell, .macoOrange, indexPath.row + 1)
-            cell.imageViewButton.addTarget(self, action: #selector(tapImageButton), for: .touchUpInside)
-
+            cell.myPetImage.image = myPetsArray[currentCellNum].petImage
+            //cell.imageViewButton.addTarget(self, action: #selector(tapImageButton), for: .touchUpInside)
             return cell
+            
         }
     }
+*/
     
     // MARK: - Add CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == myPetsArray.count {
-            myPetsArray.append(RegisterMyPetModel(petImage: "", petName: "", petKind: "", familyDate: "", petGender: ""))
+        switch indexPath.row {
+        case myPetsArray.count: // 마지막셀
+            currentCellNum = indexPath.row
+            myPetsArray.append(RegisterMyPetModel(petImage: UIImage(), petName: "", petKind: "", familyDate: "", petGender: ""))
+            //registerPetCollectionView.reloadData()
+        default:
+            currentCellNum = indexPath.row
+            self.openLibrary()
+            
         }
-        registerPetCollectionView.reloadData()
- 
     }
     
     // MARK: - Set CollectionViewCell
@@ -264,14 +322,12 @@ extension RegisterMyPetViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - ImagePicker
 extension RegisterMyPetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        {
-            //info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            guard let cell = self.registerPetCollectionView.cellForItem(at: IndexPath(item: currentCellNum, section: 0)) as? RegisterMyPetCollectionViewCell else { return }
-            print("사진클릭 직후:" + String(currentCellNum))
-            cell.myPetImage.image = image
+        print("==============현재셀넘버:================ ")
+        print(currentCellNum)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            myPetsArray[currentCellNum].petImage = image
+            print(myPetsArray[currentCellNum].petImage)
             registerPetCollectionView.reloadData()
         }
         dismiss(animated: true, completion: nil)
@@ -279,8 +335,7 @@ extension RegisterMyPetViewController: UIImagePickerControllerDelegate, UINaviga
     
     func openLibrary() {
         picker.delegate = self
-      picker.sourceType = .photoLibrary
-      present(picker, animated: false, completion: nil)
+        picker.sourceType = .photoLibrary
+        present(picker, animated: false, completion: nil)
     }
 }
-

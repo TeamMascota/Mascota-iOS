@@ -11,7 +11,6 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var myPetImage: UIImageView!
     @IBOutlet weak var characterNumberLabel: UILabel!
-    @IBOutlet weak var imageViewButton: UIButton!
     
     @IBAction func tapDeleteButton() {
         print("closed")
@@ -20,4 +19,9 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        myPetImage = nil
+    }
+
 }
