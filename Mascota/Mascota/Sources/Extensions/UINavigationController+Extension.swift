@@ -22,7 +22,6 @@ extension UINavigationController {
         navigationBar.barTintColor = barTintColor
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = false
-        navigationBar.clipsToBounds = false
         
         borderView.backgroundColor = underLineColor
 
