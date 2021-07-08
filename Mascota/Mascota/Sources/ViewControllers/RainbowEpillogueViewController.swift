@@ -8,8 +8,6 @@
 import UIKit
 
 class RainbowEpillogueViewController: UIViewController {
-    
-    private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "작가의 말", subtitle: "에필로그", underLineHidden: true)
 
     private lazy var bookMarkImageView = UIImageView().then {
         $0.image = .checkmark // 이미지 넣기
@@ -80,13 +78,13 @@ class RainbowEpillogueViewController: UIViewController {
         setTextView()
         
         setRainbowNavigationBar()
-        
     }
    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textView.setUnderLine(color: .macoBlue)
         epilogueTitleTextField.setMacoTextField(color: .macoBlue)
+        
     }
 
     deinit {
@@ -115,11 +113,11 @@ class RainbowEpillogueViewController: UIViewController {
     }
     
     private func setRainbowNavigationBar() {
-        navigationController?.navigationBar.barTintColor = .macoBlue
-        navigationController?.navigationBar.tintColor = .macoWhite
+        navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite)
         navigationItem.setTitle(title: "작가의 말", subtitle: "에필로그")
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = closeButton
+        
     }
     
     private func setEndButton() {
@@ -213,12 +211,12 @@ extension RainbowEpillogueViewController: UITextFieldDelegate {
 extension RainbowEpillogueViewController {
     @objc
     func tapBackButton(_ sender: UIBarButtonItem) {
-        print("click")
+        navigationController?.popViewController(animated: true)
     }
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
-        print("click")
+        
     }
 }
 
@@ -296,7 +294,6 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
 
 extension RainbowEpillogueViewController {
     func animateViewMoving(position: CGFloat, upward: Bool) {
-        
         UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut) {
             self.view.frame.origin.y = -position
         }
