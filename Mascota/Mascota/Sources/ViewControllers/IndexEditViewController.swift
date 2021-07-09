@@ -22,9 +22,7 @@ class IndexEditViewController: UIViewController {
         $0.backgroundColor = UIColor.macoIvory
     }
     
-    lazy var tempView: UIView = UIView().then {
-        $0.backgroundColor = UIColor.black
-    }
+
     
     var confirmHandler: ((UIAlertAction) -> Void)?
     
@@ -66,6 +64,7 @@ class IndexEditViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-15)
             $0.bottom.equalToSuperview()
         }
+        
     }
     
     @objc
@@ -84,8 +83,11 @@ class IndexEditViewController: UIViewController {
     }
     
     @IBAction func touchPlusButton(_ sender: Any) {
-        self.presentSingleCustomAlert(view: tempView,
-                                      preferredSize: CGSize(width: 1000, height: 100), confirmHandler: confirmHandler)
+//        self.presentSingleCustomAlert(view: tempView,
+//                                      preferredSize: CGSize(width: 1000, height: 100), confirmHandler: confirmHandler)
+        let view = CustomLabelAlertView()
+//        view.setAlertLabelText(text: "아 개 귀찮다 이게 뭐지 정말?")
+        self.presentDoubleCustomAlert(view: view, preferredSize: CGSize(width: 1000, height: 100), firstHandler: nil, secondHandler: nil)
         print("touchPlusButton")
     }
 

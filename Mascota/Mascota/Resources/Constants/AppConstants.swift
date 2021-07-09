@@ -23,6 +23,11 @@ struct AppConstants {
         static let indexEdit: String = "IndexEditViewController"
     }
     
+    struct Views {
+        static let customLabelAlertView: String = "CustomLabelAlertView"
+        static let customTextFieldAlertView: String = "CustomTextFieldAlertView"
+    }
+    
     struct CollectionViewCells {
         static let bookPageCollectionViewCell: String = "BookPageCollectionViewCell"
         static let homeIndexCollectionViewCell: String = "HomeIndexCollectionViewCell"
