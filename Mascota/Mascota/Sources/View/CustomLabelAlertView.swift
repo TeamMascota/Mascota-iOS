@@ -22,7 +22,6 @@ class CustomLabelAlertView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     func setTitle(text: String) {
         titleLabel.text = text
     }

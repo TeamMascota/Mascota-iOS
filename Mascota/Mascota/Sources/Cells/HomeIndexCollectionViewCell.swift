@@ -11,8 +11,7 @@ import SnapKit
 import Then
 
 class HomeIndexCollectionViewCell: UICollectionViewCell {
-
-
+    
     private lazy var indexLabel: UILabel = UILabel().then {
         $0.font = UIFont.macoFont(type: .regular, size: 14)
         $0.textColor = UIColor.macoDarkGray
@@ -39,7 +38,6 @@ class HomeIndexCollectionViewCell: UICollectionViewCell {
         self.indexTitleLabel.text = "코봉이와의 7년"
         self.episodeLabel.text = "총 \(3)화"
     }
-
 
     private func layoutHomeComponents() {
         self.contentView.addSubviews(indexLabel, indexTitleLabel, episodeLabel, indexDetailButton)

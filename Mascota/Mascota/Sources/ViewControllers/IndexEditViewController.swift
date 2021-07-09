@@ -12,6 +12,7 @@ import Then
 
 class IndexEditViewController: UIViewController {
 
+    // MARK: - Properities 선언
     @IBOutlet weak var separatorView: UIView!
     
     var cellCnt = 40
@@ -25,12 +26,14 @@ class IndexEditViewController: UIViewController {
     var customTextFieldAlertView = CustomTextFieldAlertView()
     var customLabelAlertView = CustomLabelAlertView()
 
+    // Alert Handlers
     var deleteHandler: ((UIAlertAction) -> Void)?
     var confirmHandler: ((UIAlertAction) -> Void)?
     var dismissHandler: ((UIAlertAction) -> Void)?
     var saveHandler: ((UIAlertAction) -> Void)?
     var afterDeleted: (() -> Void)?
     
+    // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -42,7 +45,6 @@ class IndexEditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     private func initializeHandlers() {
         self.confirmHandler = { _ in
             self.dismiss(animated: true, completion: nil)
@@ -52,10 +54,10 @@ class IndexEditViewController: UIViewController {
         self.deleteHandler = { _ in
             self.customLabelAlertView.setTitle(text: "삭제 완료")
             let description = "title 목차가 삭제됐어요".convertSomeColorFont(color: UIColor.macoBlack,
-                                                                                     fontSize: 14,
-                                                                                     type: .medium,
-                                                                                     start: 0,
-                                                                                     length: 5)
+                                                                        fontSize: 14,
+                                                                        type: .medium,
+                                                                        start: 0,
+                                                                        length: 5)
             self.customLabelAlertView.setAttributedDescription(attributedText: description)
             self.dismiss(animated: true, completion: nil)
         }
@@ -77,19 +79,14 @@ class IndexEditViewController: UIViewController {
         }
     }
     
+    // MARK: - Private Functions
+    
+    // 텍스트필드 등록
     private func registerTextField() {
-        self.customTextFieldAlertView.setTitle(text: "asdfasf")
         self.customTextFieldAlertView.alertTextField.delegate = self
         self.customTextFieldAlertView.alertTextField.addTarget(self, action: #selector(textFieldEditing(_:)), for: .editingChanged)
     }
     
-    @objc
-    func textFieldEditing(_ sender: UITextField) {
-        guard let text = sender.text else {
-            return
-        }
-        self.customTextFieldAlertView.setTextFieldCountLabel(length: text.count)
-    }
     private func registerCollectionView() {
         indexCollectionView.delegate = self
         indexCollectionView.dataSource = self
@@ -114,7 +111,14 @@ class IndexEditViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-15)
             $0.bottom.equalToSuperview()
         }
-        
+    }
+    
+    @objc
+    func textFieldEditing(_ sender: UITextField) {
+        guard let text = sender.text else {
+            return
+        }
+        self.customTextFieldAlertView.setTextFieldCountLabel(length: text.count)
     }
     
     @objc
@@ -163,6 +167,8 @@ class IndexEditViewController: UIViewController {
 
 }
 
+// MARK: - UICollecitonView DataSource
+
 extension IndexEditViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -178,6 +184,7 @@ extension IndexEditViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
+            // 셀이 2개 사용되기 때문에 분기
             if indexPath.item == 0 {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.indexEditPrologueCollectionViewCell,
                                                                     for: indexPath) as? IndexEditPrologueCollectionViewCell else {
@@ -214,10 +221,10 @@ extension IndexEditViewController: UICollectionViewDataSource {
         }
         
     }
-    
-    
+
 }
 
+// MARK: - UICollection View Delegate
 extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -228,7 +235,8 @@ extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             return CGSize(width: collectionView.bounds.width, height: 41)
         default:
-            let cellsHeight = CGFloat(41*cellCnt)
+            // 목록이 한 화면은 다 채우지 않으면 이미지가 화면 밑으로 가게끔 조정
+            let cellsHeight = CGFloat(41 * cellCnt)
             let freeSpace = collectionView.bounds.height - cellsHeight
             let height = freeSpace > 142 ? freeSpace: 142
             return CGSize(width: collectionView.bounds.width,
@@ -247,11 +255,9 @@ extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
+// MARK: - UITextFieldDelegate
 extension IndexEditViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(textField.text ?? "1")
-    }
-    
+    // 엔터키 눌렀을 때 텍스트뷰 비활
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
     }

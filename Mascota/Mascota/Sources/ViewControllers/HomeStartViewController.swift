@@ -103,7 +103,6 @@ class HomeStartViewController: UIViewController {
         pushToIndexEdit()
     }
     
-    
     // 무지개 다리 이후 1부 or 2부 책 뷰 버튼
     @objc
     func touchPartDetailButton(_ sender: UIButton) {

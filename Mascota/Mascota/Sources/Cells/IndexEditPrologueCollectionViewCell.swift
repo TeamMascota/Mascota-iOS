@@ -32,7 +32,6 @@ class IndexEditPrologueCollectionViewCell: UICollectionViewCell {
         $0.backgroundColor = UIColor.macoLightGray
     }
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
         layoutPrologueComponents()

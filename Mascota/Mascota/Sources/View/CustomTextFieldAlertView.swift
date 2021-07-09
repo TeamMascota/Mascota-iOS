@@ -40,7 +40,7 @@ class CustomTextFieldAlertView: UIView {
         self.textFieldCountLabel.text = "\(length)/11"
     }
     
-    func initializeComponents(title: String?, textField: String?){
+    func initializeComponents(title: String?, textField: String?) {
         self.titleLabel.text = title ?? ""
         self.alertTextField.text = textField ?? ""
         self.textFieldCountLabel.text = "\(textField?.count ?? 0)/11"
