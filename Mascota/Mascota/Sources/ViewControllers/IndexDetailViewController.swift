@@ -30,12 +30,14 @@ class IndexDetailViewController: UIViewController {
         $0.alpha = 0.0
     }
     
-    lazy var indexDetailTableView: UITableView = UITableView().then {
+    lazy var indexDetailTableView: UITableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
         $0.allowsSelection = false
         $0.backgroundColor = .clear
         $0.tableHeaderView = nil
     }
+    
+    
     
     lazy var navigationBar: UIView = UIView().then {
         $0.backgroundColor = .clear
@@ -167,20 +169,25 @@ extension IndexDetailViewController: UITableViewDelegate {
         return 83
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         let editAction = UIContextualAction(style: .normal, title: "수정") {_,_,_ in
             print("edited")
         }.then {
-            let label = UILabel().then {
-                $0.font = UIFont.macoFont(type: .regular, size: 12)
-                $0.textColor = UIColor.white
-                $0.backgroundColor = UIColor.yellow
-                $0.sizeToFit()
-            }
-            $0.image = UIImage(view: label)
+            $0.backgroundColor = UIColor.lightGray
+            $0.title = "수정"
+            
         }
         
-        return UISwipeActionsConfiguration(actions: [editAction])
+        let deleteAction = UIContextualAction(style: .normal, title: "삭제") {_,_,_ in
+            print("deleted")
+        }.then {
+            $0.backgroundColor = UIColor.macoOrange
+            $0.title = "삭제"
+        }
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
     }
 }
 

@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
 //            let viewcontroller = RainbowBestViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-                         let viewcontroller = UIStoryboard(name: "IndexDetail", bundle: nil).instantiateViewController(withIdentifier: "IndexDetailViewController") as! IndexDetailViewController
+            let viewcontroller = UIStoryboard(name: "IndexDetail", bundle: nil).instantiateViewController(withIdentifier: "IndexDetailViewController") as! IndexDetailViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
