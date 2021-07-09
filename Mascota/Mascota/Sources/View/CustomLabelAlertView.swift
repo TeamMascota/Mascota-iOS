@@ -41,7 +41,7 @@ class CustomLabelAlertView: UIView {
     
     func commonInit() {
         self.backgroundColor = UIColor.white
-        let viewFromXib = Bundle.main.loadNibNamed(AppConstants.Views.customLabelAlertView, owner: self, options: nil)![0] as? UIView ?? UIView()
+        let viewFromXib = Bundle.main.loadNibNamed(AppConstants.Views.customLabelAlertView, owner: self, options: nil)?[0] as? UIView ?? UIView()
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
     }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1814DDD02694BD14008B3B08 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814DDCF2694BD14008B3B08 /* UIViewController + Extension.swift */; };
 		182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C1D6826934518006C6511 /* PartCollectionViewCell.swift */; };
 		182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C1D6926934518006C6511 /* PartCollectionViewCell.xib */; };
 		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
@@ -104,7 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1814DDCF2694BD14008B3B08 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		182C1D6826934518006C6511 /* PartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartCollectionViewCell.swift; sourceTree = "<group>"; };
 		182C1D6926934518006C6511 /* PartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartCollectionViewCell.xib; sourceTree = "<group>"; };
 		1850441E26982212009C0F50 /* CustomLabelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelAlertView.swift; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 				DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */,
 				DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */,
 				DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */,
-				1814DDCF2694BD14008B3B08 /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -766,7 +763,6 @@
 				DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */,
 				DD931B2D268DE9C7001DA072 /* UILabel+Extension.swift in Sources */,
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
-				1814DDD02694BD14008B3B08 /* UIViewController + Extension.swift in Sources */,
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,

@@ -35,6 +35,28 @@ extension String {
                               value: UIFont.macoFont(type: type, size: unwrappedSize) ,
                               range: NSRange(location: 0, length: self.count))
         }
+        return text
+    }
+    
+    func convertSomeColorFont(color: UIColor? = nil,
+                              fontSize: CGFloat? = nil,
+                              type: UIFont.NotoSansCJKkrType,
+                              start: Int,
+                              length: Int) -> NSAttributedString {
+        
+        let text = NSMutableAttributedString(string: self)
+
+        if let unwrappedColor = color {
+            text.addAttribute(.foregroundColor,
+                              value: unwrappedColor,
+                              range: NSRange(location: start, length: length))
+        }
+        
+        if let unwrappedSize = fontSize {
+            text.addAttribute(.font,
+                              value: UIFont.macoFont(type: type, size: unwrappedSize) ,
+                              range: NSRange(location: start, length: length))
+        }
         
         return text
     }

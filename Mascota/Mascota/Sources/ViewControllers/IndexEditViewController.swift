@@ -22,9 +22,14 @@ class IndexEditViewController: UIViewController {
         $0.backgroundColor = UIColor.macoIvory
     }
     
+    var customTextFieldAlertView = CustomTextFieldAlertView()
+    var customLabelAlertView = CustomLabelAlertView()
 
-    
+    var deleteHandler: ((UIAlertAction) -> Void)?
     var confirmHandler: ((UIAlertAction) -> Void)?
+    var dismissHandler: ((UIAlertAction) -> Void)?
+    var saveHandler: ((UIAlertAction) -> Void)?
+    var afterDeleted: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +37,66 @@ class IndexEditViewController: UIViewController {
         layoutComponents()
         registerCollectionView()
         registerCollectionViewCell()
-        confirmHandler = { _ in
-            self.dismiss(animated: true, completion: nil)
-        }
+        registerTextField()
+        initializeHandlers()
         // Do any additional setup after loading the view.
     }
     
+    private func initializeHandlers() {
+        self.confirmHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+            print("confirmed")
+
+        }
+        self.deleteHandler = { _ in
+            self.customLabelAlertView.setTitle(text: "삭제 완료")
+            let description = "title 목차가 삭제됐어요".convertSomeColorFont(color: UIColor.macoBlack,
+                                                                                     fontSize: 14,
+                                                                                     type: .medium,
+                                                                                     start: 0,
+                                                                                     length: 5)
+            self.customLabelAlertView.setAttributedDescription(attributedText: description)
+            self.dismiss(animated: true, completion: nil)
+        }
+        self.dismissHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+            print("dismissed")
+
+        }
+        self.saveHandler = { _ in
+            self.dismiss(animated: true, completion: nil)
+            print("saved")
+        }
+        
+        self.afterDeleted = {
+            print(1)
+            self.presentSingleCustomAlert(view: self.customLabelAlertView,
+                                          preferredSize: CGSize(width: 270, height: 100),
+                                          confirmHandler: self.dismissHandler,
+                                          text: "확인")
+        }
+    }
+    
+    private func registerTextField() {
+        print(1)
+        self.customTextFieldAlertView.setTitle(text: "asdfasf")
+        self.customTextFieldAlertView.alertTextField.delegate = self
+        self.customTextFieldAlertView.alertTextField.addTarget(self, action: #selector(textFieldEditing(_:)), for: .editingChanged)
+    }
+    
+    @objc
+    func textFieldEditing(_ sender: UITextField) {
+        guard let text = sender.text else {
+            return
+        }
+        self.customTextFieldAlertView.setTextFieldCountLabel(length: text.count)
+    }
     private func registerCollectionView() {
         indexCollectionView.delegate = self
         indexCollectionView.dataSource = self
     }
     
     private func registerCollectionViewCell() {
-//        self.indexCollectionView.register(UINib(nibName: AppConstants.CollectionViewCells.IndexCollectionViewCell, bundle: nil),
-//                                              forCellWithReuseIdentifier: AppConstants.CollectionViewCells.IndexCollectionViewCell)
         self.indexCollectionView.register(UINib(nibName: AppConstants.CollectionViewCells.indexEditCollectionViewCell,
                                                 bundle: nil), forCellWithReuseIdentifier: AppConstants.CollectionViewCells.indexEditCollectionViewCell)
         self.indexCollectionView.register(UINib(nibName: AppConstants.CollectionViewCells.indexEditPrologueCollectionViewCell,
@@ -69,25 +120,46 @@ class IndexEditViewController: UIViewController {
     
     @objc
     func touchDeleteButton(_ sender: UIButton) {
-        print(sender.tag)
+        self.customLabelAlertView.setTitle(text: "목차 삭제")
+//        guard let title = 타이틀 이름
+//        let description = "목차와 이야기가 모두 사라집니다.\n" + title + "을 삭제하시겠어요?"
+        let description = "목차와 이야기가 모두 사라집니다.\ntitle을 삭제하시겠어요?".convertSomeColorFont(color: UIColor.macoBlack,
+                                                                                              fontSize: 14,
+                                                                                              type: .medium,
+                                                                                              start: 19,
+                                                                                              length: 5)
+        self.customLabelAlertView.setAttributedDescription(attributedText: description)
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 130),
+                                      firstHandler: dismissHandler,
+                                      secondHandler: deleteHandler,
+                                      firstText: "취소",
+                                      secondText: "삭제")
     }
     
     @objc
     func touchChangeButton(_ sender: UIButton) {
         print(sender.tag)
+        self.customTextFieldAlertView.initializeComponents(title: "\(sender.tag)", textField: nil)
+        self.presentDoubleCustomAlert(view: customTextFieldAlertView,
+                                      preferredSize: CGSize(width: 270, height: 100),
+                                      firstHandler: dismissHandler,
+                                      secondHandler: saveHandler,
+                                      firstText: "취소", secondText: "저장")
     }
     
-
     @IBAction func touchBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func touchPlusButton(_ sender: Any) {
-//        self.presentSingleCustomAlert(view: tempView,
-//                                      preferredSize: CGSize(width: 1000, height: 100), confirmHandler: confirmHandler)
-        let view = CustomLabelAlertView()
-//        view.setAlertLabelText(text: "아 개 귀찮다 이게 뭐지 정말?")
-        self.presentDoubleCustomAlert(view: view, preferredSize: CGSize(width: 1000, height: 100), firstHandler: nil, secondHandler: nil)
+        self.customTextFieldAlertView.initializeComponents(title: "목차 추가", textField: nil)
+        self.presentDoubleCustomAlert(view: customTextFieldAlertView,
+                                      preferredSize: CGSize(width: 270, height: 100),
+                                      firstHandler: dismissHandler,
+                                      secondHandler: saveHandler,
+                                      firstText: "취소",
+                                      secondText: "저장")
         print("touchPlusButton")
     }
 
@@ -176,4 +248,10 @@ extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
     }
     
     
+}
+
+extension IndexEditViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(textField.text ?? "1")
+    }
 }
