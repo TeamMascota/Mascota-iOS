@@ -6,10 +6,10 @@
 //
 
 import Foundation
-
+/*
 // MARK: - RegisterMyPetModel
 struct RegisterMyPetModel: Codable {
-    let pets: [Pet]
+    let pets: [PetInfo]
     let userID: String
 
     enum CodingKeys: String, CodingKey {
@@ -18,11 +18,12 @@ struct RegisterMyPetModel: Codable {
     }
 }
 
-// MARK: - Pet
-struct Pet: Codable {
+// MARK: - PetInfo
+struct PetInfo: Codable {
     let petImages: String
     let name: String
     let kind: Int
     let startDate: String
     let gender: Int
 }
+*/

@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GO-Zu-gXC">
-                        <rect key="frame" x="0.0" y="100.5" width="100" height="31.5"/>
+                        <rect key="frame" x="0.0" y="100" width="100" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yeonseo" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-w0-I5B">
-                        <rect key="frame" x="0.5" y="0.5" width="99" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="99.900000000000006" id="1va-t9-DlQ"/>
                         </constraints>
@@ -35,26 +35,24 @@
                             <constraint firstAttribute="height" constant="19" id="roi-Jb-WXF"/>
                         </constraints>
                         <state key="normal" image="btnIconQuit"/>
-                        <connections>
-                            <action selector="tapDeleteButton" destination="tOr-Ll-5BD" eventType="touchUpInside" id="yQK-x2-oNH"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="2GP-ee-fnf"/>
             <constraints>
-                <constraint firstItem="ZSa-w0-I5B" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" constant="0.5" id="5zP-4w-nog"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="5zP-4w-nog"/>
                 <constraint firstItem="4GO-Zu-gXC" firstAttribute="leading" secondItem="tOr-Ll-5BD" secondAttribute="leading" id="7Cq-Xj-Xfy"/>
                 <constraint firstAttribute="bottom" secondItem="4GO-Zu-gXC" secondAttribute="bottom" id="DT3-na-UuG"/>
-                <constraint firstItem="ZSa-w0-I5B" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="0.5" id="LMf-8n-gcM"/>
+                <constraint firstItem="ZSa-w0-I5B" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" id="LMf-8n-gcM"/>
                 <constraint firstAttribute="trailing" secondItem="tSj-ga-5pZ" secondAttribute="trailing" constant="8" id="bsd-Vg-EXq"/>
                 <constraint firstAttribute="trailing" secondItem="4GO-Zu-gXC" secondAttribute="trailing" id="fIP-lX-3up"/>
                 <constraint firstItem="tSj-ga-5pZ" firstAttribute="top" secondItem="tOr-Ll-5BD" secondAttribute="top" constant="9" id="isQ-jw-nWM"/>
                 <constraint firstItem="4GO-Zu-gXC" firstAttribute="top" secondItem="ZSa-w0-I5B" secondAttribute="bottom" id="pHx-Gl-Yr5"/>
-                <constraint firstAttribute="trailing" secondItem="ZSa-w0-I5B" secondAttribute="trailing" constant="0.5" id="sCN-mI-CdB"/>
+                <constraint firstAttribute="trailing" secondItem="ZSa-w0-I5B" secondAttribute="trailing" id="sCN-mI-CdB"/>
             </constraints>
             <connections>
                 <outlet property="characterNumberLabel" destination="4GO-Zu-gXC" id="q7X-qW-aYI"/>
+                <outlet property="closeButton" destination="tSj-ga-5pZ" id="c8q-lH-OGs"/>
                 <outlet property="myPetImage" destination="ZSa-w0-I5B" id="khH-EK-5dp"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="67.633928571428569"/>

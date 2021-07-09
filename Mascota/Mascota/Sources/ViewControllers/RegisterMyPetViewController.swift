@@ -118,6 +118,30 @@ class RegisterMyPetViewController: UIViewController {
         datePicker.removeFromSuperview()
     }
     
+    @objc func closeButtonTapped(_ sender: UIButton) {
+          let alert = UIAlertController(title: "프로필 삭제", message: "작성 중이던 주인공 \(String(currentCellNum+1))의 프로필 정보가 \n 모두 사라집니다. 프로필을 삭제하시겠어요? ", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "삭제", style: .default, handler: {_ in
+            
+            if self.currentCellNum == 0 {
+                // 주인공 많을 때랑 한개일 때 분기처리해야함!!
+                if self.myPetsArray.count == 1 {
+                self.myPetsArray[0] = RegisterMyPetModel(petImage: UIImage(named: "yeonseo")!, petName: "", petKind: "", familyDate: "", petGender: "")
+                } else {
+                    self.myPetsArray.remove(at: 0)
+                }
+            } else {
+                print("==============현재 셀 넘버===========")
+                print(self.currentCellNum)
+                self.myPetsArray.remove(at: self.currentCellNum)
+            }
+            self.registerPetCollectionView.reloadData()
+        } )
+          let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+          alert.addAction(okAction)
+          self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - tapImageView
     func tapImageView() {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
@@ -132,6 +156,13 @@ class RegisterMyPetViewController: UIViewController {
         
         showlibraryAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor") //ok버튼 색깔입히기
         alertController.addAction(showlibraryAction)
+        
+        let deleteImageAction = UIAlertAction(title: "사진삭제", style: .default) { _ in self.myPetsArray[self.currentCellNum].petImage = UIImage(named: "yeonseo") ?? UIImage()
+            self.registerPetCollectionView.reloadData()
+        }
+        
+        deleteImageAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor") //ok버튼 색깔입히기
+        alertController.addAction(deleteImageAction)
         
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
         alertController.view.layer.masksToBounds = true
@@ -267,6 +298,8 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.closeButton.tag = indexPath.row
+            cell.closeButton.addTarget(self, action: #selector(closeButtonTapped(_:)), for: .touchUpInside)
             setRegisterCell(cell, .macoOrange, indexPath.row + 1)
             if myPetsArray[indexPath.row].petImage == UIImage() {
                 cell.myPetImage.image = UIImage(named: "yeonseo")
@@ -279,7 +312,7 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
     
     // MARK: - Add CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        nameLabel.text = "주인공 " + String(indexPath.row+1) + "의 이름"
+        nameLabel.text = "주인공 " + String(indexPath.row + 1) + "의 이름"
         switch indexPath.row {
         case myPetsArray.count: // 마지막셀
             currentCellNum = indexPath.row
@@ -287,24 +320,34 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             registerPetCollectionView.reloadData()
         default:
             currentCellNum = indexPath.row
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 1.0
+            cell?.layer.borderColor = UIColor.macoOrange.cgColor
+            collectionView.allowsMultipleSelection = false
+                    
             tapImageView()
-            
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+            let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 1.0
+        cell?.layer.borderColor = UIColor.macoLightGray.cgColor
+    }
+    
     // MARK: - Set CollectionViewCell
-    func setPlusCell(_ sender: MakePlusCollectionViewCell,_ color: UIColor,_ index: Int) {
+    func setPlusCell(_ sender: MakePlusCollectionViewCell, _ color: UIColor, _ index: Int) {
         sender.layer.borderWidth = 1.0
-        sender.layer.cornerRadius = 3.0
+        sender.layer.cornerRadius = 4.0
         sender.layer.borderColor = color.cgColor
         sender.characterNumberLabel.text = "주인공 " + String(index)
         sender.characterNumberLabel.backgroundColor = color
         sender.characterNumberLabel.textColor = UIColor.white
     }
     
-    func setRegisterCell(_ sender: RegisterMyPetCollectionViewCell,_ color: UIColor,_ index: Int) {
-        sender.layer.borderWidth = 1.0
-        sender.layer.cornerRadius = 3.0
+    func setRegisterCell(_ sender: RegisterMyPetCollectionViewCell, _ color: UIColor, _ index: Int) {
+        sender.layer.borderWidth = 0.0
+        sender.layer.cornerRadius = 4.0
         sender.layer.borderColor = color.cgColor
         sender.characterNumberLabel.text = "주인공 " + String(index)
         sender.characterNumberLabel.backgroundColor = color
@@ -313,16 +356,6 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
 }
 
 extension RegisterMyPetViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = Constant.Size.width * (100 / 374)
-        let cellHeight = cellWidth * (132 / 100)
-        
-        return CGSize(width: cellWidth, height: cellHeight)
-        
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 12
     }
@@ -339,7 +372,6 @@ extension RegisterMyPetViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func openLibrary() {
-        
         picker.delegate = self
         picker.sourceType = .photoLibrary
         present(picker, animated: false, completion: nil)
