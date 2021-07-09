@@ -88,11 +88,21 @@ class HomeStartViewController: UIViewController {
         
     }
     
+    // 뷰 전환 함수
+    private func pushToIndexEdit() {
+        let storyboard = UIStoryboard(name: AppConstants.Storyboard.indexEdit, bundle: nil)
+        guard let editViewController = storyboard.instantiateViewController(identifier: AppConstants.ViewController.indexEdit) as? IndexEditViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(editViewController, animated: true)
+    }
+    
     // 편집 버튼
     @objc
     func touchEditButton(_ sender: UIButton) {
-        print(1)
+        pushToIndexEdit()
     }
+    
     
     // 무지개 다리 이후 1부 or 2부 책 뷰 버튼
     @objc

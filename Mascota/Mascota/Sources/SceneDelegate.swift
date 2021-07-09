@@ -23,9 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
 //            let viewcontroller = RainbowBookCoverViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-//            let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
-            let viewcontroller = UIStoryboard(name: "IndexEdit", bundle: nil).instantiateViewController(withIdentifier: "IndexEditViewController") as! IndexEditViewController
-//            let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
+            let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory

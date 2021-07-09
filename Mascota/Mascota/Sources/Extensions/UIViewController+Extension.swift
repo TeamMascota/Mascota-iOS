@@ -40,7 +40,7 @@ extension UIViewController {
                                   secondHandler: ((UIAlertAction) -> Void)?,
                                   firstText: String,
                                   secondText: String) {
-        print(view.subviews[0].subviews)
+
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let tempViewController = UIViewController()
         

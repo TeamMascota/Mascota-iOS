@@ -42,6 +42,7 @@ class IndexEditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
     private func initializeHandlers() {
         self.confirmHandler = { _ in
             self.dismiss(animated: true, completion: nil)
@@ -69,7 +70,6 @@ class IndexEditViewController: UIViewController {
         }
         
         self.afterDeleted = {
-            print(1)
             self.presentSingleCustomAlert(view: self.customLabelAlertView,
                                           preferredSize: CGSize(width: 270, height: 100),
                                           confirmHandler: self.dismissHandler,
@@ -78,7 +78,6 @@ class IndexEditViewController: UIViewController {
     }
     
     private func registerTextField() {
-        print(1)
         self.customTextFieldAlertView.setTitle(text: "asdfasf")
         self.customTextFieldAlertView.alertTextField.delegate = self
         self.customTextFieldAlertView.alertTextField.addTarget(self, action: #selector(textFieldEditing(_:)), for: .editingChanged)
@@ -139,7 +138,6 @@ class IndexEditViewController: UIViewController {
     
     @objc
     func touchChangeButton(_ sender: UIButton) {
-        print(sender.tag)
         self.customTextFieldAlertView.initializeComponents(title: "\(sender.tag)", textField: nil)
         self.presentDoubleCustomAlert(view: customTextFieldAlertView,
                                       preferredSize: CGSize(width: 270, height: 100),
@@ -247,11 +245,14 @@ extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
-    
 }
 
 extension IndexEditViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(textField.text ?? "1")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
     }
 }
