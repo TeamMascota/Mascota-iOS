@@ -34,6 +34,7 @@
 		48880374269218F8000CB8F2 /* RegisterMyPetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880373269218F8000CB8F2 /* RegisterMyPetModel.swift */; };
 		48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */; };
 		48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */; };
+		48AC0BA826980B9B0012E3D3 /* RegisterMyPetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC0BA726980B9B0012E3D3 /* RegisterMyPetModel.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
@@ -111,6 +112,7 @@
 		48880373269218F8000CB8F2 /* RegisterMyPetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetModel.swift; sourceTree = "<group>"; };
 		48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePlusCollectionViewCell.swift; sourceTree = "<group>"; };
 		48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePlusCollectionViewCell.xib; sourceTree = "<group>"; };
+		48AC0BA726980B9B0012E3D3 /* RegisterMyPetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetModel.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				DD95C99C268EC16C002B35A1 /* PageTextModel.swift */,
 				18AE88F2268AE78100EBC129 /* apimodel.swift */,
+				48AC0BA726980B9B0012E3D3 /* RegisterMyPetModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
+				48AC0BA826980B9B0012E3D3 /* RegisterMyPetModel.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
