@@ -32,34 +32,54 @@ class RainbowNavigationBarView: UIView {
         $0.textColor = .macoWhite
     }
     
+    private lazy var subtitleLabel = UILabel().then {
+        $0.font = .macoFont(type: .regular, size: 14)
+        $0.textColor = .macoWhite
+    }
+    
+    private lazy var hStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 8
+    }
+    
     private lazy var underLineView = UIView().then {
         $0.backgroundColor = .macoWhite
     }
     
-    public init(style: NavigationStyle, title: String) {
+    public init(style: NavigationStyle, title: String, subtitle: String? = nil, underLineHidden: Bool? = false) {
         super.init(frame: CGRect.zero)
         self.style = style
-        titleLabel.text = title
+        
+        setNavigationBarText(title: title, subtitle: subtitle)
         setNavigationBarView()
+        
+        guard let underLineHidden = underLineHidden else { return }
+        
+        if !underLineHidden {
+            setUnderLine()
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setNavigationBarText(title: String, subtitle: String? = nil) {
+        titleLabel.text = title
+        
+        if let subtitle = subtitle {
+            subtitleLabel.text = subtitle
+        }
+    }
+    
     private func setNavigationBarView() {
         backgroundColor = .macoBlue
         
-        addSubviews(titleLabel, underLineView)
-        titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
+        addSubviews(hStackView)
+        hStackView.addArrangedSubviews(subtitleLabel, titleLabel)
         
-        underLineView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.height.equalTo(1)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
+        hStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
         
         switch style {
@@ -88,6 +108,17 @@ class RainbowNavigationBarView: UIView {
                 $0.centerY.equalToSuperview()
             }
         }
-        
     }
+    
+    private func setUnderLine() {
+        addSubviews(underLineView)
+        
+        underLineView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(1)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
 }
