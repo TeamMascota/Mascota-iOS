@@ -28,6 +28,10 @@ class IndexEditPrologueCollectionViewCell: UICollectionViewCell {
         $0.setAttributedTitle("삭제".convertColorFont(color: UIColor.macoOrange, fontSize: 14, type: .regular), for: .normal)
     }
     
+    lazy var sepeartorView: UIView = UIView().then {
+        $0.backgroundColor = UIColor.macoLightGray
+    }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +45,7 @@ class IndexEditPrologueCollectionViewCell: UICollectionViewCell {
     }
     private func layoutPrologueComponents() {
         
-        self.contentView.addSubviews(indexLabel, indexTitleLabel, changeButton, deleteButton)
+        self.contentView.addSubviews(indexLabel, indexTitleLabel, changeButton, deleteButton, sepeartorView)
         
         indexLabel.snp.makeConstraints {
             $0.centerY.equalTo(contentView.snp.centerY)
@@ -57,10 +61,18 @@ class IndexEditPrologueCollectionViewCell: UICollectionViewCell {
             $0.centerY.equalTo(contentView.snp.centerY)
             $0.trailing.equalTo(deleteButton.snp.leading).offset(-5)
         }
+        
         indexTitleLabel.snp.makeConstraints {
             $0.centerY.equalTo(contentView.snp.centerY)
             $0.leading.equalTo(indexLabel.snp.trailing).offset(11)
             $0.width.equalTo(162)
+        }
+        
+        sepeartorView.snp.makeConstraints {
+            $0.height.equalTo(0.8)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     

@@ -32,6 +32,10 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
     lazy var deleteButton: UIButton = UIButton().then {
         $0.setAttributedTitle("삭제".convertColorFont(color: UIColor.macoOrange, fontSize: 14, type: .regular), for: .normal)
     }
+    
+    lazy var sepeartorView: UIView = UIView().then {
+        $0.backgroundColor = UIColor.macoLightGray
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,7 +50,7 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
     
     private func layoutEditComponents() {
         
-        self.contentView.addSubviews(moveButton, indexLabel, indexTitleLabel, changeButton, deleteButton)
+        self.contentView.addSubviews(moveButton, indexLabel, indexTitleLabel, changeButton, deleteButton, sepeartorView)
         
         moveButton.snp.makeConstraints {
             $0.centerY.equalTo(contentView.snp.centerY)
@@ -79,6 +83,13 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
             $0.centerY.equalTo(contentView.snp.centerY)
             $0.leading.equalTo(indexLabel.snp.trailing).offset(11)
             $0.trailing.equalTo(changeButton.snp.leading)
+        }
+        
+        sepeartorView.snp.makeConstraints {
+            $0.height.equalTo(0.8)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
