@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C1D6826934518006C6511 /* PartCollectionViewCell.swift */; };
 		182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C1D6926934518006C6511 /* PartCollectionViewCell.xib */; };
+		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
+		185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185044202698221D009C0F50 /* CustomLabelAlertView.xib */; };
 		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
 		182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */; };
 		182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */; };
@@ -16,6 +18,12 @@
 		185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */; };
 		18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */; };
 		18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */; };
+		187464322698439D00ED57DA /* CustomTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */; };
+		18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */; };
+		187CFF802694B42C003EF8C9 /* IndexEditCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFF7E2694B42C003EF8C9 /* IndexEditCollectionViewCell.swift */; };
+		187CFF812694B42C003EF8C9 /* IndexEditCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187CFF7F2694B42C003EF8C9 /* IndexEditCollectionViewCell.xib */; };
+		187CFF862694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CFF842694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift */; };
+		187CFF872694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187CFF852694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib */; };
 		185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F0F742694217F008172C7 /* UIImage + Extension.swift */; };
 		188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188AD00D26919A74008F4284 /* HomeStart.storyboard */; };
 		188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AD00F26919A8E008F4284 /* HomeStartViewController.swift */; };
@@ -39,6 +47,8 @@
 		18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */; };
 		18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */; };
 		18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */; };
+		18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E5B41C26943B9E001927DD /* IndexEdit.storyboard */; };
+		18E5B41F26943BB1001927DD /* IndexEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5B41E26943BB1001927DD /* IndexEditViewController.swift */; };
 		2EE6649AA9D11B528378830D /* Pods_Mascota_MascotaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */; };
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
@@ -114,6 +124,8 @@
 /* Begin PBXFileReference section */
 		182C1D6826934518006C6511 /* PartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartCollectionViewCell.swift; sourceTree = "<group>"; };
 		182C1D6926934518006C6511 /* PartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartCollectionViewCell.xib; sourceTree = "<group>"; };
+		1850441E26982212009C0F50 /* CustomLabelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelAlertView.swift; sourceTree = "<group>"; };
+		185044202698221D009C0F50 /* CustomLabelAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLabelAlertView.xib; sourceTree = "<group>"; };
 		182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailTableViewCell.swift; sourceTree = "<group>"; };
 		182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexDetailTableViewCell.xib; sourceTree = "<group>"; };
 		182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -121,6 +133,12 @@
 		185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeIndexCollectionReusableView.xib; sourceTree = "<group>"; };
 		18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldAlertView.xib; sourceTree = "<group>"; };
+		18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldAlertView.swift; sourceTree = "<group>"; };
+		187CFF7E2694B42C003EF8C9 /* IndexEditCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEditCollectionViewCell.swift; sourceTree = "<group>"; };
+		187CFF7F2694B42C003EF8C9 /* IndexEditCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexEditCollectionViewCell.xib; sourceTree = "<group>"; };
+		187CFF842694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEditPrologueCollectionViewCell.swift; sourceTree = "<group>"; };
+		187CFF852694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexEditPrologueCollectionViewCell.xib; sourceTree = "<group>"; };
 		185F0F742694217F008172C7 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		188AD00D26919A74008F4284 /* HomeStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStart.storyboard; sourceTree = "<group>"; };
 		188AD00F26919A8E008F4284 /* HomeStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStartViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +168,8 @@
 		18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCollectionViewCell.xib; sourceTree = "<group>"; };
 		18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaPeopleImageCell.swift; sourceTree = "<group>"; };
 		18DF89732692DF9900A9CB2F /* MascotaPeopleImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MascotaPeopleImageCell.xib; sourceTree = "<group>"; };
+		18E5B41C26943B9E001927DD /* IndexEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IndexEdit.storyboard; sourceTree = "<group>"; };
+		18E5B41E26943BB1001927DD /* IndexEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEditViewController.swift; sourceTree = "<group>"; };
 		1AEAF6A99A34E44C31FF0642 /* Pods-Mascota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.debug.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.debug.xcconfig"; sourceTree = "<group>"; };
 		35A74EECCFA306560984A74C /* Pods-Mascota-MascotaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
@@ -357,6 +377,7 @@
 				483DA24F2690D1CD005DBA86 /* SignUp.storyboard */,
 				4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */,
 				188AD00D26919A74008F4284 /* HomeStart.storyboard */,
+				18E5B41C26943B9E001927DD /* IndexEdit.storyboard */,
 				18AB719626935BEA00FADF9B /* IndexDetail.storyboard */,
 			);
 			path = Storyboards;
@@ -408,6 +429,10 @@
 				DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */,
 				DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */,
 				DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */,
+				187CFF7E2694B42C003EF8C9 /* IndexEditCollectionViewCell.swift */,
+				187CFF7F2694B42C003EF8C9 /* IndexEditCollectionViewCell.xib */,
+				187CFF842694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift */,
+				187CFF852694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib */,
 				182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */,
 				182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */,
 				182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */,
@@ -445,6 +470,10 @@
 				DD95C99A268EBD7E002B35A1 /* BookRainbowPageView.swift */,
 				DD95C99E268EC801002B35A1 /* BookHomePageView.swift */,
 				DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */,
+				1850441E26982212009C0F50 /* CustomLabelAlertView.swift */,
+				185044202698221D009C0F50 /* CustomLabelAlertView.xib */,
+				187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */,
+				18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -462,6 +491,7 @@
 				18AB719826935C4200FADF9B /* IndexDetailViewController.swift */,
 				DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */,
 				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
+				18E5B41E26943BB1001927DD /* IndexEditViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
 			);
 			path = ViewControllers;
@@ -622,6 +652,7 @@
 			files = (
 				185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */,
 				188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */,
+				185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */,
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
 				18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */,
 				182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */,
@@ -629,17 +660,21 @@
 				4888036826919BA3000CB8F2 /* RegisterMyPet.storyboard in Resources */,
 				488803722692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
+				187464322698439D00ED57DA /* CustomTextFieldAlertView.xib in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
 				18AB719726935BEA00FADF9B /* IndexDetail.storyboard in Resources */,
 				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
+				18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */,
 				18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */,
 				182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
+				187CFF872694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib in Resources */,
 				48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
 				DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */,
+				187CFF812694B42C003EF8C9 /* IndexEditCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
 				18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */,
@@ -825,6 +861,7 @@
 				DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */,
 				DD8DE354269426E1000F03C3 /* UITextField+Extension.swift in Sources */,
 				DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */,
+				187CFF862694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift in Sources */,
 				DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */,
 				DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
@@ -835,12 +872,15 @@
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
+				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
+				187CFF802694B42C003EF8C9 /* IndexEditCollectionViewCell.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */,
+				18E5B41F26943BB1001927DD /* IndexEditViewController.swift in Sources */,
 				DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */,
 				DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */,
 				DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */,

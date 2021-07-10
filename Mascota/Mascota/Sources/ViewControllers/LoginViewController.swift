@@ -34,7 +34,8 @@ class LoginViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
         switch textField {
         case idEmailTextField:
             if textField.text!.count == 0 {
