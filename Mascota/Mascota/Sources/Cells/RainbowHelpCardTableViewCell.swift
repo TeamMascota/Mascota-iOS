@@ -46,6 +46,7 @@ class RainbowHelpCardTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         cardTextLabel.text = nil
     }
     

@@ -9,8 +9,6 @@ import UIKit
 
 class RainbowBestViewController: UIViewController {
     
-    private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "최고의 순간")
-    
     private lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
@@ -22,34 +20,33 @@ class RainbowBestViewController: UIViewController {
     
     private lazy var nextButton = MacoButton(color: .white).then {
         $0.setMacoButtonTitle("다음", for: .normal)
+        $0.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
     }
+    
+    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
+    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initRainbowBestViewController()
         
-        setMainNavigationBar()
+        initRainbowBestViewController()
+        setRainbowNavigationBar()
+        
         setTableView()
-        setAddTarget()
         setButton()
         
         registerTableViewCell()
     }
-    
+
     private func initRainbowBestViewController() {
         view.backgroundColor = .macoBlue
     }
     
-    private func setMainNavigationBar() {
-        navigationController?.navigationBar.isHidden = true
-        
-        view.addSubviews(rainbowNavigationBar)
-        
-        rainbowNavigationBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(topBarHeight)
-        }
+    private func setRainbowNavigationBar() {
+        navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
+        navigationItem.setTitle(title: "최고의 순간")
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = closeButton
     }
     
     private func setTableView() {
@@ -59,7 +56,7 @@ class RainbowBestViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(rainbowNavigationBar.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(55)
         }
@@ -76,11 +73,6 @@ class RainbowBestViewController: UIViewController {
         }
     }
     
-    private func setAddTarget() {
-        rainbowNavigationBar.backButton.addTarget(self, action: #selector(tapBackButton(_:)), for: .touchUpInside)
-        rainbowNavigationBar.closeButton.addTarget(self, action: #selector(tapCloseButton(_:)), for: .touchUpInside)
-    }
-    
     private func registerTableViewCell() {
         tableView.register(RainbowBookPageTableViewCell.self, forCellReuseIdentifier: AppConstants.TableCells.rainbowBookPage)
     }
@@ -89,13 +81,18 @@ class RainbowBestViewController: UIViewController {
 
 extension RainbowBestViewController {
     @objc
-    func tapBackButton(_ sender: UIButton) {
-        print("tapBackButton")
+    func tapBackButton(_ sender: UIBarItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     @objc
-    func tapCloseButton(_ sender: UIButton) {
-        print("tapCloseButton")
+    func tapCloseButton(_ sender: UIBarItem) {
+        
+    }
+    
+    @objc
+    func tapNextButton(_ sender: UIButton) {
+        navigationController?.pushViewController(RainbowEpillogueViewController(), animated: true)
     }
 }
 

@@ -20,6 +20,7 @@ extension String {
        }
        return  str
    }
+    
     func convertColorFont(color: UIColor? = nil, fontSize: CGFloat? = nil, type: UIFont.NotoSansCJKkrType) -> NSAttributedString {
         let text = NSMutableAttributedString(string: self)
 
@@ -31,11 +32,58 @@ extension String {
         
         if let unwrappedSize = fontSize {
             text.addAttribute(.font,
-                              value: UIFont.macoFont(type: .regular, size: unwrappedSize) ?? UIFont(),
+                              value: UIFont.macoFont(type: type, size: unwrappedSize) ,
                               range: NSRange(location: 0, length: self.count))
         }
         
         return text
-        
     }
+}
+
+extension String {
+  func attributedString(font: UIFont,
+                        color: UIColor? = nil,
+                        customLineHeight: CGFloat? = nil,
+                        alignment: NSTextAlignment? = nil,
+                        kern: Double? = nil,
+                        lineBreakMode: NSLineBreakMode? = nil,
+                        underlineStyle: NSUnderlineStyle? = nil,
+                        strikeThroughStyle: NSUnderlineStyle? = nil) -> NSAttributedString {
+    
+    let finalKern: Double = kern ?? 0.0
+    let finalLineHeight: CGFloat = customLineHeight ?? font.lineHeight
+    let finalColor: UIColor = color ?? UIColor.black
+    
+    let paragraphStyle = NSMutableParagraphStyle()
+    
+    paragraphStyle.lineSpacing = finalLineHeight - font.lineHeight
+    
+    if let alignment = alignment {
+      paragraphStyle.alignment = alignment
+    }
+    
+    if let lineBreakMode = lineBreakMode {
+      paragraphStyle.lineBreakMode = lineBreakMode
+    }
+    
+    var attributes: [NSAttributedString.Key: Any] = [
+      .foregroundColor: finalColor,
+      .font: font,
+      .kern: finalKern,
+      .paragraphStyle: paragraphStyle
+    ]
+    
+    if let underlineStyle = underlineStyle {
+        attributes.updateValue(underlineStyle.rawValue, forKey: NSAttributedString.Key.underlineStyle)
+      
+    }
+    
+    if let strikeThroughStyle = strikeThroughStyle {
+        attributes.updateValue(strikeThroughStyle.rawValue, forKey: NSAttributedString.Key.strikethroughStyle)
+      
+    }
+    
+    return NSAttributedString.init(string: self, attributes: attributes)
+  }
+  
 }
