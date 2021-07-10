@@ -14,6 +14,7 @@ struct AppConstants {
         static let signUp: String = "SignUp"
         static let homeStart: String = "HomeStart"
         static let indexEdit: String = "IndexEdit"
+        static let indexDetail: String = "IndexDetail"
     }
     struct ViewController {
         static let login: String = "LoginViewController"
@@ -26,6 +27,7 @@ struct AppConstants {
     struct Views {
         static let customLabelAlertView: String = "CustomLabelAlertView"
         static let customTextFieldAlertView: String = "CustomTextFieldAlertView"
+        static let indexDetail: String = "IndexDetailViewController"
     }
     
     struct CollectionViewCells {
@@ -47,6 +49,13 @@ struct AppConstants {
         static let rainbowHelpHeader: String = "RainbowHelpHeaderTableViewCell"
         static let rainbowHelpCard: String = "RainbowHelpCardTableViewCell"
         static let rainbowButton: String = "RainbowButtonTableViewCell"
+        
+        static let indexDetailTableViewCell: String = "IndexDetailTableViewCell"
+        
+    }
+    
+    struct TableViewHeaders {
+        static let indexDetailHeaderView: String = "IndexDetailHeaderView"
     }
 
 }
