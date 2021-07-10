@@ -8,12 +8,12 @@
 import UIKit
 
 extension UINavigationItem {
-    func setTitle(title: String, subtitle: String = "", color: UIColor = .macoWhite) {
+    func setTitle(title: String, subtitle: String = "", titleColor: UIColor = .macoWhite, subtitleColor: UIColor = .macoWhite) {
         
         let one = UILabel().then {
             $0.text = title
             $0.font = .macoFont(type: .medium, size: 17)
-            $0.textColor = .macoWhite
+            $0.textColor = titleColor
             $0.sizeToFit()
         }
         
@@ -21,7 +21,7 @@ extension UINavigationItem {
             $0.text = subtitle
             $0.font = .macoFont(type: .regular, size: 14)
             $0.textAlignment = .center
-            $0.textColor = .macoWhite
+            $0.textColor = subtitleColor
             $0.sizeToFit()
         }
         

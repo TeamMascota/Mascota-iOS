@@ -167,7 +167,7 @@ class RainbowEpillogueViewController: UIViewController {
     private func setTextView() {
        
         textView.delegate = self
-        textView.isScrollEnabled = true
+        textView.isScrollEnabled = false
         
         setPlaceholder()
         
@@ -181,9 +181,10 @@ class RainbowEpillogueViewController: UIViewController {
 
         textView.snp.makeConstraints {
             $0.top.equalTo(epilogueLabel.snp.bottom).offset(8)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(142)
+//            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(142)
             $0.leading.equalTo(contentLabel.snp.leading)
             $0.trailing.equalTo(contentLabel.snp.trailing)
+            $0.height.equalTo(209)
         }
         
         continueLabel.snp.makeConstraints {
@@ -280,6 +281,17 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
         textView.attributedText = textView.text.attributedString(font: .macoFont(type: .regular, size: 16), color: .macoBlack, customLineHeight: 28)
         endButton.isEnabled = checkEndButtonEnabled()
         
+//        if textView.contentSize.height >= 209 {
+//            let height = textView.contentSize.height
+//            textView.frame.size.height = textView.contentSize.height
+//            print(height)
+//            textView.snp.updateConstraints {
+//                $0.height.equalTo(height)
+//            }
+//            textView.isScrollEnabled = false
+//            textView.layoutIfNeeded()
+//        }
+        
     }
     
     func setPlaceholder() {
@@ -294,9 +306,10 @@ extension RainbowEpillogueViewController: UITextViewDelegate {
 
 extension RainbowEpillogueViewController {
     func animateViewMoving(position: CGFloat, upward: Bool) {
-        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut) {
-            self.view.frame.origin.y = -position
-        }
+//        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut) {
+            self.view.frame.origin.y = -position + topBarHeight
+            textView.layoutIfNeeded()
+//        }
 
     }
 }
