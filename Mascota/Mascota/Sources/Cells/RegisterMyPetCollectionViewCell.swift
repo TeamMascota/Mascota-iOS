@@ -19,8 +19,23 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutIfNeeded() {
-        
         myPetImage.clipsToBounds = true
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                characterNumberLabel.backgroundColor = .macoOrange
+                closeButton.imageView?.image = UIImage(named: "btnIconQuit")
+                layer.borderWidth = 1.0
+                layer.borderColor = UIColor.macoOrange.cgColor
+            } else {
+                characterNumberLabel.backgroundColor = .macoLightGray
+                closeButton.imageView?.image = UIImage(named: "btnIconQuitDefaultGray")
+                layer.borderWidth = 1.0
+                layer.borderColor = UIColor.macoLightGray.cgColor
+            }
+        }
     }
     
     override func prepareForReuse() {

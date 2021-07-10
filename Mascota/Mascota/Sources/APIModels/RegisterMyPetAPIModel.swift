@@ -6,12 +6,13 @@
 //
 
 import Foundation
-/*
+import UIKit
+
 // MARK: - RegisterMyPetModel
-struct RegisterMyPetModel: Codable {
+struct RegisterMyPetModel {
     let pets: [PetInfo]
     let userID: String
-
+    
     enum CodingKeys: String, CodingKey {
         case pets
         case userID = "userId"
@@ -19,11 +20,11 @@ struct RegisterMyPetModel: Codable {
 }
 
 // MARK: - PetInfo
-struct PetInfo: Codable {
-    let petImages: String
-    let name: String
-    let kind: Int
-    let startDate: String
-    let gender: Int
+struct PetInfo {
+    var petImages: UIImage
+    var name: String
+    var kind: Int
+    var startDate: String
+    var gender: Int
 }
-*/
+

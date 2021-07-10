@@ -30,7 +30,6 @@
 		4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */; };
 		488803712692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888036F2692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift */; };
 		488803722692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488803702692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib */; };
-		48880374269218F8000CB8F2 /* RegisterMyPetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880373269218F8000CB8F2 /* RegisterMyPetModel.swift */; };
 		48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */; };
 		48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */; };
 		48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */; };
@@ -107,7 +106,6 @@
 		4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetViewController.swift; sourceTree = "<group>"; };
 		4888036F2692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetCollectionViewCell.swift; sourceTree = "<group>"; };
 		488803702692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterMyPetCollectionViewCell.xib; sourceTree = "<group>"; };
-		48880373269218F8000CB8F2 /* RegisterMyPetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetModel.swift; sourceTree = "<group>"; };
 		48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePlusCollectionViewCell.swift; sourceTree = "<group>"; };
 		48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePlusCollectionViewCell.xib; sourceTree = "<group>"; };
 		48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetAPIModel.swift; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				18AE88EE268AE76E00EBC129 /* appmodel.swift */,
-				48880373269218F8000CB8F2 /* RegisterMyPetModel.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -667,7 +664,6 @@
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
-				48880374269218F8000CB8F2 /* RegisterMyPetModel.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,

@@ -30,7 +30,7 @@ class RegisterMyPetViewController: UIViewController {
     
     @IBOutlet var genderButton: [UIButton]!
 
-    var myPetsArray = [RegisterMyPetModel]()
+    var myPetsArray = [PetInfo]()
     var myPetImageArray = [UIImage]()
     
     var toolBar = UIToolbar()
@@ -38,6 +38,7 @@ class RegisterMyPetViewController: UIViewController {
     let picker = UIImagePickerController()
     var datePickerBackgroundView = UIView()
     var currentCellNum = 0
+    var isSelected : Bool = true
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -85,7 +86,6 @@ class RegisterMyPetViewController: UIViewController {
         doneButton.tintColor = .macoOrange
         toolBar.items = [cancelButton, blankSpace, doneButton]
         
-        //toolBar.sizeToFit()
         self.view.addSubview(toolBar)
     }
     
@@ -109,7 +109,6 @@ class RegisterMyPetViewController: UIViewController {
         underlineView[1].backgroundColor = .macoOrange
     }
     
-    
     @objc func cancelButtonClick() {
         becomeFamilyDateLabel.text = "YYYY.MM.DD"
         becomeFamilyDateLabel.textColor = .macoLightGray
@@ -125,7 +124,7 @@ class RegisterMyPetViewController: UIViewController {
             if self.currentCellNum == 0 {
                 // 주인공 많을 때랑 한개일 때 분기처리해야함!!
                 if self.myPetsArray.count == 1 {
-                self.myPetsArray[0] = RegisterMyPetModel(petImage: UIImage(named: "yeonseo")!, petName: "", petKind: "", familyDate: "", petGender: "")
+                    self.myPetsArray[0] = PetInfo(petImages: UIImage(named: "yeonseo")!, name: "", kind: 0, startDate: "", gender: 0)
                 } else {
                     self.myPetsArray.remove(at: 0)
                 }
@@ -143,32 +142,34 @@ class RegisterMyPetViewController: UIViewController {
     }
     
     // MARK: - tapImageView
-    func tapImageView() {
+    @objc func tapImageView(tapGestureRecognizer: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
         
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in
-            print("cancel")
-        }
-        cancelAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor") //cancel버튼 색깔입히기
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in }
+        cancelAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor")
         alertController.addAction(cancelAction)
         
         let showlibraryAction = UIAlertAction(title: "앨범에서 사진 선택", style: .default) { (action) in  self.openLibrary()    }
         
-        showlibraryAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor") //ok버튼 색깔입히기
-        alertController.addAction(showlibraryAction)
+        showlibraryAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor")
         
-        let deleteImageAction = UIAlertAction(title: "사진삭제", style: .default) { _ in self.myPetsArray[self.currentCellNum].petImage = UIImage(named: "yeonseo") ?? UIImage()
+        let deleteImageAction = UIAlertAction(title: "사진삭제", style: .default) { _ in self.myPetsArray[self.currentCellNum].petImages = UIImage(named: "yeonseo") ?? UIImage()
             self.registerPetCollectionView.reloadData()
         }
-        
-        deleteImageAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor") //ok버튼 색깔입히기
-        alertController.addAction(deleteImageAction)
+        deleteImageAction.setValue(UIColor(displayP3Red: 34/255, green: 34/255, blue: 34/255, alpha: 1), forKey: "titleTextColor")
+        print(myPetsArray[currentCellNum].petImages)
+        if myPetsArray[currentCellNum].petImages == UIImage() || myPetsArray[currentCellNum].petImages == UIImage(named: "yeonseo") {
+            alertController.addAction(showlibraryAction)
+        } else {
+            alertController.addAction(showlibraryAction)
+            alertController.addAction(deleteImageAction)
+        }
         
         alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor.white
         alertController.view.layer.masksToBounds = true
         alertController.view.layer.cornerRadius = 3.0
         
-        let attributedString = NSAttributedString(string: "프로필 사진 등록하기", attributes: [ //타이틀 폰트사이즈랑 글씨
+        let attributedString = NSAttributedString(string: "프로필 사진 등록하기", attributes: [
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16.0) ,
             NSAttributedString.Key.foregroundColor : UIColor(displayP3Red: 125/255, green: 125/255, blue: 125/255, alpha: 1)
         ])
@@ -190,9 +191,8 @@ class RegisterMyPetViewController: UIViewController {
     }
     
     func appendEmptyElement() {
-        myPetsArray.append(RegisterMyPetModel(petImage: UIImage(named: "yeonseo") ?? UIImage(), petName: "", petKind: "", familyDate: "", petGender: ""))
+        myPetsArray.append(PetInfo(petImages: UIImage(named: "yeonseo") ?? UIImage(), name: "", kind: 0, startDate: "", gender: 0))
     }
-    
      
     // MARK: - Set Navigation Bar
     func setNavigationBar() {
@@ -202,7 +202,6 @@ class RegisterMyPetViewController: UIViewController {
         pageNumberLabel.font = .macoFont(type: .medium, size: 15.0)
         pageNumberLabel.textColor = .macoDarkGray
     }
-    
     
     // MARK: - Set DatePicker
     func setDatePickerView() {
@@ -280,7 +279,7 @@ extension RegisterMyPetViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - CollectionView
+// MARK: - CollectionView DataSource, Delegate
 extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -288,6 +287,8 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapImageView(tapGestureRecognizer:)))
+        
         if indexPath.row == myPetsArray.count {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MakePlusCollectionViewCell", for: indexPath) as? MakePlusCollectionViewCell else {
                 return UICollectionViewCell()
@@ -298,13 +299,15 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegisterMyPetCollectionViewCell", for: indexPath) as? RegisterMyPetCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.myPetImage.isUserInteractionEnabled = true
+            cell.myPetImage.addGestureRecognizer(tapGestureRecognizer)
             cell.closeButton.tag = indexPath.row
             cell.closeButton.addTarget(self, action: #selector(closeButtonTapped(_:)), for: .touchUpInside)
-            setRegisterCell(cell, .macoOrange, indexPath.row + 1)
-            if myPetsArray[indexPath.row].petImage == UIImage() {
+            setRegisterCell(cell, .macoLightGray, indexPath.row + 1)
+            if myPetsArray[indexPath.row].petImages == UIImage() {
                 cell.myPetImage.image = UIImage(named: "yeonseo")
             } else {
-                cell.myPetImage.image = myPetsArray[indexPath.row].petImage
+                cell.myPetImage.image = myPetsArray[indexPath.row].petImages
             }
             return cell
         }
@@ -316,25 +319,13 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
         switch indexPath.row {
         case myPetsArray.count: // 마지막셀
             currentCellNum = indexPath.row
-            myPetsArray.append(RegisterMyPetModel(petImage: UIImage(), petName: "", petKind: "", familyDate: "", petGender: ""))
+            myPetsArray.append(PetInfo(petImages: UIImage(), name: "", kind: 0, startDate: "", gender: 0))
             registerPetCollectionView.reloadData()
         default:
             currentCellNum = indexPath.row
-            let cell = collectionView.cellForItem(at: indexPath)
-            cell?.layer.borderWidth = 1.0
-            cell?.layer.borderColor = UIColor.macoOrange.cgColor
-            collectionView.allowsMultipleSelection = false
-                    
-            tapImageView()
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-            let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 1.0
-        cell?.layer.borderColor = UIColor.macoLightGray.cgColor
-    }
-    
+
     // MARK: - Set CollectionViewCell
     func setPlusCell(_ sender: MakePlusCollectionViewCell, _ color: UIColor, _ index: Int) {
         sender.layer.borderWidth = 1.0
@@ -365,7 +356,7 @@ extension RegisterMyPetViewController: UICollectionViewDelegateFlowLayout {
 extension RegisterMyPetViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            myPetsArray[currentCellNum].petImage = image
+            myPetsArray[currentCellNum].petImages = image
             registerPetCollectionView.reloadData()
         }
         dismiss(animated: true, completion: nil)
