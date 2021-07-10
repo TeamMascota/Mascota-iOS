@@ -12,6 +12,12 @@ import SnapKit
 
 extension UIViewController {
     
+    var topBarHeight: CGFloat {
+        return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+
+    
     func presentSingleCustomAlert(view: UIView,
                                   preferredSize: CGSize,
                                   confirmHandler: ((UIAlertAction) -> Void)?,
