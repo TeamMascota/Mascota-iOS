@@ -20,13 +20,12 @@ enum BookType {
         }
     }
     
-    func text() -> String {
+    func titleFont() -> UIFont {
         switch self {
         case .home:
-            return "1부"
+            return .macoFont(type: .regular, size: 20)
         case .rainbow:
-            return "2부"
+            return .macoFont(type: .medium, size: 20)
         }
     }
-    
 }

@@ -16,14 +16,15 @@ class BookPageView: UIView {
     
     private lazy var backgroundView = UIView().then {
         $0.layer.borderWidth = Constant.border1
-        $0.layer.cornerRadius = Constant.round5
+        $0.layer.cornerRadius = Constant.round3
         $0.layer.borderColor = color.cgColor
         $0.layer.masksToBounds = true
+        $0.backgroundColor = .macoIvory
     }
     
     private lazy var frontView = UIView().then {
         $0.layer.borderWidth = Constant.border1
-        $0.layer.cornerRadius = Constant.round5
+        $0.layer.cornerRadius = Constant.round3
         $0.layer.borderColor = color.cgColor
         $0.layer.masksToBounds = true
         $0.backgroundColor = .macoIvory
