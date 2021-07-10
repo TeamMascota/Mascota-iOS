@@ -9,14 +9,20 @@
 /* Begin PBXBuildFile section */
 		182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C1D6826934518006C6511 /* PartCollectionViewCell.swift */; };
 		182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C1D6926934518006C6511 /* PartCollectionViewCell.xib */; };
+		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
+		182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */; };
+		182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */; };
 		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
 		185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */; };
 		18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */; };
 		18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */; };
+		185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F0F742694217F008172C7 /* UIImage + Extension.swift */; };
 		188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188AD00D26919A74008F4284 /* HomeStart.storyboard */; };
 		188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AD00F26919A8E008F4284 /* HomeStartViewController.swift */; };
 		18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB71912693577100FADF9B /* RainbowBestSectionHeaderView.swift */; };
 		18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB71942693578E00FADF9B /* RainbowBestSectionFooterView.swift */; };
+		18AB719726935BEA00FADF9B /* IndexDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AB719626935BEA00FADF9B /* IndexDetail.storyboard */; };
+		18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB719826935C4200FADF9B /* IndexDetailViewController.swift */; };
 		18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AB268AE58A00EBC129 /* AppDelegate.swift */; };
 		18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */; };
 		18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88AF268AE58A00EBC129 /* ViewController.swift */; };
@@ -108,14 +114,20 @@
 /* Begin PBXFileReference section */
 		182C1D6826934518006C6511 /* PartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartCollectionViewCell.swift; sourceTree = "<group>"; };
 		182C1D6926934518006C6511 /* PartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartCollectionViewCell.xib; sourceTree = "<group>"; };
+		182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailTableViewCell.swift; sourceTree = "<group>"; };
+		182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexDetailTableViewCell.xib; sourceTree = "<group>"; };
+		182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailHeaderView.swift; sourceTree = "<group>"; };
 		185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionReusableView.swift; sourceTree = "<group>"; };
 		185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeIndexCollectionReusableView.xib; sourceTree = "<group>"; };
 		18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		185F0F742694217F008172C7 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		188AD00D26919A74008F4284 /* HomeStart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStart.storyboard; sourceTree = "<group>"; };
 		188AD00F26919A8E008F4284 /* HomeStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStartViewController.swift; sourceTree = "<group>"; };
 		18AB71912693577100FADF9B /* RainbowBestSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionHeaderView.swift; sourceTree = "<group>"; };
 		18AB71942693578E00FADF9B /* RainbowBestSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowBestSectionFooterView.swift; sourceTree = "<group>"; };
+		18AB719626935BEA00FADF9B /* IndexDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IndexDetail.storyboard; sourceTree = "<group>"; };
+		18AB719826935C4200FADF9B /* IndexDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailViewController.swift; sourceTree = "<group>"; };
 		18AE88A8268AE58A00EBC129 /* Mascota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mascota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AE88AB268AE58A00EBC129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -345,6 +357,7 @@
 				483DA24F2690D1CD005DBA86 /* SignUp.storyboard */,
 				4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */,
 				188AD00D26919A74008F4284 /* HomeStart.storyboard */,
+				18AB719626935BEA00FADF9B /* IndexDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -395,6 +408,9 @@
 				DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */,
 				DDC360D82692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift */,
 				DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */,
+				182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */,
+				182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */,
+				182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,6 +425,7 @@
 				DD878EA12691681900856EE2 /* String+Extension.swift */,
 				DD886DE326918AF60011F8F6 /* UIFont+Extension.swift */,
 				DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */,
+				185F0F742694217F008172C7 /* UIImage + Extension.swift */,
 				DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */,
 				DD8DE35126941C49000F03C3 /* UIStackView+Extension.swift */,
 				DD8DE353269426E1000F03C3 /* UITextField+Extension.swift */,
@@ -442,6 +459,7 @@
 				4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */,
 				188AD00F26919A8E008F4284 /* HomeStartViewController.swift */,
 				DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */,
+				18AB719826935C4200FADF9B /* IndexDetailViewController.swift */,
 				DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */,
 				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
@@ -612,10 +630,12 @@
 				488803722692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib in Resources */,
 				DD92BCAC268C52CD00A95A75 /* Colors.xcassets in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
+				18AB719726935BEA00FADF9B /* IndexDetail.storyboard in Resources */,
 				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */,
 				18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */,
+				182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
 				48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
@@ -766,6 +786,7 @@
 			files = (
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
+				18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */,
 				488803712692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift in Sources */,
 				DDDCA7AF2693644500DB1B8F /* RainbowBookCoverViewController.swift in Sources */,
 				DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */,
@@ -786,6 +807,7 @@
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
 				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
+				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
 				DD8DE35C26945242000F03C3 /* UIButton+Extension.swift in Sources */,
@@ -795,6 +817,7 @@
 				DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */,
 				18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */,
 				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
+				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
@@ -808,6 +831,7 @@
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
+				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,

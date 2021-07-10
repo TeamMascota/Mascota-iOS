@@ -13,12 +13,14 @@ struct AppConstants {
         static let login: String = "Login"
         static let signUp: String = "SignUp"
         static let homeStart: String = "HomeStart"
+        static let indexDetail: String = "IndexDetail"
     }
     struct ViewController {
         static let login: String = "LoginViewController"
         static let rainbow: String = "RainbowViewController"
         static let signUp: String = "SignUpViewController"
         static let homeStart: String = "HomeStartViewController"
+        static let indexDetail: String = "IndexDetailViewController"
     }
     
     struct CollectionViewCells {
@@ -38,6 +40,13 @@ struct AppConstants {
         static let rainbowHelpHeader: String = "RainbowHelpHeaderTableViewCell"
         static let rainbowHelpCard: String = "RainbowHelpCardTableViewCell"
         static let rainbowButton: String = "RainbowButtonTableViewCell"
+        
+        static let indexDetailTableViewCell: String = "IndexDetailTableViewCell"
+        
+    }
+    
+    struct TableViewHeaders {
+        static let indexDetailHeaderView: String = "IndexDetailHeaderView"
     }
 
 }
