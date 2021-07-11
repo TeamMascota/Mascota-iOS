@@ -23,6 +23,9 @@ class BaseDiaryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentView.imageCollectionView.delegate = self
+        contentView.imageCollectionView.dataSource = self
+        contentView.textView.delegate = self
         
         setNavigationBar()
         
@@ -33,7 +36,6 @@ class BaseDiaryDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        contentView.setImageScrollView()
         contentView.textView.setUnderLine(color: .macoBlue)
     }
     
@@ -46,27 +48,70 @@ class BaseDiaryDetailViewController: UIViewController {
     
     private func setScrollView() {
         view.addSubviews(mainScrollView)
-        
+
         mainScrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.bottom.equalToSuperview()
         }
-        
-        mainScrollView.addSubview(contentView)
-        
-        contentView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.centerX.top.bottom.equalToSuperview()
-        }
 
+        mainScrollView.addSubviews(contentView)
+      
+        contentView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
+        contentView.setDiaryDetailView()
+        
+//        contentView.layoutIfNeeded()
     }
     
     private func setTextView() {
-        contentView.setTextViewText(text: "하위dsa;aihf'odisafj'oi audfldkfjakldfjdlaskjfklasd")
+        contentView.setTextViewText(text: "하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oi audftSize.height")
     }
     
     private func setImages() {
-//        contentView.setImages(images: images)
+        contentView.setImages(images: images)
     }
 
+}
+
+extension BaseDiaryDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+
+}
+
+extension BaseDiaryDetailViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        contentView.setPageControlSelectedPage(currentPage: Int(round(scrollView.contentOffset.x / scrollView.frame.maxX)))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
+extension BaseDiaryDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = contentView.imageCollectionView.dequeueReusableCell(withReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier, for: indexPath)
+                                                                        as? DiaryDetailImageCollectionViewCell
+                                                                        else { return DiaryDetailImageCollectionViewCell() }
+        cell.setData(title: "응애")
+        
+        return cell
+    }
+    
+}
+
+extension BaseDiaryDetailViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return false
+    }
 }
