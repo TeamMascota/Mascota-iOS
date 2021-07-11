@@ -14,6 +14,7 @@ protocol CharacterCollectionViewCellProtocol {
 class CharacterCollectionViewCell: UICollectionViewCell {
     
     var pets: [String] = ["몰라", "진짜 몰라", "몰라"]
+    var selectedCell: [Int] = []
     var characterCollectionViewCellProtocol: CharacterCollectionViewCellProtocol?
     
     let characterCollectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100),
@@ -83,6 +84,10 @@ extension CharacterCollectionViewCell: UICollectionViewDelegateFlowLayout {
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
 }
 
 extension CharacterCollectionViewCell: UICollectionViewDataSource {
@@ -95,9 +100,19 @@ extension CharacterCollectionViewCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.characterNumberLabel.text = pets[indexPath.item]
-        cell.isSelected = false
         cell.tag = indexPath.item
         cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchCell)))
+        
+        if selectedCell[indexPath.item] > 0 {
+            cell.isSelected = true
+            collectionView.selectItem(at: indexPath,
+                                      animated: false,
+                                      scrollPosition: .init())
+        } else {
+            cell.isSelected = false
+        }
+        
+        cell.isSelected = false
         return cell
     }
     

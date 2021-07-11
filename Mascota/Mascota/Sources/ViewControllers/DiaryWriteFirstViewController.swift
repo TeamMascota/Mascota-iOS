@@ -41,6 +41,9 @@ class DiaryWriteFirstViewController: UIViewController {
                 selected.append($0)
             }
         }
+        for idx in selected {
+            print(pets[idx])
+        }
     }
     
     private func isButtonAvailable() {
@@ -57,11 +60,16 @@ class DiaryWriteFirstViewController: UIViewController {
         self.diaryWriteCollectionView.register(UINib(nibName: AppConstants.CollectionViewCells.characterCollectionViewCell,
                                                      bundle: nil),
                                                forCellWithReuseIdentifier: AppConstants.CollectionViewCells.characterCollectionViewCell)
+        self.diaryWriteCollectionView.register(UINib(nibName: AppConstants.CollectionViewCells.petEmotionCollectionViewCell, bundle: nil),
+                                               forCellWithReuseIdentifier: AppConstants.CollectionViewCells.petEmotionCollectionViewCell)
         
         self.diaryWriteCollectionView.register(UINib(nibName: AppConstants.CollectionViewHeaders.characterMoodCollectionReusableView,
                                                      bundle: nil),
                                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                                withReuseIdentifier: AppConstants.CollectionViewHeaders.characterMoodCollectionReusableView)
+        self.diaryWriteCollectionView.register(UINib(nibName: AppConstants.CollectionViewHeaders.emptyCollectionReusableView, bundle: nil),
+                                               forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                               withReuseIdentifier: AppConstants.CollectionViewHeaders.emptyCollectionReusableView)
         
     }
 
@@ -74,6 +82,12 @@ class DiaryWriteFirstViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(12)
         }
     }
+    
+    private func reloadEmotions() {
+        print(selected)
+        print(seletedPets)
+        self.diaryWriteCollectionView.reloadData()
+    }
 
 }
 
@@ -83,46 +97,71 @@ extension DiaryWriteFirstViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.characterCollectionViewCell,
-                                                            for: indexPath) as? CharacterCollectionViewCell else {
-            return UICollectionViewCell()
+        switch indexPath.section {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.characterCollectionViewCell,
+                                                                for: indexPath) as? CharacterCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.characterCollectionViewCellProtocol = self
+            cell.selectedCell = self.seletedPets
+            cell.pets = self.pets
+            return cell
+
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.petEmotionCollectionViewCell,
+                                                                for: indexPath) as? PetEmotionCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.tag = selected[indexPath.section - 1]
+            cell.updateSelectedCell(selcted: seletedPets[selected[indexPath.section-1]])
+            cell.updateTitle(text: pets[selected[indexPath.section-1]])
+            cell.petEmotionCollectionViewCellProtocol = self
+            return cell
         }
-        cell.characterCollectionViewCellProtocol = self
-        cell.pets = self.pets
-        return cell
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return selected.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                               withReuseIdentifier: AppConstants.CollectionViewHeaders.characterMoodCollectionReusableView,
-                                                                               for: indexPath) as? CharacterMoodCollectionReusableView else {
+
+        if indexPath.section == 0 {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AppConstants.CollectionViewHeaders.characterMoodCollectionReusableView, for: indexPath) as? CharacterMoodCollectionReusableView else {
                 return UICollectionReusableView()
             }
             return header
-        case UICollectionView.elementKindSectionFooter:
-            return UICollectionReusableView()
-        
-        default:
-            return UICollectionReusableView()
+        } else {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                               withReuseIdentifier: AppConstants.CollectionViewHeaders.emptyCollectionReusableView, for: indexPath) as? EmptyCollectionReusableView else {
+                return UICollectionReusableView()
+            }
+            return header
         }
-        
     }
     
 }
 
 extension DiaryWriteFirstViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 160)
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: collectionView.frame.width, height: 160)
+        default:
+            return CGSize(width: collectionView.frame.width, height: 130)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 86)
+        if section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 86)
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
+        
     }
 }
 
@@ -138,10 +177,8 @@ extension DiaryWriteFirstViewController: CharacterCollectionViewCellProtocol {
             cell.isSelected = true
             seletedPets[index] = 100
             findSelected()
-            
+            reloadEmotions()
         }
-        
-
     }
     
 }
@@ -168,8 +205,11 @@ extension DiaryWriteFirstViewController {
                 return
             }
             cell.isSelected = false
+            print(index)
             self.seletedPets[index] = -1
+            print(self.seletedPets)
             self.findSelected()
+            self.reloadEmotions()
         }
         
         confirmAction.setValue(UIColor.macoLightGray, forKey: "titleTextColor")
@@ -193,4 +233,10 @@ extension DiaryWriteFirstViewController {
         
     }
 
+}
+
+extension DiaryWriteFirstViewController: PetEmotionCollectionViewCellProtocol {
+    func selectEmotion(section: Int, item: Int) {
+        seletedPets[section] = item
+    }
 }

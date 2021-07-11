@@ -41,11 +41,14 @@ struct AppConstants {
         static let indexEditPrologueCollectionViewCell: String = "IndexEditPrologueCollectionViewCell"
         static let characterCollectionViewCell: String = "CharacterCollectionViewCell"
         static let registerMyPetCollectionViewCell: String = "RegisterMyPetCollectionViewCell"
+        static let petEmotionCollectionViewCell: String = "PetEmotionCollectionViewCell"
+        static let petsCollectionViewCell: String = "PetsCollectionViewCell"
     }
     
     struct CollectionViewHeaders {
         static let homeIndexCollectionReusableView: String = "HomeIndexCollectionReusableView"
         static let characterMoodCollectionReusableView: String = "CharacterMoodCollectionReusableView"
+        static let emptyCollectionReusableView: String = "EmptyCollectionReusableView"
     }
 
     struct TableCells {

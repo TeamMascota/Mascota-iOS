@@ -18,6 +18,10 @@
 		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
 		182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */; };
 		182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */; };
+		1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */; };
+		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
+		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
+		1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */; };
 		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
 		185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185044202698221D009C0F50 /* CustomLabelAlertView.xib */; };
 		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
@@ -141,6 +145,10 @@
 		182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailTableViewCell.swift; sourceTree = "<group>"; };
 		182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexDetailTableViewCell.xib; sourceTree = "<group>"; };
 		182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailHeaderView.swift; sourceTree = "<group>"; };
+		1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionReusableView.swift; sourceTree = "<group>"; };
+		1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionReusableView.xib; sourceTree = "<group>"; };
+		1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsCollectionViewCell.xib; sourceTree = "<group>"; };
 		1850441E26982212009C0F50 /* CustomLabelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelAlertView.swift; sourceTree = "<group>"; };
 		185044202698221D009C0F50 /* CustomLabelAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLabelAlertView.xib; sourceTree = "<group>"; };
 		185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -283,6 +291,8 @@
 				185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */,
 				1813F2AF2699E3A100D7769E /* CharacterMoodCollectionReusableView.swift */,
 				1813F2B02699E3A100D7769E /* CharacterMoodCollectionReusableView.xib */,
+				1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */,
+				1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -458,6 +468,8 @@
 				1813F2B42699EA0200D7769E /* CharacterCollectionViewCell.xib */,
 				18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */,
 				18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */,
+				1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */,
+				1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -676,6 +688,7 @@
 				185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */,
 				188AD00E26919A74008F4284 /* HomeStart.storyboard in Resources */,
 				185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */,
+				1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */,
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
 				1813F2B62699EA0200D7769E /* CharacterCollectionViewCell.xib in Resources */,
 				18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */,
@@ -702,6 +715,7 @@
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
 				DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */,
 				187CFF812694B42C003EF8C9 /* IndexEditCollectionViewCell.xib in Resources */,
+				1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +873,7 @@
 				18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */,
 				DD8DE350269419A4000F03C3 /* RainbowEpillogueViewController.swift in Sources */,
 				DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */,
+				1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */,
@@ -895,6 +910,7 @@
 				DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */,
 				DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
+				1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
