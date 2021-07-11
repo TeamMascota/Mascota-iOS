@@ -1,5 +1,5 @@
 //
-//  BaseDiaryDetailViewController.swift
+//  RainbowDiaryDetailViewController.swift
 //  Mascota
 //
 //  Created by 김윤서 on 2021/07/09.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseDiaryDetailViewController: UIViewController {
+class RainbowDiaryDetailViewController: UIViewController {
     
     public lazy var images: [UIImage] = [.add, .checkmark, .remove]
     
@@ -29,6 +29,8 @@ class BaseDiaryDetailViewController: UIViewController {
         
         setScrollView()
         setTextView()
+        
+        contentView.setDate(date: "2020년 쏼라", togetherDay: "2223")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,26 +73,26 @@ class BaseDiaryDetailViewController: UIViewController {
     }
     
     private func setTextView() {
-        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'odisafjfldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkdisaf위dsa;fldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisa\nfj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkfjfldkfjak위dsa;aihf'odisafj'\n하하하하하하하하하하ak위dsa;aihf'odisafj'ov하ㅍaihf'odisafj'ov하'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oR끝")
+        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'od'ov하'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oRㅁ야롱먀놀;ㅏㅇ몰;ㅏ\n\n\n\n\nㅇ뫃;daskfhadkjhf;kdsajhf;kㅏㅓㅗㅁㅇㄹ; ㅓㅈ'ㄷR ojuaef'oi hads;kfhdaksfhkadjhf;aldiur 'eu'oasdifk;dsajhfkdjhfjdahfgkjadflgkjdfhgkhfkjdhfkdsjhfkdjshfksdjhfasdfadfdsaf adf sadf sdsdhf ;ao ih'adoiy'owqy dhdksfhdksjh끝")
     }
 
 }
 
-extension BaseDiaryDetailViewController: UICollectionViewDelegateFlowLayout {
+extension RainbowDiaryDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
 }
 
-extension BaseDiaryDetailViewController: UICollectionViewDelegate {
+extension RainbowDiaryDetailViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         contentView.setPageControlSelectedPage(currentPage: Int(round(scrollView.contentOffset.x / scrollView.frame.maxX)))
     }
     
 }
 
-extension BaseDiaryDetailViewController: UICollectionViewDataSource {
+extension RainbowDiaryDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         contentView.setPageControl(pageCount: images.count)
         return images.count
@@ -107,14 +109,14 @@ extension BaseDiaryDetailViewController: UICollectionViewDataSource {
     
 }
 
-extension BaseDiaryDetailViewController: UITextViewDelegate {
+extension RainbowDiaryDetailViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         return false
     }
 }
 
 
-extension BaseDiaryDetailViewController {
+extension RainbowDiaryDetailViewController {
     @objc
     func moveToEpisode(_ sender: UIButton) {
         print("moveToEpisode")

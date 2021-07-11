@@ -39,7 +39,7 @@ class DiaryDetailView: UIView {
     }
     
     private lazy var gridImageView = UIImageView().then {
-        $0.image = UIImage(named: "bgGrid")
+        $0.image = type.grid()
     }
     
     private lazy var logoImageView = UIImageView().then {
@@ -49,7 +49,6 @@ class DiaryDetailView: UIView {
     public lazy var emojiStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.spacing = 9
-        $0.backgroundColor = .blue
         $0.contentMode = .scaleAspectFit
     }
     
@@ -64,11 +63,22 @@ class DiaryDetailView: UIView {
     }
     
     public lazy var backwardButton = UIButton().then {
-        $0.setImage(UIImage(named: "btnBackwardOrange"), for: .normal)
+        switch type {
+        case .home :
+            $0.setImage(UIImage(named: "btnBackwardOrange"), for: .normal)
+        case .rainbow:
+            $0.setImage(UIImage(named: "btnBackwardBlue"), for: .normal)
+        }
         $0.setImage(UIImage(named: "btnBackwardGray"), for: .disabled)
+       
     }
     public lazy var forwardButton = UIButton().then {
-        $0.setImage(UIImage(named: "btnForwardOrange"), for: .normal)
+        switch type {
+        case .home :
+            $0.setImage(UIImage(named: "btnForwardOrange"), for: .normal)
+        case .rainbow:
+            $0.setImage(UIImage(named: "btnForwardBlue"), for: .normal)
+        }
         $0.setImage(UIImage(named: "btnForwardGray"), for: .disabled)
     }
     
@@ -179,12 +189,12 @@ class DiaryDetailView: UIView {
                 $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 197)
                 $0.bottom.equalToSuperview().inset(32)
             }
-        } else if textView.contentSize.height <= 301 && UIDevice.current.hasNotch {
+        } else if textView.contentSize.height <= 243 && UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
                 $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
                 $0.leading.equalToSuperview().offset(16)
                 $0.trailing.equalToSuperview().inset(16)
-                $0.height.equalTo(301)
+                $0.height.equalTo(243)
                 $0.bottom.equalToSuperview().inset(32)
             }
         }
@@ -196,6 +206,14 @@ class DiaryDetailView: UIView {
 
     public func setPageControl(pageCount: Int) {
         pageControl.numberOfPages = pageCount
+    }
+    
+    public func setDate(date: String, togetherDay: String) {
+        dateLabel.text = date
+        togetherDayLabel.attributedText = "함께한 지 \(togetherDay)일".convertSomeColorFont(color: type.color(),
+                                                            
+                                                                                                 type: .regular, start: 6,
+                                                                                                 length: togetherDay.count)
     }
     
 }
