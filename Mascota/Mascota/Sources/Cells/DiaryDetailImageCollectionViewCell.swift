@@ -10,19 +10,16 @@ import UIKit
 class DiaryDetailImageCollectionViewCell: UICollectionViewCell {
     public static let identifier = "DiaryDetailImageCollectionViewCell"
     
-    private let menuTitle = UILabel().then {
-        $0.font = .systemFont(ofSize: 15)
-        $0.textColor = .white
-        $0.text = "Collection"
+    private let imageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .blue
         
-        addSubview(menuTitle)
+        addSubview(imageView)
         
-        menuTitle.snp.makeConstraints {
+        imageView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
     }
@@ -31,7 +28,7 @@ class DiaryDetailImageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setData(title: String) {
-        menuTitle.text = title
+    public func setImage(image: UIImage) {
+        imageView.image = image
     }
 }

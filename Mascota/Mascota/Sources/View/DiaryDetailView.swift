@@ -16,9 +16,6 @@ class DiaryDetailView: UIView {
 
         imageCollectionView.register(DiaryDetailImageCollectionViewCell.self, forCellWithReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier)
         
-//        setDiaryDetailView()
-//        setPageControl()
-        
     }
     
     override init(frame: CGRect) {
@@ -28,10 +25,7 @@ class DiaryDetailView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    public lazy var images = [UIImage]()
-    public lazy var images: [UIImage] = [.add, .checkmark, .remove]
-    
+
     public lazy var dateLabel = UILabel().then {
         $0.font = .macoFont(type: .regular, size: 14)
         $0.textColor = .macoDarkGray
@@ -44,8 +38,12 @@ class DiaryDetailView: UIView {
         $0.text = "함께한 지 1291일"
     }
     
-    public lazy var gridImageView = UIImageView().then {
-        $0.image = UIImage(named: "bgDiarygridOrange")
+    private lazy var gridImageView = UIImageView().then {
+        $0.image = UIImage(named: "bgGrid")
+    }
+    
+    private lazy var logoImageView = UIImageView().then {
+        $0.image = .checkmark
     }
 
     public lazy var emojiStackView = UIStackView().then {
@@ -75,25 +73,27 @@ class DiaryDetailView: UIView {
     public lazy var imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-//        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 0
         
         $0.showsHorizontalScrollIndicator = false
-        $0.backgroundColor = .white
         $0.isPagingEnabled = true
+        
+        $0.backgroundColor = .clear
         $0.collectionViewLayout = layout
     }
 
     public func setDiaryDetailView() {
-        addSubviews(gridImageView, dateLabel, togetherDayLabel, underLineView, pageControl, imageCollectionView)
+        addSubviews(gridImageView, logoImageView, dateLabel, togetherDayLabel, underLineView, pageControl, imageCollectionView)
         
         imageCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(100)
-//            $0.centerX.equalToSuperview()
-//            $0.width.equalTo(Constant.DeviceSize.width - 16)
-//            $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8)
             $0.leading.equalToSuperview().offset(16).labeled("-------imageCollectionView leading-----")
             $0.trailing.equalToSuperview().inset(16).labeled("-------imageCollectionView leading-----")
             $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8).labeled("------imageCollectionView height------")
+        }
+        
+        logoImageView.snp.makeConstraints {
+            $0.center.equalTo(imageCollectionView)
         }
         
         gridImageView.snp.makeConstraints {
@@ -139,47 +139,46 @@ class DiaryDetailView: UIView {
             $0.bottom.equalToSuperview().inset(32).labeled("💙textView💙")
         }
         
-        emojiStackView.addArrangedSubviews(UIImageView(image: UIImage.add))
+        emojiStackView.addArrangedSubviews(UIImageView(image: UIImage(named: "emoDogAngry")))
 
         addSubviews(emojiStackView)
 
         emojiStackView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(18)
-            $0.height.equalTo(18)
+            $0.height.equalTo(32)
             $0.top.equalTo(underLineView.snp.bottom).offset(15)
         }
     }
     
     public func setTextViewText(text: String) {
         textView.setText(text: text)
-        print(textView.contentSize.height)
-        if textView.contentSize.height <= 190 {
+        textView.layoutIfNeeded()
+        
+        if textView.contentSize.height <= 190 && !UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
                 $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
                 $0.leading.equalToSuperview().offset(16)
                 $0.trailing.equalToSuperview().inset(16)
-                $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 209)
+                $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 197)
+                $0.bottom.equalToSuperview().inset(32)
+            }
+        } else if textView.contentSize.height <= 242 && UIDevice.current.hasNotch {
+            textView.snp.remakeConstraints {
+                $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
+                $0.leading.equalToSuperview().offset(16)
+                $0.trailing.equalToSuperview().inset(16)
+                $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 243)
                 $0.bottom.equalToSuperview().inset(32)
             }
         }
     }
     
-    public func setImages(images: [UIImage]? = nil) {
-        if let images = images {
-            self.images = images
-            setPageControl()
-        } else {
-            imageCollectionView.isHidden = true
-        }
-    }
-}
-
-extension DiaryDetailView {
     public func setPageControlSelectedPage(currentPage: Int) {
         pageControl.currentPage = currentPage
     }
 
-    private func setPageControl() {
-        pageControl.numberOfPages = images.count
+    public func setPageControl(pageCount: Int) {
+        pageControl.numberOfPages = pageCount
     }
 }
+
