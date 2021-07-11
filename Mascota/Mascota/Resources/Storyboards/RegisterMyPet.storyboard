@@ -691,7 +691,20 @@
                     <navigationItem key="navigationItem" id="Ekv-SW-J3K"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="authorNameTextField" destination="0FZ-uP-Htd" id="hfX-p3-0ZG"/>
+                        <outlet property="authorNamelengthLabel" destination="jDY-Xh-h77" id="xfG-CG-6td"/>
+                        <outlet property="bookCoverView" destination="eME-Sr-aAw" id="Tex-nj-uMX"/>
+                        <outlet property="bookNameTextField" destination="1cS-tM-F07" id="kXV-QY-irp"/>
+                        <outlet property="bookNamelengthLabel" destination="iet-zA-azZ" id="OpZ-zy-hf0"/>
                         <outlet property="navigationBar" destination="Q90-Py-oY5" id="xg3-XX-rsv"/>
+                        <outlet property="numberOfRegisteredPetLabel" destination="MKo-am-ICD" id="ron-mm-fXX"/>
+                        <outlet property="prologNameTextField" destination="Y9U-tt-4jh" id="mrF-Jz-Wgt"/>
+                        <outlet property="prologNamelengthLabel" destination="enD-R6-rwb" id="95W-th-4Us"/>
+                        <outlet property="prologTextView" destination="zXz-34-9jZ" id="e8y-o0-V5L"/>
+                        <outletCollection property="underlineView" destination="leH-xg-z0y" collectionClass="NSMutableArray" id="QD3-BK-kNS"/>
+                        <outletCollection property="underlineView" destination="geY-MR-u5p" collectionClass="NSMutableArray" id="XVt-cz-J3G"/>
+                        <outletCollection property="underlineView" destination="39V-vs-XtU" collectionClass="NSMutableArray" id="TWa-d1-uzv"/>
+                        <outletCollection property="underlineView" destination="A84-T4-pSL" collectionClass="NSMutableArray" id="yAU-KM-jZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amf-5F-mDo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
