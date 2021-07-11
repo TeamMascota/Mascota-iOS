@@ -63,8 +63,14 @@ class DiaryDetailView: UIView {
         $0.isUserInteractionEnabled = false
     }
     
-    private lazy var beforeButton = UIButton()
-    private lazy var afterButton = UIButton()
+    public lazy var backwardButton = UIButton().then {
+        $0.setImage(UIImage(named: "btnBackwardOrange"), for: .normal)
+        $0.setImage(UIImage(named: "btnBackwardGray"), for: .disabled)
+    }
+    public lazy var forwardButton = UIButton().then {
+        $0.setImage(UIImage(named: "btnForwardOrange"), for: .normal)
+        $0.setImage(UIImage(named: "btnForwardGray"), for: .disabled)
+    }
     
     public lazy var textView = UITextView().then {
         $0.setMacoTextView(color: type.color())
@@ -87,9 +93,9 @@ class DiaryDetailView: UIView {
         
         imageCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(100)
-            $0.leading.equalToSuperview().offset(16).labeled("-------imageCollectionView leading-----")
-            $0.trailing.equalToSuperview().inset(16).labeled("-------imageCollectionView leading-----")
-            $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8).labeled("------imageCollectionView height------")
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8)
         }
         
         logoImageView.snp.makeConstraints {
@@ -98,8 +104,8 @@ class DiaryDetailView: UIView {
         
         gridImageView.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom)
-            $0.leading.equalToSuperview().offset(16).labeled("-------gridImageView leading-----")
-            $0.trailing.equalToSuperview().inset(16).labeled("-------gridImageView trailing-----")
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         dateLabel.snp.makeConstraints {
@@ -113,10 +119,10 @@ class DiaryDetailView: UIView {
         }
 
         underLineView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(40).labeled("💙underLineView💙")
-            $0.leading.equalToSuperview().offset(16).labeled("💙underLineView💙")
-            $0.trailing.equalToSuperview().inset(16).labeled("💙underLineView💙")
-            $0.height.equalTo(1).labeled("💙underLineView💙")
+            $0.top.equalToSuperview().offset(40)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(1)
         }
 
         pageControl.snp.makeConstraints {
@@ -133,20 +139,30 @@ class DiaryDetailView: UIView {
 
         textView.sizeToFit()
         textView.snp.makeConstraints {
-            $0.top.equalTo(imageCollectionView.snp.bottom).offset(34).labeled("💙textView💙")
-            $0.leading.equalToSuperview().offset(16).labeled("💙textView💙")
-            $0.trailing.equalToSuperview().inset(16).labeled("💙textView💙")
-            $0.bottom.equalToSuperview().inset(32).labeled("💙textView💙")
+            $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(32)
         }
         
         emojiStackView.addArrangedSubviews(UIImageView(image: UIImage(named: "emoDogAngry")))
 
-        addSubviews(emojiStackView)
+        addSubviews(emojiStackView, forwardButton, backwardButton)
 
         emojiStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(18)
+            $0.leading.equalToSuperview().inset(18)
             $0.height.equalTo(32)
             $0.top.equalTo(underLineView.snp.bottom).offset(15)
+        }
+        
+        forwardButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalTo(emojiStackView.snp.centerY)
+        }
+        
+        backwardButton.snp.makeConstraints {
+            $0.centerY.equalTo(forwardButton.snp.centerY)
+            $0.trailing.equalTo(forwardButton.snp.leading).offset(-17)
         }
     }
     
@@ -154,6 +170,7 @@ class DiaryDetailView: UIView {
         textView.setText(text: text)
         textView.layoutIfNeeded()
         
+        print(textView.contentSize.height)
         if textView.contentSize.height <= 190 && !UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
                 $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
@@ -162,12 +179,12 @@ class DiaryDetailView: UIView {
                 $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 197)
                 $0.bottom.equalToSuperview().inset(32)
             }
-        } else if textView.contentSize.height <= 242 && UIDevice.current.hasNotch {
+        } else if textView.contentSize.height <= 301 && UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
                 $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
                 $0.leading.equalToSuperview().offset(16)
                 $0.trailing.equalToSuperview().inset(16)
-                $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 243)
+                $0.height.equalTo(301)
                 $0.bottom.equalToSuperview().inset(32)
             }
         }
@@ -180,5 +197,6 @@ class DiaryDetailView: UIView {
     public func setPageControl(pageCount: Int) {
         pageControl.numberOfPages = pageCount
     }
+    
 }
 

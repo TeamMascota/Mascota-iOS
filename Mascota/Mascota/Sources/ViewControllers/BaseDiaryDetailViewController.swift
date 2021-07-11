@@ -40,6 +40,9 @@ class BaseDiaryDetailViewController: UIViewController {
         contentView.imageCollectionView.delegate = self
         contentView.imageCollectionView.dataSource = self
         contentView.textView.delegate = self
+        
+        contentView.backwardButton.addTarget(self, action: #selector(moveToEpisode(_:)), for: .touchUpInside)
+        contentView.forwardButton.addTarget(self, action: #selector(moveToEpisode(_:)), for: .touchUpInside)
     }
     
     private func setNavigationBar() {
@@ -68,7 +71,7 @@ class BaseDiaryDetailViewController: UIViewController {
     }
     
     private func setTextView() {
-        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'odisafj'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'o")
+        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'odisafjfldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkdisaf위dsa;fldkfjak위dsa;aihf'odisafj'ov하fldkfjak위dsa;aihf'odisa\nfj'ov하fldkfjak위dsa;aihf'odisafj'ov하fldkfjfldkfjak위dsa;aihf'odisafj'\n하하하하하하하하하하ak위dsa;aihf'odisafj'ov하ㅍaihf'odisafj'ov하'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oR끝")
     }
 
 }
@@ -107,5 +110,13 @@ extension BaseDiaryDetailViewController: UICollectionViewDataSource {
 extension BaseDiaryDetailViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         return false
+    }
+}
+
+
+extension BaseDiaryDetailViewController {
+    @objc
+    func moveToEpisode(_ sender: UIButton) {
+        print("moveToEpisode")
     }
 }
