@@ -13,11 +13,12 @@ class DiaryDetailView: UIView {
     public init(type: BookType) {
         super.init(frame: CGRect.zero)
         self.type = type
+
+        imageCollectionView.register(DiaryDetailImageCollectionViewCell.self, forCellWithReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier)
         
-        imageScrollView.delegate = self
-        textView.delegate = self
-        setPageControl()
-        setDiaryDetailView()
+//        setDiaryDetailView()
+//        setPageControl()
+        
     }
     
     override init(frame: CGRect) {
@@ -43,7 +44,9 @@ class DiaryDetailView: UIView {
         $0.text = "함께한 지 1291일"
     }
     
-    public lazy var gridImage = UIImageView()
+    public lazy var gridImageView = UIImageView().then {
+        $0.image = UIImage(named: "bgDiarygridOrange")
+    }
 
     public lazy var emojiStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -55,18 +58,6 @@ class DiaryDetailView: UIView {
     private lazy var underLineView = UIView().then {
         $0.backgroundColor = .macoDarkGray
     }
-    
-    public lazy var imageScrollView = UIScrollView().then {
-        $0.alwaysBounceVertical = false
-        $0.showsHorizontalScrollIndicator = false
-        $0.showsVerticalScrollIndicator = false
-        $0.isScrollEnabled = true
-        $0.isPagingEnabled = true
-        $0.bounces = false
-        $0.backgroundColor = .cyan
-    }
-    
-    private lazy var imageContentView = UIView()
     
     public lazy var pageControl = UIPageControl().then {
         $0.pageIndicatorTintColor = type.color().withAlphaComponent(0.3)
@@ -81,30 +72,35 @@ class DiaryDetailView: UIView {
         $0.setMacoTextView(color: type.color())
     }
     
-    public func setImageScrollView() {
+    public lazy var imageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+//        layout.minimumLineSpacing = 0
         
-        imageScrollView.addSubviews(imageContentView)
-        
-        imageContentView.snp.makeConstraints {
-            $0.height.equalToSuperview()
-            $0.centerY.top.bottom.equalToSuperview()
-        }
-    
-        imageScrollView.layoutIfNeeded()
-
-        for i in 0..<images.count {
-            let imageView = UIImageView(image: images[i])
-            let xPos = imageScrollView.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: 0, width: imageScrollView.frame.width, height: imageScrollView.frame.height)
-            imageScrollView.addSubview(imageView)
-        }
-
-        imageScrollView.contentSize = CGSize(width: imageScrollView.frame.width * CGFloat(images.count), height: imageScrollView.frame.height)
-        
+        $0.showsHorizontalScrollIndicator = false
+        $0.backgroundColor = .white
+        $0.isPagingEnabled = true
+        $0.collectionViewLayout = layout
     }
-    
-    private func setDiaryDetailView() {
-        addSubviews(dateLabel, togetherDayLabel, underLineView)
+
+    public func setDiaryDetailView() {
+        addSubviews(gridImageView, dateLabel, togetherDayLabel, underLineView, pageControl, imageCollectionView)
+        
+        imageCollectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(100)
+//            $0.centerX.equalToSuperview()
+//            $0.width.equalTo(Constant.DeviceSize.width - 16)
+//            $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8)
+            $0.leading.equalToSuperview().offset(16).labeled("-------imageCollectionView leading-----")
+            $0.trailing.equalToSuperview().inset(16).labeled("-------imageCollectionView leading-----")
+            $0.height.equalTo(imageCollectionView.snp.width).multipliedBy(0.8).labeled("------imageCollectionView height------")
+        }
+        
+        gridImageView.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom)
+            $0.leading.equalToSuperview().offset(16).labeled("-------gridImageView leading-----")
+            $0.trailing.equalToSuperview().inset(16).labeled("-------gridImageView trailing-----")
+        }
         
         dateLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(18)
@@ -117,23 +113,14 @@ class DiaryDetailView: UIView {
         }
 
         underLineView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(40)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(1)
-        }
-
-        addSubviews(imageScrollView, pageControl)
-
-        imageScrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(100)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(imageScrollView.snp.width).multipliedBy(0.8)
+            $0.top.equalToSuperview().offset(40).labeled("💙underLineView💙")
+            $0.leading.equalToSuperview().offset(16).labeled("💙underLineView💙")
+            $0.trailing.equalToSuperview().inset(16).labeled("💙underLineView💙")
+            $0.height.equalTo(1).labeled("💙underLineView💙")
         }
 
         pageControl.snp.makeConstraints {
-            $0.top.equalTo(imageScrollView.snp.bottom).offset(13)
+            $0.top.equalTo(imageCollectionView.snp.bottom).offset(13)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(7)
         }
@@ -146,10 +133,10 @@ class DiaryDetailView: UIView {
 
         textView.sizeToFit()
         textView.snp.makeConstraints {
-            $0.top.equalTo(imageScrollView.snp.bottom).offset(34)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(32)
+            $0.top.equalTo(imageCollectionView.snp.bottom).offset(34).labeled("💙textView💙")
+            $0.leading.equalToSuperview().offset(16).labeled("💙textView💙")
+            $0.trailing.equalToSuperview().inset(16).labeled("💙textView💙")
+            $0.bottom.equalToSuperview().inset(32).labeled("💙textView💙")
         }
         
         emojiStackView.addArrangedSubviews(UIImageView(image: UIImage.add))
@@ -165,9 +152,10 @@ class DiaryDetailView: UIView {
     
     public func setTextViewText(text: String) {
         textView.setText(text: text)
+        print(textView.contentSize.height)
         if textView.contentSize.height <= 190 {
             textView.snp.remakeConstraints {
-                $0.top.equalTo(imageScrollView.snp.bottom).offset(34)
+                $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
                 $0.leading.equalToSuperview().offset(16)
                 $0.trailing.equalToSuperview().inset(16)
                 $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 209)
@@ -181,28 +169,17 @@ class DiaryDetailView: UIView {
             self.images = images
             setPageControl()
         } else {
-            imageScrollView.isHidden = true
-            imageContentView.isHidden = true
+            imageCollectionView.isHidden = true
         }
     }
 }
 
-extension DiaryDetailView: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        setPageControlSelectedPage(currentPage: Int(round(scrollView.contentOffset.x / scrollView.frame.maxX)))
-    }
-
-    private func setPageControlSelectedPage(currentPage: Int) {
+extension DiaryDetailView {
+    public func setPageControlSelectedPage(currentPage: Int) {
         pageControl.currentPage = currentPage
     }
 
     private func setPageControl() {
         pageControl.numberOfPages = images.count
-    }
-}
-
-extension DiaryDetailView: UITextViewDelegate {
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        return false
     }
 }
