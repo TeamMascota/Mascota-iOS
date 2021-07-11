@@ -104,6 +104,7 @@
 		DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */; };
 		DDDCA7AF2693644500DB1B8F /* RainbowBookCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */; };
 		DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */; };
+		DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowCommentViewController.swift; sourceTree = "<group>"; };
 		DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBookCoverViewController.swift; sourceTree = "<group>"; };
 		DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
+		DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -439,6 +441,7 @@
 				182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */,
 				182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */,
 				182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */,
+				DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */,
+				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
 				18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */,
