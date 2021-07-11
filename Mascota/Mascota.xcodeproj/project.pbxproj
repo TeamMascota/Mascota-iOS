@@ -66,7 +66,7 @@
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
-		DD15470D2697617100F2E84B /* BaseDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15470C2697617100F2E84B /* BaseDiaryDetailViewController.swift */; };
+		DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
@@ -195,7 +195,7 @@
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
 		DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-		DD15470C2697617100F2E84B /* BaseDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDiaryDetailViewController.swift; sourceTree = "<group>"; };
+		DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
 				18E5B41E26943BB1001927DD /* IndexEditViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
-				DD15470C2697617100F2E84B /* BaseDiaryDetailViewController.swift */,
+				DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -868,7 +868,7 @@
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
 				DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */,
-				DD15470D2697617100F2E84B /* BaseDiaryDetailViewController.swift in Sources */,
+				DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */,
 				DD8DE354269426E1000F03C3 /* UITextField+Extension.swift in Sources */,
 				DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */,
 				187CFF862694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift in Sources */,
