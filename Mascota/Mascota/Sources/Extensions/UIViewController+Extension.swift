@@ -21,12 +21,14 @@ extension UIViewController {
     func presentSingleCustomAlert(view: UIView,
                                   preferredSize: CGSize,
                                   confirmHandler: ((UIAlertAction) -> Void)?,
-                                  text: String) {
+                                  text: String,
+                                  color: UIColor? = .macoOrange) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let tempViewController = UIViewController()
         
         let confirmAction: UIAlertAction = UIAlertAction(title: text, style: .default, handler: confirmHandler)
-
+        confirmAction.setValue(color, forKey: "titleTextColor")
+        
         tempViewController.view = view
         tempViewController.preferredContentSize = preferredSize
         
