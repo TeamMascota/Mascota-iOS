@@ -107,9 +107,6 @@ class DiaryWriteFirstViewController: UIViewController {
                 selected.append($0)
             }
         }
-        for idx in selected {
-            print(pets[idx])
-        }
     }
     
     private func isButtonAvailable() {
@@ -178,8 +175,6 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func reloadEmotions() {
-        print(selected)
-        print(seletedPets)
         self.diaryWriteCollectionView.reloadData()
     }
 
