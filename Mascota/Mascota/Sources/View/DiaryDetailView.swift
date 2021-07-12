@@ -144,18 +144,14 @@ class DiaryDetailView: UIView {
         addSubviews(textView)
         
         textView.isScrollEnabled = false
-        
-        print(textView.contentSize.height)
-
         textView.sizeToFit()
+        
         textView.snp.makeConstraints {
             $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(32)
         }
-        
-        emojiStackView.addArrangedSubviews(UIImageView(image: UIImage(named: "emoDogAngry")))
 
         addSubviews(emojiStackView, forwardButton, backwardButton)
 
@@ -174,13 +170,13 @@ class DiaryDetailView: UIView {
             $0.centerY.equalTo(forwardButton.snp.centerY)
             $0.trailing.equalTo(forwardButton.snp.leading).offset(-17)
         }
+        setEmogi()
     }
     
     public func setTextViewText(text: String) {
         textView.setText(text: text)
         textView.layoutIfNeeded()
         
-        print(textView.contentSize.height)
         if textView.contentSize.height <= 190 && !UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
                 $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
@@ -210,11 +206,74 @@ class DiaryDetailView: UIView {
     
     public func setDate(date: String, togetherDay: String) {
         dateLabel.text = date
-        togetherDayLabel.attributedText = "함께한 지 \(togetherDay)일".convertSomeColorFont(color: type.color(),
-                                                            
-                                                                                                 type: .regular, start: 6,
-                                                                                                 length: togetherDay.count)
+        togetherDayLabel.attributedText = "함께한 지 \(togetherDay)일".convertSomeColorFont(color: type.color(), type: .regular, start: 6, length: togetherDay.count)
+    }
+    
+    private lazy var backroundViewArray: [UIView] = []
+    
+    public func setEmogi() {
+        for i in 0...3 {
+            let emogiButton = UIButton()
+            emogiButton.setImage( UIImage(named: "emoDogAngry"), for: .normal)
+            emogiButton.tag = i
+            emogiButton.addTarget(self, action: #selector(tapEmogiButton(_:)), for: .touchUpInside)
+            emojiStackView.addArrangedSubviews(emogiButton)
+            
+            let petProfileStackView = UIStackView().then {
+                $0.axis = .vertical
+                $0.spacing = 9
+                $0.distribution = .fillEqually
+            }
+            
+            let backgroundView = UIView().then {
+                $0.backgroundColor = .macoWhite
+                $0.layer.cornerRadius = Constant.round3
+            }
+            
+            backroundViewArray.append(contentsOf: [backgroundView])
+            
+            addSubviews(backgroundView)
+            
+            backgroundView.snp.makeConstraints {
+                $0.top.equalTo(emogiButton.snp.bottom).inset(-5)
+                $0.width.equalTo(emogiButton.snp.width)
+                $0.centerX.equalTo(emogiButton.snp.centerX)
+            }
+            
+            backgroundView.addSubviews(petProfileStackView)
+            
+            petProfileStackView.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(9)
+                $0.bottom.equalToSuperview().offset(-9)
+                $0.centerX.equalToSuperview()
+            }
+            
+            let circleProfileButton = CircleProfileButton(type: type)
+            let circleProfileButton2 = CircleProfileButton(type: type)
+            
+            petProfileStackView.addArrangedSubviews(circleProfileButton, circleProfileButton2)
+            
+            circleProfileButton.snp.makeConstraints {
+                $0.width.height.equalTo(31)
+            }
+            
+            backgroundView.alpha = 0
+            
+        }
+    }
+    
+    @objc
+    func tapEmogiButton(_ sender: UIButton) {
+        if backroundViewArray[sender.tag].alpha == 1 {
+            UIView.animate(withDuration: 0.1) {
+                self.backroundViewArray[sender.tag].alpha = 0
+            }
+        } else {
+            UIView.animate(withDuration: 0.1) {
+                self.backroundViewArray[sender.tag].alpha = 1
+            }
+        }
+    
     }
     
 }
-
