@@ -16,6 +16,12 @@ extension UITextView {
         layer.cornerRadius = Constant.round3
         
         tintColor = color
+        
+        textContainerInset = UIEdgeInsets(top: 15, left: 12, bottom: 10, right: 12)
+    }
+    
+    func setText(text: String, textColor: UIColor = .macoBlack) {
+        attributedText = text.attributedString(font: .macoFont(type: .regular, size: 16), color: textColor, customLineHeight: 28)
     }
     
     func setUnderLine(color: UIColor? = .macoOrange) {
