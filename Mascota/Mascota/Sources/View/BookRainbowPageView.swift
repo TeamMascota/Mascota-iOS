@@ -12,8 +12,8 @@ import Then
 
 class BookRainbowPageView: BookPageView {
     
-    private lazy var leftPageView = BookContentView()
-    private lazy var rightPageView = BookContentView()
+    public lazy var leftPageView = BookContentView()
+    public lazy var rightPageView = BookContentView()
     
     private lazy var backgroundView = BookPageView(type: .rainbow)
     
