@@ -10,7 +10,7 @@ import UIKit
 class DiaryWriteFirstViewController: UIViewController {
     
     var pets: [String] = ["워렌 버핏", "빌 게이츠", "머스크", "팀쿡"]
-    var seletedPets: [Int] = [-1,-1,-1,-1]
+    var seletedPets: [Int] = [-1, -1, -1, -1]
     var selected: [Int] = []
     
     var customLabelAlertView = CustomLabelAlertView()
@@ -21,12 +21,78 @@ class DiaryWriteFirstViewController: UIViewController {
                                                                         $0.backgroundColor = UIColor.macoIvory
                                                                         $0.allowsMultipleSelection = true
     }
-
+    
+    let nextButton: UIButton = UIButton().then() {
+        $0.setAttributedTitle("다음".convertColorFont(color: UIColor.macoWhite, fontSize: 20, type: .medium), for: .normal)
+        $0.layer.cornerRadius = 3
+        $0.setBackgroundColor(UIColor.macoOrange, for: .normal)
+        $0.setAttributedTitle("다음".convertColorFont(color: UIColor.macoDarkGray,
+                                                    fontSize: 20,
+                                                    type: .medium),
+                                                    for: .disabled)
+        $0.setBackgroundColor(UIColor.macoLightGray, for: .disabled)
+        $0.isEnabled = false
+    }
+    
+    let navigationTitleLabel: UILabel = UILabel().then {
+        $0.font = UIFont.macoFont(type: .medium, size: 17)
+        $0.textAlignment = .center
+        $0.textColor = UIColor.macoBlack
+    }
+    
+    let navigiationRightView: UILabel = UILabel().then {
+        $0.font = UIFont.macoFont(type: .regular, size: 14)
+        $0.textColor = UIColor.darkGray
+        $0.textAlignment = .center
+        $0.text = "1/2"
+    }
+    
+    let leftProgressBar: UIView = UIView().then {
+        $0.backgroundColor = UIColor.macoOrange
+    }
+    
+    let rightProgressBar: UIView = UIView().then {
+        $0.backgroundColor = UIColor.macoLightGray
+    }
+    
+    let stackView: UIStackView = UIStackView().then {
+        $0.alignment = .center
+        $0.distribution = .fillEqually
+        $0.spacing = 0
+        $0.axis = .horizontal
+    }
+    
+    @objc
+    private func touchBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        stackView.addArrangedSubview(leftProgressBar)
         layoutComponents()
+        initializeNavigationItems()
         registerCollectionView()
         registerCollectionViewCell()
+        setViews()
+        initializeNavigationBarColor()
+    }
+    
+    private func initializeNavigationBarColor() {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
+    }
+    
+    private func initializeNavigationItems() {
+        navigationTitleLabel.text = "asdfadsf"
+        self.navigationItem.titleView = navigationTitleLabel
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnIconBack"), style: .plain, target: self, action: #selector(touchBackButton))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigiationRightView)
+    }
+    
+    private func setViews() {
+        self.view.backgroundColor = UIColor.macoIvory
     }
     
     private func registerCollectionView() {
@@ -48,12 +114,12 @@ class DiaryWriteFirstViewController: UIViewController {
     
     private func isButtonAvailable() {
         for idx in selected {
-            if self.seletedPets[idx] == 100 {
-                //button disable
+            if self.seletedPets[idx] == 100 || self.seletedPets[idx] == -1{
+                nextButton.isEnabled = false
                 return
             }
         }
-//        button enable
+        nextButton.isEnabled = true
     }
     
     private func registerCollectionViewCell() {
@@ -74,12 +140,40 @@ class DiaryWriteFirstViewController: UIViewController {
     }
 
     private func layoutComponents() {
-        self.view.addSubview(diaryWriteCollectionView)
+        stackView.addArrangedSubviews(leftProgressBar, rightProgressBar)
+        
+        self.view.addSubviews(diaryWriteCollectionView, nextButton, stackView)
+        
+        leftProgressBar.snp.makeConstraints {
+            $0.top.equalTo(stackView.snp.top)
+            $0.leading.equalTo(stackView.snp.leading)
+            $0.bottom.equalTo(stackView.snp.bottom)
+        }
+
+        rightProgressBar.snp.makeConstraints {
+            $0.top.equalTo(stackView.snp.top)
+            $0.trailing.equalTo(stackView.snp.trailing)
+            $0.leading.equalTo(leftProgressBar.snp.trailing)
+            $0.bottom.equalTo(stackView.snp.bottom)
+        }
+        
         diaryWriteCollectionView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().inset(12)
-            $0.trailing.equalToSuperview().inset(12)
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        stackView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(1)
+        }
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(30)
+            $0.leading.equalToSuperview().inset(28)
+            $0.trailing.equalToSuperview().inset(28)
+            $0.height.equalTo(50)
         }
     }
     
@@ -149,6 +243,8 @@ extension DiaryWriteFirstViewController: UICollectionViewDelegateFlowLayout {
         switch indexPath.section {
         case 0:
             return CGSize(width: collectionView.frame.width, height: 160)
+        case selected.count:
+            return CGSize(width: collectionView.frame.width, height: 200)
         default:
             return CGSize(width: collectionView.frame.width, height: 130)
         }
@@ -178,6 +274,7 @@ extension DiaryWriteFirstViewController: CharacterCollectionViewCellProtocol {
             seletedPets[index] = 100
             findSelected()
             reloadEmotions()
+            isButtonAvailable()
         }
     }
     
@@ -205,11 +302,10 @@ extension DiaryWriteFirstViewController {
                 return
             }
             cell.isSelected = false
-            print(index)
             self.seletedPets[index] = -1
-            print(self.seletedPets)
             self.findSelected()
             self.reloadEmotions()
+            self.isButtonAvailable()
         }
         
         confirmAction.setValue(UIColor.macoLightGray, forKey: "titleTextColor")
@@ -238,5 +334,6 @@ extension DiaryWriteFirstViewController {
 extension DiaryWriteFirstViewController: PetEmotionCollectionViewCellProtocol {
     func selectEmotion(section: Int, item: Int) {
         seletedPets[section] = item
+        isButtonAvailable()
     }
 }

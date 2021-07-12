@@ -43,11 +43,6 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
                                                                      collectionViewLayout: UICollectionViewFlowLayout().then {
                                                                         $0.scrollDirection = .horizontal
                                                                      }).then {
-                                                                        $0.layer.borderWidth = 1
-                                                                        $0.layer.borderColor = UIColor.macoOrange.cgColor
-                                                        
-                                                                        
-        
         $0.showsHorizontalScrollIndicator = false
         $0.backgroundColor = UIColor.macoIvory
         $0.allowsSelection = true
@@ -110,22 +105,30 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
         
         deleteButton.snp.makeConstraints {
             $0.trailing.equalTo(self.contentView.snp.trailing).inset(5)
-            $0.top.equalTo(self.topSepartor.snp.bottom).offset(7)
+//            $0.top.equalTo(self.topSepartor.snp.bottom).offset(7)
             $0.height.equalTo(25)
             $0.width.equalTo(41)
+            
+        }
+        
+//        bottomSepartor.snp.makeConstraints {
+//            $0.leading.equalTo(self.contentView.snp.leading)
+//            $0.trailing.equalTo(self.contentView.snp.trailing)
+//            $0.bottom.equalTo(self.contentView.snp.bottom)
+//            $0.height.equalTo(0.8)
+//        }
+        emotionCollectionView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.leading.equalTo(self.contentView.snp.leading).inset(12)
+            $0.trailing.equalTo(self.contentView.snp.trailing).inset(11)
+            $0.height.equalTo(70)
         }
         
         bottomSepartor.snp.makeConstraints {
             $0.leading.equalTo(self.contentView.snp.leading)
             $0.trailing.equalTo(self.contentView.snp.trailing)
-            $0.bottom.equalTo(self.contentView.snp.bottom)
+            $0.top.equalTo(emotionCollectionView.snp.bottom).offset(15)
             $0.height.equalTo(0.8)
-        }
-        emotionCollectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
-            $0.leading.equalTo(self.contentView.snp.leading).inset(12)
-            $0.trailing.equalTo(self.contentView.snp.trailing).inset(11)
-            $0.bottom.equalTo(self.bottomSepartor.snp.top).offset(-15.2)
         }
     }
 
@@ -161,8 +164,6 @@ extension PetEmotionCollectionViewCell: UICollectionViewDataSource {
                                       animated: true,
                                       scrollPosition: .init())
         }
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.macoOrange.cgColor
         return cell
     }
 }

@@ -13,8 +13,6 @@ class PetsCollectionViewCell: UICollectionViewCell {
         $0.image = UIImage(named: "emoDogLove")
         $0.tintColor = UIColor.macoBlack
         $0.contentMode = .scaleAspectFit
-        $0.layer.borderColor = UIColor.macoBlack.cgColor
-        $0.layer.borderWidth = 1
     }
     
     let emotionLabel: UILabel = UILabel().then {
