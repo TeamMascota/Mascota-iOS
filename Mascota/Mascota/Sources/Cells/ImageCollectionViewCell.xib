@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,24 +17,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="376" height="346"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icImg" translatesAutoresizingMaskIntoConstraints="NO" id="Dqn-h0-pbV">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8RS-RT-Lgh">
                         <rect key="frame" x="0.0" y="0.0" width="376" height="346"/>
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="default"/>
+                        <color key="backgroundColor" name="macoWhite"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icImg" translatesAutoresizingMaskIntoConstraints="NO" id="ojy-ul-51E">
+                        <rect key="frame" x="178" y="163" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="7zg-RH-dBI"/>
+                            <constraint firstAttribute="height" constant="20" id="9BF-DG-TQM"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Dqn-h0-pbV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4ua-dV-Pf8"/>
-                <constraint firstItem="Dqn-h0-pbV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="IT4-Jz-Agj"/>
-                <constraint firstAttribute="bottom" secondItem="Dqn-h0-pbV" secondAttribute="bottom" id="czw-Pk-Z3Z"/>
-                <constraint firstAttribute="trailing" secondItem="Dqn-h0-pbV" secondAttribute="trailing" id="lws-h6-iQU"/>
+                <constraint firstItem="ojy-ul-51E" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="6kW-jX-AxH"/>
+                <constraint firstAttribute="bottom" secondItem="8RS-RT-Lgh" secondAttribute="bottom" id="NVq-VP-Jws"/>
+                <constraint firstItem="8RS-RT-Lgh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mUN-zY-dFP"/>
+                <constraint firstItem="ojy-ul-51E" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="mbl-SG-cJR"/>
+                <constraint firstAttribute="trailing" secondItem="8RS-RT-Lgh" secondAttribute="trailing" id="riH-9j-LKI"/>
+                <constraint firstItem="8RS-RT-Lgh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wKU-KO-ZSZ"/>
             </constraints>
             <size key="customSize" width="376" height="346"/>
+            <connections>
+                <outlet property="symbolImageView" destination="ojy-ul-51E" id="XrI-n8-7Am"/>
+                <outlet property="userImageView" destination="8RS-RT-Lgh" id="Sbg-xV-ExJ"/>
+            </connections>
             <point key="canvasLocation" x="373.91304347826087" y="148.66071428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="icImg" width="20" height="20"/>
+        <namedColor name="macoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

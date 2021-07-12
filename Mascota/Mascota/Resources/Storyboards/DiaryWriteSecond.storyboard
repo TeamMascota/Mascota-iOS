@@ -20,7 +20,6 @@
         <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
@@ -249,6 +248,7 @@
                         <outlet property="titleLabel" destination="SQS-ir-tc9" id="gD3-SA-ObI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
         </scene>
@@ -296,9 +296,9 @@
                                                 <color key="textColor" name="macoGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sso-gH-y3j">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Sso-gH-y3j">
                                                 <rect key="frame" x="28" y="58" width="358" height="100"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" name="macoIvory"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="iKY-D8-cqF"/>
                                                 </constraints>
@@ -366,7 +366,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2029.12.10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tg2-LL-k7d">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2029.12.10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tg2-LL-k7d">
                                                         <rect key="frame" x="13" y="11" width="70.5" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -390,7 +390,7 @@
                                                         <rect key="frame" x="13" y="9" width="280" height="22.5"/>
                                                         <color key="textColor" name="macoBlack"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/10)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-Wv-PNU">
                                                         <rect key="frame" x="306" y="9.5" width="39" height="21"/>
@@ -416,12 +416,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3dM-cB-5Qv">
-                                                <rect key="frame" x="29" y="547" width="356" height="171"/>
+                                                <rect key="frame" x="29" y="526" width="356" height="192"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <color key="textColor" name="macoBlack"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFt-bL-7IO">
                                                 <rect key="frame" x="28" y="464" width="358" height="1"/>
@@ -441,7 +440,7 @@
                                             <constraint firstItem="qO5-2K-cYT" firstAttribute="top" secondItem="fIY-uI-V8S" secondAttribute="top" constant="23" id="EwX-r2-gjd"/>
                                             <constraint firstItem="anY-9L-81w" firstAttribute="leading" secondItem="fIY-uI-V8S" secondAttribute="leading" constant="28" id="HgX-oD-RAB"/>
                                             <constraint firstItem="YQh-tj-Ahi" firstAttribute="top" secondItem="0Jz-Eq-zmz" secondAttribute="bottom" constant="28" id="IFd-s1-HyD"/>
-                                            <constraint firstItem="3dM-cB-5Qv" firstAttribute="top" secondItem="YQh-tj-Ahi" secondAttribute="bottom" constant="29" id="Jay-uK-Cp5"/>
+                                            <constraint firstItem="3dM-cB-5Qv" firstAttribute="top" secondItem="YQh-tj-Ahi" secondAttribute="bottom" constant="8" id="Jay-uK-Cp5"/>
                                             <constraint firstItem="AUD-ac-S2H" firstAttribute="leading" secondItem="qO5-2K-cYT" secondAttribute="trailing" constant="6" id="KtM-2C-U7J"/>
                                             <constraint firstItem="gnN-xT-DB9" firstAttribute="leading" secondItem="fIY-uI-V8S" secondAttribute="leading" constant="28" id="L3I-dw-U8M"/>
                                             <constraint firstItem="IFt-bL-7IO" firstAttribute="top" secondItem="0Jz-Eq-zmz" secondAttribute="bottom" id="MtA-H7-ZvM"/>
@@ -486,6 +485,20 @@
                             <constraint firstItem="Z6A-hH-MvW" firstAttribute="bottom" secondItem="oYH-5e-7yy" secondAttribute="bottom" id="zEF-w6-a2O"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="tg2-LL-k7d" id="gb3-bd-JVA"/>
+                        <outlet property="dateView" destination="7qK-sU-Z2a" id="Bk1-bs-lu9"/>
+                        <outlet property="imageCollectionView" destination="Sso-gH-y3j" id="jbX-vX-DcL"/>
+                        <outlet property="indexLabel" destination="l1e-sQ-SUR" id="rig-NG-S9i"/>
+                        <outlet property="indexTitleLabel" destination="hd7-qp-mlU" id="ROm-6i-MAw"/>
+                        <outlet property="indexToggleButton" destination="Mo3-CM-obb" id="mn0-Jd-pj2"/>
+                        <outlet property="indexView" destination="lDE-uL-RUq" id="UcK-kA-KGD"/>
+                        <outlet property="journalTextView" destination="3dM-cB-5Qv" id="TZ7-td-9cm"/>
+                        <outlet property="scrollViewBackgroundView" destination="fIY-uI-V8S" id="iBl-3a-tYj"/>
+                        <outlet property="titleCountLabel" destination="vMe-Wv-PNU" id="0s8-wJ-HyQ"/>
+                        <outlet property="titleTextField" destination="Pgr-fz-vbI" id="mxN-Ev-1RT"/>
+                        <outlet property="titleView" destination="0Jz-Eq-zmz" id="QXc-sb-uPo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLI-j1-yYE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
