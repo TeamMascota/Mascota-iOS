@@ -61,6 +61,7 @@ class RainbowDiaryDetailViewController: UIViewController {
     }
     
     private func setScrollView() {
+        view.backgroundColor = .macoIvory
         view.addSubviews(mainScrollView)
 
         mainScrollView.snp.makeConstraints {

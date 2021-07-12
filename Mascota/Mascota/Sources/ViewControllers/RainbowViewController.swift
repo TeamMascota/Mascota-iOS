@@ -35,6 +35,16 @@ class RainbowViewController: UIViewController {
         setTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func initRainbowViewController() {
         view.backgroundColor = .macoIvory
     }
@@ -115,6 +125,8 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowBookPage, for: indexPath) as? RainbowBookPageTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
+            cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
+            cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
             return cell
             
         case 1:
@@ -135,7 +147,7 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
-         
+            cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
             return cell
             
         default:
@@ -146,7 +158,6 @@ extension RainbowViewController: UITableViewDataSource {
     
     @objc
     func tapHelpButton(_ sender: UIButton) {
-        
         let helpCardAlertView = CustomLabelAlertView()
         
         helpCardAlertView.setAttributedTitle(attributedText: "도움글에 대해".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
@@ -157,6 +168,31 @@ extension RainbowViewController: UITableViewDataSource {
         self.presentSingleCustomAlert(view: helpCardAlertView, preferredSize: CGSize(width: 270, height: 190), confirmHandler: nil, text: "닫기", color: .macoBlue)
     }
     
+    @objc
+    func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
+        print("tapLeftBookPage")
+        let vc = RainbowDiaryDetailViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func tapRightBookPage(_ sender: UITapGestureRecognizer) {
+        print("tapRightBookPage")
+        
+        navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
+    }
+    
+    @objc
+    func tapNextButton(_ sender: UIButton) {
+        let helpCardAlertView = CustomCollectionAlertView()
+
+        self.presentDoubleCustomAlert(view: helpCardAlertView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
+            
+        }, secondHandler: { _ in
+            
+        }, firstText: "취소", secondText: "다음")
+    }
 }
 
 struct HelpCardModel {
