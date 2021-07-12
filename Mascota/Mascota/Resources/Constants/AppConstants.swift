@@ -16,6 +16,7 @@ struct AppConstants {
         static let indexEdit: String = "IndexEdit"
         static let indexDetail: String = "IndexDetail"
         static let diaryWriteFirst: String = "DiaryWriteFirst"
+        static let diaryWriteSecond: String = "DiaryWriteSecond"
     }
     struct ViewController {
         static let login: String = "LoginViewController"
@@ -24,6 +25,7 @@ struct AppConstants {
         static let homeStart: String = "HomeStartViewController"
         static let indexEdit: String = "IndexEditViewController"
         static let diaryWriteFirst: String = "DiaryWriteFirstViewController"
+        static let diaryWriteSecond: String = "DiaryWriteSecondViewController"
     }
     
     struct Views {
@@ -43,6 +45,9 @@ struct AppConstants {
         static let registerMyPetCollectionViewCell: String = "RegisterMyPetCollectionViewCell"
         static let petEmotionCollectionViewCell: String = "PetEmotionCollectionViewCell"
         static let petsCollectionViewCell: String = "PetsCollectionViewCell"
+        static let makePlusCollectionViewCell: String = "MakePlusCollectionViewCell"
+        static let plusCollectionViewCell: String = "PlusCollectionViewCell"
+        static let imageCollectionViewCell: String = "ImageCollectionViewCell"
     }
     
     struct CollectionViewHeaders {

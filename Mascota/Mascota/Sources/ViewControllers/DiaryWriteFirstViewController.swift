@@ -76,6 +76,20 @@ class DiaryWriteFirstViewController: UIViewController {
         registerCollectionViewCell()
         setViews()
         initializeNavigationBarColor()
+        addNextButtonTarget()
+    }
+    
+    private func addNextButtonTarget() {
+        self.nextButton.addTarget(self, action: #selector(pushToDiaryWriteSecond), for: .touchUpInside)
+    }
+    
+    @objc
+    func pushToDiaryWriteSecond() {
+        let storyboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteSecond, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(identifier: AppConstants.ViewController.diaryWriteSecond) as? DiaryWriteSecondViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func initializeNavigationBarColor() {
