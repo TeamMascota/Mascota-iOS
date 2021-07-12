@@ -35,7 +35,7 @@ class RainbowBookPageTableViewCell: UITableViewCell {
     private func setRainbowBookTableViewCell() {
         backgroundColor = .clear
         
-        addSubviews(bookPageView)
+        contentView.addSubviews(bookPageView)
         
         let bookHeight = (Constant.DeviceSize.width - 32) * 0.6
         

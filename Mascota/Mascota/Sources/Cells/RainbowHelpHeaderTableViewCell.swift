@@ -17,7 +17,7 @@ class RainbowHelpHeaderTableViewCell: UITableViewCell {
         $0.font = .macoFont(type: .medium, size: 20)
     }
     
-    private lazy var helpButton = UIButton().then {
+    public lazy var helpButton = UIButton().then {
         $0.setImage(.add, for: .normal) // 이미지 넣기
         $0.contentMode = .scaleAspectFit
     }
@@ -47,7 +47,7 @@ class RainbowHelpHeaderTableViewCell: UITableViewCell {
     private func setRainbowHelpHeaderTableViewCell() {
         backgroundColor = .clear
         
-        addSubviews(helpLabel, helpButton, underLineView)
+        contentView.addSubviews(helpLabel, helpButton, underLineView)
         
         helpLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(24)

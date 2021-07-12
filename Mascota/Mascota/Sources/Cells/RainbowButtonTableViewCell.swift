@@ -40,7 +40,7 @@ class RainbowButtonTableViewCell: UITableViewCell {
     }
     
     private func setRainbowButton() {
-        addSubviews(button, macoImageView)
+        contentView.addSubviews(button, macoImageView)
         
         button.snp.makeConstraints {
             $0.height.equalTo(50)

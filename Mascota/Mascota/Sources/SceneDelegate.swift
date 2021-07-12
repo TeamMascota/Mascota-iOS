@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            let viewcontroller = RainbowDiaryDetailViewController()
+            let viewcontroller = RainbowViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
 //            let viewcontroller = UIStoryboard(name: "IndexDetail", bundle: nil).instantiateViewController(withIdentifier: "IndexDetailViewController") as! IndexDetailViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
