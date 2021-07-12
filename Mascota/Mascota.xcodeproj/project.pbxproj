@@ -13,6 +13,8 @@
 		1813F2B22699E3A100D7769E /* CharacterMoodCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1813F2B02699E3A100D7769E /* CharacterMoodCollectionReusableView.xib */; };
 		1813F2B52699EA0200D7769E /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F2B32699EA0200D7769E /* CharacterCollectionViewCell.swift */; };
 		1813F2B62699EA0200D7769E /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1813F2B42699EA0200D7769E /* CharacterCollectionViewCell.xib */; };
+		1828644C269C25A7002C98E0 /* DIaryWriteSecond.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1828644B269C25A7002C98E0 /* DIaryWriteSecond.storyboard */; };
+		1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828644D269C25C3002C98E0 /* DIaryWriteSecondViewController.swift */; };
 		182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C1D6826934518006C6511 /* PartCollectionViewCell.swift */; };
 		182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C1D6926934518006C6511 /* PartCollectionViewCell.xib */; };
 		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
@@ -140,6 +142,8 @@
 		1813F2B02699E3A100D7769E /* CharacterMoodCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterMoodCollectionReusableView.xib; sourceTree = "<group>"; };
 		1813F2B32699EA0200D7769E /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		1813F2B42699EA0200D7769E /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
+		1828644B269C25A7002C98E0 /* DIaryWriteSecond.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DIaryWriteSecond.storyboard; sourceTree = "<group>"; };
+		1828644D269C25C3002C98E0 /* DIaryWriteSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIaryWriteSecondViewController.swift; sourceTree = "<group>"; };
 		182C1D6826934518006C6511 /* PartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartCollectionViewCell.swift; sourceTree = "<group>"; };
 		182C1D6926934518006C6511 /* PartCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartCollectionViewCell.xib; sourceTree = "<group>"; };
 		182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -408,6 +412,7 @@
 				18E5B41C26943B9E001927DD /* IndexEdit.storyboard */,
 				18AB719626935BEA00FADF9B /* IndexDetail.storyboard */,
 				1813F2AB2699E20F00D7769E /* DiaryWriteFirst.storyboard */,
+				1828644B269C25A7002C98E0 /* DIaryWriteSecond.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				18E5B41E26943BB1001927DD /* IndexEditViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
 				1813F2AD2699E22200D7769E /* DiaryWriteFirstViewController.swift */,
+				1828644D269C25C3002C98E0 /* DIaryWriteSecondViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -703,6 +709,7 @@
 				187464322698439D00ED57DA /* CustomTextFieldAlertView.xib in Resources */,
 				483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */,
 				18AB719726935BEA00FADF9B /* IndexDetail.storyboard in Resources */,
+				1828644C269C25A7002C98E0 /* DIaryWriteSecond.storyboard in Resources */,
 				DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */,
 				18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
@@ -898,6 +905,7 @@
 				18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */,
 				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
 				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
+				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
