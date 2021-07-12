@@ -14,7 +14,6 @@ class RainbowDiaryDetailViewController: UIViewController {
     private lazy var contentView = DiaryDetailView(type: .rainbow)
     
     private lazy var mainScrollView = UIScrollView().then {
-        $0.alwaysBounceHorizontal = false
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
         $0.isScrollEnabled = true
