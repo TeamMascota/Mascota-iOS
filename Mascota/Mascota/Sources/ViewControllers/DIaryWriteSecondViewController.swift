@@ -13,6 +13,10 @@ class DiaryWriteSecondViewController: UIViewController {
     
     var writtenJournal: String = ""
     
+    var pickedImage: [UIImage] = []
+    
+    let imagePicker: UIImagePickerController = UIImagePickerController()
+    
     @IBOutlet weak var scrollViewBackgroundView: UIView!
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var dateView: UIView!
@@ -25,7 +29,6 @@ class DiaryWriteSecondViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var titleCountLabel: UILabel!
     @IBOutlet weak var journalTextView: UITextView!
-    
     
     // 스크롤뷰에서 먹히지 않기 때문에 scrollView에 탭 제스처를 붙여서 처리해줘야 됨
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,7 +44,12 @@ class DiaryWriteSecondViewController: UIViewController {
         registerCollectionViewCell()
         verifyTextView()
         registerTextView()
+        registerImagePicker()
         
+    }
+    
+    private func registerImagePicker() {
+        self.imagePicker.delegate = self
     }
     
     private func registerTextView() {
@@ -87,7 +95,62 @@ class DiaryWriteSecondViewController: UIViewController {
         self.imageCollectionView.delegate = self
         self.imageCollectionView.dataSource = self
     }
-
+    
+    private func presentImagePickerController(method: UIImagePickerController.SourceType) {
+        self.imagePicker.sourceType = method
+        self.imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func presentActionSheet(delete: Bool, index: Int = 100) {
+        let alert = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if delete {
+            let deleteHandler = UIAlertAction.init(title: "사진 삭제", style: .default) { _ in
+                self.pickedImage.remove(at: index)
+                self.imageCollectionView.reloadData()
+            }
+            deleteHandler.setValue(UIColor.macoBlack, forKey: "titleTextColor")
+            alert.addAction(deleteHandler)
+        }
+    
+        let photoLibraryHandler = UIAlertAction.init(title: "앨범에서 사진 선택", style: .default) { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                self.presentImagePickerController(method: .photoLibrary)
+            } else {
+                print("can't approach Photo Library")
+            }
+        }
+        
+        let cancelHandler = UIAlertAction.init(
+                title: "취소",
+                style: .cancel,
+                handler: nil)
+        
+        photoLibraryHandler.setValue(UIColor.macoBlack, forKey: "titleTextColor")
+        cancelHandler.setValue(UIColor.macoBlack, forKey: "titleTextColor")
+        
+        alert.addAction(photoLibraryHandler)
+        alert.addAction(cancelHandler)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @objc
+    func touchPlusButton() {
+        presentActionSheet(delete: false)
+    }
+    
+    @objc
+    func touchImageCell(_ sender: UITapGestureRecognizer) {
+        guard let index = sender.view?.tag else {
+            return
+        }
+        if index < pickedImage.count {
+            presentActionSheet(delete: true, index: index)
+        }
+    }
 
 }
 
@@ -110,7 +173,6 @@ extension DiaryWriteSecondViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-
 extension DiaryWriteSecondViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
@@ -123,17 +185,22 @@ extension DiaryWriteSecondViewController: UICollectionViewDataSource {
                                                                 for: indexPath) as? PlusCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchPlusButton)))
             return cell
         }
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.imageCollectionViewCell, for: indexPath) as? ImageCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.initializeCell(data: nil)
+        cell.tag = indexPath.item - 1
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchImageCell(_:))))
+        if indexPath.item <= pickedImage.count {
+            cell.initializeCell(data: pickedImage[indexPath.item - 1])
+        } else {
+            cell.initializeCell(data: nil)
+        }
         return cell
     }
-    
-    
 }
 
 extension DiaryWriteSecondViewController: UITextViewDelegate {
@@ -153,8 +220,30 @@ extension DiaryWriteSecondViewController: UITextViewDelegate {
             textView.attributedText = textViewPlaceholder
         }
         
-        
-        
         return true
+    }
+}
+
+extension DiaryWriteSecondViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            pickedImage.append(image)
+            imageCollectionView.reloadData()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            pickedImage.append(image)
+            imageCollectionView.reloadData()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

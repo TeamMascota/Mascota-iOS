@@ -21,14 +21,16 @@ class ImageCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    func initializeCell(data: String?){
-        if let string = data {
+    func initializeCell(data: UIImage?){
+        if let image = data {
 //            userImageView.image = dasda
             self.layer.borderWidth = 1
             self.layer.borderColor = UIColor.macoOrange.cgColor
+            self.userImageView.image = image
             self.symbolImageView.isHidden = true
         } else {
             self.symbolImageView.isHidden = false
+            self.userImageView.image = UIImage()
         }
     }
     
