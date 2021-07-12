@@ -120,6 +120,7 @@ extension RainbowViewController: UITableViewDataSource {
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowHelpHeader, for: indexPath) as? RainbowHelpHeaderTableViewCell
             else { return UITableViewCell() }
+            cell.helpButton.addTarget(self, action: #selector(tapHelpButton(_:)), for: .touchUpInside)
             cell.selectionStyle = .none
             return cell
         
@@ -141,6 +142,19 @@ extension RainbowViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+    }
+    
+    @objc
+    func tapHelpButton(_ sender: UIButton) {
+        
+        let helpCardAlertView = CustomLabelAlertView()
+        
+        helpCardAlertView.setAttributedTitle(attributedText: "도움글에 대해".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        helpCardAlertView.setAttributedDescription(attributedText: "지금은 먼 훗날의 일이라고 생각될 수 있지만,\n언젠가 다가올 이별을 위해 정리했어요.\n이별의 과정이 후회로만 기억되지 않도록\n도움글을 읽으며 마음을 천천히 준비해 보세요."
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+        
+        self.presentSingleCustomAlert(view: helpCardAlertView, preferredSize: CGSize(width: 270, height: 190), confirmHandler: nil, text: "닫기", color: .macoBlue)
     }
     
 }
