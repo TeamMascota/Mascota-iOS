@@ -21,6 +21,13 @@ class RainbowDiaryDetailViewController: UIViewController {
         $0.bounces = false
     }
     
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.textBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerContentView()
@@ -50,8 +57,8 @@ class RainbowDiaryDetailViewController: UIViewController {
     private func setNavigationBar() {
         navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite, underLineColor: .macoDarkGray)
         navigationItem.setTitle(title: "코봉이의 중성화 날", subtitle: "161화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
-//        navigationItem.leftBarButtonItem = backButton
-//        navigationItem.rightBarButtonItem = closeButton
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = closeButton
     }
     
     private func setScrollView() {
@@ -115,10 +122,20 @@ extension RainbowDiaryDetailViewController: UITextViewDelegate {
     }
 }
 
-
 extension RainbowDiaryDetailViewController {
     @objc
     func moveToEpisode(_ sender: UIButton) {
         print("moveToEpisode")
+    }
+
+    @objc
+    func tapBackButton(_ sender: UIBarButtonItem) {
+        print("click")
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func tapCloseButton(_ sender: UIBarButtonItem) {
+        print("click")
     }
 }
