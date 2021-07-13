@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "bgGridRainbow.png",
       "scale" : "1x",
-      "filename" : "btnIconBack.png",
       "idiom" : "universal"
     },
     {
       "idiom" : "universal",
-      "filename" : "btnIconBack@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "bgGridRainbow@2x.png"
     },
     {
-      "filename" : "btnIconBack@3x.png",
-      "scale" : "3x",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "bgGridRainbow@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

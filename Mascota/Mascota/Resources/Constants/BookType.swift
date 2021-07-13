@@ -28,4 +28,13 @@ enum BookType {
             return .macoFont(type: .medium, size: 20)
         }
     }
+    
+    func grid() -> UIImage? {
+        switch self {
+        case .home:
+            return UIImage(named: "bgGrid")
+        case .rainbow:
+            return UIImage(named: "bgGridRainbow")
+        }
+    }
 }
