@@ -8,16 +8,12 @@
 import UIKit
 
 class RainbowEpillogueViewController: UIViewController {
-
-    private lazy var bookMarkImageView = UIImageView().then {
-        $0.image = .checkmark // 이미지 넣기
-        $0.backgroundColor = .blue
-    }
     
     private lazy var endButton = MacoButton(color: .blue).then {
         $0.setMacoButtonTitle("이별의 단계 완료", for: .normal)
         $0.setTitleColor(.macoGray, for: .disabled)
         $0.setBackgroundColor(.macoLightGray, for: .disabled)
+        $0.addTarget(self, action: #selector(tapEndButton(_:)), for: .touchUpInside)
     }
     
     private lazy var contentLabel = UILabel().then {
@@ -56,9 +52,14 @@ class RainbowEpillogueViewController: UIViewController {
         $0.attributedText = continueAttr
     }
     
-    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
     
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+
     private lazy var name: String = "가나다라마바사"
     
     private lazy var keyboardHeight: CGFloat = 0.0
@@ -99,15 +100,6 @@ class RainbowEpillogueViewController: UIViewController {
         )
         
         view.backgroundColor = .macoIvory
-       
-        view.addSubviews(bookMarkImageView)
-        
-        bookMarkImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.trailing.equalToSuperview().inset(15)
-            $0.width.equalTo(30)
-            $0.height.equalTo(85)
-        }
         
     }
     
@@ -203,6 +195,25 @@ class RainbowEpillogueViewController: UIViewController {
         name = "뮨서"
     }
     
+    @objc
+    func tapEndButton(_ sender: UIButton) {
+        let customLabelAlertView = CustomLabelAlertView()
+        
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "녹차의 이야기를 마무리하시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 100),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "완료", color: .macoBlue)
+    }
+    
 }
 
 extension RainbowEpillogueViewController: UITextFieldDelegate {
@@ -217,7 +228,21 @@ extension RainbowEpillogueViewController {
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
+        let customLabelAlertView = CustomLabelAlertView()
         
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 130),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
 }
 

@@ -8,8 +8,6 @@
 import UIKit
 
 class RainbowBookCoverViewController: UIViewController {
-
-//    private lazy var rainbowNavigationBar = RainbowNavigationBarView(style: .leftAndRight, title: "이별하는 무지개 다리")
     
     private lazy var nextButton = MacoButton(color: .white).then {
         $0.setMacoButtonTitle("다음", for: .normal)
@@ -26,16 +24,20 @@ class RainbowBookCoverViewController: UIViewController {
     
     private lazy var bookCoverView = BookCoverView()
     
-    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
     
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initRainbowBookCoverViewController()
         
         setAddTarget()
-//        setRainbowNavigationBar()
         setLabel()
         setBookCoverView()
         setButton()
@@ -47,8 +49,6 @@ class RainbowBookCoverViewController: UIViewController {
     }
     
     private func setAddTarget() {
-//        rainbowNavigationBar.backButton.addTarget(self, action: #selector(tapBackButton), for: .touchUpInside)
-//        rainbowNavigationBar.closeButton.addTarget(self, action: #selector(tapCloseButton), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(tapNextButton), for: .touchUpInside)
     }
     
@@ -128,18 +128,30 @@ extension RainbowBookCoverViewController {
     
     @objc
     func tapBackButton(_ sender: UIBarButtonItem) {
-        print("click")
         navigationController?.popViewController(animated: true)
     }
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
-        print("click")
+        let customLabelAlertView = CustomLabelAlertView()
+        
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 130),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
     
     @objc
     func tapNextButton(_ sender: UIButton) {
-        print("tapNextButton")
         navigationController?.pushViewController(RainbowBestViewController(), animated: true)
     }
     

@@ -26,6 +26,8 @@ class RainbowViewController: UIViewController {
     private lazy var tableView = UITableView().then {
         $0.backgroundColor = .clear
     }
+    
+    private lazy var petId: String = "가나다라"
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,16 @@ class RainbowViewController: UIViewController {
         initRainbowViewController()
         setMainNavigationBar()
         setTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     private func initRainbowViewController() {
@@ -69,7 +81,7 @@ class RainbowViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(mainNavigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -115,11 +127,15 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowBookPage, for: indexPath) as? RainbowBookPageTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
+            cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
+            cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
+            cell.bookPageView.setContentText(pages: [PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd"),PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd")])
             return cell
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowHelpHeader, for: indexPath) as? RainbowHelpHeaderTableViewCell
             else { return UITableViewCell() }
+            cell.helpButton.addTarget(self, action: #selector(tapHelpButton(_:)), for: .touchUpInside)
             cell.selectionStyle = .none
             return cell
         
@@ -134,7 +150,7 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
-         
+            cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
             return cell
             
         default:
@@ -143,6 +159,42 @@ extension RainbowViewController: UITableViewDataSource {
         
     }
     
+    @objc
+    func tapHelpButton(_ sender: UIButton) {
+        let helpCardAlertView = CustomLabelAlertView()
+        
+        helpCardAlertView.setAttributedTitle(attributedText: "도움글에 대해".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        helpCardAlertView.setAttributedDescription(attributedText: "지금은 먼 훗날의 일이라고 생각될 수 있지만,\n언젠가 다가올 이별을 위해 정리했어요.\n이별의 과정이 후회로만 기억되지 않도록\n도움글을 읽으며 마음을 천천히 준비해 보세요."
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+        
+        self.presentSingleCustomAlert(view: helpCardAlertView, preferredSize: CGSize(width: 270, height: 190), confirmHandler: nil, text: "닫기", color: .macoBlue)
+    }
+    
+    @objc
+    func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
+        let vc = RainbowDiaryDetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func tapRightBookPage(_ sender: UITapGestureRecognizer) {
+        navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
+    }
+    
+    @objc
+    func tapNextButton(_ sender: UIButton) {
+        let petCustomView = CustomCollectionAlertView()
+        self.presentDoubleCustomAlert(view: petCustomView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
+        }, secondHandler: { _ in
+            if petCustomView.petId != "" {
+                let viewcontroller = RainbowCommentViewController()
+                let rootNC = UINavigationController(rootViewController: viewcontroller)
+                rootNC.modalPresentationStyle = .fullScreen
+                self.present(rootNC, animated: true, completion: nil)
+            }
+        }, firstText: "취소", secondText: "다음", color: .macoBlue)
+    }
 }
 
 struct HelpCardModel {

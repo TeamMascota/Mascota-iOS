@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "btnIconBack.png"
+      "filename" : "appIconGray.png",
+      "scale" : "1x"
     },
     {
+      "filename" : "appIconGray@2x.png",
       "idiom" : "universal",
-      "filename" : "btnIconBack@2x.png",
       "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "filename" : "btnIconBack@3x.png",
+      "filename" : "appIconGray@3x.png",
       "idiom" : "universal"
     }
   ],

@@ -12,7 +12,7 @@ import Then
 
 class RainbowButtonTableViewCell: UITableViewCell {
     
-    private lazy var button = MacoButton(color: .blue).then {
+    public lazy var button = MacoButton(color: .blue).then {
         $0.setMacoButtonTitle("반려동물과 이별했나요?", for: .normal)
     }
     
@@ -40,7 +40,7 @@ class RainbowButtonTableViewCell: UITableViewCell {
     }
     
     private func setRainbowButton() {
-        addSubviews(button, macoImageView)
+        contentView.addSubviews(button, macoImageView)
         
         button.snp.makeConstraints {
             $0.height.equalTo(50)

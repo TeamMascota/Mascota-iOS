@@ -1,18 +1,18 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "btnIconBack.png"
+      "scale" : "1x",
+      "filename" : "icProfileEmptyBlue.png"
     },
     {
+      "filename" : "icProfileEmptyBlue@2x.png",
       "idiom" : "universal",
-      "filename" : "btnIconBack@2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "icProfileEmptyBlue@3x.png",
       "scale" : "3x",
-      "filename" : "btnIconBack@3x.png",
       "idiom" : "universal"
     }
   ],
