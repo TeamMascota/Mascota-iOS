@@ -21,12 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-
-          // let viewcontroller = RainbowCommentViewController()
-                    
-           // let viewcontroller = UIStoryboard(name: "HomeStart", bundle: nil).instantiateViewController(withIdentifier: "HomeStartViewController") as! HomeStartViewController
+            let viewcontroller = RainbowDiaryDetailViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-           let viewcontroller = UIStoryboard(name: "RegisterMyPet", bundle: nil).instantiateViewController(withIdentifier: "RegisterMyPetViewController") as! RegisterMyPetViewController
+//            let viewcontroller = UIStoryboard(name: "IndexDetail", bundle: nil).instantiateViewController(withIdentifier: "IndexDetailViewController") as! IndexDetailViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
