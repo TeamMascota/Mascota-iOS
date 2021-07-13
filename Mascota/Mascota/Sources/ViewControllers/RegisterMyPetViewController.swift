@@ -38,7 +38,6 @@ class RegisterMyPetViewController: UIViewController {
     let picker = UIImagePickerController()
     var datePickerBackgroundView = UIView()
     var currentCellNum = 0
-    var isSelected : Bool = true
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
@@ -69,6 +68,11 @@ class RegisterMyPetViewController: UIViewController {
         default:
             print("default")
         }
+    }
+    
+    @IBAction func nextButtonTapped() {
+        let nextVC = self.storyboard?.instantiateViewController(identifier: "RegisterPrologBookViewController")
+        self.navigationController?.pushViewController(nextVC!, animated: true)
     }
     
     @IBAction func showDatePicker() {
@@ -189,6 +193,17 @@ class RegisterMyPetViewController: UIViewController {
         registerCollectionView()
         registerCollectionViewCell()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+           super.viewWillAppear(animated)
+           self.navigationController?.isNavigationBarHidden = true
+       }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           self.navigationController?.isNavigationBarHidden = false
+       }
     
     func appendEmptyElement() {
         myPetsArray.append(PetInfo(petImages: UIImage(named: "yeonseo") ?? UIImage(), name: "", kind: 0, startDate: "", gender: 0))

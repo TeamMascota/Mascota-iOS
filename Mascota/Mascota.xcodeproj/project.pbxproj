@@ -62,6 +62,9 @@
 		48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */; };
 		48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */; };
 		48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */; };
+		48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */; };
+		48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */; };
+		48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
@@ -191,6 +194,9 @@
 		48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePlusCollectionViewCell.swift; sourceTree = "<group>"; };
 		48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePlusCollectionViewCell.xib; sourceTree = "<group>"; };
 		48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetAPIModel.swift; sourceTree = "<group>"; };
+		48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterPrologBook.storyboard; sourceTree = "<group>"; };
+		48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPrologBookViewController.swift; sourceTree = "<group>"; };
+		48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneMakingBookViewController.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -393,6 +399,7 @@
 				188AD00D26919A74008F4284 /* HomeStart.storyboard */,
 				18E5B41C26943B9E001927DD /* IndexEdit.storyboard */,
 				18AB719626935BEA00FADF9B /* IndexDetail.storyboard */,
+				48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
 				18E5B41E26943BB1001927DD /* IndexEditViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
+				48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */,
+				48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */,
 				DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */,
 				DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */,
 			);
@@ -687,6 +696,7 @@
 				18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */,
+				48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */,
 				18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */,
 				182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
@@ -865,6 +875,7 @@
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
 				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
+				48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */,
 				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
@@ -876,6 +887,7 @@
 				18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */,
 				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
 				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
+				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
