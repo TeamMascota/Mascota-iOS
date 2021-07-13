@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomCollectionAlertView: UIView {
+    
     private lazy var underLineView = UIView().then {
         $0.backgroundColor = .macoLightGray
     }
@@ -30,6 +31,8 @@ class CustomCollectionAlertView: UIView {
       
     }
     
+    public lazy var petId: String = ""
+    
     public init() {
         super.init(frame: CGRect.zero)
     
@@ -49,19 +52,19 @@ class CustomCollectionAlertView: UIView {
         addSubviews(underLineView, title, subtitle, hStackView)
         
         underLineView.snp.makeConstraints {
-            $0.height.equalTo(1).labeled("💙underLineView💙")
-            $0.leading.trailing.equalToSuperview().labeled("💙underLineView💙")
-            $0.top.equalToSuperview().offset(50).labeled("💙underLineView💙")
+            $0.height.equalTo(1)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview().offset(50)
         }
         
         title.snp.makeConstraints {
-            $0.centerX.equalToSuperview().labeled("💙title💙")
-            $0.top.equalToSuperview().offset(16).labeled("💙title💙")
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(16)
         }
         
         subtitle.snp.makeConstraints {
-            $0.centerX.equalToSuperview().labeled("💙subtitle💙")
-            $0.top.equalToSuperview().offset(67).labeled("💙subtitle💙")
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(67)
         }
         
         hStackView.snp.makeConstraints {
@@ -75,6 +78,15 @@ class CustomCollectionAlertView: UIView {
     
     @objc
     func tapProfileNameButton(_ sender: UIButton) {
+       
+        let buttonArray = hStackView.arrangedSubviews
+        for button in buttonArray {
+            if let button = button as? UIButton {
+                button.isSelected = false
+            }
+        }
+        
+        petId = String(sender.tag)
         sender.isSelected = !sender.isSelected
     }
     
