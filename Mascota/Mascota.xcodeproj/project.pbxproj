@@ -65,6 +65,7 @@
 		48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */; };
 		48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */; };
 		48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */; };
+		48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
@@ -195,6 +196,7 @@
 		48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterPrologBook.storyboard; sourceTree = "<group>"; };
 		48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPrologBookViewController.swift; sourceTree = "<group>"; };
 		48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneMakingBookViewController.swift; sourceTree = "<group>"; };
+		48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneSignUpViewController.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */,
 				DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */,
 				DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */,
+				48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
 				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
+				48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,

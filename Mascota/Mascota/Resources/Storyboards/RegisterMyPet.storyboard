@@ -871,7 +871,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btnIconBack" width="26" height="27.5"/>
+        <image name="btnIconBack" width="26" height="27"/>
         <image name="btnImgAddBookEmpty" width="158.5" height="248.5"/>
         <image name="calendar1" width="20" height="19.5"/>
         <namedColor name="macoDarkGray">
