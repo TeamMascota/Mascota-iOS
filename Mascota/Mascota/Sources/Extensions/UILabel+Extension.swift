@@ -31,4 +31,13 @@ extension UILabel {
 
         self.attributedText = attributedString
     }
+    
+    func setCountLabel(current: Int, limit: Int) {
+        if current <= limit {
+            self.text = "(\(current)/\(limit))"
+        } else {
+            print(1)
+            self.attributedText = "(\(current)/\(limit))".convertSomeColorFont(color: .red, fontSize: 14, type: .regular, start: 1, length: "\(current)".count)
+        }
+    }
 }

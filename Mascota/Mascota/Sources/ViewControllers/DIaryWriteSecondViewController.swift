@@ -227,7 +227,8 @@ class DiaryWriteSecondViewController: UIViewController {
         guard let cnt = sender.text?.count else {
             return
         }
-        titleCountLabel.text = "\(cnt)/11"
+        titleCountLabel.setCountLabel(current: cnt, limit: 11)
+        
     }
     
     @objc
