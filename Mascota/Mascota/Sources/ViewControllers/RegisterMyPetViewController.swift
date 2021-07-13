@@ -211,10 +211,6 @@ class RegisterMyPetViewController: UIViewController {
      
     // MARK: - Set Navigation Bar
     func setNavigationBar() {
-       // navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoBlack, underLineColor: .macoOrange)
-        //navigationItem.setTitle(title: "주인공 등록")
-            //navigationItem.leftBarButtonItem = backButton
-            //navigationItem.rightBarButtonItem = closeButton
         navigationBar.barTintColor = .macoIvory
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = false
