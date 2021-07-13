@@ -26,7 +26,9 @@ class RainbowCommentViewController: UIViewController {
         $0.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
     }
     
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ class RainbowCommentViewController: UIViewController {
         navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
         navigationItem.setTitle(title: "무지개 다리")
         navigationItem.rightBarButtonItem = closeButton
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func setImageVIew() {
@@ -90,6 +93,21 @@ class RainbowCommentViewController: UIViewController {
 extension RainbowCommentViewController {
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
+        let customLabelAlertView = CustomLabelAlertView()
+        
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 130),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
     
     @objc

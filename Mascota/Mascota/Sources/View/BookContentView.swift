@@ -11,6 +11,8 @@ import SnapKit
 import Then
 
 class BookContentView: UIView {
+    private var type: BookType = .home
+    
     private lazy var titleLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: 14)
         $0.sizeToFit()
@@ -42,17 +44,28 @@ class BookContentView: UIView {
         $0.textAlignment = .left
     }
 
-    private lazy var faceImageView = UIImageView().then {
-        $0.image = .add
+    public lazy var faceImageView = UIImageView().then {
+        $0.image = UIImage(named: "emoDogAngry")
     }
     
     private lazy var logoView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = .checkmark // 이미지 넣기
+        switch type {
+        case .home:
+            $0.image = UIImage(named: "appIconOrange")
+        case .rainbow:
+            $0.image = UIImage(named: "appIconBlue")
+        }
     }
     
-    public init() {
+    public init(type: BookType = .home) {
         super.init(frame: CGRect.zero)
+        self.type = type
+        setContentView()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setContentView()
     }
     
@@ -67,8 +80,8 @@ class BookContentView: UIView {
         
         logoView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalTo(62 / Constant.DesignSize.width * Constant.DeviceSize.width)
-            $0.height.equalTo(51 / Constant.DesignSize.height * Constant.DeviceSize.height)
+            $0.width.equalTo(62)
+            $0.height.equalTo(51)
         }
 
         titleLabel.snp.makeConstraints {
@@ -98,6 +111,8 @@ class BookContentView: UIView {
         faceImageView.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(20)
             $0.trailing.equalToSuperview().inset(15)
+            $0.width.equalTo(33.2)
+            $0.height.equalTo(24)
         }
     }
     

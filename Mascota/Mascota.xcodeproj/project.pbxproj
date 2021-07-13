@@ -20,10 +20,10 @@
 		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
 		182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */; };
 		182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */; };
-		1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */; };
-		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
-		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
 		1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */; };
+		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
+		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
+		1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */; };
 		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
 		185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185044202698221D009C0F50 /* CustomLabelAlertView.xib */; };
 		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
@@ -82,10 +82,14 @@
 		48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */; };
 		48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */; };
 		48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */; };
+		48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */; };
+		48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */; };
+		48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
+		DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
@@ -93,6 +97,7 @@
 		DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7112A6268C8F8500E6E2DC /* BookContentView.swift */; };
 		DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */; };
 		DD878EA22691681900856EE2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD878EA12691681900856EE2 /* String+Extension.swift */; };
+		DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8832B52699B69300702D4E /* DiaryDetailView.swift */; };
 		DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */; };
 		DD886DE126918ABC0011F8F6 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */; };
 		DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */; };
@@ -119,9 +124,14 @@
 		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
 		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
+		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
+		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
+		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
+		DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD25460269C91E100992540 /* ProfileNameButton.swift */; };
 		DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */; };
 		DDDCA7AF2693644500DB1B8F /* RainbowBookCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */; };
 		DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */; };
+		DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +234,9 @@
 		48880375269220D9000CB8F2 /* MakePlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePlusCollectionViewCell.swift; sourceTree = "<group>"; };
 		48880376269220D9000CB8F2 /* MakePlusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakePlusCollectionViewCell.xib; sourceTree = "<group>"; };
 		48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetAPIModel.swift; sourceTree = "<group>"; };
+		48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterPrologBook.storyboard; sourceTree = "<group>"; };
+		48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPrologBookViewController.swift; sourceTree = "<group>"; };
+		48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneMakingBookViewController.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota_MascotaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9015002800FC5BDCDC18857 /* Pods-Mascota-MascotaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +245,7 @@
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
 		DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
@@ -239,6 +253,7 @@
 		DD7112A6268C8F8500E6E2DC /* BookContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookContentView.swift; sourceTree = "<group>"; };
 		DD8140A026929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowHelpHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		DD878EA12691681900856EE2 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DD8832B52699B69300702D4E /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 		DD886DDD26918ABB0011F8F6 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		DD886DDE26918ABB0011F8F6 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		DD886DDF26918ABB0011F8F6 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
@@ -265,9 +280,14 @@
 		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
 		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
+		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
+		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
+		DDD25460269C91E100992540 /* ProfileNameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameButton.swift; sourceTree = "<group>"; };
 		DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowCommentViewController.swift; sourceTree = "<group>"; };
 		DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBookCoverViewController.swift; sourceTree = "<group>"; };
 		DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
+		DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -425,6 +445,7 @@
 				18AB719626935BEA00FADF9B /* IndexDetail.storyboard */,
 				1813F2AB2699E20F00D7769E /* DiaryWriteFirst.storyboard */,
 				1828644B269C25A7002C98E0 /* DiaryWriteSecond.storyboard */,
+				48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -491,6 +512,7 @@
 				188867DD269C95E10025E471 /* PlusCollectionViewCell.xib */,
 				188867E0269C964C0025E471 /* ImageCollectionViewCell.swift */,
 				188867E1269C964C0025E471 /* ImageCollectionViewCell.xib */,
+				DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -513,6 +535,7 @@
 				DD8DE35B26945242000F03C3 /* UIButton+Extension.swift */,
 				DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */,
 				18DFD0EF269D9CAC00B4D54A /* CALayer + Extension.swift */,
+				DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -530,6 +553,9 @@
 				185044202698221D009C0F50 /* CustomLabelAlertView.xib */,
 				187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */,
 				18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */,
+				DD8832B52699B69300702D4E /* DiaryDetailView.swift */,
+				DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */,
+				DDD25460269C91E100992540 /* ProfileNameButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -552,6 +578,10 @@
 				1813F2AD2699E22200D7769E /* DiaryWriteFirstViewController.swift */,
 				1828644D269C25C3002C98E0 /* DIaryWriteSecondViewController.swift */,
 				18DFD0F1269DA6A800B4D54A /* TempViewController.swift */,
+				48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */,
+				48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */,
+				DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */,
+				DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -733,6 +763,7 @@
 				18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */,
 				18AE88B5268AE58C00EBC129 /* Assets.xcassets in Resources */,
 				18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */,
+				48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */,
 				18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */,
 				182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */,
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
@@ -888,6 +919,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */,
+				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
 				18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */,
@@ -911,11 +943,13 @@
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */,
 				188867E2269C964C0025E471 /* ImageCollectionViewCell.swift in Sources */,
+				DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
 				48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */,
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
 				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
+				48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */,
 				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
 				188867DE269C95E10025E471 /* PlusCollectionViewCell.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
@@ -930,16 +964,20 @@
 				18DFD0F2269DA6A800B4D54A /* TempViewController.swift in Sources */,
 				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
 				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
+				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
+				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
 				1813F2B52699EA0200D7769E /* CharacterCollectionViewCell.swift in Sources */,
 				DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */,
+				DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */,
 				DD8DE354269426E1000F03C3 /* UITextField+Extension.swift in Sources */,
 				DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */,
 				187CFF862694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.swift in Sources */,
 				DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */,
+				DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */,
 				DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */,
@@ -947,8 +985,10 @@
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
+				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
+				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,

@@ -21,14 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-
-//            let viewcontroller = RainbowCommentViewController()
-          //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-            let viewcontroller = UIStoryboard(name: "DiaryWriteFirst", bundle: nil).instantiateViewController(withIdentifier: "DiaryWriteFirstViewController") as! DiaryWriteFirstViewController
-            
-          
+            let viewcontroller = RainbowViewController()
 //             let viewcontroller = UIStoryboard(name: "StoryboardTest", bundle: Bundle(for: StoryboardViewController.self)).instantiateViewController(withIdentifier: "storyboardVC") as! StoryboardViewController
-//            let viewcontroller = UIStoryboard(name: "DiaryWriteSecond", bundle: nil).instantiateViewController(withIdentifier: "TempViewController") as! TempViewController
+//            let viewcontroller = UIStoryboard(name: "IndexDetail", bundle: nil).instantiateViewController(withIdentifier: "IndexDetailViewController") as! IndexDetailViewController
             let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory

@@ -12,7 +12,7 @@ import Then
 
 class RainbowBookPageTableViewCell: UITableViewCell {
     
-    private lazy var bookPageView = BookRainbowPageView()
+    public lazy var bookPageView = BookRainbowPageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,7 +35,7 @@ class RainbowBookPageTableViewCell: UITableViewCell {
     private func setRainbowBookTableViewCell() {
         backgroundColor = .clear
         
-        addSubviews(bookPageView)
+        contentView.addSubviews(bookPageView)
         
         let bookHeight = (Constant.DeviceSize.width - 32) * 0.6
         
