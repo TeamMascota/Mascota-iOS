@@ -72,7 +72,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sm-p3-GAx">
                                                 <rect key="frame" x="28" y="219" width="358" height="40"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="목차를 선택해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgA-Cn-pVx">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="목차를 선택해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgA-Cn-pVx">
                                                         <rect key="frame" x="13" y="9" width="300" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -218,10 +218,18 @@
                                                     <constraint firstAttribute="height" constant="1" id="mhh-88-4EO"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7z-UG-h8p">
+                                                <rect key="frame" x="28" y="462" width="358" height="1"/>
+                                                <color key="backgroundColor" name="macoGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="E9c-O4-fVf"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" name="macoIvory"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="GC7-mi-cqx" secondAttribute="trailing" constant="28" id="0q5-67-ZYj"/>
+                                            <constraint firstAttribute="trailing" secondItem="b7z-UG-h8p" secondAttribute="trailing" constant="28" id="2C2-BM-PZV"/>
                                             <constraint firstItem="c8b-iJ-f8D" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="62j-xn-gYH"/>
                                             <constraint firstAttribute="trailing" secondItem="1Sm-p3-GAx" secondAttribute="trailing" constant="28" id="Acy-Vw-dCG"/>
                                             <constraint firstItem="ECp-IX-9qS" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="B1B-YN-lk1"/>
@@ -245,12 +253,14 @@
                                             <constraint firstItem="GC7-mi-cqx" firstAttribute="top" secondItem="S2c-zu-FPd" secondAttribute="bottom" constant="9" id="anu-J8-tPh"/>
                                             <constraint firstItem="pwi-jd-xjn" firstAttribute="bottom" secondItem="S2c-zu-FPd" secondAttribute="bottom" id="bCi-nX-EKc"/>
                                             <constraint firstItem="ECp-IX-9qS" firstAttribute="top" secondItem="1Sm-p3-GAx" secondAttribute="bottom" constant="28" id="epO-0J-4Ge"/>
+                                            <constraint firstItem="b7z-UG-h8p" firstAttribute="top" secondItem="6OJ-9C-mfB" secondAttribute="bottom" id="gOg-T4-Vwj"/>
                                             <constraint firstItem="c8b-iJ-f8D" firstAttribute="top" secondItem="jF5-zi-ydI" secondAttribute="bottom" constant="8" id="izx-yB-hWd"/>
                                             <constraint firstItem="6OJ-9C-mfB" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="lUX-vN-scd"/>
                                             <constraint firstItem="SKI-Nh-S7a" firstAttribute="top" secondItem="NMO-Dt-t3R" secondAttribute="bottom" id="mAn-ls-cfD"/>
                                             <constraint firstItem="6OJ-9C-mfB" firstAttribute="top" secondItem="5Aa-ls-0RF" secondAttribute="bottom" constant="8" id="t12-aG-k6J"/>
                                             <constraint firstAttribute="trailing" secondItem="6OJ-9C-mfB" secondAttribute="trailing" constant="28" id="uk8-p4-Fmi"/>
                                             <constraint firstItem="NMO-Dt-t3R" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="v6Z-kO-ZWQ"/>
+                                            <constraint firstItem="b7z-UG-h8p" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="wKM-pq-Vef"/>
                                             <constraint firstItem="S2c-zu-FPd" firstAttribute="leading" secondItem="ey9-57-B50" secondAttribute="leading" constant="28" id="zeJ-HR-rlQ"/>
                                         </constraints>
                                     </view>
@@ -283,9 +293,11 @@
                         <outlet property="indexToggleButton" destination="MLJ-gG-oOm" id="kVI-YF-BZB"/>
                         <outlet property="indexView" destination="1Sm-p3-GAx" id="sVn-HR-Tdg"/>
                         <outlet property="journalTextView" destination="c8b-iJ-f8D" id="PUA-bz-7HV"/>
+                        <outlet property="scrollView" destination="Jkj-BV-8ob" id="XSj-kB-iu0"/>
                         <outlet property="scrollViewBackgroundView" destination="ey9-57-B50" id="CA8-nz-2jy"/>
                         <outlet property="titleCountLabel" destination="nlx-Oc-lTS" id="aSR-Vk-4Ne"/>
                         <outlet property="titleTextField" destination="kxy-mf-MGb" id="rek-NY-D7w"/>
+                        <outlet property="titleUnderlineView" destination="b7z-UG-h8p" id="ZNw-qV-3ZN"/>
                         <outlet property="titleView" destination="6OJ-9C-mfB" id="yik-Nu-27r"/>
                     </connections>
                 </viewController>

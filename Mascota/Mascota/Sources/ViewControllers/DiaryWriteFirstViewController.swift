@@ -93,9 +93,10 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func initializeNavigationBarColor() {
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController!.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = .macoIvory
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func initializeNavigationItems() {
@@ -175,11 +176,6 @@ class DiaryWriteFirstViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        stackView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(1)
-        }
         nextButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(30)
             $0.leading.equalToSuperview().inset(28)

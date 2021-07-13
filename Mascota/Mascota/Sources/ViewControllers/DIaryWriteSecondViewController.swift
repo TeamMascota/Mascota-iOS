@@ -21,12 +21,16 @@ class DiaryWriteSecondViewController: UIViewController {
     
     let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
     
+    var journalTitle: String = ""
+    var selectedIndex: String = ""
+    
     let textViewPlaceholder: NSAttributedString = "오늘 주인공에게 어떤 일이 있었나요?".convertColorFont(color: UIColor.macoLightGray, fontSize: 14, type: .regular)
     
     var writtenJournal: String = ""
     var pickedImage: [UIImage] = []
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewBackgroundView: UIView!
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var dateView: UIView!
@@ -37,18 +41,41 @@ class DiaryWriteSecondViewController: UIViewController {
     @IBOutlet weak var indexToggleButton: UIButton!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleUnderlineView: UIView!
     @IBOutlet weak var titleCountLabel: UILabel!
     @IBOutlet weak var journalTextView: UITextView!
     
-    // 스크롤뷰에서 먹히지 않기 때문에 scrollView에 탭 제스처를 붙여서 처리해줘야 됨
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//        print(1)
-//        self.view.endEditing(true)
-//    }
+    private lazy var finishButton: UIButton = UIButton().then {
+        $0.setBackgroundColor(UIColor(red: 229/255, green: 228/255, blue: 226/255, alpha: 1), for: .disabled)
+        $0.setBackgroundColor(.macoOrange, for: .normal)
+        $0.setAttributedTitle("작성완료".convertColorFont(color: .macoLightGray, fontSize: 20, type: .medium), for: .disabled)
+        $0.setAttributedTitle("작성완료".convertColorFont(color: .macoWhite, fontSize: 20, type: .medium), for: .normal)
+        $0.isEnabled = false
+    }
+    
+    let navigationTitleLabel: UILabel = UILabel().then {
+        $0.font = UIFont.macoFont(type: .medium, size: 17)
+        $0.textAlignment = .center
+        $0.textColor = UIColor.macoBlack
+    }
+    
+    let navigiationRightView: UILabel = UILabel().then {
+        $0.font = UIFont.macoFont(type: .regular, size: 14)
+        $0.textColor = UIColor.darkGray
+        $0.textAlignment = .center
+        $0.text = "2/2"
+    }
+    
+    let progressBar: UIView = UIView().then {
+        $0.backgroundColor = UIColor.macoOrange
+    }
+
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeNavigationBarColor()
+        initializeNavigationItems()
         registerCollectionView()
         registerCollectionViewCell()
         verifyTextView()
@@ -63,6 +90,13 @@ class DiaryWriteSecondViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         self.indexStackView.layer.addBorder([.left,.bottom,.right], color: .macoLightGray, width: 1)
+    }
+    
+    private func initializeNavigationItems() {
+        navigationTitleLabel.text = "asdfadsf"
+        self.navigationItem.titleView = navigationTitleLabel
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnIconBack"), style: .plain, target: self, action: #selector(touchBackButton))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigiationRightView)
     }
     
     private func registerImagePicker() {
@@ -91,6 +125,7 @@ class DiaryWriteSecondViewController: UIViewController {
         self.indexView.layer.borderWidth = 0.8
         self.indexView.layer.borderColor = UIColor.macoLightGray.cgColor
         self.journalTextView.setMacoTextView()
+        self.scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchBegan)))
         
     }
     
@@ -126,7 +161,14 @@ class DiaryWriteSecondViewController: UIViewController {
     }
     
     private func layoutComponents() {
-        scrollViewBackgroundView.addSubview(indexStackView)
+        scrollViewBackgroundView.addSubviews(indexStackView, finishButton, progressBar)
+        
+        finishButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom) //
+            $0.leading.equalToSuperview().inset(27)
+            $0.trailing.equalToSuperview().inset(27)
+            $0.height.equalTo(50)
+        }
         
         indexStackView.snp.makeConstraints {
             $0.width.equalTo(indexView.snp.width)
@@ -135,8 +177,20 @@ class DiaryWriteSecondViewController: UIViewController {
             $0.leading.equalTo(indexView.snp.leading)
             $0.trailing.equalTo(indexView.snp.trailing)
         }
+        
+        progressBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(1)
+        }
     }
     
+    private func initializeNavigationBarColor() {
+        self.navigationController?.navigationBar.barTintColor = .macoIvory
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
     
     private func layoutStackView() {
         for (index, text) in temp.enumerated() {
@@ -190,7 +244,6 @@ class DiaryWriteSecondViewController: UIViewController {
     
     private func presentActionSheet(delete: Bool, index: Int = 100) {
         let alert = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        
         if delete {
             let deleteHandler = UIAlertAction.init(title: "사진 삭제", style: .default) { _ in
                 self.pickedImage.remove(at: index)
@@ -221,6 +274,23 @@ class DiaryWriteSecondViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    private func isFinishButtonAvailable() {
+        if journalTitle.count == 0 || selectedIndex.count == 0 {
+            self.finishButton.isEnabled = true
+            return
+        }
+        self.finishButton.isEnabled = false
+    }
+    
+    @objc
+    private func touchBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func touchBegan() {
+        self.view.endEditing(true)
     }
     
     @objc func titleTextFieldChanged(_ sender: UITextField) {
@@ -360,4 +430,23 @@ extension DiaryWriteSecondViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
     }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.titleUnderlineView.backgroundColor = .macoOrange
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.titleUnderlineView.backgroundColor = .macoLightGray
+        guard let text = textField.text else {
+            return true
+        }
+        if text.count <= 11 {
+            journalTitle = text
+        } else {
+            journalTitle = ""
+        }
+        return true
+    }
+    
 }
