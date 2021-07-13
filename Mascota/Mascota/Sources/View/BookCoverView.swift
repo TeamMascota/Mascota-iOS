@@ -32,7 +32,7 @@ class BookCoverView: UIView {
     }
     
     private lazy var logoImageView = UIImageView().then {
-        $0.image = .add // 로고 이미지 넣기
+        $0.image = UIImage(named: "appIconGray") // 로고 이미지 넣기
         $0.contentMode = .scaleAspectFit
     }
     
@@ -91,8 +91,8 @@ class BookCoverView: UIView {
         logoImageView.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(16)
             $0.trailing.equalToSuperview().inset(16)
-            $0.width.equalTo(31)
-            $0.height.equalTo(25.5)
+            $0.width.equalTo(52.5)
+            $0.height.equalTo(43.2)
         }
         
         dimColorView.snp.makeConstraints {

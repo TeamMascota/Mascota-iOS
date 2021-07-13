@@ -12,7 +12,7 @@ import Then
 
 class RainbowBestSectionHeaderView: UIView {
     private lazy var imageView = UIImageView().then {
-        $0.image = .actions
+        $0.image = UIImage(named: "emoDogAngry")
         $0.contentMode = .scaleAspectFit
     }
     

@@ -3,16 +3,16 @@
     {
       "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "btnIconBack.png"
+      "filename" : "iconHelp.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "btnIconBack@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "iconHelp@2x.png"
     },
     {
+      "filename" : "iconHelp@3x.png",
       "scale" : "3x",
-      "filename" : "btnIconBack@3x.png",
       "idiom" : "universal"
     }
   ],

@@ -43,7 +43,12 @@ class DiaryDetailView: UIView {
     }
     
     private lazy var logoImageView = UIImageView().then {
-        $0.image = .checkmark
+        switch type {
+        case .home:
+            $0.image = UIImage(named: "appIconOrange")
+        case .rainbow:
+            $0.image = UIImage(named: "appIconBlue")
+        }
     }
 
     public lazy var emojiStackView = UIStackView().then {

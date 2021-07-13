@@ -65,7 +65,7 @@ class RainbowHelpCardTableViewCell: UITableViewCell {
     
     private func setRainbowHelpCardTableViewCell() {
         backgroundColor = .clear
-        addSubviews(helpCardButton)
+        contentView.addSubviews(helpCardButton)
         
         helpCardButton.snp.makeConstraints {
             $0.top.equalToSuperview()
