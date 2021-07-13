@@ -8,9 +8,11 @@
 import UIKit
 
 class ProfileNameButton: UIButton {
+    
     private lazy var petImageView = UIImageView().then {
-        $0.image = .checkmark
-        $0.backgroundColor = .cyan
+        $0.backgroundColor = .macoWhite
+        $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "icProfileEmptyBlue")
     }
     
     private lazy var nameLabel = UILabel().then {
@@ -21,7 +23,7 @@ class ProfileNameButton: UIButton {
     
     public init() {
         super.init(frame: CGRect.zero)
-        setButton(color: .macoLightGray)
+        setButton(buttonColor: .macoLightGray)
     }
     
     required init?(coder: NSCoder) {
@@ -31,19 +33,25 @@ class ProfileNameButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                setButton(color: .macoBlue)
+                setButton(buttonColor: .macoBlue)
             } else {
-                setButton(color: .macoLightGray)
+                setButton(buttonColor: .macoLightGray)
             }
         }
     }
     
-    private func setButton (color: UIColor) {
+    private func setButton (buttonColor: UIColor) {
         layer.masksToBounds = true
         layer.cornerRadius = Constant.round3
-        layer.borderColor = color.cgColor
+        layer.borderColor = buttonColor.cgColor
         layer.borderWidth = 1
-        backgroundColor = color
+        backgroundColor = buttonColor
+        
+        if buttonColor == UIColor.macoBlue {
+            petImageView.image = UIImage(named: "icProfileEmptyBlue")
+        } else {
+            petImageView.image = UIImage(named: "icProfileEmptyGray")
+        }
         
         addSubviews(petImageView, nameLabel)
         
