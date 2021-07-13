@@ -126,17 +126,17 @@ extension RainbowDiaryDetailViewController: UITextViewDelegate {
 extension RainbowDiaryDetailViewController {
     @objc
     func moveToEpisode(_ sender: UIButton) {
-        print("moveToEpisode")
+
     }
 
     @objc
     func tapBackButton(_ sender: UIBarButtonItem) {
-        print("click")
+    
         navigationController?.popViewController(animated: true)
     }
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
-        print("click")
+       
     }
 }

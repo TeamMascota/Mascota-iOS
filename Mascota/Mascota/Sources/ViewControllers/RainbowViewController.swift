@@ -174,16 +174,12 @@ extension RainbowViewController: UITableViewDataSource {
     
     @objc
     func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
-        print("tapLeftBookPage")
         let vc = RainbowDiaryDetailViewController()
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc
     func tapRightBookPage(_ sender: UITapGestureRecognizer) {
-        print("tapRightBookPage")
-        
         navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
     }
     

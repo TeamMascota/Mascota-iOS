@@ -13,6 +13,7 @@ class RainbowEpillogueViewController: UIViewController {
         $0.setMacoButtonTitle("이별의 단계 완료", for: .normal)
         $0.setTitleColor(.macoGray, for: .disabled)
         $0.setBackgroundColor(.macoLightGray, for: .disabled)
+        $0.addTarget(self, action: #selector(tapEndButton(_:)), for: .touchUpInside)
     }
     
     private lazy var contentLabel = UILabel().then {
@@ -192,6 +193,25 @@ class RainbowEpillogueViewController: UIViewController {
     
     private func setPetName() {
         name = "뮨서"
+    }
+    
+    @objc
+    func tapEndButton(_ sender: UIButton) {
+        let helpCardAlertView = CustomLabelAlertView()
+        
+        helpCardAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        helpCardAlertView.setAttributedDescription(attributedText: "녹차의 이야기를 마무리하시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: helpCardAlertView,
+                                      preferredSize: CGSize(width: 270, height: 100),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "완료", color: .macoBlue)
     }
     
 }

@@ -18,7 +18,7 @@ class RainbowHelpHeaderTableViewCell: UITableViewCell {
     }
     
     public lazy var helpButton = UIButton().then {
-        $0.setImage(UIImage(named: "iconHelp"), for: .normal) // 이미지 넣기
+        $0.setImage(UIImage(named: "iconHelp"), for: .normal) 
         $0.contentMode = .scaleAspectFit
     }
     
