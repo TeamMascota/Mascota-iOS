@@ -446,9 +446,10 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZC-t2-37I">
                                         <rect key="frame" x="0.0" y="5" width="414" height="2000"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" text="Q.지금까지 코봉이는 어떤 삶을 살았나요?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-34-9jZ">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zXz-34-9jZ">
                                                 <rect key="frame" x="28" y="679" width="359" height="33"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text"> aadsfsaffdasfsafsfsfasf asdf sf adsfsafasdf sdafdksjfkldjfkjdlkf kdjkdjfkdj fkjklj klj kj klj lkdjf kljf kdj klajkjlf jkfjlkf jdlkjf  aadsfsaffdasfsafsfsfasf asdf sf adsfsafasdf </string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

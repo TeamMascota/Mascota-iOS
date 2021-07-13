@@ -17,9 +17,6 @@ extension UIButton {
         let backgroundImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        layer.masksToBounds = true
-        layer.cornerRadius = 3.0
-        
          
         self.setBackgroundImage(backgroundImage, for: state)
     }
