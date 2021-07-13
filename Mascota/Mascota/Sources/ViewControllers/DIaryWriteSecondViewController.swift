@@ -9,6 +9,18 @@ import UIKit
 
 class DiaryWriteSecondViewController: UIViewController {
     
+    lazy var indexStackView: UIStackView = UIStackView().then {
+        $0.alignment = .center
+        $0.spacing = 0
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.alpha = 0.0
+    }
+    
+    var isToggled: Bool = false
+    
+    let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
+    
     let textViewPlaceholder: NSAttributedString = "오늘 주인공에게 어떤 일이 있었나요?".convertColorFont(color: UIColor.macoLightGray, fontSize: 14, type: .regular)
     
     var writtenJournal: String = ""
@@ -39,19 +51,43 @@ class DiaryWriteSecondViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        setComponents()
+      
         registerCollectionView()
         registerCollectionViewCell()
         verifyTextView()
         registerTextView()
         registerImagePicker()
+        registerTextField()
+        layoutComponents()
+        layoutStackView()
+        setComponents()
         
+    }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.indexStackView.layer.addBorder([.left, .right], color: .macoLightGray, width: 1)
+//        let layer = CALayer()
+//        print(indexStackView.frame.width)
+//        layer.frame = CGRect(x: 0, y: 2, width: indexStackView.frame.width, height: 1)
+//        layer.backgroundColor = UIColor.macoBlue.cgColor
+//
+//        self.indexStackView.layer.addSublayer(layer)
+//
+//    }
+    
+    override func viewDidLayoutSubviews() {
+        self.indexStackView.layer.addBorder([.left,.bottom,.right], color: .macoLightGray, width: 1)
     }
     
     private func registerImagePicker() {
         self.imagePicker.delegate = self
     }
     
+    private func registerTextField() {
+        titleTextField.delegate = self
+        titleTextField.addTarget(self, action: #selector(titleTextFieldChanged(_:)), for: .editingChanged)
+    }
     private func registerTextView() {
         journalTextView.delegate = self
     }
@@ -102,6 +138,69 @@ class DiaryWriteSecondViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    private func layoutComponents() {
+        scrollViewBackgroundView.addSubview(indexStackView)
+        
+        indexStackView.snp.makeConstraints {
+            $0.width.equalTo(indexView.snp.width)
+            $0.top.equalTo(indexView.snp.bottom).inset(1)
+            $0.height.equalTo(42 * temp.count)
+            $0.leading.equalTo(indexView.snp.leading)
+            $0.trailing.equalTo(indexView.snp.trailing)
+        }
+    }
+    
+    
+    private func layoutStackView() {
+        for (index, text) in temp.enumerated() {
+            let view: UIView = UIView().then {
+                $0.backgroundColor = UIColor.macoWhite
+            }
+            
+            
+            let dropDownIndexLabel: UILabel = UILabel().then {
+                $0.font = UIFont.macoFont(type: .regular, size: 14)
+                $0.textColor = UIColor.macoDarkGray
+                $0.textAlignment = .left
+                $0.text = index == 0 ? "프롤로그" : "제 \(index)장"
+            }
+            
+            let dropDownIndexTitleLabel: UILabel = UILabel().then {
+                $0.font = UIFont.macoFont(type: .regular, size: 16)
+                $0.textColor = UIColor.macoBlack
+                $0.textAlignment = .left
+                $0.text = text
+            }
+            
+            indexStackView.addArrangedSubview(view)
+            view.addSubviews(dropDownIndexLabel, dropDownIndexTitleLabel)
+            
+            view.snp.makeConstraints {
+                $0.height.equalTo(42)
+                $0.leading.equalToSuperview()
+                $0.trailing.equalToSuperview()
+            }
+            
+            view.tag = index
+            view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                             action: #selector(touchDropDownView(_:))))
+
+            
+            dropDownIndexLabel.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.width.equalTo(55)
+                $0.leading.equalToSuperview().offset(21)
+            }
+            
+            dropDownIndexTitleLabel.snp.makeConstraints {
+                $0.centerY.equalToSuperview()
+                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(-5)
+                $0.trailing.equalToSuperview().offset(21)
+            }
+            
+        }
+    }
+    
     private func presentActionSheet(delete: Bool, index: Int = 100) {
         let alert = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -137,6 +236,13 @@ class DiaryWriteSecondViewController: UIViewController {
         
     }
     
+    @objc func titleTextFieldChanged(_ sender: UITextField) {
+        guard let cnt = sender.text?.count else {
+            return
+        }
+        titleCountLabel.text = "\(cnt)/11"
+    }
+    
     @objc
     func touchPlusButton() {
         presentActionSheet(delete: false)
@@ -151,7 +257,27 @@ class DiaryWriteSecondViewController: UIViewController {
             presentActionSheet(delete: true, index: index)
         }
     }
-
+    
+    @objc
+    func touchDropDownView(_ sender: UITapGestureRecognizer) {
+        print(1)
+    }
+    
+    
+    @IBAction func touchToggleButton(_ sender: Any) {
+        UIView.animate(withDuration: 0.1) {
+            self.indexToggleButton.transform = self.isToggled ? CGAffineTransform(rotationAngle: .pi * 2): CGAffineTransform(rotationAngle: .pi)
+            if self.isToggled {
+                self.indexView.layer.borderWidth = 0
+            } else{
+                self.indexView.layer.borderWidth = 1
+                self.indexView.layer.borderColor = UIColor.macoLightGray.cgColor
+            }
+            self.indexStackView.alpha = self.isToggled ? 0.0 : 1.0
+        }
+        isToggled.toggle()
+    }
+    
 }
 
 extension DiaryWriteSecondViewController: UICollectionViewDelegateFlowLayout {
@@ -245,5 +371,11 @@ extension DiaryWriteSecondViewController: UIImagePickerControllerDelegate, UINav
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension DiaryWriteSecondViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
     }
 }
