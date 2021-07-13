@@ -24,9 +24,7 @@ class DiaryWriteSecondViewController: UIViewController {
     let textViewPlaceholder: NSAttributedString = "오늘 주인공에게 어떤 일이 있었나요?".convertColorFont(color: UIColor.macoLightGray, fontSize: 14, type: .regular)
     
     var writtenJournal: String = ""
-    
     var pickedImage: [UIImage] = []
-    
     let imagePicker: UIImagePickerController = UIImagePickerController()
     
     @IBOutlet weak var scrollViewBackgroundView: UIView!
@@ -62,18 +60,6 @@ class DiaryWriteSecondViewController: UIViewController {
         setComponents()
         
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.indexStackView.layer.addBorder([.left, .right], color: .macoLightGray, width: 1)
-//        let layer = CALayer()
-//        print(indexStackView.frame.width)
-//        layer.frame = CGRect(x: 0, y: 2, width: indexStackView.frame.width, height: 1)
-//        layer.backgroundColor = UIColor.macoBlue.cgColor
-//
-//        self.indexStackView.layer.addSublayer(layer)
-//
-//    }
     
     override func viewDidLayoutSubviews() {
         self.indexStackView.layer.addBorder([.left,.bottom,.right], color: .macoLightGray, width: 1)
@@ -102,7 +88,9 @@ class DiaryWriteSecondViewController: UIViewController {
         self.dateTextField.placeholder = findToday()
         self.dateView.round(corners: [.topLeft, .topRight], cornerRadius: 3)
         self.titleView.round(corners: [.topLeft, .topRight], cornerRadius: 3)
-        self.journalTextView.round(corners: [.topLeft, .topRight], cornerRadius: 3)
+        self.indexView.layer.borderWidth = 0.8
+        self.indexView.layer.borderColor = UIColor.macoLightGray.cgColor
+        self.journalTextView.setMacoTextView()
         
     }
     
@@ -264,14 +252,8 @@ class DiaryWriteSecondViewController: UIViewController {
     
     
     @IBAction func touchToggleButton(_ sender: Any) {
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.5) {
             self.indexToggleButton.transform = self.isToggled ? CGAffineTransform(rotationAngle: .pi * 2): CGAffineTransform(rotationAngle: .pi)
-            if self.isToggled {
-                self.indexView.layer.borderWidth = 0
-            } else{
-                self.indexView.layer.borderWidth = 1
-                self.indexView.layer.borderColor = UIColor.macoLightGray.cgColor
-            }
             self.indexStackView.alpha = self.isToggled ? 0.0 : 1.0
         }
         isToggled.toggle()
@@ -329,13 +311,6 @@ extension DiaryWriteSecondViewController: UICollectionViewDataSource {
 }
 
 extension DiaryWriteSecondViewController: UITextViewDelegate {
-    
-    func textViewDidChange(_ textView: UITextView) {
-        print(textView.frame)
-        textView.layoutIfNeeded()
-        
-        textView.backgroundColor = .red
-    }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
     
