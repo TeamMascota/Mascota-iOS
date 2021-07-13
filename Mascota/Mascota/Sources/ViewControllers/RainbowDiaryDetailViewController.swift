@@ -134,9 +134,5 @@ extension RainbowDiaryDetailViewController {
     
         navigationController?.popViewController(animated: true)
     }
-    
-    @objc
-    func tapCloseButton(_ sender: UIBarButtonItem) {
-       
-    }
+
 }

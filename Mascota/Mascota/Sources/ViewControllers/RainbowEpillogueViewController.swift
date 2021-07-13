@@ -197,14 +197,14 @@ class RainbowEpillogueViewController: UIViewController {
     
     @objc
     func tapEndButton(_ sender: UIButton) {
-        let helpCardAlertView = CustomLabelAlertView()
+        let customLabelAlertView = CustomLabelAlertView()
         
-        helpCardAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
         
-        helpCardAlertView.setAttributedDescription(attributedText: "녹차의 이야기를 마무리하시겠어요?"
+        customLabelAlertView.setAttributedDescription(attributedText: "녹차의 이야기를 마무리하시겠어요?"
                                                     .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
 
-        self.presentDoubleCustomAlert(view: helpCardAlertView,
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
                                       preferredSize: CGSize(width: 270, height: 100),
                                       firstHandler: { _ in
                                       },
@@ -228,7 +228,21 @@ extension RainbowEpillogueViewController {
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        let customLabelAlertView = CustomLabelAlertView()
+        
+        customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "이별의 단계가 초기화됩니다.\n무지개 다리를 나가시겠어요?"
+                                                    .attributedString(font: .macoFont(type: .regular, size: 13), color: .macoBlack, customLineHeight: 25, alignment: .center))
+
+        self.presentDoubleCustomAlert(view: customLabelAlertView,
+                                      preferredSize: CGSize(width: 270, height: 130),
+                                      firstHandler: { _ in
+                                      },
+                                      secondHandler: {  _ in
+                                        self.dismiss(animated: true, completion: nil)
+                                      },
+                                      firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
 }
 

@@ -45,7 +45,6 @@ class RainbowViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.isHidden = false
     }
     
     private func initRainbowViewController() {
@@ -82,7 +81,7 @@ class RainbowViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(mainNavigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
     }
     
