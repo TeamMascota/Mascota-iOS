@@ -26,6 +26,8 @@ class RainbowViewController: UIViewController {
     private lazy var tableView = UITableView().then {
         $0.backgroundColor = .clear
     }
+    
+    private lazy var petId: String = "가나다라"
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class RainbowViewController: UIViewController {
         initRainbowViewController()
         setMainNavigationBar()
         setTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +45,7 @@ class RainbowViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
+//        navigationController?.navigationBar.isHidden = false
     }
     
     private func initRainbowViewController() {
@@ -127,6 +130,7 @@ extension RainbowViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
             cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
+            cell.bookPageView.setContentText(pages: [PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd"),PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd")])
             return cell
             
         case 1:
@@ -185,13 +189,16 @@ extension RainbowViewController: UITableViewDataSource {
     
     @objc
     func tapNextButton(_ sender: UIButton) {
-        let helpCardAlertView = CustomCollectionAlertView()
-
-        self.presentDoubleCustomAlert(view: helpCardAlertView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
-            
+        let petCustomView = CustomCollectionAlertView()
+        self.presentDoubleCustomAlert(view: petCustomView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
         }, secondHandler: { _ in
-            
-        }, firstText: "취소", secondText: "다음")
+            if petCustomView.petId != "" {
+                let viewcontroller = RainbowCommentViewController()
+                let rootNC = UINavigationController(rootViewController: viewcontroller)
+                rootNC.modalPresentationStyle = .fullScreen
+                self.present(rootNC, animated: true, completion: nil)
+            }
+        }, firstText: "취소", secondText: "다음", color: .macoBlue)
     }
 }
 

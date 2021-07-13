@@ -26,8 +26,14 @@ class RainbowBookCoverViewController: UIViewController {
     
     private lazy var bookCoverView = BookCoverView()
     
-    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
+    
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +141,7 @@ extension RainbowBookCoverViewController {
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
         print("click")
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc

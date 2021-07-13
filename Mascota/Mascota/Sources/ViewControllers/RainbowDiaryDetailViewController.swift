@@ -23,9 +23,6 @@ class RainbowDiaryDetailViewController: UIViewController {
     private lazy var backButton = UIBarButtonItem().then {
         $0.backBarButtonItem(style: .plain, target: self, action: #selector(tapBackButton(_:)))
     }
-    private lazy var closeButton = UIBarButtonItem().then {
-        $0.textBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(tapCloseButton(_:)))
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +41,11 @@ class RainbowDiaryDetailViewController: UIViewController {
         contentView.textView.setUnderLine(color: .macoBlue)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func registerContentView() {
         contentView.imageCollectionView.delegate = self
         contentView.imageCollectionView.dataSource = self
@@ -57,7 +59,6 @@ class RainbowDiaryDetailViewController: UIViewController {
         navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite, underLineColor: .macoDarkGray)
         navigationItem.setTitle(title: "코봉이의 중성화 날", subtitle: "161화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
         navigationItem.leftBarButtonItem = backButton
-        navigationItem.rightBarButtonItem = closeButton
     }
     
     private func setScrollView() {

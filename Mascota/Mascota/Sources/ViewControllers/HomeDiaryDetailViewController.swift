@@ -45,6 +45,11 @@ class HomeDiaryDetailViewController: UIViewController {
         contentView.textView.setUnderLine(color: .macoOrange)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func registerContentView() {
         contentView.imageCollectionView.delegate = self
         contentView.imageCollectionView.dataSource = self

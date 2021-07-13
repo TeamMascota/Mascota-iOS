@@ -26,7 +26,9 @@ class RainbowCommentViewController: UIViewController {
         $0.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
     }
     
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ class RainbowCommentViewController: UIViewController {
         navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
         navigationItem.setTitle(title: "무지개 다리")
         navigationItem.rightBarButtonItem = closeButton
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func setImageVIew() {
@@ -90,6 +93,7 @@ class RainbowCommentViewController: UIViewController {
 extension RainbowCommentViewController {
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc

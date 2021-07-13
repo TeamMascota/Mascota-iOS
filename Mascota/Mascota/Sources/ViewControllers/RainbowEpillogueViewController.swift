@@ -8,11 +8,6 @@
 import UIKit
 
 class RainbowEpillogueViewController: UIViewController {
-
-    private lazy var bookMarkImageView = UIImageView().then {
-        $0.image = .checkmark // 이미지 넣기
-        $0.backgroundColor = .blue
-    }
     
     private lazy var endButton = MacoButton(color: .blue).then {
         $0.setMacoButtonTitle("이별의 단계 완료", for: .normal)
@@ -56,9 +51,14 @@ class RainbowEpillogueViewController: UIViewController {
         $0.attributedText = continueAttr
     }
     
-    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
     
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+
     private lazy var name: String = "가나다라마바사"
     
     private lazy var keyboardHeight: CGFloat = 0.0
@@ -99,15 +99,6 @@ class RainbowEpillogueViewController: UIViewController {
         )
         
         view.backgroundColor = .macoIvory
-       
-        view.addSubviews(bookMarkImageView)
-        
-        bookMarkImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.trailing.equalToSuperview().inset(15)
-            $0.width.equalTo(30)
-            $0.height.equalTo(85)
-        }
         
     }
     
@@ -217,7 +208,7 @@ extension RainbowEpillogueViewController {
     
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

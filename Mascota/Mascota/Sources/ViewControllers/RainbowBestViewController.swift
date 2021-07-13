@@ -23,19 +23,27 @@ class RainbowBestViewController: UIViewController {
         $0.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
     }
     
-    private lazy var backButton = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(tapBackButton(_ :)))
-    private lazy var closeButton = UIBarButtonItem(image: .actions, style: .plain, target: self, action: #selector(tapCloseButton(_ :)))
-    
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapBackButton(_:)))
+    }
+    private lazy var closeButton = UIBarButtonItem().then {
+        $0.closeBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(tapCloseButton(_:)))
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initRainbowBestViewController()
-        setRainbowNavigationBar()
-        
+       
         setTableView()
         setButton()
         
         registerTableViewCell()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setRainbowNavigationBar()
     }
 
     private func initRainbowBestViewController() {
@@ -87,7 +95,7 @@ extension RainbowBestViewController {
     
     @objc
     func tapCloseButton(_ sender: UIBarItem) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc
@@ -122,7 +130,7 @@ extension RainbowBestViewController: UITableViewDataSource {
         let header = RainbowBestSectionHeaderView()
         switch section {
         case 0:
-            header.setHeaderText(title: "사랑", text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 진짜 뭐햌ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋ오늘 잠 언제자 ㅋㅋㅋㅋㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
+            header.setHeaderText(title: "사랑", text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 진짜 뭐햌ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋ오늘 잠 언제자 ㅋㅋㅋㅋㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
         
         default:
             header.setHeaderText(title: "사랑", text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 진짜 뭐햌ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋ오늘 잠 언제자 ㅋㅋㅋㅋㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
@@ -149,7 +157,23 @@ extension RainbowBestViewController: UITableViewDataSource {
         cell.setContentText(pages: [PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05"),
                                     PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05")])
         cell.selectionStyle = .none
+        cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
+        cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
         return cell
+    }
+    @objc
+    func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
+        print("tapLeftBookPage")
+        let vc = RainbowDiaryDetailViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    func tapRightBookPage(_ sender: UITapGestureRecognizer) {
+        print("tapRightBookPage")
+        
+        navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
     }
     
 }
