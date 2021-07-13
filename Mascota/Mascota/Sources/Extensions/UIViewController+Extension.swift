@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 
 import SnapKit
 
@@ -17,7 +16,6 @@ extension UIViewController {
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
 
-    
     func presentSingleCustomAlert(view: UIView,
                                   preferredSize: CGSize,
                                   confirmHandler: ((UIAlertAction) -> Void)?,
@@ -35,6 +33,12 @@ extension UIViewController {
         alert.addAction(confirmAction)
         
         alert.setValue(tempViewController, forKey: "contentViewController")
+        
+        if let bgView = alert.view.subviews.first,
+                    let groupView = bgView.subviews.first,
+                    let contentView = groupView.subviews.first {
+                    contentView.backgroundColor = UIColor.macoWhite
+                }
     
         self.present(alert, animated: true, completion: nil)
     }
@@ -44,7 +48,8 @@ extension UIViewController {
                                   firstHandler: ((UIAlertAction) -> Void)?,
                                   secondHandler: ((UIAlertAction) -> Void)?,
                                   firstText: String,
-                                  secondText: String) {
+                                  secondText: String,
+                                  color: UIColor? = .macoOrange) {
 
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let tempViewController = UIViewController()
@@ -53,7 +58,7 @@ extension UIViewController {
         let deleteAction: UIAlertAction = UIAlertAction(title: secondText, style: .default, handler: secondHandler)
         
         confirmAction.setValue(UIColor.macoLightGray, forKey: "titleTextColor")
-        deleteAction.setValue(UIColor.macoOrange, forKey: "titleTextColor")
+        deleteAction.setValue(color, forKey: "titleTextColor")
 
         tempViewController.view = view
         tempViewController.preferredContentSize = preferredSize
@@ -83,4 +88,3 @@ extension UIAlertAction {
         }
     }
 }
-
