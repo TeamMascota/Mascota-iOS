@@ -51,7 +51,6 @@ class DiaryWriteSecondViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         registerCollectionView()
         registerCollectionViewCell()
         verifyTextView()
@@ -330,6 +329,13 @@ extension DiaryWriteSecondViewController: UICollectionViewDataSource {
 }
 
 extension DiaryWriteSecondViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print(textView.frame)
+        textView.layoutIfNeeded()
+        
+        textView.backgroundColor = .red
+    }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
     
