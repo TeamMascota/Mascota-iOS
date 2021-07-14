@@ -5,8 +5,6 @@
 //  Created by 김윤서 on 2021/07/14.
 //
 
-import Foundation
-
 struct GenericModel<T: Codable>: Codable {
     let status: Int
     let success: Bool
