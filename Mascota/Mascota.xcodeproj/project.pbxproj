@@ -135,6 +135,7 @@
 		DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */; };
 		DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */; };
 		DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */; };
+		DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */; };
 		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
 		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
 		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
@@ -302,6 +303,7 @@
 		DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCalendarModel.swift; sourceTree = "<group>"; };
 		DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCaledarModel.swift; sourceTree = "<group>"; };
 		DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiaryModel.swift; sourceTree = "<group>"; };
+		DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStyle.swift; sourceTree = "<group>"; };
 		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				18AE88DF268AE6F100EBC129 /* AppConstants.swift */,
 				DD92BCAF268C604200A95A75 /* Constants.swift */,
 				DD6C9B1D2690AD12004223ED /* BookType.swift */,
+				DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
 				48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */,
+				DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
