@@ -14,11 +14,13 @@ import Then
 class MacoCalendarCell: FSCalendarCell {
     static let identifier = "MacoCalendarCell"
     
+    private lazy var emogi = EmojiStyle()
+    
     private let circleView = UIView().then {
         $0.backgroundColor = .blue
     }
     
-    private let emogiImageView = UIImageView()
+    private let emojiImageView = UIImageView()
 
     required init!(coder aDecoder: NSCoder!) {
         fatalError("init(coder:) has not been implemented")
@@ -44,13 +46,13 @@ class MacoCalendarCell: FSCalendarCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        emogiImageView.image = nil
+        emojiImageView.image = nil
         numberLabel.text = nil
     }
     
     func setMacoCalendarCell() {
         
-        contentView.addSubviews(emogiImageView, circleNumberView)
+        contentView.addSubviews(emojiImageView, circleNumberView)
         
         circleNumberView.addSubviews(numberLabel)
         
@@ -64,7 +66,7 @@ class MacoCalendarCell: FSCalendarCell {
                 $0.centerX.equalToSuperview()
             }
             
-            emogiImageView.snp.makeConstraints {
+            emojiImageView.snp.makeConstraints {
                 $0.bottom.equalToSuperview().inset(8)
                 $0.centerX.equalToSuperview()
                 $0.width.equalTo(39)
@@ -72,8 +74,8 @@ class MacoCalendarCell: FSCalendarCell {
             }
             
             circleNumberView.snp.makeConstraints {
-                $0.trailing.equalTo(emogiImageView.snp.trailing)
-                $0.bottom.equalTo(emogiImageView.snp.bottom).inset(22)
+                $0.trailing.equalTo(emojiImageView.snp.trailing)
+                $0.bottom.equalTo(emojiImageView.snp.bottom).inset(22)
                 $0.width.height.equalTo(17)
             }
             
@@ -83,7 +85,7 @@ class MacoCalendarCell: FSCalendarCell {
                 $0.centerX.equalToSuperview()
             }
             
-            emogiImageView.snp.makeConstraints {
+            emojiImageView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(8)
                 $0.centerX.equalToSuperview()
                 $0.width.equalTo(26)
@@ -91,8 +93,8 @@ class MacoCalendarCell: FSCalendarCell {
             }
             
             circleNumberView.snp.makeConstraints {
-                $0.trailing.equalTo(emogiImageView.snp.trailing).inset(-5)
-                $0.bottom.equalTo(emogiImageView.snp.bottom).inset(12)
+                $0.trailing.equalTo(emojiImageView.snp.trailing).inset(-5)
+                $0.bottom.equalTo(emojiImageView.snp.bottom).inset(12)
                 $0.width.height.equalTo(17)
             }
             
@@ -101,22 +103,24 @@ class MacoCalendarCell: FSCalendarCell {
     
     public func setNumberLabel(count: Int) {
         if count == -1 {
-            emogiImageView.isHidden = true
+            emojiImageView.isHidden = true
             circleNumberView.isHidden = true
         } else if count == 0 {
-            emogiImageView.isHidden = false
-            emogiImageView.image = UIImage(named: "emoEmpty")
+            emojiImageView.isHidden = false
+            emojiImageView.image = UIImage(named: "emoEmpty")
             circleNumberView.isHidden = true
         } else if count == 1 {
-            emogiImageView.isHidden = false
-            emogiImageView.image = UIImage(named: "emoDogAngry")
+            emojiImageView.isHidden = false
             circleNumberView.isHidden = true
         } else {
-            emogiImageView.isHidden = false
-            emogiImageView.image = UIImage(named: "emoDogAngry")
+            emojiImageView.isHidden = false
             circleNumberView.isHidden = false
             numberLabel.text = String(count)
         }
+    }
+    
+    public func setEmoji(kind: Int, feeling: Int) {
+        emojiImageView.image = self.emogi.getEmoji(kind: kind, feeling: feeling)
     }
     
 }

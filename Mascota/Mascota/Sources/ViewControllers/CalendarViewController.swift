@@ -319,6 +319,7 @@ extension CalendarViewController: FSCalendarDataSource {
                         if i < nowDay {
                             if let date = currentCalendar.date[i] {
                                 cell.setNumberLabel(count: date.id.count)
+                                cell.setEmoji(kind: date.kind, feeling: date.feeling)
                             } else {
                                 cell.setNumberLabel(count: 0)
                             }
@@ -326,6 +327,7 @@ extension CalendarViewController: FSCalendarDataSource {
                     } else {
                         if let date = currentCalendar.date[i] {
                             cell.setNumberLabel(count: date.id.count)
+                            cell.setEmoji(kind: date.kind, feeling: date.feeling)
                         } else {
                             cell.setNumberLabel(count: 0)
                         }
