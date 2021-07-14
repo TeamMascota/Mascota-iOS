@@ -12,7 +12,7 @@ import Then
 
 class RainbowHelpCardTableViewCell: UITableViewCell {
     
-    private lazy var helpCardButton = UIButton()
+    public lazy var helpCardButton = UIButton()
     
     private lazy var helpCardImage = UIImage(named: "helpCard")
     
@@ -78,7 +78,7 @@ class RainbowHelpCardTableViewCell: UITableViewCell {
     // 추후 Api 명세 나오면 모델로 교체 예정
     public func setCardText(kind: String, text: String) {
         
-        let kindAttr = NSMutableAttributedString(string: kind, attributes: [NSAttributedString.Key.font: UIFont.macoFont(type: .regular, size: 14)])
+        let kindAttr = NSMutableAttributedString(string: "[\(kind)]", attributes: [NSAttributedString.Key.font: UIFont.macoFont(type: .regular, size: 14)])
         kindAttr.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.macoGray], range: NSRange(location: 0, length: kindAttr.length))
         
         let textAttr = NSMutableAttributedString(string: " \(text)", attributes: [NSAttributedString.Key.font: UIFont.macoFont(type: .regular, size: 14)])
