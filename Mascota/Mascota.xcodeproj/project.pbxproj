@@ -20,10 +20,10 @@
 		182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42A82693667A0040456B /* IndexDetailTableViewCell.swift */; };
 		182F42AB2693667A0040456B /* IndexDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F42A92693667A0040456B /* IndexDetailTableViewCell.xib */; };
 		182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F42AC2693695A0040456B /* IndexDetailHeaderView.swift */; };
-		1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */; };
-		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
-		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
 		1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E19F269AE61800861067 /* EmptyCollectionReusableView.swift */; };
+		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
+		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
+		1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */; };
 		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
 		185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185044202698221D009C0F50 /* CustomLabelAlertView.xib */; };
 		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
@@ -57,10 +57,11 @@
 		18AE88CE268AE58C00EBC129 /* MascotaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88CD268AE58C00EBC129 /* MascotaUITests.swift */; };
 		18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88DF268AE6F100EBC129 /* AppConstants.swift */; };
 		18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88EE268AE76E00EBC129 /* appmodel.swift */; };
-		18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F0268AE77800EBC129 /* apiservice.swift */; };
+		18AE88F1268AE77800EBC129 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F0268AE77800EBC129 /* APIService.swift */; };
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
 		18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */; };
 		18B49237269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */; };
+		18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */; };
 		18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */; };
 		18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */; };
 		18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */; };
@@ -208,10 +209,11 @@
 		18AE88CF268AE58C00EBC129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AE88DF268AE6F100EBC129 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		18AE88EE268AE76E00EBC129 /* appmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appmodel.swift; sourceTree = "<group>"; };
-		18AE88F0268AE77800EBC129 /* apiservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiservice.swift; sourceTree = "<group>"; };
+		18AE88F0268AE77800EBC129 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		18AE88F2268AE78100EBC129 /* apimodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apimodel.swift; sourceTree = "<group>"; };
 		18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEmotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetEmotionCollectionViewCell.xib; sourceTree = "<group>"; };
+		18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLogginPlugin.swift; sourceTree = "<group>"; };
 		18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionViewCell.swift; sourceTree = "<group>"; };
 		18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCollectionViewCell.xib; sourceTree = "<group>"; };
 		18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaPeopleImageCell.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 		18AE88DC268AE5D800EBC129 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18C14AA2269E90450049422E /* MoyaPlugins */,
 				18AB71932693577800FADF9B /* Footers */,
 				18AE88AB268AE58A00EBC129 /* AppDelegate.swift */,
 				18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */,
@@ -463,7 +466,7 @@
 		18AE88E2268AE71100EBC129 /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
-				18AE88F0268AE77800EBC129 /* apiservice.swift */,
+				18AE88F0268AE77800EBC129 /* APIService.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -584,6 +587,14 @@
 				DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18C14AA2269E90450049422E /* MoyaPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */,
+			);
+			path = MoyaPlugins;
 			sourceTree = "<group>";
 		};
 		1E7617141198F19A36A31B1B /* Pods */ = {
@@ -942,6 +953,7 @@
 				1813F2AE2699E22200D7769E /* DiaryWriteFirstViewController.swift in Sources */,
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */,
+				18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */,
 				188867E2269C964C0025E471 /* ImageCollectionViewCell.swift in Sources */,
 				DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
@@ -967,7 +979,7 @@
 				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
-				18AE88F1268AE77800EBC129 /* apiservice.swift in Sources */,
+				18AE88F1268AE77800EBC129 /* APIService.swift in Sources */,
 				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
 				1813F2B52699EA0200D7769E /* CharacterCollectionViewCell.swift in Sources */,
