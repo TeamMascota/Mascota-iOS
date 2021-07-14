@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //let tabBarController = MacoTabBarController()
             
             //let rootNC = UINavigationController(rootViewController: tabBarController)
-            let viewcontroller = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+            let viewcontroller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                        let rootNC = UINavigationController(rootViewController: viewcontroller)
                 
             rootNC.navigationBar.isHidden = true

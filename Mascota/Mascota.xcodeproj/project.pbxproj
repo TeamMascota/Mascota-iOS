@@ -79,6 +79,8 @@
 		4832574A269F12CB008FF484 /* RequestSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48325749269F12CB008FF484 /* RequestSignUpModel.swift */; };
 		4832574C269F14D1008FF484 /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4832574B269F14D1008FF484 /* AccountAPI.swift */; };
 		4832574E269F2072008FF484 /* ResponseSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4832574D269F2072008FF484 /* ResponseSignUpModel.swift */; };
+		48325750269F64F5008FF484 /* RequestLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4832574F269F64F5008FF484 /* RequestLoginModel.swift */; };
+		48325752269F6598008FF484 /* ResponseLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48325751269F6598008FF484 /* ResponseLoginModel.swift */; };
 		483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DA24F2690D1CD005DBA86 /* SignUp.storyboard */; };
 		483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA2512690DAA8005DBA86 /* SignUpViewController.swift */; };
 		4888036826919BA3000CB8F2 /* RegisterMyPet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */; };
@@ -240,6 +242,8 @@
 		48325749269F12CB008FF484 /* RequestSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSignUpModel.swift; sourceTree = "<group>"; };
 		4832574B269F14D1008FF484 /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		4832574D269F2072008FF484 /* ResponseSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSignUpModel.swift; sourceTree = "<group>"; };
+		4832574F269F64F5008FF484 /* RequestLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoginModel.swift; sourceTree = "<group>"; };
+		48325751269F6598008FF484 /* ResponseLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLoginModel.swift; sourceTree = "<group>"; };
 		483DA24F2690D1CD005DBA86 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		483DA2512690DAA8005DBA86 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterMyPet.storyboard; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 				48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */,
 				48325749269F12CB008FF484 /* RequestSignUpModel.swift */,
 				4832574D269F2072008FF484 /* ResponseSignUpModel.swift */,
+				4832574F269F64F5008FF484 /* RequestLoginModel.swift */,
+				48325751269F6598008FF484 /* ResponseLoginModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -1030,12 +1036,14 @@
 				4832574C269F14D1008FF484 /* AccountAPI.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */,
+				48325750269F64F5008FF484 /* RequestLoginModel.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				4832574E269F2072008FF484 /* ResponseSignUpModel.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				4832574A269F12CB008FF484 /* RequestSignUpModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
+				48325752269F6598008FF484 /* ResponseLoginModel.swift in Sources */,
 				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Moya
 
 class LoginViewController: UIViewController {
     
+    let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
+    var loginResponseModel: ResponseLoginModel?
     // MARK: - IBOutlets
     @IBOutlet weak var idEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,6 +25,10 @@ class LoginViewController: UIViewController {
     @IBAction func tapSignUpButton() {
         let vc = UIStoryboard(name: "SignUp", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController
         self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func tapLoginButton() {
+        connectServer()
     }
     
     // MARK: - Life Cycle
@@ -56,11 +63,11 @@ class LoginViewController: UIViewController {
         if idEmailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             loginButton.isEnabled = false
             loginButton.backgroundColor = UIColor(red: 229/255, green: 228/255, blue: 226/255, alpha: 1.0)
-            loginButton.titleLabel?.textColor = .macoLightGray
+            loginButton.setTitleColor(.macoLightGray, for:  .normal)
         } else {
             loginButton.isEnabled = true
             loginButton.backgroundColor = .macoOrange
-            loginButton.titleLabel?.textColor = .macoWhite
+            loginButton.setTitleColor(.macoWhite, for: .normal)
         }
         
         switch textField {
@@ -86,6 +93,46 @@ class LoginViewController: UIViewController {
         loginButton.titleLabel?.font = .macoFont(type: .medium, size: 21.0)
         idLabel.font = .macoFont(type: .medium, size: 15.0)
         passwordLabel.font = .macoFont(type: .medium, size: 15.0)
+    }
+    
+    func setAlertView() {
+        let customLabelAlertView = CustomLabelAlertView()
+        
+        customLabelAlertView.setAttributedTitle(attributedText: "로그인 실패".attributedString(font: .macoFont(type: .medium, size: 17), color: .macoBlack,  alignment: .center))
+        
+        customLabelAlertView.setAttributedDescription(attributedText: "아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.".attributedString(font: .macoFont(type: .medium, size: 14), color: .macoBlack, customLineHeight: 25, alignment: .center))
+        
+        self.presentSingleCustomAlert(view: customLabelAlertView, preferredSize: CGSize(width: 320, height: 177), confirmHandler: nil, text: "확인", color: .macoOrange)
+    }
+    
+    private func connectServer() {
+        service.request(AccountAPI.postLogin(email: idEmailTextField.text!, password: passwordTextField.text!)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try JSONDecoder().decode(ResponseLoginModel.self, from: response.data)
+                    self.loginResponseModel = data
+
+                    guard let status = self.loginResponseModel?.status else {return}
+                    
+                    if status == 200 {
+                        print("로그인성공")
+                        print(data.data?.userId ?? 0)
+                    } else {
+                        print("로그인실패")
+                        self.setAlertView()
+                    }
+                } catch (let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print("통신실패")
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
