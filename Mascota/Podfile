@@ -12,7 +12,7 @@ target 'Mascota' do
   pod 'Then'
   pod 'SwiftLint'
   pod 'FSCalendar'
-
+  pod 'Kingfisher', '~> 6.0'
 
   target 'MascotaTests' do
     inherit! :search_paths

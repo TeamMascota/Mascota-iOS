@@ -5,9 +5,15 @@
 //  Created by DYS on 2021/07/05.
 //
 
+protocol RegisterMyPetProtocol {
+    func deselectingCell(text: String)
+}
+
 import UIKit
 
 class RegisterMyPetCollectionViewCell: UICollectionViewCell {
+    
+    var registerMyPetProtocol: RegisterMyPetProtocol?
 
     @IBOutlet weak var myPetImage: UIImageView!
     @IBOutlet weak var characterNumberLabel: UILabel!

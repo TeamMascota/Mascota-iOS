@@ -15,6 +15,8 @@ struct AppConstants {
         static let homeStart: String = "HomeStart"
         static let indexEdit: String = "IndexEdit"
         static let indexDetail: String = "IndexDetail"
+        static let diaryWriteFirst: String = "DiaryWriteFirst"
+        static let diaryWriteSecond: String = "DiaryWriteSecond"
     }
     struct ViewController {
         static let login: String = "LoginViewController"
@@ -22,6 +24,8 @@ struct AppConstants {
         static let signUp: String = "SignUpViewController"
         static let homeStart: String = "HomeStartViewController"
         static let indexEdit: String = "IndexEditViewController"
+        static let diaryWriteFirst: String = "DiaryWriteFirstViewController"
+        static let diaryWriteSecond: String = "DiaryWriteSecondViewController"
     }
     
     struct Views {
@@ -37,10 +41,19 @@ struct AppConstants {
         static let partCollectionViewCell: String = "PartCollectionViewCell"
         static let indexEditCollectionViewCell: String = "IndexEditCollectionViewCell"
         static let indexEditPrologueCollectionViewCell: String = "IndexEditPrologueCollectionViewCell"
+        static let characterCollectionViewCell: String = "CharacterCollectionViewCell"
+        static let registerMyPetCollectionViewCell: String = "RegisterMyPetCollectionViewCell"
+        static let petEmotionCollectionViewCell: String = "PetEmotionCollectionViewCell"
+        static let petsCollectionViewCell: String = "PetsCollectionViewCell"
+        static let makePlusCollectionViewCell: String = "MakePlusCollectionViewCell"
+        static let plusCollectionViewCell: String = "PlusCollectionViewCell"
+        static let imageCollectionViewCell: String = "ImageCollectionViewCell"
     }
     
     struct CollectionViewHeaders {
         static let homeIndexCollectionReusableView: String = "HomeIndexCollectionReusableView"
+        static let characterMoodCollectionReusableView: String = "CharacterMoodCollectionReusableView"
+        static let emptyCollectionReusableView: String = "EmptyCollectionReusableView"
     }
 
     struct TableCells {
