@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import Moya
 
 enum HomeStart: Int {
     case beforeRainbow = 0
@@ -30,10 +31,20 @@ class HomeStartViewController: UIViewController {
     }
     
     var homeStatus: HomeStart = .beforeRainbow
-
+    var tableContents: [IndexModel] = []
+    var firstPage: BriefDiaryModel = BriefDiaryModel(chapter: 0,
+                                                     episode: 0,
+                                                     id: "",
+                                                     title: "",
+                                                     contents: "",
+                                                     date: "")
+    
+    let service = MoyaProvider<HomeAPI>(plugins: [MoyaLoggingPlugin()])
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        getHomeFirstPart()
         layoutComponents()
         initializeComponents()
         registerCollectionViewCell()
@@ -43,6 +54,7 @@ class HomeStartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        getHomeFirstPart()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,6 +85,37 @@ class HomeStartViewController: UIViewController {
     // 뷰 초기화
     private func initializeComponents() {
         self.view.backgroundColor = UIColor.macoIvory
+    }
+    
+    private func getHomeFirstPart() {
+        service.request(.getHomeFirstPart) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<HomeFirstPartModel>.self, from: response.data)
+                    self?.updateServerData(serverData: value)
+                } catch (let err) {
+                    print(err.localizedDescription)
+                }
+            
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    private func updateServerData(serverData: GenericModel<HomeFirstPartModel>) {
+        guard let title = serverData.data?.firstPartMainPage.title,
+              let url = serverData.data?.firstPartMainPage.bookImg,
+              let contents = serverData.data?.firstPartMainPage.tableContents,
+              let diary = serverData.data?.firstPartMainPage.diary else {
+            return
+        }
+        self.tableContents = contents
+        self.firstPage = diary
+        self.mainNavigationBar.setNavigationBarText(title: title)
+        self.mainNavigationBar.setNavigationBarButtonImage(url: url)
+        self.homeStartCollectionView.reloadData()
     }
     
     private func registerCollectionView() {
@@ -107,6 +150,17 @@ class HomeStartViewController: UIViewController {
         self.navigationController?.pushViewController(editViewController, animated: true)
     }
     
+    private func pushToIndexDetail(chapterID: String) {
+        let storyboard = UIStoryboard(name: AppConstants.Storyboard.indexDetail, bundle: nil)
+        guard let indexDetailViewController = storyboard.instantiateViewController(identifier: AppConstants.ViewController.indexDetail) as? IndexDetailViewController else {
+            return
+        }
+        indexDetailViewController.currentID = chapterID
+        indexDetailViewController.tableContents = self.tableContents
+        
+        self.navigationController?.pushViewController(indexDetailViewController, animated: true)
+    }
+    
     // 편집 버튼
     @objc
     func touchEditButton(_ sender: UIButton) {
@@ -116,13 +170,14 @@ class HomeStartViewController: UIViewController {
     // 무지개 다리 이후 1부 or 2부 책 뷰 버튼
     @objc
     func touchPartDetailButton(_ sender: UIButton) {
-        print("touchPartDetail")
+        
     }
     
     // 목차에 chevron > 눌렀을 때
     @objc
     func touchIndexDetailButton(_ sender: UIButton) {
-        print("touchIndexDetailButton")
+        print(sender.tag)
+        pushToIndexDetail(chapterID: tableContents[sender.tag].chapterID)
     }
     
 }
@@ -142,7 +197,7 @@ extension HomeStartViewController: UICollectionViewDataSource {
             return 1
         }
         if section == 1 {
-            return 10
+            return tableContents.count
         }
         if section == 2 {
             return 1
@@ -162,7 +217,8 @@ extension HomeStartViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.homeIndexCollectionViewCell, for: indexPath) as? HomeIndexCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.intializeData()
+            cell.initializeData(data: tableContents[indexPath.item], tag: indexPath.item)
+            cell.tag = indexPath.item
             cell.indexDetailButton.addTarget(self, action: #selector(touchIndexDetailButton(_:)), for: .touchUpInside)
             return cell
             

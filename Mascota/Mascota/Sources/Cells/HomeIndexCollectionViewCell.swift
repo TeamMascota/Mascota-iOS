@@ -32,12 +32,6 @@ class HomeIndexCollectionViewCell: UICollectionViewCell {
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         $0.tintColor = UIColor.macoGray
     }
-    
-    func intializeData() {
-        self.indexLabel.text = "프롤로그"
-        self.indexTitleLabel.text = "코봉이와의 7년"
-        self.episodeLabel.text = "총 \(3)화"
-    }
 
     private func layoutHomeComponents() {
         self.contentView.addSubviews(indexLabel, indexTitleLabel, episodeLabel, indexDetailButton)
@@ -74,8 +68,17 @@ class HomeIndexCollectionViewCell: UICollectionViewCell {
         self.indexLabel.text = ""
         self.episodeLabel.text = ""
         self.indexTitleLabel.text = ""
+        self.episodeLabel.isHidden = false
     }
 
-    
-
+    func initializeData(data: IndexModel, tag: Int) {
+        if data.chapter == 0 {
+            self.indexLabel.text = "프롤로그"
+            self.episodeLabel.isHidden = true
+        } else {
+            self.indexLabel.text = "제 \(tag)장"
+        }
+        self.indexTitleLabel.text = data.chapterTitle
+        self.episodeLabel.text = "총 \(data.episodePerchapterCount ?? 0)화"
+    }
 }

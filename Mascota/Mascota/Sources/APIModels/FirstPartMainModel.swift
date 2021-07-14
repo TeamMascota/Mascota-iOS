@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FirstPartMainPage: Codable {
+struct FirstPartMainPageModel: Codable {
     let title: String
     let bookImg: String
     let diary: BriefDiaryModel
