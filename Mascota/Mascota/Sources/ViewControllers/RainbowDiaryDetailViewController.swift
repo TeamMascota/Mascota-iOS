@@ -46,6 +46,11 @@ class RainbowDiaryDetailViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     private func registerContentView() {
         contentView.imageCollectionView.delegate = self
         contentView.imageCollectionView.dataSource = self
