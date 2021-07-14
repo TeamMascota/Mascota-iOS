@@ -234,7 +234,8 @@ extension RainbowViewController {
                     do {
                         let response = try JSONDecoder().decode(GenericModel<GetRainbowHomeModel>.self, from: response.data)
                         self.rainbowPageModel = response.data?.rainbowMainPage
-                        mainNavigationBar
+                        guard let bookImg = self.rainbowPageModel?.bookImg else { return }
+                        self.mainNavigationBar.setNavigationBarButtonImage(url: bookImg)
                         self.tableView.reloadData()
                     } catch let err {
                         print(err.localizedDescription)
