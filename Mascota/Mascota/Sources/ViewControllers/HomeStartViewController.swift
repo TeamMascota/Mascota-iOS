@@ -40,6 +40,16 @@ class HomeStartViewController: UIViewController {
         registerCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - Private Functions
     // 뷰 autolayout
     private func layoutComponents() {
