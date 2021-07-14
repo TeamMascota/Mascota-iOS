@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "emoCatAngryLightgray.png"
+    },
+    {
+      "scale" : "2x",
+      "idiom" : "universal",
+      "filename" : "emoCatAngryLightgray@2x.png"
+    },
+    {
+      "scale" : "3x",
+      "idiom" : "universal",
+      "filename" : "emoCatAngryLightgray@3x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
