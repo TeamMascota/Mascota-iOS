@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let tabBarController = MacoTabBarController()
             
             let rootNC = UINavigationController(rootViewController: tabBarController)
+
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
             window.makeKeyAndVisible()
