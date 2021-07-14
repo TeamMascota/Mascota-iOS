@@ -47,11 +47,6 @@ class MacoCalendarCell: FSCalendarCell {
     
     func setMacoCalendarCell() {
         
-        self.titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-        }
-        
         contentView.addSubviews(emogiImageView, circleNumberView)
         
         circleNumberView.addSubviews(numberLabel)
@@ -61,8 +56,13 @@ class MacoCalendarCell: FSCalendarCell {
         }
         
         if UIDevice.current.hasNotch {
+            self.titleLabel.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(8)
+                $0.centerX.equalToSuperview()
+            }
+            
             emogiImageView.snp.makeConstraints {
-                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.bottom.equalToSuperview().inset(8)
                 $0.centerX.equalToSuperview()
                 $0.width.equalTo(39)
                 $0.height.equalTo(30)
@@ -75,15 +75,20 @@ class MacoCalendarCell: FSCalendarCell {
             }
             
         } else {
+            self.titleLabel.snp.makeConstraints {
+                $0.top.equalToSuperview().offset(5)
+                $0.centerX.equalToSuperview()
+            }
+            
             emogiImageView.snp.makeConstraints {
-                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.top.equalTo(titleLabel.snp.bottom).offset(8)
                 $0.centerX.equalToSuperview()
                 $0.width.equalTo(26)
                 $0.height.equalTo(20)
             }
             
             circleNumberView.snp.makeConstraints {
-                $0.trailing.equalTo(emogiImageView.snp.trailing)
+                $0.trailing.equalTo(emogiImageView.snp.trailing).inset(-5)
                 $0.bottom.equalTo(emogiImageView.snp.bottom).inset(12)
                 $0.width.height.equalTo(17)
             }
