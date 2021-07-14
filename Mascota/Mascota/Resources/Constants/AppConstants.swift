@@ -26,6 +26,7 @@ struct AppConstants {
         static let indexEdit: String = "IndexEditViewController"
         static let diaryWriteFirst: String = "DiaryWriteFirstViewController"
         static let diaryWriteSecond: String = "DiaryWriteSecondViewController"
+        static let indexDetail: String = "IndexDetailViewController"
     }
     
     struct Views {

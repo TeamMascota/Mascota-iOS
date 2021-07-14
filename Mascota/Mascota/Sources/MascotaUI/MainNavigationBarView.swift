@@ -72,4 +72,8 @@ class MainNavigationBarView: UIView {
             $0.text = title.maxLength(length: 11)
         }
     }
+    
+    func setNavigationBarButtonImage(url: String) {
+        self.profileButton.imageView?.updateServerImage(url)
+    }
 }

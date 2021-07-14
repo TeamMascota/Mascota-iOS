@@ -18,7 +18,8 @@ class IndexDetailViewController: UIViewController {
     @IBOutlet weak var indexTitle: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
     
-    let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
+    var tableContents: [IndexModel] = []
+    var currentID: String = ""
     
     var isToggled: Bool = false
     
@@ -68,13 +69,13 @@ class IndexDetailViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(320)
             $0.top.equalTo(navigationView.snp.bottom)
-            $0.height.equalTo(42 * temp.count)
+            $0.height.equalTo(42 * tableContents.count)
         }
 
     }
 
     private func layoutStackView() {
-        for (index, text) in temp.enumerated() {
+        for (index, chapter) in tableContents.enumerated() {
             let view: UIView = UIView().then {
                 $0.backgroundColor = UIColor.macoIvory
             }
@@ -94,7 +95,7 @@ class IndexDetailViewController: UIViewController {
                 $0.font = UIFont.macoFont(type: .regular, size: 16)
                 $0.textColor = UIColor.macoBlack
                 $0.textAlignment = .left
-                $0.text = text
+                $0.text = chapter.chapterTitle
             }
             
             indexStackView.addArrangedSubview(view)
