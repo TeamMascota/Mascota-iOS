@@ -40,7 +40,6 @@
 		185E68B4269ECC7B009061E5 /* ChapterMonthDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B3269ECC7B009061E5 /* ChapterMonthDiary.swift */; };
 		185E68B6269ECD55009061E5 /* GetChapterPerMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B5269ECD55009061E5 /* GetChapterPerMonthModel.swift */; };
 		185E68B8269EDB14009061E5 /* ChapterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B7269EDB14009061E5 /* ChapterAPI.swift */; };
-		185E68BA269EE535009061E5 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B9269EE535009061E5 /* GenericModel.swift */; };
 		185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F0F742694217F008172C7 /* UIImage + Extension.swift */; };
 		187464322698439D00ED57DA /* CustomTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */; };
 		18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */; };
@@ -201,7 +200,6 @@
 		185E68B3269ECC7B009061E5 /* ChapterMonthDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterMonthDiary.swift; sourceTree = "<group>"; };
 		185E68B5269ECD55009061E5 /* GetChapterPerMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChapterPerMonthModel.swift; sourceTree = "<group>"; };
 		185E68B7269EDB14009061E5 /* ChapterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterAPI.swift; sourceTree = "<group>"; };
-		185E68B9269EE535009061E5 /* GenericModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
 		185F0F742694217F008172C7 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldAlertView.xib; sourceTree = "<group>"; };
 		18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldAlertView.swift; sourceTree = "<group>"; };
@@ -495,7 +493,6 @@
 		18AE88E1268AE70A00EBC129 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
-				185E68B9269EE535009061E5 /* GenericModel.swift */,
 				DD95C99C268EC16C002B35A1 /* PageTextModel.swift */,
 				18AE88F2268AE78100EBC129 /* apimodel.swift */,
 				48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */,
@@ -1074,7 +1071,6 @@
 				187CFF802694B42C003EF8C9 /* IndexEditCollectionViewCell.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				1813F2B12699E3A100D7769E /* CharacterMoodCollectionReusableView.swift in Sources */,
-				185E68BA269EE535009061E5 /* GenericModel.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				185E68B0269ECA28009061E5 /* TableContentsModel.swift in Sources */,
