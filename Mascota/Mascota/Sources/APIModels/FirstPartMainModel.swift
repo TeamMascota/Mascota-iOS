@@ -11,5 +11,5 @@ struct FirstPartMainPageModel: Codable {
     let title: String
     let bookImg: String
     let diary: BriefDiaryModel
-    let tableContents: TableContentsModel
+    let tableContents: [IndexModel]
 }

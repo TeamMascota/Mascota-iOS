@@ -47,7 +47,7 @@ extension HomeAPI: TargetType {
         case .getHomeFirstPart:
             return .requestPlain
         default:
-            return .requestData(<#T##Data#>)
+            return .requestPlain
         }
     }
     
