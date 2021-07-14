@@ -133,6 +133,8 @@
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
 		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
 		DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */; };
+		DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */; };
+		DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */; };
 		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
 		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
 		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
@@ -298,6 +300,8 @@
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
 		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
 		DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCalendarModel.swift; sourceTree = "<group>"; };
+		DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCaledarModel.swift; sourceTree = "<group>"; };
+		DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiaryModel.swift; sourceTree = "<group>"; };
 		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 				48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */,
 				DD1DB1E4269EB90900462281 /* GenericModel.swift */,
 				DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */,
+				DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */,
+				DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -1016,6 +1022,7 @@
 				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
 				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
+				DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* APIService.swift in Sources */,
 				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
@@ -1034,6 +1041,7 @@
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
+				DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
