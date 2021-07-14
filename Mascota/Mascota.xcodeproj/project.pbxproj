@@ -24,6 +24,7 @@
 		1842E1A2269AE61800861067 /* EmptyCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */; };
 		1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */; };
 		1842E1A6269AEE8A00861067 /* PetsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */; };
+		184CFF6D269DF9210004F2AD /* MacoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184CFF6C269DF9210004F2AD /* MacoTabBarController.swift */; };
 		1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1850441E26982212009C0F50 /* CustomLabelAlertView.swift */; };
 		185044212698221D009C0F50 /* CustomLabelAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185044202698221D009C0F50 /* CustomLabelAlertView.xib */; };
 		185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */; };
@@ -170,6 +171,7 @@
 		1842E1A0269AE61800861067 /* EmptyCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionReusableView.xib; sourceTree = "<group>"; };
 		1842E1A3269AEE8A00861067 /* PetsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsCollectionViewCell.swift; sourceTree = "<group>"; };
 		1842E1A4269AEE8A00861067 /* PetsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetsCollectionViewCell.xib; sourceTree = "<group>"; };
+		184CFF6C269DF9210004F2AD /* MacoTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoTabBarController.swift; sourceTree = "<group>"; };
 		1850441E26982212009C0F50 /* CustomLabelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelAlertView.swift; sourceTree = "<group>"; };
 		185044202698221D009C0F50 /* CustomLabelAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLabelAlertView.xib; sourceTree = "<group>"; };
 		185091532693500A00ABDE2C /* HomeIndexCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184CFF6B269DF8D50004F2AD /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				184CFF6C269DF9210004F2AD /* MacoTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		188AD0152691CC91008F4284 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				18C14AA2269E90450049422E /* MoyaPlugins */,
+				184CFF6B269DF8D50004F2AD /* TabBarController */,
 				18AB71932693577800FADF9B /* Footers */,
 				18AE88AB268AE58A00EBC129 /* AppDelegate.swift */,
 				18AE88AD268AE58A00EBC129 /* SceneDelegate.swift */,
@@ -971,6 +982,7 @@
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
 				DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */,
 				DD8E5D8E268C302100D698F2 /* UIColor+Extension.swift in Sources */,
+				184CFF6D269DF9210004F2AD /* MacoTabBarController.swift in Sources */,
 				18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */,
 				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
 				18DFD0F2269DA6A800B4D54A /* TempViewController.swift in Sources */,
