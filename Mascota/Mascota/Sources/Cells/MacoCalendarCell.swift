@@ -18,20 +18,16 @@ class MacoCalendarCell: FSCalendarCell {
         $0.backgroundColor = .blue
     }
     
-    private let emogiImageView = UIImageView().then {
-        $0.image = UIImage(named: "emoDogAngry")
-    }
+    private let emogiImageView = UIImageView()
 
     required init!(coder aDecoder: NSCoder!) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private let circleNumberView = UIView().then {
-       
         $0.backgroundColor = .macoOrange.withAlphaComponent(0.5)
         $0.layer.masksToBounds = true
         $0.layer.cornerRadius = 17 / 2
-        
     }
     
     public let numberLabel = UILabel().then {
@@ -43,6 +39,13 @@ class MacoCalendarCell: FSCalendarCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setMacoCalendarCell()
+        setNumberLabel(count: -1)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        emogiImageView.image = nil
+        numberLabel.text = nil
     }
     
     func setMacoCalendarCell() {
@@ -94,7 +97,26 @@ class MacoCalendarCell: FSCalendarCell {
             }
             
         }
-       
+    }
+    
+    public func setNumberLabel(count: Int) {
+        if count == -1 {
+            emogiImageView.isHidden = true
+            circleNumberView.isHidden = true
+        } else if count == 0 {
+            emogiImageView.isHidden = false
+            emogiImageView.image = UIImage(named: "emoEmpty")
+            circleNumberView.isHidden = true
+        } else if count == 1 {
+            emogiImageView.isHidden = false
+            emogiImageView.image = UIImage(named: "emoDogAngry")
+            circleNumberView.isHidden = true
+        } else {
+            emogiImageView.isHidden = false
+            emogiImageView.image = UIImage(named: "emoDogAngry")
+            circleNumberView.isHidden = false
+            numberLabel.text = String(count)
+        }
     }
     
 }
