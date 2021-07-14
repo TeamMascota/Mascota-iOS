@@ -19,6 +19,8 @@ class CalendarViewController: UIViewController {
     private lazy var part: Int = 1
     private lazy var i = 0
     
+    private lazy var topBar = UIView()
+    
     private lazy var nameLabel = UILabel().then {
         $0.font = .macoFont(type: .bold, size: 20)
         $0.textColor = .macoOrange
@@ -153,12 +155,12 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layoutCalender()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        layoutCalender()
         
         convertGetCalender(date: Date())
     }
@@ -179,7 +181,7 @@ class CalendarViewController: UIViewController {
     
     func layoutCalender() {
         
-        view.addSubviews(calender, headerLabel, monthWeekSeparatorView, weekDateSeparatorView, nameLabel, topLabel, buttonStackView, writeImageView, writeLabel, writeButton)
+        view.addSubviews(topBar, calender, headerLabel, monthWeekSeparatorView, weekDateSeparatorView, buttonStackView, writeImageView, writeLabel, writeButton)
         
         calender.delegate = self
         calender.dataSource = self
@@ -194,6 +196,24 @@ class CalendarViewController: UIViewController {
         calender.register(MacoCalendarCell.self, forCellReuseIdentifier: MacoCalendarCell.identifier)
 
         calender.calendarHeaderView.isHidden = true
+        
+        view.addSubviews(nameLabel, topLabel)
+        
+        topBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(topBarHeight)
+        }
+        
+        nameLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.centerY.equalTo(topBar)
+        }
+        
+        topLabel.snp.makeConstraints {
+            $0.leading.equalTo(nameLabel.snp.trailing)
+            $0.centerY.equalTo(topBar)
+        }
 
         headerLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -214,26 +234,16 @@ class CalendarViewController: UIViewController {
             $0.top.equalTo(calender.collectionView.snp.top).inset(2)
         }
         
-        nameLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
-        }
-        
-        topLabel.snp.makeConstraints {
-            $0.leading.equalTo(nameLabel.snp.trailing)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
-        }
-        
         writeImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(topLabel.snp.bottom).inset(-19)
+            $0.top.equalTo(topBar.snp.bottom).inset(-19)
             $0.width.equalTo(48)
             $0.height.equalTo(44)
         }
         
         writeLabel.snp.makeConstraints {
             $0.leading.equalTo(writeImageView.snp.trailing).inset(-13)
-            $0.top.equalTo(topLabel.snp.bottom).inset(-13)
+            $0.top.equalTo(topBar.snp.bottom).inset(-13)
         }
         
         writeButton.snp.makeConstraints {
@@ -311,6 +321,8 @@ extension CalendarViewController: FSCalendarDataSource {
         let nowDate = Date()
         
         cell.setNumberLabel(count: -1)
+        
+        print("\(date) & \(nowDate) =========== \(date<=nowDate)")
         
         if date <= nowDate {
             if let currentCalendar = currentCalendar?.calendar {
