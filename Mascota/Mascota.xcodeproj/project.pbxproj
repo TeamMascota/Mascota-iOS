@@ -62,8 +62,8 @@
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
 		18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */; };
 		18B49237269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */; };
-		18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA5269E92E80049422E /* UIImageView + Extension.swift */; };
 		18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */; };
+		18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA5269E92E80049422E /* UIImageView + Extension.swift */; };
 		18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */; };
 		18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */; };
 		18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */; };
@@ -94,6 +94,8 @@
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
 		DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */; };
+		DD1DB1E5269EB90900462281 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DB1E4269EB90900462281 /* GenericModel.swift */; };
+		DD1DB1E7269EBC5500462281 /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */; };
 		DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */; };
 		DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */; };
 		DD6C9B1E2690AD12004223ED /* BookType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6C9B1D2690AD12004223ED /* BookType.swift */; };
@@ -130,6 +132,10 @@
 		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
 		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
+		DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */; };
+		DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */; };
+		DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */; };
+		DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */; };
 		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
 		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
 		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
@@ -219,8 +225,8 @@
 		18AE88F2268AE78100EBC129 /* apimodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apimodel.swift; sourceTree = "<group>"; };
 		18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEmotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetEmotionCollectionViewCell.xib; sourceTree = "<group>"; };
-		18C14AA5269E92E80049422E /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLogginPlugin.swift; sourceTree = "<group>"; };
+		18C14AA5269E92E80049422E /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionViewCell.swift; sourceTree = "<group>"; };
 		18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCollectionViewCell.xib; sourceTree = "<group>"; };
 		18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaPeopleImageCell.swift; sourceTree = "<group>"; };
@@ -256,6 +262,8 @@
 		DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowDiaryDetailViewController.swift; sourceTree = "<group>"; };
+		DD1DB1E4269EB90900462281 /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
+		DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
 		DD6C9B1326908D53004223ED /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		DD6C9B1B2690A769004223ED /* CircleProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileButton.swift; sourceTree = "<group>"; };
 		DD6C9B1D2690AD12004223ED /* BookType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookType.swift; sourceTree = "<group>"; };
@@ -292,6 +300,10 @@
 		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
 		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
+		DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCalendarModel.swift; sourceTree = "<group>"; };
+		DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCaledarModel.swift; sourceTree = "<group>"; };
+		DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiaryModel.swift; sourceTree = "<group>"; };
+		DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStyle.swift; sourceTree = "<group>"; };
 		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
@@ -450,6 +462,7 @@
 				18AE88DF268AE6F100EBC129 /* AppConstants.swift */,
 				DD92BCAF268C604200A95A75 /* Constants.swift */,
 				DD6C9B1D2690AD12004223ED /* BookType.swift */,
+				DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -478,6 +491,10 @@
 				DD95C99C268EC16C002B35A1 /* PageTextModel.swift */,
 				18AE88F2268AE78100EBC129 /* apimodel.swift */,
 				48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */,
+				DD1DB1E4269EB90900462281 /* GenericModel.swift */,
+				DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */,
+				DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */,
+				DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -486,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				18AE88F0268AE77800EBC129 /* APIService.swift */,
+				DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -969,6 +987,8 @@
 				1842E1A5269AEE8A00861067 /* PetsCollectionViewCell.swift in Sources */,
 				DD7112A5268C84BB00E6E2DC /* UIView+Extension.swift in Sources */,
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
+				DD1DB1E7269EBC5500462281 /* CalendarAPI.swift in Sources */,
+				DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */,
 				48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */,
 				18DFD0F0269D9CAC00B4D54A /* CALayer + Extension.swift in Sources */,
 				DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */,
@@ -1005,6 +1025,7 @@
 				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
 				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
+				DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* APIService.swift in Sources */,
 				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
@@ -1023,6 +1044,7 @@
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
+				DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
@@ -1030,6 +1052,7 @@
 				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
 				48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */,
+				DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
@@ -1037,6 +1060,7 @@
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				1813F2B12699E3A100D7769E /* CharacterMoodCollectionReusableView.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
+				DD1DB1E5269EB90900462281 /* GenericModel.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				185091552693500A00ABDE2C /* HomeIndexCollectionReusableView.swift in Sources */,
 				18E5B41F26943BB1001927DD /* IndexEditViewController.swift in Sources */,

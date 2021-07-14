@@ -9,16 +9,14 @@ import UIKit
 
 extension UIBarButtonItem {
     
-    func backBarButtonItem(color: UIColor? = .macoDarkGray, style: UIBarButtonItem.Style, target: AnyObject, action: Selector?) {
-        self.tintColor = color
-        self.image = UIImage(named: "btnIconBack")
+    func backBarButtonItem(color: UIColor = .macoDarkGray, style: UIBarButtonItem.Style, target: AnyObject, action: Selector?) {
+        self.image = UIImage(named: "btnIconBack")?.withTintColor(color)
         self.target = target
         self.action = action
     }
     
-    func closeBarButtonItem(color: UIColor? = .macoDarkGray, style: UIBarButtonItem.Style, target: AnyObject, action: Selector?) {
-        self.tintColor = color
-        self.image = UIImage(named: "btnIconQuitDefaultGray")
+    func closeBarButtonItem(color: UIColor = .macoDarkGray, style: UIBarButtonItem.Style, target: AnyObject, action: Selector?) {
+        self.image = UIImage(named: "btnIconQuitDefaultGray")?.withTintColor(color)
         self.target = target
         self.action = action
     }
