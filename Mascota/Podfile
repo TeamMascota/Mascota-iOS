@@ -11,7 +11,7 @@ target 'Mascota' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Then'
   pod 'SwiftLint'
-
+  pod 'Kingfisher', '~> 6.0'
 
   target 'MascotaTests' do
     inherit! :search_paths
