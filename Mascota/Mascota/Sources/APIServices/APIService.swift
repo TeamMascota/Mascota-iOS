@@ -8,5 +8,5 @@
 import Foundation
 
 struct APIService {
-    static let baseURL = "13.209.129.17:5000/api"
+    static let baseURL = "http://13.209.129.17:5000/api"
 }

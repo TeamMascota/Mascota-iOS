@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Moya
 
 class SignUpViewController: UIViewController {
     // MARK: - Properties
+    let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
+    
+    var signUpResponseModel: ResponseSignUpModel?
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var idEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,8 +30,11 @@ class SignUpViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func tapSignUpButton() {
-        let nextVC = self.storyboard?.instantiateViewController(identifier: "DoneSignUpViewController")
-        self.navigationController?.pushViewController(nextVC!, animated: true)
+        if signUpButton.isEnabled {
+            connectServer()
+        } else {
+            return
+        }
     }
     
     @IBAction func backButtonTapped(_ sender:UIBarButtonItem!) {
@@ -35,11 +42,50 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func doubleCheckButtonTapped() {
-        //아이디 중복체크
-        
-        // 중복확인 후 되면 infolabel x
-        
-        // 안되면 infolabel d
+        connectServer()
+    }
+    
+    private func connectServer() {
+        service.request(AccountAPI.postSignUp(email: idEmailTextField.text!, password: passwordTextField.text!)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try JSONDecoder().decode(ResponseSignUpModel.self, from: response.data)
+                    self.signUpResponseModel = data
+                    print("before status")
+                    print(self.signUpResponseModel?.status)
+                    guard let status = self.signUpResponseModel?.status else {return}
+                    if status == 200 {
+                        guard let nextVC =  self.storyboard?.instantiateViewController(identifier: "DoneSignUpViewController") as? DoneSignUpViewController else
+                                {
+                            return }
+                        nextVC.idEmail = self.idEmailTextField.text ?? ""
+                        self.navigationController?.pushViewController(nextVC, animated: true)
+                    }
+                    
+                    guard let message = self.signUpResponseModel?.message else {
+                       return
+                    }
+                    
+                    if self.signUpResponseModel?.success == false {
+                        if message == "존재하는 ID 입니다." {
+                            self.infoLabel[0].isHidden = false
+                            self.infoLabel[0].text = "사용할 수 없는 아이디입니다"
+                        } else {
+                            
+                        }
+                    }
+                } catch (let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print("통신실패")
+                print(error.localizedDescription)
+            }
+        }
     }
     
     // MARK: - Life Cycle
@@ -100,16 +146,27 @@ extension SignUpViewController: UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
+        if !idEmailTextField.text!.isEmpty && !passwordTextField.text!.isEmpty && !passwordCheckTextField.text!.isEmpty && (passwordTextField.text == passwordCheckTextField.text) {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = .macoOrange
+            signUpButton.setTitleColor(.white, for: .normal)
+            //signUpButton.titleLabel?.textColor = UIColor.white
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.setTitleColor(.macoLightGray, for: .normal)
+            signUpButton.backgroundColor = UIColor(red: 229.0/255.0, green: 228.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+        }
+        /*
         if idEmailTextField.text!.isEmpty || passwordTextField.text!.isEmpty || passwordCheckTextField.text!.isEmpty {
                 signUpButton.isEnabled = false
-                signUpButton.backgroundColor = UIColor(red: 229/255, green: 228/255, blue: 226/255, alpha: 1.0)
-                signUpButton.titleLabel?.textColor = .macoLightGray
+            signUpButton.backgroundColor = UIColor(red: 229.0/255.0, green: 228.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+                //signUpButton.titleLabel?.textColor = .macoLightGray
             } else {
                 signUpButton.isEnabled = true
                 signUpButton.backgroundColor = .macoOrange
                 signUpButton.titleLabel?.textColor = .macoWhite
             }
-        
+        */
         switch textField {
         case idEmailTextField:
             if idEmailTextField.text!.count == 0 {

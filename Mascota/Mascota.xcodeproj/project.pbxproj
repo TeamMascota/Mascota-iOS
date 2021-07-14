@@ -62,8 +62,8 @@
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
 		18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */; };
 		18B49237269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */; };
-		18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA5269E92E80049422E /* UIImageView + Extension.swift */; };
 		18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */; };
+		18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA5269E92E80049422E /* UIImageView + Extension.swift */; };
 		18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */; };
 		18CE0B622692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */; };
 		18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */; };
@@ -76,6 +76,9 @@
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
 		4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4809D067268E304C0060F5EB /* LoginViewController.swift */; };
+		4832574A269F12CB008FF484 /* RequestSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48325749269F12CB008FF484 /* RequestSignUpModel.swift */; };
+		4832574C269F14D1008FF484 /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4832574B269F14D1008FF484 /* AccountAPI.swift */; };
+		4832574E269F2072008FF484 /* ResponseSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4832574D269F2072008FF484 /* ResponseSignUpModel.swift */; };
 		483DA2502690D1CD005DBA86 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DA24F2690D1CD005DBA86 /* SignUp.storyboard */; };
 		483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DA2512690DAA8005DBA86 /* SignUpViewController.swift */; };
 		4888036826919BA3000CB8F2 /* RegisterMyPet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */; };
@@ -219,8 +222,8 @@
 		18AE88F2268AE78100EBC129 /* apimodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apimodel.swift; sourceTree = "<group>"; };
 		18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEmotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetEmotionCollectionViewCell.xib; sourceTree = "<group>"; };
-		18C14AA5269E92E80049422E /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLogginPlugin.swift; sourceTree = "<group>"; };
+		18C14AA5269E92E80049422E /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionViewCell.swift; sourceTree = "<group>"; };
 		18CE0B602692D1C700C8C1E1 /* HomeIndexCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeIndexCollectionViewCell.xib; sourceTree = "<group>"; };
 		18DF89722692DF9900A9CB2F /* MascotaPeopleImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotaPeopleImageCell.swift; sourceTree = "<group>"; };
@@ -234,6 +237,9 @@
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
 		4809D065268E1BAD0060F5EB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4809D067268E304C0060F5EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		48325749269F12CB008FF484 /* RequestSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSignUpModel.swift; sourceTree = "<group>"; };
+		4832574B269F14D1008FF484 /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
+		4832574D269F2072008FF484 /* ResponseSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSignUpModel.swift; sourceTree = "<group>"; };
 		483DA24F2690D1CD005DBA86 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		483DA2512690DAA8005DBA86 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4888036726919BA3000CB8F2 /* RegisterMyPet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterMyPet.storyboard; sourceTree = "<group>"; };
@@ -478,6 +484,8 @@
 				DD95C99C268EC16C002B35A1 /* PageTextModel.swift */,
 				18AE88F2268AE78100EBC129 /* apimodel.swift */,
 				48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */,
+				48325749269F12CB008FF484 /* RequestSignUpModel.swift */,
+				4832574D269F2072008FF484 /* ResponseSignUpModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -486,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				18AE88F0268AE77800EBC129 /* APIService.swift */,
+				4832574B269F14D1008FF484 /* AccountAPI.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -1018,11 +1027,14 @@
 				DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */,
 				DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */,
 				DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */,
+				4832574C269F14D1008FF484 /* AccountAPI.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
 				1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
+				4832574E269F2072008FF484 /* ResponseSignUpModel.swift in Sources */,
 				DD95C99B268EBD7E002B35A1 /* BookRainbowPageView.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
+				4832574A269F12CB008FF484 /* RequestSignUpModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
