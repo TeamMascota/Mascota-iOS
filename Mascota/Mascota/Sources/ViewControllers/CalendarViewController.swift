@@ -64,6 +64,8 @@ class CalendarViewController: UIViewController {
             $0.leading.equalToSuperview().offset(9)
             $0.centerY.equalToSuperview()
         }
+        
+        $0.addTarget(self, action: #selector(tapWriteButton), for: .touchUpInside)
     }
     
     private lazy var calender = FSCalendar().then {
@@ -192,7 +194,7 @@ class CalendarViewController: UIViewController {
             $0.height.equalTo(1)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(calender.collectionView.snp.top)
+            $0.top.equalTo(calender.collectionView.snp.top).inset(2)
         }
         
         nameLabel.snp.makeConstraints {
@@ -208,6 +210,8 @@ class CalendarViewController: UIViewController {
         writeImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.top.equalTo(topLabel.snp.bottom).inset(-19)
+            $0.width.equalTo(48)
+            $0.height.equalTo(44)
         }
         
         writeLabel.snp.makeConstraints {
@@ -250,6 +254,11 @@ class CalendarViewController: UIViewController {
             break
         }
     }
+    
+    @objc
+    func tapWriteButton(_ sender: UIButton) {
+        navigationController?.pushViewController(DiaryWriteFirstViewController(), animated: true)
+    }
 }
 
 extension CalendarViewController: FSCalendarDelegate {
@@ -260,18 +269,9 @@ extension CalendarViewController: FSCalendarDelegate {
         //Date를 클릭시 이전달이거나 다음달이면 해당 달로 이동
        if monthPosition == .previous || monthPosition == .next {
            calendar.setCurrentPage(date, animated: true)
+       }else{
+        navigationController?.pushViewController(HomeDiaryDetailViewController(), animated: true)
        }
-    }
-    
-    //Date 선택 해제 가능 -> multiple selection mode에서만 작동
-    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
-        print("shouldDeselect       \(String(describing: self.dateFormatter.string(for: date)))")
-        return true
-    }
-    
-    //Date 선택 해제시 알려주는 메서드
-    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("didDeselect          \(String(describing: self.dateFormatter.string(for: date)))")
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {

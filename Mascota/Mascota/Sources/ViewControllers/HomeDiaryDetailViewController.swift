@@ -64,6 +64,8 @@ class HomeDiaryDetailViewController: UIViewController {
         navigationItem.setTitle(title: "코봉이의 중성화 날", subtitle: "161화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = closeButton
+        
+        view.backgroundColor = .macoIvory
     }
     
     private func setScrollView() {
