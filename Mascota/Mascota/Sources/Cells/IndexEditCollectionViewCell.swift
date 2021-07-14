@@ -93,10 +93,11 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func intializeData(_ tag: Int) {
+    func initializeData(indexModel: IndexModel, tag: Int) {
         self.changeButton.tag = tag
         self.deleteButton.tag = tag
-        self.indexLabel.text = "프롤로그"
-        self.indexTitleLabel.text = "코봉이와의 7년"
+        self.indexLabel.text = "제 \(indexModel.chapter)장"
+        self.indexTitleLabel.text = indexModel.chapterTitle
     }
+
 }
