@@ -17,6 +17,16 @@ class MacoTabBarController: UITabBarController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     private func initializeTabBarController() {
         self.view.tintColor = .macoOrange
         UITabBar.appearance().barTintColor = .macoIvory
@@ -31,20 +41,23 @@ class MacoTabBarController: UITabBarController {
         }
         
         let rainbowViewController = RainbowViewController()
-//        let calendarViewController = CalendarViewController()
+        let calendarViewController = CalendarViewController()
         
         rainbowViewController.tabBarItem.image = UIImage(systemName: "shareplay")
         rainbowViewController.tabBarItem.selectedImage = UIImage(systemName: "shareplay")
         
-        homeViewController.tabBarItem.image = UIImage.init(systemName: "house.fill")
-        homeViewController.tabBarItem.selectedImage = UIImage.init(systemName: "house.fill")
+        homeViewController.tabBarItem.image = UIImage(systemName: "house.fill")
+        homeViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        
+        calendarViewController.tabBarItem.image = UIImage(systemName: "house.fill")
+        calendarViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         
 //        calendarViewController.tabBarItem.image = UIImage()
 //        calendarViewController.tabBarItem.selectedImage = UIImage()
         
-//        setViewControllers([calendarViewController, homeViewController, rainbowViewController], animated: true)
+        setViewControllers([calendarViewController, homeViewController, rainbowViewController], animated: true)
         
-        setViewControllers([homeViewController, rainbowViewController], animated: true)
+//        setViewControllers([homeViewController, rainbowViewController], animated: true)
 
     }
     
