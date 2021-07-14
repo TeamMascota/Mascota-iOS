@@ -148,6 +148,12 @@
 		DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */; };
 		DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */; };
 		DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */; };
+		DDCC9EAF269F38E90009C00D /* RainbowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAE269F38E90009C00D /* RainbowAPI.swift */; };
+		DDCC9EB1269F3A200009C00D /* GetRainbowHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB0269F3A200009C00D /* GetRainbowHomeModel.swift */; };
+		DDCC9EB3269F3C220009C00D /* RainbowMainPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB2269F3C220009C00D /* RainbowMainPageModel.swift */; };
+		DDCC9EB5269F3C4E0009C00D /* HelpCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */; };
+		DDCC9EB7269F3C6D0009C00D /* MemoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */; };
+		DDCC9EBA269F4E7A0009C00D /* DateProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB9269F4E7A0009C00D /* DateProcessing.swift */; };
 		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
 		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
 		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
@@ -328,6 +334,12 @@
 		DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCaledarModel.swift; sourceTree = "<group>"; };
 		DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiaryModel.swift; sourceTree = "<group>"; };
 		DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiStyle.swift; sourceTree = "<group>"; };
+		DDCC9EAE269F38E90009C00D /* RainbowAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowAPI.swift; sourceTree = "<group>"; };
+		DDCC9EB0269F3A200009C00D /* GetRainbowHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRainbowHomeModel.swift; sourceTree = "<group>"; };
+		DDCC9EB2269F3C220009C00D /* RainbowMainPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowMainPageModel.swift; sourceTree = "<group>"; };
+		DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCardModel.swift; sourceTree = "<group>"; };
+		DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryModel.swift; sourceTree = "<group>"; };
+		DDCC9EB9269F4E7A0009C00D /* DateProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProcessing.swift; sourceTree = "<group>"; };
 		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
@@ -487,6 +499,7 @@
 				DD92BCAF268C604200A95A75 /* Constants.swift */,
 				DD6C9B1D2690AD12004223ED /* BookType.swift */,
 				DDCC9EAC269F19BE0009C00D /* EmojiStyle.swift */,
+				DDCC9EB9269F4E7A0009C00D /* DateProcessing.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -529,6 +542,10 @@
 				DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */,
 				185E68BF269F3CE7009061E5 /* SecondPartMainPageModel.swift */,
 				185E68C1269F3DDC009061E5 /* HomeFirstPartModel.swift */,
+				DDCC9EB0269F3A200009C00D /* GetRainbowHomeModel.swift */,
+				DDCC9EB2269F3C220009C00D /* RainbowMainPageModel.swift */,
+				DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */,
+				DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -540,6 +557,7 @@
 				185E68B7269EDB14009061E5 /* ChapterAPI.swift */,
 				DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */,
 				185E68BB269F3B43009061E5 /* HomeAPI.swift */,
+				DDCC9EAE269F38E90009C00D /* RainbowAPI.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -1050,6 +1068,7 @@
 				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
 				185E68C0269F3CE7009061E5 /* SecondPartMainPageModel.swift in Sources */,
 				188867DE269C95E10025E471 /* PlusCollectionViewCell.swift in Sources */,
+				DDCC9EBA269F4E7A0009C00D /* DateProcessing.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
 				DD89E2B0269DC7540078CC57 /* CalendarViewController.swift in Sources */,
@@ -1064,15 +1083,19 @@
 				188AD01026919A8E008F4284 /* HomeStartViewController.swift in Sources */,
 				18DFD0F2269DA6A800B4D54A /* TempViewController.swift in Sources */,
 				18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */,
+				DDCC9EB5269F3C4E0009C00D /* HelpCardModel.swift in Sources */,
 				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
 				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
 				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
 				DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */,
+				DDCC9EAF269F38E90009C00D /* RainbowAPI.swift in Sources */,
+				DDCC9EB1269F3A200009C00D /* GetRainbowHomeModel.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* APIService.swift in Sources */,
 				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
 				4888036A26919BDF000CB8F2 /* RegisterMyPetViewController.swift in Sources */,
+				DDCC9EB7269F3C6D0009C00D /* MemoryModel.swift in Sources */,
 				1813F2B52699EA0200D7769E /* CharacterCollectionViewCell.swift in Sources */,
 				DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */,
 				185E68B2269ECC32009061E5 /* DetailDiaryModel.swift in Sources */,
@@ -1093,6 +1116,7 @@
 				DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				DD8832B62699B69300702D4E /* DiaryDetailView.swift in Sources */,
+				DDCC9EB3269F3C220009C00D /* RainbowMainPageModel.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
 				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
