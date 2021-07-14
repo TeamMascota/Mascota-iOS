@@ -40,6 +40,9 @@
 		185E68B4269ECC7B009061E5 /* ChapterMonthDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B3269ECC7B009061E5 /* ChapterMonthDiary.swift */; };
 		185E68B6269ECD55009061E5 /* GetChapterPerMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B5269ECD55009061E5 /* GetChapterPerMonthModel.swift */; };
 		185E68B8269EDB14009061E5 /* ChapterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68B7269EDB14009061E5 /* ChapterAPI.swift */; };
+		185E68BC269F3B43009061E5 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68BB269F3B43009061E5 /* HomeAPI.swift */; };
+		185E68C0269F3CE7009061E5 /* SecondPartMainPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68BF269F3CE7009061E5 /* SecondPartMainPageModel.swift */; };
+		185E68C2269F3DDC009061E5 /* HomeFirstPartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68C1269F3DDC009061E5 /* HomeFirstPartModel.swift */; };
 		185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F0F742694217F008172C7 /* UIImage + Extension.swift */; };
 		187464322698439D00ED57DA /* CustomTextFieldAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */; };
 		18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */; };
@@ -206,6 +209,9 @@
 		185E68B3269ECC7B009061E5 /* ChapterMonthDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterMonthDiary.swift; sourceTree = "<group>"; };
 		185E68B5269ECD55009061E5 /* GetChapterPerMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChapterPerMonthModel.swift; sourceTree = "<group>"; };
 		185E68B7269EDB14009061E5 /* ChapterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterAPI.swift; sourceTree = "<group>"; };
+		185E68BB269F3B43009061E5 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
+		185E68BF269F3CE7009061E5 /* SecondPartMainPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPartMainPageModel.swift; sourceTree = "<group>"; };
+		185E68C1269F3DDC009061E5 /* HomeFirstPartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFirstPartModel.swift; sourceTree = "<group>"; };
 		185F0F742694217F008172C7 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		187464312698439D00ED57DA /* CustomTextFieldAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldAlertView.xib; sourceTree = "<group>"; };
 		18746433269843B100ED57DA /* CustomTextFieldAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldAlertView.swift; sourceTree = "<group>"; };
@@ -521,6 +527,8 @@
 				DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */,
 				DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */,
 				DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */,
+				185E68BF269F3CE7009061E5 /* SecondPartMainPageModel.swift */,
+				185E68C1269F3DDC009061E5 /* HomeFirstPartModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -531,6 +539,7 @@
 				18AE88F0268AE77800EBC129 /* APIService.swift */,
 				185E68B7269EDB14009061E5 /* ChapterAPI.swift */,
 				DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */,
+				185E68BB269F3B43009061E5 /* HomeAPI.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -1002,6 +1011,7 @@
 				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
+				185E68BC269F3B43009061E5 /* HomeAPI.swift in Sources */,
 				18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */,
 				18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */,
 				488803712692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift in Sources */,
@@ -1038,6 +1048,7 @@
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
 				48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */,
 				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
+				185E68C0269F3CE7009061E5 /* SecondPartMainPageModel.swift in Sources */,
 				188867DE269C95E10025E471 /* PlusCollectionViewCell.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
@@ -1090,6 +1101,7 @@
 				DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
+				185E68C2269F3DDC009061E5 /* HomeFirstPartModel.swift in Sources */,
 				DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */,
 				187CFF802694B42C003EF8C9 /* IndexEditCollectionViewCell.swift in Sources */,
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
