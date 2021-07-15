@@ -44,43 +44,22 @@ class BookRainbowPageView: BookPageView {
         }
     }
     
-    public func setContentText(pages: [MemoryModel?]) {
+    public func setContentText(pages: [PageTextModel?]) {
 
         switch pages.count {
         case 1:
             guard let page = pages[0] else {return}
-            leftPageView.setText(pageText: convertPageTextModel(page: page))
+            leftPageView.setText(pageText: page)
             rightPageView.setText()
         case 2:
             guard let leftPage = pages[0] else { return }
             guard let rightPage = pages[1] else { return }
-            leftPageView.setText(pageText: convertPageTextModel(page: leftPage))
-            rightPageView.setText(pageText: convertPageTextModel(page: rightPage))
+            leftPageView.setText(pageText: leftPage)
+            rightPageView.setText(pageText: rightPage)
         default:
             leftPageView.setText()
             rightPageView.setText()
         }
-    }
-    
-    private func convertPageTextModel(page: MemoryModel) -> PageTextModel {
-        var title: String?
-        var subtitle: String?
-        var content: String?
-        var date: String?
-        
-        let rawDate = page.date
-        DateProcessing.getDate(rawDate: rawDate) { dateVO in
-            title = "\(String(dateVO.year))년 \(String(dateVO.month))월의 이야기"
-        }
-        
-        subtitle = page.title
-        content = page.contents
-        
-        DateProcessing.getDate(rawDate: rawDate) { dateVO in
-            date = "\(String(dateVO.year)).\(String(format: "%02d", dateVO.month)).\(String(format: "%02d", dateVO.day))"
-        }
-        
-        return PageTextModel(title: title, subtitle: subtitle, content: content, date: date)
     }
     
 }
