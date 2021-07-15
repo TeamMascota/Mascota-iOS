@@ -36,8 +36,8 @@ class CustomTextFieldAlertView: UIView {
         titleLabel.attributedText = attributedText
     }
     
-    func setTextFieldCountLabel(length: Int) {
-        self.textFieldCountLabel.text = "\(length)/11"
+    func updateTextFieldCountLabel(length: Int, limit: Int) {
+        self.textFieldCountLabel.setCountLabel(current: length, limit: limit)
     }
     
     func initializeComponents(title: String?, textField: String?) {

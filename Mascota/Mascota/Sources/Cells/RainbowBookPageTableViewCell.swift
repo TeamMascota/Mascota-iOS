@@ -47,11 +47,11 @@ class RainbowBookPageTableViewCell: UITableViewCell {
             $0.bottom.equalToSuperview()
         }
         
-        bookPageView.setContentText()
+        bookPageView.setContentText(pages: [])
     
     }
     
-    public func setContentText(pages: [PageTextModel]?) {
+    public func setContentText(pages: [MemoryModel?]) {
         bookPageView.setContentText(pages: pages)
     }
 

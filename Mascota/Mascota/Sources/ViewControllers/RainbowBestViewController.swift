@@ -168,8 +168,9 @@ extension RainbowBestViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowBookPage, for: indexPath) as? RainbowBookPageTableViewCell
         else { return UITableViewCell() }
-        cell.setContentText(pages: [PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05"),
-                                    PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05")])
+        cell.setContentText(pages: [])
+//        cell.setContentText(pages: [PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05"),
+//                                    PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05")])
         cell.selectionStyle = .none
         cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
         cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))

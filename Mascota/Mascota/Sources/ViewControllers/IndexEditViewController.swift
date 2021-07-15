@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Moya
 import SnapKit
 import Then
 
@@ -15,7 +16,12 @@ class IndexEditViewController: UIViewController {
     // MARK: - Properities 선언
     @IBOutlet weak var separatorView: UIView!
     
-    var cellCnt = 40
+    let service = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
+    
+    var tableContents: [IndexModel] = []
+    var selectedContents: IndexModel?
+    
+    var writtenChapter: String = ""
     
     lazy var indexCollectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100),
                                                                       collectionViewLayout: UICollectionViewFlowLayout()).then {
@@ -31,6 +37,7 @@ class IndexEditViewController: UIViewController {
     var confirmHandler: ((UIAlertAction) -> Void)?
     var dismissHandler: ((UIAlertAction) -> Void)?
     var saveHandler: ((UIAlertAction) -> Void)?
+    var changeHandler: ((UIAlertAction) -> Void)?
     var afterDeleted: (() -> Void)?
     
     // MARK: - View LifeCycle
@@ -38,11 +45,110 @@ class IndexEditViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         layoutComponents()
+        getChapterList()
         registerCollectionView()
         registerCollectionViewCell()
         registerTextField()
         initializeHandlers()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getChapterList()
+    }
+    
+    private func getChapterList() {
+        service.request(ChapterAPI.getChapterList) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<TableContentsModel>.self, from: response.data)
+                    self?.reloadCollectionView(tableContentsModel: value)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+    
+    private func reloadCollectionView(tableContentsModel: GenericModel<TableContentsModel>) {
+        guard let contents = tableContentsModel.data?.tableContents else {
+            return
+        }
+        self.tableContents = contents
+        self.indexCollectionView.reloadData()
+        
+    }
+    
+    private func postChapterList() {
+        service.request(ChapterAPI.postChapterList(title: writtenChapter)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<TableContentsModel>.self, from: response.data)
+                    self?.reloadCollectionView(tableContentsModel: value)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+    
+    private func putChapterList() {
+        guard let chapterID = selectedContents?.chapterID else {
+            return
+        }
+        service.request(ChapterAPI.putChapterList(chapterID: chapterID, title: writtenChapter)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<TableContentsModel>.self, from: response.data)
+                    self?.reloadCollectionView(tableContentsModel: value)
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+    
+    private func deleteChapterList() {
+        guard let chapterID = selectedContents?.chapterID else {
+            return
+        }
+        service.request(ChapterAPI.deleteChapterList(chapterID: chapterID)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<TableContentsModel>.self, from: response.data)
+                    self.reloadCollectionView(tableContentsModel: value)
+                    self.presentSingleCustomAlert(view: self.customLabelAlertView,
+                                                  preferredSize: CGSize(width: 270, height: 100),
+                                                  confirmHandler: self.dismissHandler,
+                                                  text: "확인")
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
     }
     
     private func initializeHandlers() {
@@ -51,31 +157,52 @@ class IndexEditViewController: UIViewController {
             print("confirmed")
 
         }
-        self.deleteHandler = { _ in
+        self.deleteHandler = { [weak self] _ in
+            guard let self = self,
+                  let chapterTitle = self.selectedContents?.chapterTitle else {
+                return
+            }
             self.customLabelAlertView.setTitle(text: "삭제 완료")
-            let description = "title 목차가 삭제됐어요".convertSomeColorFont(color: UIColor.macoBlack,
+            let description = (chapterTitle + " 목차가 삭제됐어요").convertSomeColorFont(color: UIColor.macoBlack,
                                                                         fontSize: 14,
                                                                         type: .medium,
                                                                         start: 0,
-                                                                        length: 5)
+                                                                        length: chapterTitle.count)
             self.customLabelAlertView.setAttributedDescription(attributedText: description)
+            self.deleteChapterList()
             self.dismiss(animated: true, completion: nil)
         }
         self.dismissHandler = { _ in
             self.dismiss(animated: true, completion: nil)
             print("dismissed")
-
         }
-        self.saveHandler = { _ in
+        
+        self.changeHandler = {
+            [weak self] _ in
+                guard let self = self else {
+                    return
+                }
+            if self.writtenChapter.count <= 11 && self.writtenChapter.count >= 1 {
+                    self.putChapterList()
+                    print("changed")
+                }
+                self.dismiss(animated: true, completion: nil)
+        }
+        
+        self.saveHandler = { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            if self.writtenChapter.count <= 11 && self.writtenChapter.count >= 1{
+                self.postChapterList()
+                print("saved")
+            }
             self.dismiss(animated: true, completion: nil)
-            print("saved")
+           
         }
         
         self.afterDeleted = {
-            self.presentSingleCustomAlert(view: self.customLabelAlertView,
-                                          preferredSize: CGSize(width: 270, height: 100),
-                                          confirmHandler: self.dismissHandler,
-                                          text: "확인")
+            
         }
     }
     
@@ -118,19 +245,22 @@ class IndexEditViewController: UIViewController {
         guard let text = sender.text else {
             return
         }
-        self.customTextFieldAlertView.setTextFieldCountLabel(length: text.count)
+        writtenChapter = text
+        self.customTextFieldAlertView.updateTextFieldCountLabel(length: text.count, limit: 11)
     }
     
     @objc
     func touchDeleteButton(_ sender: UIButton) {
         self.customLabelAlertView.setTitle(text: "목차 삭제")
-//        guard let title = 타이틀 이름
-//        let description = "목차와 이야기가 모두 사라집니다.\n" + title + "을 삭제하시겠어요?"
-        let description = "목차와 이야기가 모두 사라집니다.\ntitle을 삭제하시겠어요?".convertSomeColorFont(color: UIColor.macoBlack,
-                                                                                              fontSize: 14,
-                                                                                              type: .medium,
-                                                                                              start: 19,
-                                                                                              length: 5)
+        selectedContents = self.tableContents[sender.tag]
+        guard let chapterTitle = selectedContents?.chapterTitle else {
+            return
+        }
+        let description = ("목차와 이야기가 모두 사라집니다.\n" + chapterTitle + "을 삭제하시겠어요?").convertSomeColorFont(color: UIColor.macoBlack,
+                                              fontSize: 14,
+                                              type: .medium,
+                                              start: 19,
+                                              length: chapterTitle.count)
         self.customLabelAlertView.setAttributedDescription(attributedText: description)
         self.presentDoubleCustomAlert(view: customLabelAlertView,
                                       preferredSize: CGSize(width: 270, height: 130),
@@ -142,11 +272,13 @@ class IndexEditViewController: UIViewController {
     
     @objc
     func touchChangeButton(_ sender: UIButton) {
-        self.customTextFieldAlertView.initializeComponents(title: "\(sender.tag)", textField: nil)
+        print(sender.tag)
+        selectedContents = self.tableContents[sender.tag]
+        self.customTextFieldAlertView.initializeComponents(title: "제 \(sender.tag)장", textField: nil)
         self.presentDoubleCustomAlert(view: customTextFieldAlertView,
                                       preferredSize: CGSize(width: 270, height: 100),
                                       firstHandler: dismissHandler,
-                                      secondHandler: saveHandler,
+                                      secondHandler: changeHandler,
                                       firstText: "취소", secondText: "저장")
     }
     
@@ -176,7 +308,7 @@ extension IndexEditViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return cellCnt
+            return tableContents.count
         }
         return 1
     }
@@ -190,7 +322,7 @@ extension IndexEditViewController: UICollectionViewDataSource {
                                                                     for: indexPath) as? IndexEditPrologueCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                cell.intializeData(indexPath.item)
+                cell.intializeData(indexModel: tableContents[indexPath.item],tag: indexPath.item)
                 cell.changeButton.addTarget(self,
                                             action: #selector(touchChangeButton(_:)),
                                             for: .touchUpInside)
@@ -203,7 +335,7 @@ extension IndexEditViewController: UICollectionViewDataSource {
                                                                     for: indexPath) as? IndexEditCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                cell.intializeData(indexPath.item)
+                cell.initializeData(indexModel: tableContents[indexPath.item], tag: indexPath.item)
                 cell.changeButton.addTarget(self,
                                             action: #selector(touchChangeButton(_:)),
                                             for: .touchUpInside)
@@ -236,7 +368,7 @@ extension IndexEditViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: collectionView.bounds.width, height: 41)
         default:
             // 목록이 한 화면은 다 채우지 않으면 이미지가 화면 밑으로 가게끔 조정
-            let cellsHeight = CGFloat(41 * cellCnt)
+            let cellsHeight = CGFloat(41 * tableContents.count)
             let freeSpace = collectionView.bounds.height - cellsHeight
             let height = freeSpace > 142 ? freeSpace: 142
             return CGSize(width: collectionView.bounds.width,
@@ -260,5 +392,9 @@ extension IndexEditViewController: UITextFieldDelegate {
     // 엔터키 눌렀을 때 텍스트뷰 비활
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
     }
 }

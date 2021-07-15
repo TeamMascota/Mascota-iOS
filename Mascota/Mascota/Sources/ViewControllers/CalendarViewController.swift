@@ -8,14 +8,22 @@
 import UIKit
 
 import FSCalendar
+import Moya
 import SnapKit
 import Then
 
 class CalendarViewController: UIViewController {
+    
+    private lazy var service = MoyaProvider<CalendarAPI>(plugins: [MoyaLoggingPlugin()])
+    private var currentCalendar: GetCalendarModel?
+    private lazy var part: Int = 1
+    private lazy var i = 0
+    
+    private lazy var topBar = UIView()
+    
     private lazy var nameLabel = UILabel().then {
         $0.font = .macoFont(type: .bold, size: 20)
         $0.textColor = .macoOrange
-        $0.text = "김윤서김윤서"
     }
     
     private lazy var topLabel = UILabel().then {
@@ -64,6 +72,8 @@ class CalendarViewController: UIViewController {
             $0.leading.equalToSuperview().offset(9)
             $0.centerY.equalToSuperview()
         }
+        
+        $0.addTarget(self, action: #selector(tapWriteButton), for: .touchUpInside)
     }
     
     private lazy var calender = FSCalendar().then {
@@ -145,12 +155,14 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCalender()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        layoutCalender()
+        
+        convertGetCalender(date: Date())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -158,9 +170,18 @@ class CalendarViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    func setCalender() {
+    func convertGetCalender(date: Date) {
+        i = 0
+        let year = String(Calendar.current.component(.year, from: date))
+        let month = String(Calendar.current.component(.month, from: date))
+        let part = String(part)
+
+        getCalendar(year: year, month: month, part: part)
+    }
+    
+    func layoutCalender() {
         
-        view.addSubviews(calender, headerLabel, monthWeekSeparatorView, weekDateSeparatorView, nameLabel, topLabel, buttonStackView, writeImageView, writeLabel, writeButton)
+        view.addSubviews(topBar, calender, headerLabel, monthWeekSeparatorView, weekDateSeparatorView, buttonStackView, writeImageView, writeLabel, writeButton)
         
         calender.delegate = self
         calender.dataSource = self
@@ -175,6 +196,24 @@ class CalendarViewController: UIViewController {
         calender.register(MacoCalendarCell.self, forCellReuseIdentifier: MacoCalendarCell.identifier)
 
         calender.calendarHeaderView.isHidden = true
+        
+        view.addSubviews(nameLabel, topLabel)
+        
+        topBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(topBarHeight)
+        }
+        
+        nameLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(16)
+            $0.centerY.equalTo(topBar)
+        }
+        
+        topLabel.snp.makeConstraints {
+            $0.leading.equalTo(nameLabel.snp.trailing)
+            $0.centerY.equalTo(topBar)
+        }
 
         headerLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
@@ -192,27 +231,19 @@ class CalendarViewController: UIViewController {
             $0.height.equalTo(1)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
-            $0.bottom.equalTo(calender.collectionView.snp.top)
-        }
-        
-        nameLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
-        }
-        
-        topLabel.snp.makeConstraints {
-            $0.leading.equalTo(nameLabel.snp.trailing)
-            $0.centerY.equalTo(nameLabel.snp.centerY)
+            $0.top.equalTo(calender.collectionView.snp.top).inset(2)
         }
         
         writeImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
-            $0.top.equalTo(topLabel.snp.bottom).inset(-19)
+            $0.top.equalTo(topBar.snp.bottom).inset(-19)
+            $0.width.equalTo(48)
+            $0.height.equalTo(44)
         }
         
         writeLabel.snp.makeConstraints {
             $0.leading.equalTo(writeImageView.snp.trailing).inset(-13)
-            $0.top.equalTo(topLabel.snp.bottom).inset(-13)
+            $0.top.equalTo(topBar.snp.bottom).inset(-13)
         }
         
         writeButton.snp.makeConstraints {
@@ -231,66 +262,130 @@ class CalendarViewController: UIViewController {
     
     @objc
     func tapMoveDateButton(_ sender: UIButton) {
+        var moveDate: Date?
+        
         switch sender {
         case pastMonthButton:
-            guard let pastMonth = Calendar.current.date(byAdding: .month, value: -1, to: self.calender.currentPage) else { return }
-            self.calender.setCurrentPage(pastMonth, animated: true)
+            moveDate = Calendar.current.date(byAdding: .month, value: -1, to: self.calender.currentPage)
         case pastYearButton:
-            guard let pastYear = Calendar.current.date(byAdding: .year, value: -1, to: self.calender.currentPage) else { return }
-            self.calender.setCurrentPage(pastYear, animated: true)
+            moveDate = Calendar.current.date(byAdding: .year, value: -1, to: self.calender.currentPage)
         case nextMonthButton:
-            guard let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: self.calender.currentPage) else { return }
-        
-            self.calender.setCurrentPage(nextMonth, animated: true)
+           moveDate = Calendar.current.date(byAdding: .month, value: 1, to: self.calender.currentPage)
         case nextYearButton:
-            guard let nextYear = Calendar.current.date(byAdding: .year, value: 1, to: self.calender.currentPage) else { return }
-            
-            self.calender.setCurrentPage(nextYear, animated: true)
+           moveDate = Calendar.current.date(byAdding: .year, value: 1, to: self.calender.currentPage)
         default:
             break
         }
+        
+        if let moveDate = moveDate {
+            self.calender.setCurrentPage(moveDate, animated: true)
+        }
+    }
+    
+    @objc
+    func tapWriteButton(_ sender: UIButton) {
+        navigationController?.pushViewController(DiaryWriteFirstViewController(), animated: true)
     }
 }
 
 extension CalendarViewController: FSCalendarDelegate {
-    //Date 선택시 알려주는 메서드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("didSelect            \(String(describing: self.dateFormatter.string(for: date)))")
       
-        //Date를 클릭시 이전달이거나 다음달이면 해당 달로 이동
        if monthPosition == .previous || monthPosition == .next {
-           calendar.setCurrentPage(date, animated: true)
+            calendar.setCurrentPage(date, animated: true)
+       } else {
+            if let currentCalendar = currentCalendar?.calendar {
+                let day = Int(Calendar.current.component(.day, from: date))
+                if let date = currentCalendar.date[day - 1] {
+                    if date.id.count > 0 {
+                        navigationController?.pushViewController(HomeDiaryDetailViewController(), animated: true)
+                    }
+                }
+            }
        }
     }
     
-    //Date 선택 해제 가능 -> multiple selection mode에서만 작동
-    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
-        print("shouldDeselect       \(String(describing: self.dateFormatter.string(for: date)))")
-        return true
-    }
-    
-    //Date 선택 해제시 알려주는 메서드
-    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("didDeselect          \(String(describing: self.dateFormatter.string(for: date)))")
-    }
-    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        print("페이지 변경")
-        let values = Calendar.current.dateComponents([Calendar.Component.month, Calendar.Component.year], from: calendar.currentPage)
-        guard let year = values.year else { return }
-        guard let month = values.month else { return }
-        
-        headerLabel.text = "\(year)년 \(month)월"
-        
+        self.convertGetCalender(date: calendar.currentPage)
     }
     
 }
 
 extension CalendarViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        let cell = calendar.dequeueReusableCell(withIdentifier: MacoCalendarCell.identifier, for: date, at: position)
-       
-            return cell
+        guard let cell = calendar.dequeueReusableCell(withIdentifier: MacoCalendarCell.identifier, for: date, at: position) as? MacoCalendarCell else { return FSCalendarCell() }
+
+        let nowMonth = String(Calendar.current.component(.month, from: Date()))
+        let month = String(Calendar.current.component(.month, from: date))
+        let nowDay = Int(Calendar.current.component(.day, from: Date()))
+        let nowDate = Date()
+        
+        cell.setNumberLabel(count: -1)
+        
+        print("\(date) & \(nowDate) =========== \(date<=nowDate)")
+        
+        if date <= nowDate {
+            if let currentCalendar = currentCalendar?.calendar {
+                if month == currentCalendar.month {
+                    if nowMonth == month {
+                        if i < nowDay {
+                            if let date = currentCalendar.date[i] {
+                                cell.setNumberLabel(count: date.id.count)
+                                cell.setEmoji(kind: date.kind, feeling: date.feeling)
+                            } else {
+                                cell.setNumberLabel(count: 0)
+                            }
+                        }
+                    } else {
+                        if let date = currentCalendar.date[i] {
+                            cell.setNumberLabel(count: date.id.count)
+                            cell.setEmoji(kind: date.kind, feeling: date.feeling)
+                        } else {
+                            cell.setNumberLabel(count: 0)
+                        }
+                    }
+                    i += 1
+                }
+            } else {
+                cell.setNumberLabel(count: -1)
+            }
         }
+        return cell
+    }
    
+}
+
+extension CalendarViewController {
+    private func getCalendar(year: String, month: String, part: String) {
+        service.request(CalendarAPI.getCalendar(year: year, month: month, part: part)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try JSONDecoder().decode(GenericModel<GetCalendarModel>.self, from: response.data)
+                    self.currentCalendar = data.data
+                    self.setCalendar()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+    
+    private func setCalendar() {
+        guard let year = currentCalendar?.calendar.year else { return }
+        guard let month = currentCalendar?.calendar.month else { return }
+        headerLabel.text = "\(year)년 \(month)월"
+        
+        guard let name = currentCalendar?.name else { return }
+        nameLabel.text = name
+        
+        i = 0
+        calender.reloadData()
+    }
 }
