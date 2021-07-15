@@ -19,22 +19,44 @@ class IndexDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.contentView.backgroundColor = UIColor.macoIvory
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        initializeView()
     }
     
-    func initializeData() {
-        self.dayLabel.text = "11일"
-        self.weekDayLabel.text = "화욜"
-        self.emotionImageView.image = UIImage()
-        self.titleLabel.text = "가나다라마ㅏ사"
-        self.contentLabel.text = "askdfjkljdf klasdjfklasdjfk lajsdfk jaklf klasf"
-        self.petImageView.image = UIImage()
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.dayLabel.text = ""
+        self.weekDayLabel.text = ""
+        emotionImageView.image = UIImage()
+        titleLabel.text = ""
+        contentLabel.text = ""
+        petImageView.image = UIImage()
+        petImageView.isHidden = false
+    }
+    
+    private func initializeView() {
+        self.contentView.backgroundColor = UIColor.macoIvory
+        petImageView.layer.borderColor = UIColor.macoOrange.cgColor
+        petImageView.layer.borderWidth = 1
+        petImageView.layer.cornerRadius = 3
+    }
+    
+    
+    
+    func initializeData(data: DetailDiaryModel) {
+        self.dayLabel.text = data.date
+        self.weekDayLabel.text = data.weekday
+        self.emotionImageView.image = EmojiStyle().getEmoji(kind: data.kind,
+                                                            feeling: data.feeling)
+        self.titleLabel.text = data.title
+        self.contentLabel.text = data.contents
+        
+        if let url = data.image {
+            self.petImageView.updateServerImage(url)
+        } else {
+            self.petImageView.isHidden = true
+        }
+        
+        
     }
     
 }
