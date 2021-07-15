@@ -45,6 +45,21 @@ struct EmojiStyle {
             
             return UIImage(named: imageString)
         }
+        
+        func text() -> String {
+            switch self {
+            case .deny:
+                return "부인"
+            case .angry:
+                return "화남"
+            case .loss:
+                return "상실"
+            case .sad:
+                return "우울"
+            case .accept:
+                return "수용"
+            }
+        }
     }
     
     enum Dog: Int {
@@ -81,6 +96,23 @@ struct EmojiStyle {
             }
             
             return UIImage(named: imageString)
+        }
+        
+        func text() -> String {
+            switch self {
+            case .love:
+                return "사랑"
+            case .joy:
+                return "기쁨"
+            case .usual:
+                return "보통"
+            case .sad:
+                return "우울"
+            case .angry:
+                return "화남"
+            case .boring:
+                return "심심"
+            }
         }
     }
     
@@ -119,10 +151,26 @@ struct EmojiStyle {
             
             return UIImage(named: imageString)
         }
+        
+        func text() -> String {
+            switch self {
+            case .love:
+                return "사랑"
+            case .joy:
+                return "기쁨"
+            case .usual:
+                return "보통"
+            case .sad:
+                return "우울"
+            case .angry:
+                return "화남"
+            case .boring:
+                return "심심"
+            }
+        }
     }
     
     func getEmoji(kind: Int, feeling: Int, color: EmojiColor? = .darkGray) -> UIImage? {
-        
         switch kind {
         case 0:
             let human = Human.init(rawValue: feeling)
@@ -136,6 +184,21 @@ struct EmojiStyle {
         default:
             return UIImage()
         }
-        
+    }
+    
+    func getEmojiText(kind: Int, feeling: Int, color: EmojiColor? = .darkGray) -> String {
+        switch kind {
+        case 0:
+            let human = Human.init(rawValue: feeling)
+            return human?.text() ?? ""
+        case 1:
+            let dog = Dog.init(rawValue: feeling)
+            return dog?.text() ?? ""
+        case 2:
+            let cat = Cat.init(rawValue: feeling)
+            return cat?.text() ?? ""
+        default:
+            return ""
+        }
     }
 }
