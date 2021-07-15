@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PetImageModel {
+struct PetImageModel: Codable {
     let name: String
     let image: String
     let kind: Int
