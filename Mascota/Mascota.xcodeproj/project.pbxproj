@@ -35,6 +35,7 @@
 		185844A426A0968900F82A95 /* PetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A326A0968900F82A95 /* PetsAPI.swift */; };
 		185844A626A0978F00F82A95 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A526A0978F00F82A95 /* CharacterModel.swift */; };
 		185844A826A097F700F82A95 /* DiaryWriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A726A097F700F82A95 /* DiaryWriteModel.swift */; };
+		185844AA26A09AC000F82A95 /* PetImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A926A09AC000F82A95 /* PetImageModel.swift */; };
 		185E68A8269EBC2E009061E5 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A7269EBC2E009061E5 /* IndexModel.swift */; };
 		185E68AA269EC2EA009061E5 /* BriefDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */; };
 		185E68AC269EC530009061E5 /* FirstPartMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68AB269EC530009061E5 /* FirstPartMainModel.swift */; };
@@ -227,6 +228,7 @@
 		185844A326A0968900F82A95 /* PetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsAPI.swift; sourceTree = "<group>"; };
 		185844A526A0978F00F82A95 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		185844A726A097F700F82A95 /* DiaryWriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryWriteModel.swift; sourceTree = "<group>"; };
+		185844A926A09AC000F82A95 /* PetImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageModel.swift; sourceTree = "<group>"; };
 		185E68A7269EBC2E009061E5 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
 		185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefDiaryModel.swift; sourceTree = "<group>"; };
 		185E68AB269EC530009061E5 /* FirstPartMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPartMainModel.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				DD8D503426A037740098AFF5 /* TheBestModel.swift */,
 				DD8D503626A0378A0098AFF5 /* DiaryModel.swift */,
 				DD14216F26A075160072B4EB /* RainbowPetInfoModel.swift */,
+				185844A926A09AC000F82A95 /* PetImageModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -1199,6 +1202,7 @@
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				1813F2B12699E3A100D7769E /* CharacterMoodCollectionReusableView.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
+				185844AA26A09AC000F82A95 /* PetImageModel.swift in Sources */,
 				DD1DB1E5269EB90900462281 /* GenericModel.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				185E68B0269ECA28009061E5 /* TableContentsModel.swift in Sources */,

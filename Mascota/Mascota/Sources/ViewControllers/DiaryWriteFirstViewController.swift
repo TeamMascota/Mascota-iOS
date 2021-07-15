@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class DiaryWriteFirstViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class DiaryWriteFirstViewController: UIViewController {
     var selected: [Int] = []
     
     var customLabelAlertView = CustomLabelAlertView()
+    
+    let petsService = MoyaProvider<PetsAPI>(plugins: [MoyaLoggingPlugin]())
     
     let diaryWriteCollectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100),
                                                                       collectionViewLayout: UICollectionViewFlowLayout()).then {
@@ -83,6 +86,18 @@ class DiaryWriteFirstViewController: UIViewController {
         self.nextButton.addTarget(self, action: #selector(pushToDiaryWriteSecond), for: .touchUpInside)
     }
     
+//    private func getPetsInfo() {
+//        petsService.request(.getPetsInfo) { [weak self] result in
+//            switch result {
+//            case .success(let response):
+//                let value = try JSONDecoder().decode(GenericModel<>, from: <#T##Data#>)
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            }
+//            
+//        }
+//    }
+//    
     @objc
     func pushToDiaryWriteSecond() {
         let storyboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteSecond, bundle: nil)
