@@ -49,7 +49,6 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
-    
     // MARK: - set Functions
     func setTextField() {
         self.idEmailTextField.delegate = self
@@ -98,7 +97,7 @@ class LoginViewController: UIViewController {
     
     func setAlertView() {
         self.customLabelAlertView.setTitle(text: "로그인 실패")
-        let description = "아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.".convertSomeColorFont(color: UIColor.macoBlack,fontSize: 14, type: .medium, start: 19, length: 5)
+        let description = "아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.".convertSomeColorFont(color: UIColor.macoBlack, fontSize: 14, type: .medium, start: 19, length: 5)
         self.customLabelAlertView.setAttributedDescription(attributedText: description)
         self.presentSingleCustomAlert(view: customLabelAlertView, preferredSize: CGSize(width: 270, height: 130), confirmHandler: nil, text: "확인", color: .macoOrange)
     }
@@ -114,8 +113,7 @@ class LoginViewController: UIViewController {
                     let data = try JSONDecoder().decode(ResponseLoginModel.self, from: response.data)
                     self.loginResponseModel = data
 
-                    guard let status = self.loginResponseModel?.status else {return}
-                    
+                    guard let status = self.loginResponseModel?.status else { return }
                     if status == 200 {
                         print("로그인성공")
                         print(data.data?.userId ?? 0)
