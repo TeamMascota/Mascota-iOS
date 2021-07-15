@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
     var loginResponseModel: ResponseLoginModel?
+    let customLabelAlertView = CustomLabelAlertView()
     // MARK: - IBOutlets
     @IBOutlet weak var idEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -96,13 +97,10 @@ class LoginViewController: UIViewController {
     }
     
     func setAlertView() {
-        let customLabelAlertView = CustomLabelAlertView()
-        
-        customLabelAlertView.setAttributedTitle(attributedText: "로그인 실패".attributedString(font: .macoFont(type: .medium, size: 17), color: .macoBlack,  alignment: .center))
-        
-        customLabelAlertView.setAttributedDescription(attributedText: "아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.".attributedString(font: .macoFont(type: .medium, size: 14), color: .macoBlack, customLineHeight: 25, alignment: .center))
-        
-        self.presentSingleCustomAlert(view: customLabelAlertView, preferredSize: CGSize(width: 320, height: 177), confirmHandler: nil, text: "확인", color: .macoOrange)
+        self.customLabelAlertView.setTitle(text: "로그인 실패")
+        let description = "아이디 또는 비밀번호가 일치하지 않습니다.\n다시 로그인 해 주세요.".convertSomeColorFont(color: UIColor.macoBlack,fontSize: 14, type: .medium, start: 19, length: 5)
+        self.customLabelAlertView.setAttributedDescription(attributedText: description)
+        self.presentSingleCustomAlert(view: customLabelAlertView, preferredSize: CGSize(width: 270, height: 130), confirmHandler: nil, text: "확인", color: .macoOrange)
     }
     
     private func connectServer() {
@@ -129,7 +127,6 @@ class LoginViewController: UIViewController {
                     print(err.localizedDescription)
                 }
             case .failure(let error):
-                print("통신실패")
                 print(error.localizedDescription)
             }
         }
