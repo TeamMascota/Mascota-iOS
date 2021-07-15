@@ -1,5 +1,5 @@
 //
-//  RainbowBestViewController.swift
+//  RainbowMomentViewController.swift
 //  Mascota
 //
 //  Created by 김윤서 on 2021/07/05.
@@ -7,7 +7,14 @@
 
 import UIKit
 
-class RainbowBestViewController: UIViewController {
+import Moya
+
+class RainbowMomentViewController: UIViewController {
+    
+    private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
+    private var rainbowMomentModel: GetRainbowMomentModel?
+    private var delegate: RainbowBridgeDelegator?
+    private var petId: String?
     
     private lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .clear
@@ -15,7 +22,6 @@ class RainbowBestViewController: UIViewController {
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
         $0.showsVerticalScrollIndicator = false
-        
     }
     
     private lazy var nextButton = MacoButton(color: .white).then {
@@ -39,6 +45,7 @@ class RainbowBestViewController: UIViewController {
         setButton()
         
         registerTableViewCell()
+        requestGetRainMoment(petId: petId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,14 +94,14 @@ class RainbowBestViewController: UIViewController {
         
 }
 
-extension RainbowBestViewController {
+extension RainbowMomentViewController {
     @objc
     func tapBackButton(_ sender: UIBarItem) {
         navigationController?.popViewController(animated: true)
     }
     
     @objc
-    func tapCloseButton(_ sender: UIBarItem) {
+    func tapCloseButton(_ sender: UIBarButtonItem) {
         let customLabelAlertView = CustomLabelAlertView()
         
         customLabelAlertView.setAttributedTitle(attributedText: "이별의 단계".attributedString(font: .macoFont(type: .bold, size: 17), color: .macoBlack, customLineHeight: 18, alignment: .center))
@@ -107,7 +114,9 @@ extension RainbowBestViewController {
                                       firstHandler: { _ in
                                       },
                                       secondHandler: {  _ in
-                                        self.dismiss(animated: true, completion: nil)
+                                        self.requsetCancelRainbowBridge(petId: self.petId) {
+                                            self.dismiss(animated: true, completion: nil)
+                                        }
                                       },
                                       firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
@@ -118,13 +127,17 @@ extension RainbowBestViewController {
     }
 }
 
-extension RainbowBestViewController: UITableViewDelegate {
+extension RainbowMomentViewController: UITableViewDelegate {
 
 }
 
-extension RainbowBestViewController: UITableViewDataSource {
+extension RainbowMomentViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        if let sections = rainbowMomentModel?.theBestMoments.count {
+            return sections
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -133,7 +146,7 @@ extension RainbowBestViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch section {
-        case 7:
+        case 5:
             return UITableView.automaticDimension
         default:
             return 0
@@ -141,20 +154,24 @@ extension RainbowBestViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = RainbowBestSectionHeaderView()
-        switch section {
-        case 0:
-            header.setHeaderText(title: "사랑", text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 진짜 뭐햌ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋ오늘 잠 언제자 ㅋㅋㅋㅋㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
-        
-        default:
-            header.setHeaderText(title: "사랑", text: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 진짜 뭐햌ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋ오늘 잠 언제자 ㅋㅋㅋㅋㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
+        if rainbowMomentModel?.theBestMoments[section].diaries != nil {
+            let header = RainbowBestSectionHeaderView()
+            if let comment = rainbowMomentModel?.theBestMoments[section].comment,
+               let feelingCode = rainbowMomentModel?.theBestMoments[section].feeling,
+               let kind = rainbowMomentModel?.pet.kind,
+               let emoji = EmojiStyle().getEmoji(kind: kind, feeling: feelingCode) {
+                    let feeling = EmojiStyle().getEmojiText(kind: kind, feeling: feelingCode)
+                    header.setHeaderView(title: feeling, text: comment, image: emoji)
+            }
+            return header
+        } else {
+            return nil
         }
-        return header
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         switch section {
-        case 7:
+        case 5:
             return RainbowBestSectionFooterView()
         default:
             return nil
@@ -162,19 +179,28 @@ extension RainbowBestViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let numberOfRowsInSection = rainbowMomentModel?.theBestMoments[section].diaries?.count {
+            return (numberOfRowsInSection + 1) % 2
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowBookPage, for: indexPath) as? RainbowBookPageTableViewCell
         else { return UITableViewCell() }
-        cell.setContentText(pages: [PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05"),
-                                    PageTextModel(title: "제 1장 3화", subtitle: "가나다라마바사아자", content: "엌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ알아럼얼 ㅏ 아ㅓㅣ멍리ㅏㅁ어 ㅏ' ㅁㄴ이ㅏㅓㄹ미아 ㅓㅁㄴ인라ㅗ ㅇㅁ니ㅏ ㅁ노ㅠㄹ ㅍ", date: "2021.07.05")])
+        let leftPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row]
+        let rightPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row + 1]
+        dump(leftPage)
+        dump(rightPage)
+        cell.setContentText(pages: [leftPage, rightPage])
+  
         cell.selectionStyle = .none
         cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
         cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
         return cell
     }
+    
     @objc
     func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
         let vc = RainbowDiaryDetailViewController()
@@ -188,4 +214,54 @@ extension RainbowBestViewController: UITableViewDataSource {
         navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
     }
     
+}
+
+extension RainbowMomentViewController {
+    func requestGetRainMoment(petId: String?) {
+        let userId = APIService.userID
+        guard let petId = petId else { return }
+        service.request(RainbowAPI.getRainbowMoment(userId: userId, petId: petId)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try JSONDecoder().decode(GenericModel<GetRainbowMomentModel>.self, from: response.data)
+                    self.rainbowMomentModel = response.data
+                    self.tableView.reloadData()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func requsetCancelRainbowBridge(petId: String?, completion: @escaping () -> Void) {
+        guard let petId = petId else { return }
+        service.request(RainbowAPI.deleteRainbowBridge(petId: petId)) { [weak self] result in
+            guard self != nil else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    _ = try JSONDecoder().decode(GenericModel<PutPartingRainbowBridgeModel>.self, from: response.data)
+                    completion()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension RainbowMomentViewController: RainbowBridgeDelegator {
+    func setPetId(petId: String) {
+        self.petId = petId
+    }
 }

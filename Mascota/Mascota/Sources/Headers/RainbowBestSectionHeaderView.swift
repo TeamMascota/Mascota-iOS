@@ -60,9 +60,10 @@ class RainbowBestSectionHeaderView: UIView {
         }
     }
     
-    public func setHeaderText(title: String, text: String) {
+    public func setHeaderView(title: String, text: String, image: UIImage) {
         titleLabel.text = title
         contentLabel.text = text
+        imageView.image = image
     }
     
 }

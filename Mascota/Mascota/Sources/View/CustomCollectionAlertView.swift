@@ -31,13 +31,13 @@ class CustomCollectionAlertView: UIView {
       
     }
     
-    public lazy var petId: String = ""
+    public var petIds : [String] = []
+    public var selectedPetId: String?
     
     public init() {
         super.init(frame: CGRect.zero)
     
         initCustomCollectionAlertView()
-        setPetProfileStackView()
     }
     
     override init(frame: CGRect) {
@@ -78,31 +78,38 @@ class CustomCollectionAlertView: UIView {
     
     @objc
     func tapProfileNameButton(_ sender: UIButton) {
-       
         let buttonArray = hStackView.arrangedSubviews
         for button in buttonArray {
             if let button = button as? UIButton {
                 button.isSelected = false
             }
         }
-        
-        petId = String(sender.tag)
+        selectedPetId = sendingSelectedPetId(petId: sender.tag)
         sender.isSelected = !sender.isSelected
     }
     
-    func setPetProfileStackView() {
-        for i in 0...3 {
-            let profileNameButton = ProfileNameButton()
-            hStackView.addArrangedSubviews(profileNameButton)
-            profileNameButton.tag = i
-            
-            profileNameButton.snp.makeConstraints {
-                $0.width.equalTo(62)
-                $0.height.equalTo(82)
+    func setPetProfileStackView(pets: [RainbowPetInfoModel]) {
+        if pets.count > 0 {
+            for i in 0...pets.count - 1 {
+                let profileNameButton = ProfileNameButton()
+                hStackView.addArrangedSubviews(profileNameButton)
+                profileNameButton.tag = i
+                profileNameButton.nameLabel.text = pets[i].name
+                petIds.append(pets[i].id)
+                
+                print(petIds[i])
+              
+                profileNameButton.snp.makeConstraints {
+                    $0.width.equalTo(62)
+                    $0.height.equalTo(82)
+                }
+                
+                profileNameButton.addTarget(self, action: #selector(tapProfileNameButton(_:)), for: .touchUpInside)
             }
-            
-            profileNameButton.addTarget(self, action: #selector(tapProfileNameButton(_:)), for: .touchUpInside)
         }
-        
+    }
+    
+    func sendingSelectedPetId(petId: Int) -> String? {
+        return petIds[petId]
     }
 }

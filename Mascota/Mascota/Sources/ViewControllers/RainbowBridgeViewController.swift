@@ -1,5 +1,5 @@
 //
-//  RainbowCommentViewController.swift
+//  RainbowBridgeViewController.swift
 //  Mascota
 //
 //  Created by 김윤서 on 2021/07/06.
@@ -7,7 +7,19 @@
 
 import UIKit
 
-class RainbowCommentViewController: UIViewController {
+import Moya
+
+protocol RainbowBridgeDelegator {
+    func setPetId(petId: String)
+}
+
+class RainbowBridgeViewController: UIViewController {
+
+    private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
+    private var partingRainbowBridgeModel: PartingRainbowBridgeModel?
+    
+    private var delegate: RainbowBridgeDelegator?
+    private var petId: String?
     
     private lazy var contentLabel = UILabel().then {
         $0.lineBreakMode = .byWordWrapping
@@ -32,7 +44,6 @@ class RainbowCommentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initRainbowCommentViewController()
         
         setImageVIew()
@@ -77,8 +88,13 @@ class RainbowCommentViewController: UIViewController {
     }
     
     private func setContentLabel() {
-        contentLabel.text = "작가님과 함께했던 2318화의 이야기 속에서 \n코봉이는 의젓하고 당당한 고양이로서 \n행복한 인생을 보낼 수 있었어요. \n그리고 지금은 작가님보다 한 발 앞서서 \n먼저 무지개 다리로 가 친구들과 함께 \n작가님을 기다리기로 했습니다.  \n그동안 행복한 일상을 선물해주셔서 감사합니다. \n코봉이가 느꼈던 최고의 순간들을 모아봤어요."
-        contentLabel.setLineSpacing(lineHeight: 24)
+        requestRainbowBridgeContents(petId: petId) {
+            self.contentLabel.alpha = 0.0
+            self.contentLabel.attributedText = self.partingRainbowBridgeModel?.contents.attributedString(font: .macoFont(type: .medium, size: 16), color: .macoWhite, customLineHeight: 28)
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut) {
+                self.contentLabel.alpha = 1.0
+            }
+        }
         
         view.addSubviews(contentLabel)
         contentLabel.snp.makeConstraints {
@@ -90,7 +106,7 @@ class RainbowCommentViewController: UIViewController {
     
 }
 
-extension RainbowCommentViewController {
+extension RainbowBridgeViewController {
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
         let customLabelAlertView = CustomLabelAlertView()
@@ -105,13 +121,69 @@ extension RainbowCommentViewController {
                                       firstHandler: { _ in
                                       },
                                       secondHandler: {  _ in
-                                        self.dismiss(animated: true, completion: nil)
+                                        self.requsetCancelRainbowBridge(petId: self.petId) {
+                                            self.dismiss(animated: true, completion: nil)
+                                        }
                                       },
                                       firstText: "취소", secondText: "나가기", color: .macoBlue)
     }
     
     @objc
     func tapNextButton(_ sender: UIButton) {
-        navigationController?.pushViewController(RainbowBookCoverViewController(), animated: true)
+        let rainbowRecordViewController = RainbowRecordViewController()
+        self.delegate = rainbowRecordViewController
+        if let petId = petId {
+            self.delegate?.setPetId(petId: petId)
+        }
+        navigationController?.pushViewController(rainbowRecordViewController, animated: true)
+    }
+}
+
+extension RainbowBridgeViewController: RainbowBridgeDelegator {
+    func setPetId(petId: String) {
+        self.petId = petId
+    }
+}
+
+extension RainbowBridgeViewController {
+    func requestRainbowBridgeContents(petId: String?, completion: @escaping () -> Void) {
+        guard let petId = petId else { return }
+        service.request(RainbowAPI.putRainbowBridge(petId: petId)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try JSONDecoder().decode(GenericModel<PutPartingRainbowBridgeModel>.self, from: response.data)
+                    self.partingRainbowBridgeModel = response.data?.partingRainbowBridge
+                    completion()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func requsetCancelRainbowBridge(petId: String?, completion: @escaping () -> Void) {
+        guard let petId = petId else { return }
+        service.request(RainbowAPI.deleteRainbowBridge(petId: petId)) { [weak self] result in
+            guard self != nil else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    _ = try JSONDecoder().decode(GenericModel<PutPartingRainbowBridgeModel>.self, from: response.data)
+                    completion()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

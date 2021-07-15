@@ -8,20 +8,17 @@
 import UIKit
 
 import SnapKit
+import Moya
 import Then
 
 class RainbowViewController: UIViewController {
+    private var delegate: RainbowBridgeDelegator?
     
-    lazy var mainNavigationBar = MainNavigationBarView(type: .rainbow)
+    private lazy var mainNavigationBar = MainNavigationBarView(type: .rainbow)
+    private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
     
-    let model = [HelpCardModel(kind: "[어쩌구]", text: "한줄일때 솰랴솰라뫄뫄뫄뫄마ㅗ뫄뫄"),
-                 HelpCardModel(kind: "[어쩌구저쩌구]", text: "두줄일떄 불라불라뫄뫄모모마맘마 헤헤헤헤헤헤헤"),
-                 HelpCardModel(kind: "[어쩌구]", text: "한줄일때 솰랴솰라뫄뫄뫄뫄마ㅗ뫄뫄"),
-                 HelpCardModel(kind: "[어쩌구저쩌구]", text: "두줄일떄 불라불라뫄뫄모모마맘마 헤헤헤헤헤헤헤"),
-                 HelpCardModel(kind: "[어쩌구]", text: "한줄일때 솰랴솰라뫄뫄뫄뫄마ㅗ뫄뫄"),
-                 HelpCardModel(kind: "[어쩌구저쩌구]", text: "두줄일떄 불라불라뫄뫄모모마맘마 헤헤헤헤헤헤헤"),
-                 HelpCardModel(kind: "[어쩌구저쩌구]", text: "두줄일떄 불라불라뫄뫄모모마맘마 헤헤헤헤헤헤헤"),
-                 HelpCardModel(kind: "[어쩌구저쩌구]", text: "사실세줄도됨ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ사실세줄도됨ㅋㅋㅋㅋ아 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")]
+    private var rainbowPageModel: RainbowMainPageModel?
+    private var rainbowPetModel: [RainbowPetInfoModel]?
     
     private lazy var tableView = UITableView().then {
         $0.backgroundColor = .clear
@@ -35,12 +32,12 @@ class RainbowViewController: UIViewController {
         initRainbowViewController()
         setMainNavigationBar()
         setTableView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        getRainbowHome()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +68,7 @@ class RainbowViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
@@ -99,17 +97,18 @@ extension RainbowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+
 }
 
 extension RainbowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-           return 1
+            return 1
         case 1:
             return 1
         case 2:
-            return model.count
+            return rainbowPageModel?.help.count ?? 0
         case 3:
             return 1
         default:
@@ -130,34 +129,55 @@ extension RainbowViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
             cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
-            cell.bookPageView.setContentText(pages: [PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd"),PageTextModel(title: "dd", subtitle: "dd", content: "dd", date: "dd")])
+            if let memories = rainbowPageModel?.memories {
+                cell.setContentText(pages: memories)
+            }
             return cell
             
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowHelpHeader, for: indexPath) as? RainbowHelpHeaderTableViewCell
             else { return UITableViewCell() }
-            cell.helpButton.addTarget(self, action: #selector(tapHelpButton(_:)), for: .touchUpInside)
             cell.selectionStyle = .none
+            cell.helpButton.addTarget(self, action: #selector(tapHelpButton(_:)), for: .touchUpInside)
             return cell
         
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowHelpCard, for: indexPath) as? RainbowHelpCardTableViewCell
             else { return UITableViewCell() }
-            cell.selectionStyle = .none
-            cell.setCardText(kind: model[indexPath.row].kind, text: model[indexPath.row].text)
+            if let help = rainbowPageModel?.help[indexPath.row] {
+                cell.setCardText(kind: help.classification, text: help.title)
+            }
+            cell.helpCardButton.tag = indexPath.row
+            cell.helpCardButton.addTarget(self, action: #selector(tapHelpCardView(_:)), for: .touchUpInside)
             return cell
         
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
-            cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
+            if let rainbowCheck = rainbowPageModel?.rainbowCheck {
+                if rainbowCheck {
+                    cell.button.isHidden = true
+                } else {
+                    cell.button.isHidden = false
+                    cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
+                }
+            }
             return cell
             
         default:
             return UITableViewCell()
         }
         
+    }
+    
+    @objc
+    func tapHelpCardView(_ sender: UIButton) {
+        if let helpCardURL = rainbowPageModel?.help[sender.tag].url {
+            if let url = URL(string: helpCardURL) {
+                UIApplication.shared.open(url, options: [:])
+            }
+        }
     }
     
     @objc
@@ -174,31 +194,93 @@ extension RainbowViewController: UITableViewDataSource {
     
     @objc
     func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
-        let vc = RainbowDiaryDetailViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if let diaryId = rainbowPageModel?.memories[0]?.diaryId {
+            let vc = RainbowDiaryDetailViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc
     func tapRightBookPage(_ sender: UITapGestureRecognizer) {
-        navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
+        if let diaryId = rainbowPageModel?.memories[1]?.diaryId {
+            let vc = RainbowDiaryDetailViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc
     func tapNextButton(_ sender: UIButton) {
-        let petCustomView = CustomCollectionAlertView()
-        self.presentDoubleCustomAlert(view: petCustomView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
-        }, secondHandler: { _ in
-            if petCustomView.petId != "" {
-                let viewcontroller = RainbowCommentViewController()
-                let rootNC = UINavigationController(rootViewController: viewcontroller)
-                rootNC.modalPresentationStyle = .fullScreen
-                self.present(rootNC, animated: true, completion: nil)
-            }
-        }, firstText: "취소", secondText: "다음", color: .macoBlue)
+        getRainbowPet { petModels in
+            let petCustomView = CustomCollectionAlertView()
+            petCustomView.setPetProfileStackView(pets: petModels)
+        
+            self.presentDoubleCustomAlert(view: petCustomView, preferredSize: CGSize(width: 270, height: 250), firstHandler: { _ in
+            }, secondHandler: { _ in
+                if petCustomView.selectedPetId != "" {
+                    let viewcontroller = RainbowBridgeViewController()
+                    self.delegate = viewcontroller
+                    
+                    if let selectedPetId = petCustomView.selectedPetId {
+                        self.delegate?.setPetId(petId: selectedPetId)
+                    }
+                    
+                    let rootNC = UINavigationController(rootViewController: viewcontroller)
+                    rootNC.modalPresentationStyle = .fullScreen
+                    self.present(rootNC, animated: true, completion: nil)
+                }
+            }, firstText: "취소", secondText: "다음", color: .macoBlue)
+        }
     }
 }
 
-struct HelpCardModel {
-    let kind: String
-    let text: String
+extension RainbowViewController {
+    func getRainbowHome() {
+        let petID = "60edf6e5e5003a744892ce39"
+            service.request(RainbowAPI.getRainbowHome(userId: APIService.userID, petId: petID)) { [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                switch result {
+                case .success(let response):
+                    do {
+                        let response = try JSONDecoder().decode(GenericModel<GetRainbowHomeModel>.self, from: response.data)
+                        self.rainbowPageModel = response.data?.rainbowMainPage
+                        guard let bookImg = self.rainbowPageModel?.bookImg else { return }
+                        self.mainNavigationBar.setNavigationBarButtonImage(url: bookImg)
+                    
+                        guard let title = self.rainbowPageModel?.title else { return }
+                        self.mainNavigationBar.setNavigationBarText(title: title)
+                            
+                        self.tableView.reloadData()
+                    } catch let err {
+                        print(err.localizedDescription)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+    
+            }
+    }
+    
+    func getRainbowPet(completion: @escaping ([RainbowPetInfoModel]) -> Void) {
+        service.request(RainbowAPI.getRainbowPet) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try JSONDecoder().decode(GenericModel<GetRainbowPetModel>.self, from: response.data)
+                    guard let petModel = response.data?.pet
+                    else { return }
+                    dump(petModel)
+                    completion(petModel)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

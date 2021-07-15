@@ -44,15 +44,18 @@ class BookRainbowPageView: BookPageView {
         }
     }
     
-    public func setContentText(pages: [PageTextModel]? = nil) {
-        
-        switch pages?.count {
+    public func setContentText(pages: [PageTextModel?]) {
+
+        switch pages.count {
         case 1:
-            leftPageView.setText(pageText: pages?[0])
+            guard let page = pages[0] else {return}
+            leftPageView.setText(pageText: page)
             rightPageView.setText()
         case 2:
-            leftPageView.setText(pageText: pages?[0])
-            rightPageView.setText(pageText: pages?[1])
+            guard let leftPage = pages[0] else { return }
+            guard let rightPage = pages[1] else { return }
+            leftPageView.setText(pageText: leftPage)
+            rightPageView.setText(pageText: rightPage)
         default:
             leftPageView.setText()
             rightPageView.setText()

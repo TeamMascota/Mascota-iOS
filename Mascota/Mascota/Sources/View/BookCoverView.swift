@@ -32,7 +32,7 @@ class BookCoverView: UIView {
     }
     
     private lazy var logoImageView = UIImageView().then {
-        $0.image = UIImage(named: "appIconGray") // 로고 이미지 넣기
+        $0.image = UIImage(named: "icAppWhite")
         $0.contentMode = .scaleAspectFit
     }
     
@@ -101,9 +101,9 @@ class BookCoverView: UIView {
         
     }
     
-    public func setTitleAndWriterLabel(title: String, writer: String) {
+    public func setTitleAndWriterLabel(title: String, author: String) {
         bookTitleLabel.text = title
-        writerLabel.text = writer
+        writerLabel.text = author
     }
     
     public func setBookCoverImage(cover: UIImage) {

@@ -16,6 +16,7 @@ extension UIBarButtonItem {
     }
     
     func closeBarButtonItem(color: UIColor = .macoDarkGray, style: UIBarButtonItem.Style, target: AnyObject, action: Selector?) {
+        self.tintColor = color
         self.image = UIImage(named: "btnIconQuitDefaultGray")?.withTintColor(color)
         self.target = target
         self.action = action
