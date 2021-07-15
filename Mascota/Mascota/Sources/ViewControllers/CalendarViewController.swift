@@ -319,15 +319,14 @@ extension CalendarViewController: FSCalendarDataSource {
         let month = String(Calendar.current.component(.month, from: date))
         let nowDay = Int(Calendar.current.component(.day, from: Date()))
         let nowDate = Date()
+        let nowYear = String(Calendar.current.component(.year, from: Date()))
         
         cell.setNumberLabel(count: -1)
-        
-        print("\(date) & \(nowDate) =========== \(date<=nowDate)")
         
         if date <= nowDate {
             if let currentCalendar = currentCalendar?.calendar {
                 if month == currentCalendar.month {
-                    if nowMonth == month {
+                    if nowMonth == month && nowYear == currentCalendar.year {
                         if i < nowDay {
                             if let date = currentCalendar.date[i] {
                                 cell.setNumberLabel(count: date.id.count)
