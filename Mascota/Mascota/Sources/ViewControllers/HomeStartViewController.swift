@@ -218,7 +218,7 @@ extension HomeStartViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.initializeData(data: tableContents[indexPath.item], tag: indexPath.item)
-            cell.tag = indexPath.item
+            cell.indexDetailButton.tag = indexPath.item
             cell.indexDetailButton.addTarget(self, action: #selector(touchIndexDetailButton(_:)), for: .touchUpInside)
             return cell
             
