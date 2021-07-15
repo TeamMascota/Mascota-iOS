@@ -51,8 +51,61 @@ class RainbowBookPageTableViewCell: UITableViewCell {
     
     }
     
-    public func setContentText(pages: [MemoryModel?]) {
-        bookPageView.setContentText(pages: pages)
+    public func setContentText<T>(pages: [T?]) {
+        if pages is [MemoryModel?] {
+            guard let pages = pages as? [MemoryModel?] else { return }
+            bookPageView.setContentText(pages: convertMemoryModelToPageTextModel(pages: pages))
+        } else if pages is [DiaryModel?] {
+            guard let pages = pages as? [DiaryModel?] else { return }
+            bookPageView.setContentText(pages: convertDiaryModelToPageTextModel(pages: pages))
+        }
+    }
+    
+    private func convertMemoryModelToPageTextModel(pages: [MemoryModel?]) -> [PageTextModel] {
+        var pageTextModels: [PageTextModel] = []
+        
+        for i in 0...pages.count - 1 {
+            var title: String?
+            var subtitle: String?
+            var content: String?
+            var date: String?
+            
+            if let rawDate = pages[i]?.date {
+                DateProcessing.getDate(rawDate: rawDate) { dateVO in
+                    title = "\(String(dateVO.year))년 \(String(dateVO.month))월의 이야기"
+                }
+                
+                subtitle = pages[i]?.title
+                content = pages[i]?.contents
+                
+                DateProcessing.getDate(rawDate: rawDate) { dateVO in
+                    date = "\(String(dateVO.year)).\(String(format: "%02d", dateVO.month)).\(String(format: "%02d", dateVO.day))"
+                }
+                
+                pageTextModels.append(PageTextModel(title: title, subtitle: subtitle, content: content, date: date))
+            }
+        }
+        
+        return pageTextModels
+    }
+    
+    private func convertDiaryModelToPageTextModel(pages: [DiaryModel?]) -> [PageTextModel] {
+        var pageTextModels: [PageTextModel] = []
+        
+        for i in 0...pages.count - 1 {
+            var title: String?
+            if let chapter = pages[i]?.chapter,
+               let episode = pages[i]?.episode,
+               let subtitle = pages[i]?.title,
+               let content = pages[i]?.contents,
+               let date = pages[i]?.date {
+            
+                title = "\(String(describing: chapter))장 \(String(describing: episode))화"
+                pageTextModels.append(PageTextModel(title: title, subtitle: subtitle, content: content, date: date))
+            }
+        }
+        
+        return pageTextModels
     }
 
 }
