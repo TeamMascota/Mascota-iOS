@@ -103,11 +103,9 @@ class CalendarDiaryDetailViewController: UIViewController {
     private func initDiary(completion: @escaping() -> Void) {
             if let diariesId = self.diariesId {
                 for diaryId in diariesId {
-                    dump(diaryId)
                     self.requestGetPetDiary(diaryID: diaryId, completion: {
                         self.nowDiaryIndex = 0
                         self.setDiaryView(index: self.nowDiaryIndex)
-                        dump(self.diaries)
                         completion()
                     })
                 }
