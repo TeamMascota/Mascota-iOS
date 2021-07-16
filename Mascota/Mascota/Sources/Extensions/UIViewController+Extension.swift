@@ -8,15 +8,30 @@
 import UIKit
 
 import SnapKit
+import Lottie
 
 extension UIViewController {
+//
+//    var indicatorView: UIView {
+//        return UIView().then {
+//            $0.alpha = 0
+//        }
+//    }
+//
+    
+//    var indicatorAnimation: AnimationView {
+//        return AnimationView(name: "loading_block").then {
+//            $0.contentMode = .scaleAspectFill
+//            $0.stop()
+//        }
+//    }
     
     var topBarHeight: CGFloat {
         return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) +
             (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
-
-    func presentSingleCustomAlert(view: UIView,
+    
+        func presentSingleCustomAlert(view: UIView,
                                   preferredSize: CGSize,
                                   confirmHandler: ((UIAlertAction) -> Void)?,
                                   text: String,
@@ -77,6 +92,45 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+//    func attachIndicator(_ type: IndicatorType) {
+//        switch type {
+//        case .normal:
+//            self.indicatorView.backgroundColor = .macoIvory
+//        case .rainbow:
+//            self.indicatorView.backgroundColor = .macoBlue
+//        case .translucent:
+//            self.indicatorView.backgroundColor = .clear
+//        }
+//        print("adding something")
+//        self.indicatorView.frame = self.view.bounds
+//        print(self.view.bounds)
+//        self.view.addSubview(self.indicatorView)
+//        self.view.bringSubviewToFront(self.indicatorView)
+////        self.indicatorAnimation.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+////        self.indicatorAnimation.center = self.indicatorView.center
+////        self.indicatorView.addSubview(indicatorAnimation)
+//        
+//        UIView.animate(withDuration: 0.3) {
+//            self.indicatorView.alpha = 1
+//        } completion: { _ in
+//            UIView.animate(withDuration: 0.3) {
+//                self.indicatorAnimation.play()
+//            }
+//        }
+//    }
+    
+//    func detachIndicator() {
+//        self.indicatorView.removeFromSuperview()
+//        UIView.animate(withDuration: 0.3) {
+//            self.indicatorAnimation.stop()
+//        } completion: { _ in
+//            UIView.animate(withDuration: 0.3) {
+//                self.indicatorView.alpha = 0
+//            }
+//        }
+//    }
+//        
 }
 
 extension UIAlertAction {

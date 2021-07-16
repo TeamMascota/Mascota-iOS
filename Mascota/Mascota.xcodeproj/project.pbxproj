@@ -94,6 +94,9 @@
 		18E5B41D26943B9E001927DD /* IndexEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E5B41C26943B9E001927DD /* IndexEdit.storyboard */; };
 		18E5B41F26943BB1001927DD /* IndexEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5B41E26943BB1001927DD /* IndexEditViewController.swift */; };
 		18F5B8A626A1E2F800B44EF8 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5B8A526A1E2F800B44EF8 /* CharactersModel.swift */; };
+		18F5B8A826A211AD00B44EF8 /* IndicatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5B8A726A211AD00B44EF8 /* IndicatorType.swift */; };
+		18F5B8AA26A2185700B44EF8 /* loading_block.json in Resources */ = {isa = PBXBuildFile; fileRef = 18F5B8A926A2185700B44EF8 /* loading_block.json */; };
+		18F5B8AC26A2264E00B44EF8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F5B8AB26A2264E00B44EF8 /* BaseViewController.swift */; };
 		2EE6649AA9D11B528378830D /* Pods_Mascota_MascotaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E4A10D146C5792CF4DDAC4 /* Pods_Mascota_MascotaUITests.framework */; };
 		45449CEEABAB563ED3ABF5FA /* Pods_Mascota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */; };
 		4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4809D065268E1BAD0060F5EB /* Login.storyboard */; };
@@ -307,6 +310,9 @@
 		18E5B41C26943B9E001927DD /* IndexEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IndexEdit.storyboard; sourceTree = "<group>"; };
 		18E5B41E26943BB1001927DD /* IndexEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexEditViewController.swift; sourceTree = "<group>"; };
 		18F5B8A526A1E2F800B44EF8 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
+		18F5B8A726A211AD00B44EF8 /* IndicatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorType.swift; sourceTree = "<group>"; };
+		18F5B8A926A2185700B44EF8 /* loading_block.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_block.json; sourceTree = "<group>"; };
+		18F5B8AB26A2264E00B44EF8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1AEAF6A99A34E44C31FF0642 /* Pods-Mascota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.debug.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.debug.xcconfig"; sourceTree = "<group>"; };
 		35A74EECCFA306560984A74C /* Pods-Mascota-MascotaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota-MascotaUITests.release.xcconfig"; path = "Target Support Files/Pods-Mascota-MascotaUITests/Pods-Mascota-MascotaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3B0CC893524A4E57FC0ED422 /* Pods-Mascota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mascota.release.xcconfig"; path = "Target Support Files/Pods-Mascota/Pods-Mascota.release.xcconfig"; sourceTree = "<group>"; };
@@ -525,6 +531,7 @@
 		18AE88DB268AE5CB00EBC129 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18F5B8A926A2185700B44EF8 /* loading_block.json */,
 				48DFCC6E26A21FB800096E14 /* maco_logo.json */,
 				4881542A268EED4100E1D739 /* Fonts */,
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
@@ -660,6 +667,7 @@
 				185844A526A0978F00F82A95 /* CharacterModel.swift */,
 				185844A726A097F700F82A95 /* DiaryWriteModel.swift */,
 				18F5B8A526A1E2F800B44EF8 /* CharactersModel.swift */,
+				18F5B8A726A211AD00B44EF8 /* IndicatorType.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -775,6 +783,7 @@
 				48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */,
 				DD89E2AF269DC7540078CC57 /* CalendarViewController.swift */,
 				DDD21FB626A09E46006A80DD /* CalendarDiaryDetailViewController.swift */,
+				18F5B8AB26A2264E00B44EF8 /* BaseViewController.swift */,
 				48DFCC6C26A21F5300096E14 /* SplashViewController.swift */,
 			);
 			path = ViewControllers;
@@ -973,6 +982,7 @@
 				4809D066268E1BAD0060F5EB /* Login.storyboard in Resources */,
 				187CFF872694B50F003EF8C9 /* IndexEditPrologueCollectionViewCell.xib in Resources */,
 				48880378269220D9000CB8F2 /* MakePlusCollectionViewCell.xib in Resources */,
+				18F5B8AA26A2185700B44EF8 /* loading_block.json in Resources */,
 				188867DF269C95E10025E471 /* PlusCollectionViewCell.xib in Resources */,
 				18AE88B3268AE58A00EBC129 /* Main.storyboard in Resources */,
 				DD886DE026918ABC0011F8F6 /* NotoSansCJKkr-Medium.otf in Resources */,
@@ -1128,6 +1138,7 @@
 				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
+				18F5B8A826A211AD00B44EF8 /* IndicatorType.swift in Sources */,
 				DD8D503326A037500098AFF5 /* PetModel.swift in Sources */,
 				185E68BC269F3B43009061E5 /* HomeAPI.swift in Sources */,
 				18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */,
@@ -1136,6 +1147,7 @@
 				DDDCA7AF2693644500DB1B8F /* RainbowRecordViewController.swift in Sources */,
 				DD8D502B26A022790098AFF5 /* GetRainbowRecordModel.swift in Sources */,
 				DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */,
+				18F5B8AC26A2264E00B44EF8 /* BaseViewController.swift in Sources */,
 				185E68AE269EC99C009061E5 /* GetChapterModel.swift in Sources */,
 				DD931B2D268DE9C7001DA072 /* UILabel+Extension.swift in Sources */,
 				18AE88B0268AE58A00EBC129 /* ViewController.swift in Sources */,
