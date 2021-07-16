@@ -29,7 +29,7 @@ class CalendarViewController: UIViewController {
     }
     
     private lazy var topLabel = UILabel().then {
-        $0.font = .macoFont(type: .bold, size: 20)
+        $0.font = .macoFont(type: .medium, size: 20)
         $0.textColor = .macoBlack
         $0.text = "의 지나온 날들"
     }
