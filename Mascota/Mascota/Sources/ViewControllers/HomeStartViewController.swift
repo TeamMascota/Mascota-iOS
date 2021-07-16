@@ -19,9 +19,7 @@ enum HomeStart: Int {
 class HomeStartViewController: UIViewController {
     
     // MARK: - Properties
-    private lazy var mainNavigationBar: MainNavigationBarView = MainNavigationBarView(type: .home).then {
-        $0.setNavigationBarText(title: "zzzzzzz")
-    }
+    private lazy var mainNavigationBar: MainNavigationBarView = MainNavigationBarView(type: .home)
     
     private lazy var homeStartCollectionView: UICollectionView = UICollectionView(frame: .init(x: 0, y: 0, width: 100, height: 100),
                                                                                   collectionViewLayout: UICollectionViewFlowLayout()).then {
@@ -45,7 +43,6 @@ class HomeStartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getHomeFirstPart()
-        layoutComponents()
         initializeComponents()
         registerCollectionViewCell()
         registerCollectionView()
@@ -53,6 +50,7 @@ class HomeStartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        layoutComponents()
         navigationController?.navigationBar.isHidden = true
         getHomeFirstPart()
     }
@@ -71,7 +69,7 @@ class HomeStartViewController: UIViewController {
         mainNavigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(30)
+            $0.height.equalTo(topBarHeight)
         }
         
         homeStartCollectionView.snp.makeConstraints {
@@ -180,6 +178,16 @@ class HomeStartViewController: UIViewController {
         pushToIndexDetail(chapterID: tableContents[sender.tag].chapterID)
     }
     
+    @objc
+    func tapRightBookPage(_ sender: UITapGestureRecognizer) {
+        let diaryStoryboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteFirst, bundle: nil)
+        guard let diaryWriteFirstViewController = diaryStoryboard.instantiateViewController(identifier: AppConstants.ViewController.diaryWriteFirst) as? DiaryWriteFirstViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(diaryWriteFirstViewController, animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -211,10 +219,12 @@ extension HomeStartViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.bookPageCollectionViewCell, for: indexPath) as? BookPageCollectionViewCell else {
                 return UICollectionViewCell()
             }
-
+            cell.setContentText(page: firstPage)
+            cell.bookHomePageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.homeIndexCollectionViewCell, for: indexPath) as? HomeIndexCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.homeIndexCollectionViewCell, for: indexPath) as? HomeIndexCollectionViewCell
+            else {
                 return UICollectionViewCell()
             }
             cell.initializeData(data: tableContents[indexPath.item], tag: indexPath.item)
@@ -267,7 +277,8 @@ extension HomeStartViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch indexPath.section {
         case 0:
-            return CGSize(width: collectionView.bounds.width, height: 225)
+            let bookHeight = (Constant.DeviceSize.width - 32) * 0.6
+            return CGSize(width: collectionView.bounds.width, height: bookHeight + 6)
         case 1:
             return CGSize(width: collectionView.bounds.width, height: 42)
         case 2:

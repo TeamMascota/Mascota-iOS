@@ -10,19 +10,24 @@ import UIKit
 class BookPageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var superView: UIView!
-    private lazy var bookHomePageView: BookHomePageView = BookHomePageView().then {
+    public lazy var bookHomePageView: BookHomePageView = BookHomePageView().then {
         $0.setContentText()
     }
     
     private func layoutComponents() {
         self.contentView.addSubview(bookHomePageView)
+
         bookHomePageView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.top).offset(15)
-            $0.trailing.equalTo(contentView.snp.trailing).offset(-15)
+            $0.top.equalTo(contentView.snp.top).offset(6)
+            $0.trailing.equalTo(contentView.snp.trailing).offset(-16)
             $0.bottom.equalTo(contentView.snp.bottom)
-            $0.leading.equalTo(contentView.snp.leading).offset(15)
+            $0.leading.equalTo(contentView.snp.leading).offset(16)
         }
         
+    }
+    
+    public func setContentText(page: BriefDiaryModel) {
+        bookHomePageView.setContentText(page: PageTextModel(title: "\(page.chapter)장 \(page.episode)화", subtitle: page.title, content: page.contents, date: page.date))
     }
     
     override func awakeFromNib() {
