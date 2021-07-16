@@ -1,6 +1,7 @@
 ![로고](https://user-images.githubusercontent.com/72008879/125953801-c57157c5-b58d-4b8e-9a96-d6df41c3d8ab.gif)
 
-![Mascota blue](https://user-images.githubusercontent.com/72008879/125918827-3bd62745-585e-4050-9ba2-9a362a8e2777.png)
+![mascota_blue](https://user-images.githubusercontent.com/72008879/125953813-2042acc4-69c0-4601-87fd-8cbd6e266535.png)!
+
 
 ## Contributer
 
@@ -233,7 +234,8 @@
 >
 > 깃플로우를 적용한 협업을 통해 깃 브랜치 관리를 효율적으로 할 수 있었습니다. Coding Convention을 정하여 가독성있는 코드 작성을 하였고 Pull Request 요청과 코드 리뷰를 통해 부족한 점을 깨닫고 많은 것을 배울 수 있었습니다. Snapkit을 이용하여 Autolayout을 잡으며 뷰의 재사용성에 대해 고민할 수 있는 좋은 기회였습니다. 💙
 
-![mascota_blue](https://user-images.githubusercontent.com/72008879/125953813-2042acc4-69c0-4601-87fd-8cbd6e266535.png)
+
+![MASCOTA_로고](https://user-images.githubusercontent.com/72008879/125954139-66c8687a-78a2-476a-bc7d-9227c9db9027.gif)
 
 
 
