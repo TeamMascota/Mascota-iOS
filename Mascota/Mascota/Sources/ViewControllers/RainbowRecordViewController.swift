@@ -43,6 +43,11 @@ class RainbowRecordViewController: UIViewController {
         
         initRainbowBookCoverViewController()
         
+        bookCoverView.alpha = 0.0
+        bookCoverView.setAlpha(alpha: 0.0)
+        diaryCountLabel.alpha = 0.0
+        dayTogetherLabel.alpha = 0.0
+        
         setAddTarget()
         layoutViewController()
         setBookCoverView()
@@ -86,11 +91,13 @@ class RainbowRecordViewController: UIViewController {
         diaryCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(23)
             $0.leading.equalToSuperview().offset(23)
+            $0.height.equalTo(20)
         }
         
         dayTogetherLabel.snp.makeConstraints {
             $0.top.equalTo(diaryCountLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().offset(23)
+            $0.height.equalTo(20)
         }
 
         view.addSubviews(bookCoverView)
@@ -136,6 +143,15 @@ class RainbowRecordViewController: UIViewController {
             
             guard let bookCover = self.rainbowRecordModel?.bookInfo.bookImg else { return }
             self.bookCoverView.setBookCoverImage(cover: bookCover)
+            
+        }
+        print(self.bookCoverView.alpha)
+        print(self.diaryCountLabel.alpha)
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut) {
+            self.bookCoverView.alpha = 1.0
+            self.diaryCountLabel.alpha = 1.0
+            self.dayTogetherLabel.alpha = 1.0
+            self.bookCoverView.setAlpha(alpha: 1.0)
         }
     }
     
