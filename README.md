@@ -1,17 +1,14 @@
 ## MASCOTA
 
 > *한권의 책으로 정리하는 반려동물의 삶과 죽음*
+![Mascota blue](https://user-images.githubusercontent.com/72008879/125918827-3bd62745-585e-4050-9ba2-9a362a8e2777.png)
 
-## ![Mascota blue](/Users/apple/Desktop/Mascota blue.png)Contributer
+## Contributer
 
----
-
-| ![img](/Users/apple/Downloads/KakaoTalk_Photo_2021-07-06-16-04-23.png) | ![img](/Users/apple/Downloads/KakaoTalk_Image_2021-07-06-15-44-33.png) | ![img](/Users/apple/Downloads/KakaoTalk_Photo_2021-07-06-15-47-14.png) |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                          **이정엽**                          |                          **도연서**                          |                          **김윤서**                          |
-|                              홈                              |                       로그인, 회원가입                       |                        캘린더, 무지개                        |
-
-
+|![KakaoTalk_Photo_2021-07-06-16-04-23](https://user-images.githubusercontent.com/72008879/125918638-9c051170-0ea9-4ae4-837f-57fead02d81c.png) | ![KakaoTalk_Image_2021-07-06-15-44-33](https://user-images.githubusercontent.com/72008879/125918726-d1850670-dd10-42de-90fe-991b8ad9533a.png)|![KakaoTalk_Photo_2021-07-06-15-47-14](https://user-images.githubusercontent.com/72008879/125918750-ffab5d1b-7197-4c17-87d3-f2e86fbddda3.png)|
+|:------:|:---:|:---:|
+|**이정엽** | **도연서**|**김윤서**|
+|홈|로그인, 회원가입|캘린더, 무지개|
 
 ## Team Convention
 
