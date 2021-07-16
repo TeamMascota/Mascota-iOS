@@ -24,6 +24,7 @@ class IndexDetailViewController: UIViewController {
     var currentID: String = ""
     
     var isToggled: Bool = false
+    var calendarDiaryDetailDelegator: CalendarDiaryDetailDelegator?
     
     let chapterService = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
     let diaryService = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
@@ -41,7 +42,7 @@ class IndexDetailViewController: UIViewController {
     
     lazy var indexDetailTableView: UITableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
-        $0.allowsSelection = false
+        $0.allowsSelection = true
         $0.backgroundColor = .clear
         $0.tableHeaderView = nil
         $0.showsVerticalScrollIndicator = false
@@ -306,6 +307,16 @@ extension IndexDetailViewController: UITableViewDataSource {
         }
         cell.initializeData(data: monthlyDiaries[indexPath.section].diaries[indexPath.item])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let diaryId = monthlyDiaries[indexPath.section].diaries[indexPath.item].diaryID
+
+        let vc = CalendarDiaryDetailViewController()
+        self.calendarDiaryDetailDelegator = vc
+        calendarDiaryDetailDelegator?.sendingDiariesId(id: [diaryId])
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }

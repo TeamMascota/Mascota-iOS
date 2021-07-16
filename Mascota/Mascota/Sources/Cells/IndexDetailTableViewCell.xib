@@ -62,7 +62,7 @@
                         <color key="textColor" name="macoDarkGray"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRk-Rj-UXj">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRk-Rj-UXj">
                         <rect key="frame" x="611" y="10" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="c1D-8w-xtQ"/>
