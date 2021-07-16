@@ -7,5 +7,5 @@
 
 struct DiaryModel: Codable {
     let chapter, episode: Int?
-    let title, contents, date: String?
+    let title, contents, date, diaryId: String?
 }
