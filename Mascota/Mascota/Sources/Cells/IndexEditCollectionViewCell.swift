@@ -45,7 +45,9 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        layoutEditComponents()
+//        layoutEditComponents()
+        indexTitleLabel.text = ""
+        indexLabel.text = ""
     }
     
     private func layoutEditComponents() {
@@ -96,7 +98,7 @@ class IndexEditCollectionViewCell: UICollectionViewCell {
     func initializeData(indexModel: IndexModel, tag: Int) {
         self.changeButton.tag = tag
         self.deleteButton.tag = tag
-        self.indexLabel.text = "제 \(indexModel.chapter)장"
+        self.indexLabel.text = indexModel.chapter > 0 ? "제 \(indexModel.chapter)장" : "에필로그"
         self.indexTitleLabel.text = indexModel.chapterTitle
     }
 
