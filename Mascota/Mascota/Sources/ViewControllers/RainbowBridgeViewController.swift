@@ -29,8 +29,7 @@ class RainbowBridgeViewController: UIViewController {
     }
     
     private lazy var macoImageView = UIImageView().then {
-        $0.image = UIImage(named: "illustExample")
-        $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "illustRainbowCatBig")
     }
     
     private lazy var nextButton = MacoButton(color: .white).then {
@@ -71,7 +70,9 @@ class RainbowBridgeViewController: UIViewController {
         view.addSubviews(macoImageView)
         
         macoImageView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(45)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(Constant.DeviceSize.width)
+            $0.bottom.equalToSuperview().inset(133)
         }
     }
     
