@@ -9,6 +9,11 @@ import UIKit
 
 class PetsCollectionViewCell: UICollectionViewCell {
     
+    static let emoji: EmojiStyle = EmojiStyle()
+    
+    var kind: Int = 0
+    var feeling: Int = 0
+    
     let petImageView: UIImageView = UIImageView().then {
         $0.image = UIImage(named: "emoDogLove")
         $0.tintColor = UIColor.macoBlack
@@ -25,15 +30,24 @@ class PetsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         layoutComponents()
-        // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.kind = 0
+        self.feeling = 0
     }
     
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.petImageView.backgroundColor = UIColor.macoBlack
+                self.petImageView.image = PetsCollectionViewCell.emoji.getEmoji(kind: kind,
+                                                                               feeling: feeling,
+                                                                               color: .darkGray)
             } else {
-                self.petImageView.backgroundColor = UIColor.white
+                self.petImageView.image = PetsCollectionViewCell.emoji.getEmoji(kind: kind,
+                                                                               feeling: feeling,
+                                                                               color: .lightGray)
             }
         }
     }
@@ -57,9 +71,16 @@ class PetsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setData(image: String, text: String) {
-        self.petImageView.image = UIImage(named: image)
-        self.emotionLabel.text = "귀찮다"
+    func setData(kind: Int, feeling: Int, text: String, isSelected: Bool) {
+        self.kind = kind
+        self.feeling = feeling
+        self.emotionLabel.text = PetsCollectionViewCell.emoji.getEmojiText(kind: kind, feeling: feeling)
+        if isSelected {
+            self.petImageView.image = PetsCollectionViewCell.emoji.getEmoji(kind: kind, feeling: feeling, color: .darkGray)
+        } else {
+            self.petImageView.image = PetsCollectionViewCell.emoji.getEmoji(kind: kind, feeling: feeling, color: .lightGray)
+        }
+        
     }
 
 }
