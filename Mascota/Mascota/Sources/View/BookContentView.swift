@@ -32,7 +32,11 @@ class BookContentView: UIView {
     private lazy var contentLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 14)
         $0.textColor = .macoGray
-        $0.numberOfLines = 4
+        if UIDevice.current.hasNotch {
+            $0.numberOfLines = 4
+        } else {
+            $0.numberOfLines = 3
+        }
         $0.textAlignment = .left
     }
 
@@ -88,18 +92,21 @@ class BookContentView: UIView {
             $0.top.equalToSuperview().offset(15)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(27)
+            $0.height.equalTo(14)
         }
 
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(14)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(14)
         }
 
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(60)
         }
 
         dateLabel.snp.makeConstraints {

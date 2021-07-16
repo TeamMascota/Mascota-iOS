@@ -20,15 +20,6 @@ enum BookType {
         }
     }
     
-    func titleFont() -> UIFont {
-        switch self {
-        case .home:
-            return .macoFont(type: .regular, size: 20)
-        case .rainbow:
-            return .macoFont(type: .medium, size: 20)
-        }
-    }
-    
     func grid() -> UIImage? {
         switch self {
         case .home:

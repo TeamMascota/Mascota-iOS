@@ -10,31 +10,28 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MascotaPeopleImageCell" customModule="Mascota" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="429" height="247"/>
+            <rect key="frame" x="0.0" y="0.0" width="362" height="319"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="429" height="247"/>
+                <rect key="frame" x="0.0" y="0.0" width="362" height="319"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustExample" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-Kv-FQ3">
-                        <rect key="frame" x="0.0" y="105" width="429" height="142"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="142" id="Hjs-MF-5K4"/>
-                        </constraints>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustHome" translatesAutoresizingMaskIntoConstraints="NO" id="O9y-Kv-FQ3">
+                        <rect key="frame" x="0.0" y="133.5" width="362" height="185.5"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="O9y-Kv-FQ3" secondAttribute="bottom" id="KNS-Zu-zpe"/>
-                <constraint firstItem="O9y-Kv-FQ3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Yng-Ps-hAb"/>
-                <constraint firstAttribute="trailing" secondItem="O9y-Kv-FQ3" secondAttribute="trailing" id="rxS-vl-9sa"/>
+                <constraint firstAttribute="bottom" secondItem="O9y-Kv-FQ3" secondAttribute="bottom" id="IyR-7Z-fWu"/>
+                <constraint firstItem="O9y-Kv-FQ3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hme-4H-1Pc"/>
+                <constraint firstAttribute="trailing" secondItem="O9y-Kv-FQ3" secondAttribute="trailing" id="tch-XX-J58"/>
             </constraints>
-            <size key="customSize" width="429" height="247"/>
-            <point key="canvasLocation" x="412.31884057971018" y="159.70982142857142"/>
+            <size key="customSize" width="362" height="319"/>
+            <point key="canvasLocation" x="363.768115942029" y="183.81696428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="illustExample" width="375" height="142.5"/>
+        <image name="illustHome" width="375.5" height="185.5"/>
     </resources>
 </document>

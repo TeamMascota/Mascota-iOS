@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xG5-Qg-ZKW">
-                                <rect key="frame" x="22" y="76" width="370" height="30"/>
+                                <rect key="frame" x="22" y="44" width="370" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-yS-lER">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -85,13 +85,14 @@
                         <color key="backgroundColor" name="macoIvory"/>
                         <constraints>
                             <constraint firstItem="xG5-Qg-ZKW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="eeX-yz-NUm"/>
-                            <constraint firstItem="xG5-Qg-ZKW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="kK7-gW-vAt"/>
+                            <constraint firstItem="xG5-Qg-ZKW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kK7-gW-vAt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xG5-Qg-ZKW" secondAttribute="trailing" constant="22" id="v4v-aq-CQ0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="indexLabel" destination="LVS-EZ-BqL" id="9H3-5y-rOM"/>
                         <outlet property="indexTitle" destination="yqf-rl-lBT" id="f7m-r9-bhh"/>
+                        <outlet property="navigationBarHeightConstraint" destination="pgP-hJ-nmA" id="ul1-9x-N1N"/>
                         <outlet property="navigationView" destination="xG5-Qg-ZKW" id="DK3-N5-0ON"/>
                         <outlet property="toggleButton" destination="CyW-LT-jcq" id="sd5-Kf-cwU"/>
                     </connections>

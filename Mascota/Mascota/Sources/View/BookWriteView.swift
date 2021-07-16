@@ -58,6 +58,7 @@ class BookWriteView: UIView {
             $0.top.equalToSuperview().offset(15)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(27)
+            $0.height.equalTo(14)
         }
         
         for i in 0...5 {
@@ -101,10 +102,10 @@ class BookWriteView: UIView {
         }
         
         lineStackView.snp.makeConstraints {
-            $0.top.equalTo(emojiStackView.snp.bottom).offset(30)
+//            $0.top.equalTo(emojiStackView.snp.bottom).offset(30)
             $0.leading.equalTo(titleLabel.snp.leading)
             $0.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalToSuperview().inset(38)
+            $0.bottom.equalToSuperview().inset(45)
         }
         
         textLabel.snp.makeConstraints {
@@ -113,7 +114,7 @@ class BookWriteView: UIView {
         }
         
         writingImageView.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(23)
             $0.trailing.equalToSuperview().inset(20)
             $0.width.height.equalTo(lineStackView.snp.width).dividedBy(2.5)
         }

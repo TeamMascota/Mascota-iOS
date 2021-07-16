@@ -46,8 +46,6 @@ class IndexDetailViewController: UIViewController {
         $0.tableHeaderView = nil
     }
     
-    
-    
     lazy var navigationBar: UIView = UIView().then {
         $0.backgroundColor = .clear
     }
@@ -65,6 +63,13 @@ class IndexDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         getChapterMonth()
+    }
+    
+    @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        navigationBarHeightConstraint.constant = (self.navigationController?.navigationBar.frame.height ?? 0.0)
     }
     
     private func updateIndexTitle(title: String, index: Int) {
