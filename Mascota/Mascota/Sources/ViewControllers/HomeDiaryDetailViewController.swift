@@ -9,7 +9,7 @@ import UIKit
 
 import Moya
 
-class HomeDiaryDetailViewController: UIViewController {
+class HomeDiaryDetailViewController: BaseViewController {
     
     private lazy var service = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
     
@@ -154,7 +154,9 @@ extension HomeDiaryDetailViewController {
 
 extension HomeDiaryDetailViewController {
     func requestGetPetDiary(diaryID: String) {
+        self.attachIndicator(.normal)
         service.request(DiaryAPI.getPetDiary(diaryID: diaryID))  { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

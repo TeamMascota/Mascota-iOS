@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: BaseViewController {
     // MARK: - Properties
     let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
     
@@ -47,7 +47,9 @@ class SignUpViewController: UIViewController {
     }
     
     private func connectServer() {
+        self.attachIndicator(.normal)
         service.request(AccountAPI.postSignUp(email: idEmailTextField.text!, password: passwordTextField.text!)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

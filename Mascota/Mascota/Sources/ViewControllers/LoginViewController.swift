@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     
     let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
     var loginResponseModel: ResponseLoginModel?
@@ -103,7 +103,9 @@ class LoginViewController: UIViewController {
     }
     
     private func connectServer() {
+        self.attachIndicator(.normal)
         service.request(AccountAPI.postLogin(email: idEmailTextField.text!, password: passwordTextField.text!)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

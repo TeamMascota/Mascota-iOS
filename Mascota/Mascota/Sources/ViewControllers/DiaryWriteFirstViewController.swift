@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class DiaryWriteFirstViewController: UIViewController {
+class DiaryWriteFirstViewController: BaseViewController {
     
     var pets: [PetImageModel] = []
     var selectedPets: [Int] = [-1, -1, -1, -1]
@@ -95,7 +95,9 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func getPetsInfo() {
+        self.attachIndicator(.normal)
         petsService.request(.getPetsInfo) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 print("success")

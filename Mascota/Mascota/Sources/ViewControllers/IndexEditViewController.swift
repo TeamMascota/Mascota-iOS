@@ -11,7 +11,7 @@ import Moya
 import SnapKit
 import Then
 
-class IndexEditViewController: UIViewController {
+class IndexEditViewController: BaseViewController {
 
     // MARK: - Properities 선언
     
@@ -72,7 +72,9 @@ class IndexEditViewController: UIViewController {
     }
     
     private func getChapterList() {
+        self.attachIndicator(.translucent)
         service.request(ChapterAPI.getChapterList) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {
@@ -99,7 +101,9 @@ class IndexEditViewController: UIViewController {
     }
     
     private func postChapterList() {
+        self.attachIndicator(.translucent)
         service.request(ChapterAPI.postChapterList(title: writtenChapter)) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {
@@ -120,7 +124,9 @@ class IndexEditViewController: UIViewController {
         guard let chapterID = selectedContents?.chapterID else {
             return
         }
+        self.attachIndicator(.translucent)
         service.request(ChapterAPI.putChapterList(chapterID: chapterID, title: writtenChapter)) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {
@@ -141,7 +147,9 @@ class IndexEditViewController: UIViewController {
         guard let chapterID = selectedContents?.chapterID else {
             return
         }
+        self.attachIndicator(.translucent)
         service.request(ChapterAPI.deleteChapterList(chapterID: chapterID)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }
