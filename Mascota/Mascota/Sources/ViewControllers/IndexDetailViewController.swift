@@ -44,6 +44,7 @@ class IndexDetailViewController: UIViewController {
         $0.allowsSelection = false
         $0.backgroundColor = .clear
         $0.tableHeaderView = nil
+        $0.showsVerticalScrollIndicator = false
     }
     
     lazy var navigationBar: UIView = UIView().then {
@@ -53,6 +54,7 @@ class IndexDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        self.indexDetailTableView.automaticallyAdjustsScrollIndicatorInsets = false
         layoutComponents()
         layoutStackView()
         registerTableView()
@@ -83,9 +85,8 @@ class IndexDetailViewController: UIViewController {
     
     private func layoutComponents() {
         self.view.addSubview(indexDetailTableView)
-        
         indexDetailTableView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(self.navigationController?.navigationBar.frame.height ?? 0.0)
+            $0.top.equalTo(navigationView.snp.bottom)
             $0.leading.equalToSuperview().offset(17)
             $0.trailing.equalToSuperview().offset(-17)
             $0.bottom.equalToSuperview()
@@ -241,7 +242,10 @@ class IndexDetailViewController: UIViewController {
 
 extension IndexDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 61
+        if section == 0 {
+            return 18
+        }
+        else { return 61 }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

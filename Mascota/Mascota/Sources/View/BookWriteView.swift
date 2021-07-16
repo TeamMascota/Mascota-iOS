@@ -12,8 +12,12 @@ import Then
 
 class BookWriteView: UIView {
     private lazy var titleLabel = UILabel().then {
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .medium, size: 14)
+        } else {
+            $0.font = .macoFont(type: .medium, size: 13)
+        }
         $0.text = "이야기 기록하기"
-        $0.font = .boldSystemFont(ofSize: 14)
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
         $0.numberOfLines = 1
@@ -37,7 +41,13 @@ class BookWriteView: UIView {
     }
     
     private lazy var textLabel = UILabel().then {
-        $0.attributedText = "작가님의 오늘 하루는\n어땠나요?".attributedString(font: .macoFont(type: .regular, size: 14), color: .macoLightGray, customLineHeight: 26)
+        
+        if UIDevice.current.hasNotch {
+            $0.attributedText = "작가님의 오늘 하루는\n어땠나요?".attributedString(font: .macoFont(type: .regular, size: 14), color: .macoLightGray, customLineHeight: 26)
+        } else {
+            $0.attributedText = "작가님의 오늘 하루는\n어땠나요?".attributedString(font: .macoFont(type: .regular, size: 13), color: .macoLightGray, customLineHeight: 26)
+        }
+        
         $0.numberOfLines = 2
     }
     
@@ -57,7 +67,7 @@ class BookWriteView: UIView {
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(15)
             $0.leading.equalToSuperview().offset(21)
-            $0.trailing.equalToSuperview().inset(27)
+            $0.trailing.equalToSuperview().inset(21)
             $0.height.equalTo(14)
         }
         
@@ -102,7 +112,6 @@ class BookWriteView: UIView {
         }
         
         lineStackView.snp.makeConstraints {
-//            $0.top.equalTo(emojiStackView.snp.bottom).offset(30)
             $0.leading.equalTo(titleLabel.snp.leading)
             $0.trailing.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview().inset(45)
