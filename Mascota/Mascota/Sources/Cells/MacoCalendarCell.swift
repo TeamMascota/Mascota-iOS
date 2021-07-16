@@ -105,6 +105,7 @@ class MacoCalendarCell: FSCalendarCell {
         if count == -1 {
             emojiImageView.isHidden = true
             circleNumberView.isHidden = true
+            emojiImageView.image = UIImage(named: "emoEmpty")
         } else if count == 0 {
             emojiImageView.isHidden = false
             emojiImageView.image = UIImage(named: "emoEmpty")

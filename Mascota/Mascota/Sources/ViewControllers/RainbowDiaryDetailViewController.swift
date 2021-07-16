@@ -115,7 +115,7 @@ extension RainbowDiaryDetailViewController: UICollectionViewDataSource {
         guard let cell = contentView.imageCollectionView.dequeueReusableCell(withReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier, for: indexPath)
                                                                         as? DiaryDetailImageCollectionViewCell
                                                                         else { return DiaryDetailImageCollectionViewCell() }
-        cell.setImage(image: images[indexPath.row])
+//        cell.setImage(image: images[indexPath.row])
         
         return cell
     }
