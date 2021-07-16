@@ -14,12 +14,12 @@ class MainNavigationBarView: UIView {
     private var type: BookType = .home
     
     private lazy var bookPartLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = .macoFont(type: .bold, size: 20)
         $0.textColor = type.color()
     }
     
     private lazy var bookTitleLabel = UILabel().then {
-        $0.font = type.titleFont()
+        $0.font = .macoFont(type: .medium, size: 20)
         $0.textColor = .macoBlack
     }
     
@@ -74,6 +74,6 @@ class MainNavigationBarView: UIView {
     }
     
     func setNavigationBarButtonImage(url: String) {
-        self.profileButton.imageView?.updateServerImage(url)
+        self.profileButton.setProfileButton(url: url)
     }
 }

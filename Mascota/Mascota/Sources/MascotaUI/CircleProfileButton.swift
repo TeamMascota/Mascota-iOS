@@ -9,6 +9,7 @@ import UIKit
 
 class CircleProfileButton: UIButton {
     private var type: BookType = .home
+    private var profileImageView = UIImageView()
     
     public init(type: BookType) {
         super.init(frame: CGRect.zero)
@@ -21,16 +22,20 @@ class CircleProfileButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setProfileButton(image: UIImage) {
+    public func setProfileButton(url: String) {
         makeCircleView()
-        setImage(image, for: .normal)
+        profileImageView.updateServerImage(url)
     }
     
     private func makeCircleView() {
-        layer.masksToBounds = true
-        layer.cornerRadius = 15
+        addSubviews(profileImageView)
+        profileImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = 15
         
-        layer.borderWidth = 1
-        layer.borderColor = type.color().cgColor
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = type.color().cgColor
     }
 }
