@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ki-F6-CZG">
-                    <rect key="frame" x="0.0" y="0.0" width="42" height="49.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="270" id="Enb-RD-rFD"/>
                         <constraint firstAttribute="height" constant="49.5" id="RN7-nr-SGh"/>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RI3-Hc-2bX">
-                    <rect key="frame" x="0.0" y="49.5" width="42" height="0.5"/>
+                    <rect key="frame" x="0.0" y="49.5" width="414" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="RYL-Xu-jLC"/>

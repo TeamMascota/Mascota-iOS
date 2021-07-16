@@ -34,6 +34,7 @@ class DoneMakingBookViewController: UIViewController {
         setNavigationBar()
         setLabelText()
         setNumberOfDoneLabel()
+        setBlurToImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +73,14 @@ class DoneMakingBookViewController: UIViewController {
         numberOfPetLabel.textColor = .macoGray
         numberOfPetLabel.attributedText = "주인공 \(totalPet)마리를 위한 이야기를\n이제 시작해 보세요!".convertSomeColorFont(color: .macoOrange, fontSize: 20, type: .regular, start: 4, length: 1)
         numberOfPetLabel.font = .macoFont(type: .regular, size: 20.0)
+    }
+    
+    func setBlurToImage() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.alpha = 0.1
+        blurredEffectView.frame = bookCoverImageView.bounds
+        bookCoverImageView.addSubview(blurredEffectView)
     }
 
 }

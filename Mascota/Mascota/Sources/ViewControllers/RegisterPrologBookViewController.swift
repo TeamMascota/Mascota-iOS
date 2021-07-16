@@ -62,6 +62,7 @@ class RegisterPrologBookViewController: UIViewController {
         setTextViewplaceholder()
         setNavigationBar()
         setNumberOfDoneLabel()
+        disableNextButton()
         setUI()
     }
     
@@ -93,7 +94,7 @@ class RegisterPrologBookViewController: UIViewController {
     }
     
     func disableNextButton() {
-        nextButton.backgroundColor = UIColor(red: 229/255, green: 228/255, blue: 226/255, alpha: 1.0)
+        nextButton.backgroundColor = UIColor(red: 229.0/255.0, green: 228/255, blue: 226/255, alpha: 1.0)
         nextButton.titleLabel?.textColor = .macoLightGray
         nextButton.isEnabled = false
     }
@@ -105,6 +106,8 @@ class RegisterPrologBookViewController: UIViewController {
         bookCoverView.layer.borderWidth = 1.0
         bookCoverView.layer.borderColor = UIColor.macoOrange.cgColor
     }
+    
+    
     
     @objc func tapImageView(tapGestureRecognizer: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
@@ -284,6 +287,7 @@ extension RegisterPrologBookViewController: UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             bookCoverImage.image = image
+            setBlurToImage()
         }
         dismiss(animated: true, completion: nil)
     }
@@ -293,4 +297,13 @@ extension RegisterPrologBookViewController: UIImagePickerControllerDelegate, UIN
         picker.sourceType = .photoLibrary
         present(picker, animated: false, completion: nil)
     }
+    
+    func setBlurToImage() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.alpha = 0.1
+        blurredEffectView.frame = bookCoverImage.bounds
+        bookCoverImage.addSubview(blurredEffectView)
+    }
+
 }
