@@ -12,8 +12,7 @@ import Then
 
 class RainbowBestSectionFooterView: UIView {
     private lazy var imageView = UIImageView().then {
-        $0.image = UIImage(named: "illustExample")
-        $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "illustRainbowCatBig")
     }
     
     private lazy var bestDateLabel = UILabel().then {
@@ -42,10 +41,9 @@ class RainbowBestSectionFooterView: UIView {
         addSubviews(imageView, bestDateLabel, endLabel)
         
         imageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(15)
+            $0.top.equalToSuperview().offset(50)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(151)
-            $0.width.equalTo(210)
+            $0.leading.trailing.equalToSuperview()
         }
         
         bestDateLabel.snp.makeConstraints {

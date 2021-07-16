@@ -181,7 +181,6 @@ extension RainbowMomentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let numberOfRowsInSection = rainbowMomentModel?.theBestMoments[section].diaries?.count {
-            return (numberOfRowsInSection + 1) % 2
             return numberOfRowsInSection / 2
         } else {
             return 0
@@ -253,6 +252,7 @@ extension RainbowMomentViewController {
                 do {
                     let response = try JSONDecoder().decode(GenericModel<GetRainbowMomentModel>.self, from: response.data)
                     self.rainbowMomentModel = response.data
+                    dump(self.rainbowMomentModel)
                     self.tableView.reloadData()
                 } catch let err {
                     print(err.localizedDescription)

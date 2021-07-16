@@ -14,7 +14,11 @@ class BookContentView: UIView {
     private var type: BookType = .home
     
     private lazy var titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .medium, size: 14)
+        } else {
+            $0.font = .macoFont(type: .medium, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
         $0.numberOfLines = 1
@@ -22,7 +26,11 @@ class BookContentView: UIView {
     }
 
     private lazy var subtitleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .medium, size: 14)
+        } else {
+            $0.font = .macoFont(type: .medium, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
         $0.numberOfLines = 1
@@ -30,18 +38,23 @@ class BookContentView: UIView {
     }
 
     private lazy var contentLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
-        $0.textColor = .macoGray
         if UIDevice.current.hasNotch {
-            $0.numberOfLines = 4
+            $0.font = .macoFont(type: .regular, size: 14)
         } else {
-            $0.numberOfLines = 3
+            $0.font = .macoFont(type: .regular, size: 13)
         }
+        $0.sizeToFit()
+        $0.textColor = .macoGray
+        $0.numberOfLines = 0
         $0.textAlignment = .left
     }
 
     private lazy var dateLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .regular, size: 14)
+        } else {
+            $0.font = .macoFont(type: .regular, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoGray
         $0.numberOfLines = 1
