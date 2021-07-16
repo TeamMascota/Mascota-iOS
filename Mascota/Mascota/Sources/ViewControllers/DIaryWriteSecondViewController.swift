@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class DiaryWriteSecondViewController: UIViewController {
     
@@ -17,9 +18,11 @@ class DiaryWriteSecondViewController: UIViewController {
         $0.alpha = 0.0
     }
     
+    let service = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
+    
     var isToggled: Bool = false
     
-    let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
+    var tableContents: [IndexModel] = []
     
     var characters: [Character] = []
     
@@ -37,6 +40,7 @@ class DiaryWriteSecondViewController: UIViewController {
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var indexView: UIView!
+    @IBOutlet weak var indexPlaceHolderTextField: UITextField!
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var indexTitleLabel: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
@@ -84,10 +88,14 @@ class DiaryWriteSecondViewController: UIViewController {
         registerTextView()
         registerImagePicker()
         registerTextField()
-        layoutComponents()
-        layoutStackView()
+//        layoutComponents()
+//        layoutStackView()
         setComponents()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getChapterList()
     }
     
     override func viewDidLayoutSubviews() {
@@ -119,8 +127,6 @@ class DiaryWriteSecondViewController: UIViewController {
         }
     }
     private func setComponents() {
-        self.indexLabel.isHidden = true
-        self.indexTitleLabel.isHidden = true
         self.dateTextField.placeholder = findToday()
         self.dateView.round(corners: [.topLeft, .topRight], cornerRadius: 3)
         self.titleView.round(corners: [.topLeft, .topRight], cornerRadius: 3)
@@ -162,6 +168,30 @@ class DiaryWriteSecondViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    private func getChapterList() {
+        service.request(ChapterAPI.getChapterList) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<TableContentsModel>.self, from: response.data)
+                    guard let indexes = value.data?.tableContents else {
+                        return
+                    }
+                    self?.tableContents = indexes
+                    self?.layoutComponents()
+                    self?.layoutStackView()
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+                                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+    
     private func layoutComponents() {
         scrollViewBackgroundView.addSubviews(indexStackView, finishButton, progressBar)
         
@@ -175,7 +205,7 @@ class DiaryWriteSecondViewController: UIViewController {
         indexStackView.snp.makeConstraints {
             $0.width.equalTo(indexView.snp.width)
             $0.top.equalTo(indexView.snp.bottom).inset(1)
-            $0.height.equalTo(42 * temp.count)
+            $0.height.equalTo(42 * tableContents.count)
             $0.leading.equalTo(indexView.snp.leading)
             $0.trailing.equalTo(indexView.snp.trailing)
         }
@@ -195,24 +225,31 @@ class DiaryWriteSecondViewController: UIViewController {
     }
     
     private func layoutStackView() {
-        for (index, text) in temp.enumerated() {
+        for (index, chapter) in tableContents.enumerated() {
             let view: UIView = UIView().then {
                 $0.backgroundColor = UIColor.macoWhite
             }
-            
             
             let dropDownIndexLabel: UILabel = UILabel().then {
                 $0.font = UIFont.macoFont(type: .regular, size: 14)
                 $0.textColor = UIColor.macoDarkGray
                 $0.textAlignment = .left
-                $0.text = index == 0 ? "프롤로그" : "제 \(index)장"
+                
+                switch chapter.chapter {
+                case -1:
+                    $0.text = "에필로그"
+                case 0:
+                    $0.text = "프롤로그"
+                default:
+                    $0.text = "제 \(chapter.chapter)장"
+                }
             }
             
             let dropDownIndexTitleLabel: UILabel = UILabel().then {
                 $0.font = UIFont.macoFont(type: .regular, size: 16)
                 $0.textColor = UIColor.macoBlack
                 $0.textAlignment = .left
-                $0.text = text
+                $0.text = chapter.chapterTitle
             }
             
             indexStackView.addArrangedSubview(view)
@@ -237,11 +274,26 @@ class DiaryWriteSecondViewController: UIViewController {
             
             dropDownIndexTitleLabel.snp.makeConstraints {
                 $0.centerY.equalToSuperview()
-                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(-5)
+                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(5)
                 $0.trailing.equalToSuperview().offset(21)
             }
             
         }
+    }
+    
+    
+    
+    private func displayStackViewAnimation(selected: Bool = false,
+                                           index: Int = 0) {
+        UIView.animate(withDuration: 0.5) {
+            self.indexPlaceHolderTextField.alpha = 0
+            self.indexTitleLabel.alpha = 1
+            self.indexLabel.alpha = 1
+            self.indexStackView.arrangedSubviews[index].backgroundColor = .macoWhite
+            self.indexToggleButton.transform = self.isToggled ? CGAffineTransform(rotationAngle: .pi * 2): CGAffineTransform(rotationAngle: .pi)
+            self.indexStackView.alpha = self.isToggled ? 0.0 : 1.0
+        }
+        isToggled.toggle()
     }
     
     private func presentActionSheet(delete: Bool, index: Int = 100) {
@@ -320,7 +372,21 @@ class DiaryWriteSecondViewController: UIViewController {
     
     @objc
     func touchDropDownView(_ sender: UITapGestureRecognizer) {
-        print(1)
+        guard let index = sender.view?.tag else {
+            return
+        }
+        switch tableContents[index].chapter {
+        case 0:
+            self.indexLabel.text = "프롤로그"
+        case -1:
+            self.indexLabel.text = "에필로그"
+        default:
+            self.indexLabel.text = "제 \(tableContents[index].chapter)장"
+        }
+
+        self.indexTitleLabel.text = tableContents[index].chapterTitle
+        indexStackView.arrangedSubviews[index].backgroundColor = .macoIvory
+        displayStackViewAnimation(selected: true, index: index)
     }
     
     
@@ -439,14 +505,19 @@ extension DiaryWriteSecondViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        self.titleUnderlineView.backgroundColor = .macoLightGray
+        
         guard let text = textField.text else {
             return true
         }
         if text.count <= 11 {
             journalTitle = text
+            self.titleUnderlineView.backgroundColor = .macoOrange
+            
         } else {
             journalTitle = ""
+            textField.text = ""
+            self.titleUnderlineView.backgroundColor = .macoLightGray
+            self.titleCountLabel.text = "(0/11)"
         }
         return true
     }

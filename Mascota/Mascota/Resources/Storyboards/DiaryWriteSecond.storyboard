@@ -89,7 +89,7 @@
                                                             <action selector="touchToggleButton:" destination="det-Ju-VZo" eventType="touchUpInside" id="WAh-la-C6N"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제 2장" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-5F-KzR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제 2장" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mf-5F-KzR">
                                                         <rect key="frame" x="0.0" y="11.5" width="75" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="llZ-QZ-gr1"/>
@@ -98,7 +98,7 @@
                                                         <color key="textColor" name="macoDarkGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBB-GE-vXb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBB-GE-vXb">
                                                         <rect key="frame" x="75" y="8" width="251" height="24"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                         <color key="textColor" name="macoBlack"/>
@@ -289,6 +289,7 @@
                         <outlet property="dateView" destination="NMO-Dt-t3R" id="qsz-Us-nzH"/>
                         <outlet property="imageCollectionView" destination="GC7-mi-cqx" id="aqw-Vs-QD3"/>
                         <outlet property="indexLabel" destination="1Mf-5F-KzR" id="oD3-0u-Lwq"/>
+                        <outlet property="indexPlaceHolderTextField" destination="mgA-Cn-pVx" id="PKF-Ix-Ns7"/>
                         <outlet property="indexTitleLabel" destination="LBB-GE-vXb" id="esL-Hd-TRb"/>
                         <outlet property="indexToggleButton" destination="MLJ-gG-oOm" id="kVI-YF-BZB"/>
                         <outlet property="indexView" destination="1Sm-p3-GAx" id="sVn-HR-Tdg"/>
