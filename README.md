@@ -1,7 +1,19 @@
 ![로고](https://user-images.githubusercontent.com/72008879/125953801-c57157c5-b58d-4b8e-9a96-d6df41c3d8ab.gif)
 
 ![mascota_blue](https://user-images.githubusercontent.com/72008879/125953813-2042acc4-69c0-4601-87fd-8cbd6e266535.png)
+![Mascota Work Flow 1](https://user-images.githubusercontent.com/72497599/125991872-a504e546-0755-40c6-acd5-e82db8dbf92a.png)
+<details>
+<summary>WorkFlow</summary>
+<div markdown="1">       
 
+![Mascota Work Flow 2](https://user-images.githubusercontent.com/72497599/125991968-f74e8e29-7269-44a5-9e22-48a2fc0e8122.png)
+![Mascota Work Flow 3](https://user-images.githubusercontent.com/72497599/125991981-e216a4d0-841a-426f-957c-df37470f8eda.png)
+![Mascota Work Flow 4](https://user-images.githubusercontent.com/72497599/125991988-ee43fd8b-2fdc-479a-8964-7868f7a752fc.png)
+![Mascota Work Flow 5](https://user-images.githubusercontent.com/72497599/125991994-e45890b4-cbf3-4f8e-97d0-e7ebdbed3bfe.png)
+![Mascota Work Flow 6](https://user-images.githubusercontent.com/72497599/125992001-60417f35-e00a-4f77-871b-c4788334f536.png)
+
+</div>
+</details>
 
 ## Contributer
 
@@ -10,9 +22,6 @@
 |**이정엽** | **도연서**|**김윤서**|
 |홈|로그인, 회원가입|캘린더, 무지개|
 | ![illust_home (1)](https://user-images.githubusercontent.com/72008879/125955522-3fdc5ee1-a541-446f-8477-d1d15bd470d3.png)| ![illust_login,signup_small](https://user-images.githubusercontent.com/72008879/125955060-d7d7b0d5-579e-4749-a4e1-fed594095276.png)| ![illust_rainbow_cat](https://user-images.githubusercontent.com/72008879/125955127-ad6336bb-0507-4d36-9981-9ae4c83fef54.png)|
-
-
-
 
 ## Team Convention
 
