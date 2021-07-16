@@ -15,7 +15,7 @@ enum PetsAPI {
 extension PetsAPI: TargetType {
     var baseURL: URL {
         guard let url = URL(string: APIService.baseURL + "/pet") else {
-            fatalError()
+            fatalError("baseURL 가져오기 실패")
         }
         return url
     }

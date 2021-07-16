@@ -21,6 +21,8 @@ class DiaryWriteSecondViewController: UIViewController {
     
     let temp: [String] = ["", "1장", "2장", "3장", "4장", "5장"]
     
+    var characters: [Character] = []
+    
     var journalTitle: String = ""
     var selectedIndex: String = ""
     

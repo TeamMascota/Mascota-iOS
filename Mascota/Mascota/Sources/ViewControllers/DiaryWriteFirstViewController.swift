@@ -10,9 +10,11 @@ import Moya
 
 class DiaryWriteFirstViewController: UIViewController {
     
-    var pets: [String] = ["워렌 버핏", "빌 게이츠", "머스크", "팀쿡"]
-    var seletedPets: [Int] = [-1, -1, -1, -1]
+    var pets: [PetImageModel] = []
+    var selectedPets: [Int] = [-1, -1, -1, -1]
     var selected: [Int] = []
+    
+    var characters: [Character] = []
     
     var customLabelAlertView = CustomLabelAlertView()
     
@@ -88,35 +90,49 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func addNextButtonTarget() {
-        self.nextButton.addTarget(self, action: #selector(pushToDiaryWriteSecond), for: .touchUpInside)
+        self.nextButton.addTarget(self, action: #selector(touchNextButton), for: .touchUpInside)
     }
     
     private func getPetsInfo() {
-        print("!@#@!#!@#!@#!@#!@#!@2")
         petsService.request(.getPetsInfo) { [weak self] result in
-            print("!@#@!#!@#!@#!@#!@#!@3")
-            print(11111111111111111)
             switch result {
             case .success(let response):
+                print("success")
                 do {
-                    let value = try JSONDecoder().decode(GenericModel<HomeFirstPartModel>.self, from: response.data)
-                    print(value)
+                    let value = try JSONDecoder().decode(GenericModel<PetsImageModel>.self, from: response.data)
+                    guard let images = value.data?.pets else {
+                        return
+                    }
+                    print(images)
+                    self?.updateServerData(pets: images)
                 } catch (let err) {
                     print(err.localizedDescription)
                 }
             
             case .failure(let err):
+                print("fail")
                 print(err.localizedDescription)
             }
         }
     }
     
-    @objc
-    func pushToDiaryWriteSecond() {
+    private func updateServerData(pets: [PetImageModel]) {
+        self.pets = pets
+        self.selectedPets = [Int].init(repeating: -1, count: self.pets.count)
+        self.reloadEmotions()
+    }
+    
+    @objc func touchNextButton() {
+        pushToDiaryWriteSecond()
+    }
+    
+
+    private func pushToDiaryWriteSecond() {
         let storyboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteSecond, bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: AppConstants.ViewController.diaryWriteSecond) as? DiaryWriteSecondViewController else {
             return
         }
+        vc.characters = self.characters
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -128,7 +144,7 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func initializeNavigationItems() {
-        navigationTitleLabel.text = "asdfadsf"
+        navigationTitleLabel.text = "이야기 작성"
         self.navigationItem.titleView = navigationTitleLabel
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnIconBack"), style: .plain, target: self, action: #selector(touchBackButton))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigiationRightView)
@@ -145,7 +161,7 @@ class DiaryWriteFirstViewController: UIViewController {
     
     private func findSelected() {
         selected = []
-        seletedPets.enumerated().forEach {
+        selectedPets.enumerated().forEach {
             if $1 >= 0 {
                 selected.append($0)
             }
@@ -153,8 +169,15 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func isButtonAvailable() {
+        self.characters = []
+        if selected.isEmpty {
+            nextButton.isEnabled = false
+            return
+        }
         for idx in selected {
-            if self.seletedPets[idx] == 100 || self.seletedPets[idx] == -1{
+            let pet = pets[idx]
+            characters.append(Character(id: pet.id, feeling: selectedPets[idx]))
+            if self.selectedPets[idx] == 100 || self.selectedPets[idx] == -1 {
                 nextButton.isEnabled = false
                 return
             }
@@ -231,8 +254,7 @@ extension DiaryWriteFirstViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.characterCollectionViewCellProtocol = self
-            cell.selectedCell = self.seletedPets
-            cell.pets = self.pets
+            cell.updateVariable(pets: pets, selectedCell: selectedPets)
             return cell
 
         default:
@@ -241,8 +263,8 @@ extension DiaryWriteFirstViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.tag = selected[indexPath.section - 1]
-            cell.updateSelectedCell(selcted: seletedPets[selected[indexPath.section-1]])
-            cell.updateTitle(text: pets[selected[indexPath.section-1]])
+            cell.updateData(petImageModel: pets[selected[indexPath.section - 1]])
+            cell.updateSelectedCell(selcted: selectedPets[selected[indexPath.section - 1]])
             cell.petEmotionCollectionViewCellProtocol = self
             return cell
         }
@@ -304,7 +326,7 @@ extension DiaryWriteFirstViewController: CharacterCollectionViewCellProtocol {
             presentUnselectCustomAlert(index: index)
         } else {
             cell.isSelected = true
-            seletedPets[index] = 100
+            selectedPets[index] = 100
             findSelected()
             reloadEmotions()
             isButtonAvailable()
@@ -317,11 +339,11 @@ extension DiaryWriteFirstViewController {
     func presentUnselectCustomAlert(index: Int) {
         
         self.customLabelAlertView.setTitle(text: "기분 삭제")
-        self.customLabelAlertView.setAttributedDescription(attributedText: (pets[index] + "(이)가 주인공에서 해제됩니다.\n기분을 삭제하시겠어요?").convertSomeColorFont(color: UIColor.macoBlack,
+        self.customLabelAlertView.setAttributedDescription(attributedText: (pets[index].name + "(이)가 주인공에서 해제됩니다.\n기분을 삭제하시겠어요?").convertSomeColorFont(color: UIColor.macoBlack,
                                                fontSize: 14,
                                                type: .medium,
                                                start: 0,
-                                               length: pets[index].count))
+                                               length: pets[index].name.count))
 
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         let tempViewController = UIViewController()
@@ -335,7 +357,7 @@ extension DiaryWriteFirstViewController {
                 return
             }
             cell.isSelected = false
-            self.seletedPets[index] = -1
+            self.selectedPets[index] = -1
             self.findSelected()
             self.reloadEmotions()
             self.isButtonAvailable()
@@ -366,7 +388,8 @@ extension DiaryWriteFirstViewController {
 
 extension DiaryWriteFirstViewController: PetEmotionCollectionViewCellProtocol {
     func selectEmotion(section: Int, item: Int) {
-        seletedPets[section] = item
+        print(section, item)
+        selectedPets[section] = item
         isButtonAvailable()
     }
 }

@@ -16,6 +16,10 @@ protocol PetEmotionCollectionViewCellProtocol {
 
 class PetEmotionCollectionViewCell: UICollectionViewCell {
     
+    var petImageModel: PetImageModel = PetImageModel(id: "", img: "", name: "", kind: 0)
+    
+    let emoji: EmojiStyle = EmojiStyle()
+    
     var selectedCell: Int = -100
     var petEmotionCollectionViewCellProtocol: PetEmotionCollectionViewCellProtocol?
     
@@ -51,8 +55,8 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        selectedCell = 100
         titleLabel.text = ""
+        petImageModel = PetImageModel(id: "", img: "", name: "", kind: 0)
     }
 
     override func awakeFromNib() {
@@ -60,6 +64,8 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
         layoutComponents()
         registerCollectionView()
         registerCollectionViewCell()
+        print("SELELCTED CELL CELL CELL ")
+        print(selectedCell)
     }
     
     private func registerCollectionView() {
@@ -73,14 +79,15 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
                                             forCellWithReuseIdentifier: AppConstants.CollectionViewCells.petsCollectionViewCell)
     }
     
-    func updateTitle(text: String) {
-        print(text)
-        titleLabel.text = text
-        print(selectedCell)
+    func updateData(petImageModel: PetImageModel) {
+        titleLabel.text = petImageModel.name
+        self.petImageModel = petImageModel
     }
     
     func updateSelectedCell(selcted: Int) {
         selectedCell = selcted
+        print("updateSelectedCell")
+        print(selectedCell)
         self.emotionCollectionView.reloadData()
     }
 
@@ -91,7 +98,7 @@ class PetEmotionCollectionViewCell: UICollectionViewCell {
                                      emotionCollectionView,
                                      bottomSepartor)
         
-        topSepartor.snp.makeConstraints{
+        topSepartor.snp.makeConstraints {
             $0.top.equalTo(self.contentView.snp.top)
             $0.leading.equalTo(self.contentView.snp.leading)
             $0.trailing.equalTo(self.contentView.snp.trailing)
@@ -163,7 +170,24 @@ extension PetEmotionCollectionViewCell: UICollectionViewDataSource {
             collectionView.selectItem(at: indexPath,
                                       animated: true,
                                       scrollPosition: .init())
+            cell.setData(kind: petImageModel.kind,
+                         feeling: indexPath.item,
+                         text: emoji.getEmojiText(kind: petImageModel.kind,
+                                                  feeling: indexPath.item),
+                         isSelected: cell.isSelected)
+        } else {
+            cell.isSelected = false
+            cell.setData(kind: petImageModel.kind,
+                         feeling: indexPath.item,
+                         text: emoji.getEmojiText(kind: petImageModel.kind,
+                                                  feeling: indexPath.item),
+                         isSelected: cell.isSelected)
         }
+        
+        
         return cell
     }
 }
+
+
+
