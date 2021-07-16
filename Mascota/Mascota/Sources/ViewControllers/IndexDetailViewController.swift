@@ -85,7 +85,7 @@ class IndexDetailViewController: UIViewController {
         self.view.addSubview(indexDetailTableView)
         
         indexDetailTableView.snp.makeConstraints {
-            $0.top.equalTo(navigationView.snp.bottom)
+            $0.top.equalToSuperview().offset(self.navigationController?.navigationBar.frame.height ?? 0.0)
             $0.leading.equalToSuperview().offset(17)
             $0.trailing.equalToSuperview().offset(-17)
             $0.bottom.equalToSuperview()
