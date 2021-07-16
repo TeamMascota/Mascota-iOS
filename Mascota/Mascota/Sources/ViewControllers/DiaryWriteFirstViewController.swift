@@ -14,7 +14,8 @@ class DiaryWriteFirstViewController: UIViewController {
     var selectedPets: [Int] = [-1, -1, -1, -1]
     var selected: [Int] = []
     
-    var characters: [Character] = []
+    var characters: [CharacterModel] = []
+    
     
     var customLabelAlertView = CustomLabelAlertView()
     
@@ -176,7 +177,7 @@ class DiaryWriteFirstViewController: UIViewController {
         }
         for idx in selected {
             let pet = pets[idx]
-            characters.append(Character(id: pet.id, feeling: selectedPets[idx]))
+            characters.append(CharacterModel(id: pet.id, feeling: selectedPets[idx]))
             if self.selectedPets[idx] == 100 || self.selectedPets[idx] == -1 {
                 nextButton.isEnabled = false
                 return

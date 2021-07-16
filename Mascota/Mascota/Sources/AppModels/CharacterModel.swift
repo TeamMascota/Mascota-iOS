@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Character {
+struct CharacterModel: Codable {
     let id: String
     let feeling: Int
 }
+
 
