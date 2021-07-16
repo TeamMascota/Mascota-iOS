@@ -26,8 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let rootNC = UINavigationController(rootViewController: tabBarController)
             rootNC.navigationBar.isHidden = true
           
-            let viewcontroller = UIStoryboard(name: "RegisterMyPet", bundle: nil).instantiateViewController(withIdentifier: "RegisterMyPetViewController") as! RegisterMyPetViewController
-            let rootNC = UINavigationController(rootViewController: viewcontroller)
+    
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
             window.makeKeyAndVisible()
