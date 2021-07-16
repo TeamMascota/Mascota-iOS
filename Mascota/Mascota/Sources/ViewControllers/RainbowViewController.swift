@@ -12,7 +12,8 @@ import Moya
 import Then
 
 class RainbowViewController: UIViewController {
-    private var delegate: RainbowBridgeDelegator?
+    private var rainbowBridgeDelegate: RainbowBridgeDelegator?
+    private var rainbowDiaryDetailDelegate: RainbowDiaryDetailViewDelegator?
     
     private lazy var mainNavigationBar = MainNavigationBarView(type: .rainbow)
     private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
@@ -32,12 +33,12 @@ class RainbowViewController: UIViewController {
         initRainbowViewController()
         setMainNavigationBar()
         setTableView()
+        getRainbowHome()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        getRainbowHome()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -129,13 +130,14 @@ extension RainbowViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
             cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
+            
             if let memories = rainbowPageModel?.memories {
                 cell.setContentText(pages: memories)
                 if let leftFeeling = memories[0]?.feeling,
                    let rightFeeling = memories[1]?.feeling {
                     let kind = 1
-                    cell.bookPageView.leftPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: leftFeeling)
-                    cell.bookPageView.rightPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: rightFeeling)
+                        cell.bookPageView.leftPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: leftFeeling)
+                        cell.bookPageView.rightPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: rightFeeling)
                 }
             }
             return cell
@@ -161,10 +163,12 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
+            dump(rainbowPageModel?.rainbowCheck)
             if let rainbowCheck = rainbowPageModel?.rainbowCheck {
                 if rainbowCheck {
                     cell.button.isHidden = true
                 } else {
+                    dump(rainbowCheck)
                     cell.button.isHidden = false
                     cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
                 }
@@ -202,6 +206,8 @@ extension RainbowViewController: UITableViewDataSource {
     func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
         if let diaryId = rainbowPageModel?.memories[0]?.diaryId {
             let vc = RainbowDiaryDetailViewController()
+            self.rainbowDiaryDetailDelegate = vc
+            rainbowDiaryDetailDelegate?.sendingDiaryId(id: diaryId)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -210,6 +216,8 @@ extension RainbowViewController: UITableViewDataSource {
     func tapRightBookPage(_ sender: UITapGestureRecognizer) {
         if let diaryId = rainbowPageModel?.memories[1]?.diaryId {
             let vc = RainbowDiaryDetailViewController()
+            self.rainbowDiaryDetailDelegate = vc
+            rainbowDiaryDetailDelegate?.sendingDiaryId(id: diaryId)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -224,10 +232,10 @@ extension RainbowViewController: UITableViewDataSource {
             }, secondHandler: { _ in
                 if petCustomView.selectedPetId != "" {
                     let viewcontroller = RainbowBridgeViewController()
-                    self.delegate = viewcontroller
+                    self.rainbowBridgeDelegate = viewcontroller
                     
                     if let selectedPetId = petCustomView.selectedPetId {
-                        self.delegate?.setPetId(petId: selectedPetId)
+                        self.rainbowBridgeDelegate?.setPetId(petId: selectedPetId)
                     }
                     
                     let rootNC = UINavigationController(rootViewController: viewcontroller)
@@ -279,7 +287,6 @@ extension RainbowViewController {
                     let response = try JSONDecoder().decode(GenericModel<GetRainbowPetModel>.self, from: response.data)
                     guard let petModel = response.data?.pet
                     else { return }
-                    dump(petModel)
                     completion(petModel)
                 } catch let err {
                     print(err.localizedDescription)
