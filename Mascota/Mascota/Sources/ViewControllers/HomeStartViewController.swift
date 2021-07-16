@@ -16,7 +16,7 @@ enum HomeStart: Int {
     case afterRainbow
 }
 
-class HomeStartViewController: UIViewController {
+class HomeStartViewController: BaseViewController {
     
     // MARK: - Properties
     private lazy var mainNavigationBar: MainNavigationBarView = MainNavigationBarView(type: .home)
@@ -86,9 +86,11 @@ class HomeStartViewController: UIViewController {
     }
     
     private func getHomeFirstPart() {
+        self.attachIndicator(.normal)
         service.request(.getHomeFirstPart) { [weak self] result in
             switch result {
             case .success(let response):
+                self?.detachIndicator()
                 do {
                     let value = try JSONDecoder().decode(GenericModel<HomeFirstPartModel>.self, from: response.data)
                     self?.updateServerData(serverData: value)
@@ -174,7 +176,6 @@ class HomeStartViewController: UIViewController {
     // 목차에 chevron > 눌렀을 때
     @objc
     func touchIndexDetailButton(_ sender: UIButton) {
-        print(sender.tag)
         pushToIndexDetail(chapterID: tableContents[sender.tag].chapterID)
     }
     

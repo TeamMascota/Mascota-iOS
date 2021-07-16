@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum IndicatorType {
+    case normal
+    case rainbow
+    case translucent
+}
