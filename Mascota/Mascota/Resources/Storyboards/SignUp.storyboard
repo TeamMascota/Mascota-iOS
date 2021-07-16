@@ -342,7 +342,7 @@
         <image name="btnIconBack" width="26" height="27"/>
         <image name="group66" width="16" height="13"/>
         <image name="illustExample" width="375" height="142.5"/>
-        <image name="logoMascota" width="167" height="31.5"/>
+        <image name="logoMascota" width="167" height="31"/>
         <namedColor name="macoDarkGray">
             <color red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
