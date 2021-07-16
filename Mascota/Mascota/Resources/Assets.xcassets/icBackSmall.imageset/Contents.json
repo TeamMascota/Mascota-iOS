@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "icBackSmall.png",
       "idiom" : "universal",
-      "filename" : "icBackSmall.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "icBackSmall@2x.png"
+      "filename" : "icBackSmall@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

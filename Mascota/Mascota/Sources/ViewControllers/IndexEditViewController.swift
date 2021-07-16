@@ -14,7 +14,6 @@ import Then
 class IndexEditViewController: UIViewController {
 
     // MARK: - Properities 선언
-    @IBOutlet weak var separatorView: UIView!
     
     let service = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
     
@@ -55,6 +54,21 @@ class IndexEditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getChapterList()
+        setRainbowNavigationBar()
+    }
+    
+    private lazy var backButton = UIBarButtonItem().then {
+        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(touchBackButton(_:)))
+    }
+    private lazy var plusButton = UIBarButtonItem().then {
+        $0.plusBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(touchPlusButton(_:)))
+    }
+    
+    private func setRainbowNavigationBar() {
+        navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
+        navigationItem.setTitle(title: "목차 편집")
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItem = plusButton
     }
     
     private func getChapterList() {
@@ -233,7 +247,7 @@ class IndexEditViewController: UIViewController {
         self.view.addSubview(indexCollectionView)
         
         indexCollectionView.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview().offset(-15)
             $0.bottom.equalToSuperview()
@@ -281,11 +295,13 @@ class IndexEditViewController: UIViewController {
                                       firstText: "취소", secondText: "저장")
     }
     
-    @IBAction func touchBackButton(_ sender: Any) {
+    @objc
+    func touchBackButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func touchPlusButton(_ sender: Any) {
+    @objc
+    func touchPlusButton(_ sender: Any) {
         self.customTextFieldAlertView.initializeComponents(title: "목차 추가", textField: nil)
         self.presentDoubleCustomAlert(view: customTextFieldAlertView,
                                       preferredSize: CGSize(width: 270, height: 100),

@@ -113,7 +113,8 @@ class HomeStartViewController: BaseViewController {
         }
         self.tableContents = contents
         self.firstPage = diary
-        self.mainNavigationBar.setNavigationBarText(title: title)
+        self.mainNavigationBar.setNavigationBarText(part: "1부", title: title)
+        dump(url)
         self.mainNavigationBar.setNavigationBarButtonImage(url: url)
         self.homeStartCollectionView.reloadData()
     }
@@ -285,7 +286,7 @@ extension HomeStartViewController: UICollectionViewDelegateFlowLayout {
         case 2:
             switch homeStatus {
             case .beforeRainbow:
-                return CGSize(width: collectionView.bounds.width, height: 182)
+                return CGSize(width: collectionView.bounds.width, height: 241)
             default:
                 return CGSize(width: collectionView.bounds.width, height: 241)
             }

@@ -14,7 +14,11 @@ class BookContentView: UIView {
     private var type: BookType = .home
     
     private lazy var titleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .medium, size: 14)
+        } else {
+            $0.font = .macoFont(type: .medium, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
         $0.numberOfLines = 1
@@ -22,7 +26,11 @@ class BookContentView: UIView {
     }
 
     private lazy var subtitleLabel = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .medium, size: 14)
+        } else {
+            $0.font = .macoFont(type: .medium, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoDarkGray
         $0.numberOfLines = 1
@@ -30,14 +38,23 @@ class BookContentView: UIView {
     }
 
     private lazy var contentLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .regular, size: 14)
+        } else {
+            $0.font = .macoFont(type: .regular, size: 13)
+        }
+        $0.sizeToFit()
         $0.textColor = .macoGray
-        $0.numberOfLines = 4
+        $0.numberOfLines = 0
         $0.textAlignment = .left
     }
 
     private lazy var dateLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+        if UIDevice.current.hasNotch {
+            $0.font = .macoFont(type: .regular, size: 14)
+        } else {
+            $0.font = .macoFont(type: .regular, size: 13)
+        }
         $0.sizeToFit()
         $0.textColor = .macoGray
         $0.numberOfLines = 1
@@ -88,18 +105,21 @@ class BookContentView: UIView {
             $0.top.equalToSuperview().offset(15)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(27)
+            $0.height.equalTo(14)
         }
 
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(14)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(14)
         }
 
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(21)
             $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(60)
         }
 
         dateLabel.snp.makeConstraints {

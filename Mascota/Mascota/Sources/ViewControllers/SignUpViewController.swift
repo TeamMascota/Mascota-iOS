@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var doubleCheckButton: UIButton!
     @IBOutlet var checkImageView: [UIImageView]!
+    @IBOutlet var macoimage: UIImageView!
     
     // MARK: - IBActions
     @IBAction func tapSignUpButton() {
@@ -105,6 +106,19 @@ class SignUpViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        checkNotch()
+    }
+    
+    func checkNotch() {
+        if UIDevice.current.hasNotch {
+            macoimage.isHidden = false
+        } else {
+            macoimage.isHidden = true
+        }
     }
     
     func setNavigationBar() {

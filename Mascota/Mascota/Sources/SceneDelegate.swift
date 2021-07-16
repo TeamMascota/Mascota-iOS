@@ -15,21 +15,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will autuomatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        let splashStoryboardd = UIStoryboard(name: "Splash", bundle: nil)
+        let splashViewController = splashStoryboardd.instantiateViewController(identifier: "SplashViewController")
+        
         guard let _ = (scene as? UIWindowScene) else { return }
        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            let tabBarController = MacoTabBarController()
-
-            let rootNC = UINavigationController(rootViewController: tabBarController)
-            rootNC.navigationBar.isHidden = true
-          
+            self.window?.rootViewController = splashViewController
+            self.window?.makeKeyAndVisible()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500)) {
+                let tabBarController = MacoTabBarController()
+                let rootNC = UINavigationController(rootViewController: tabBarController)
+                self.window?.rootViewController = rootNC
+                self.window?.makeKeyAndVisible()
+                rootNC.navigationBar.isHidden = true
+                window.rootViewController = rootNC
+                window.backgroundColor = .macoIvory
+                window.makeKeyAndVisible()
+            }
+            
+            
+            
+        
+            
     
-            window.rootViewController = rootNC
-            window.backgroundColor = .macoIvory
-            window.makeKeyAndVisible()
+//            let viewcontroller = UIStoryboard(name: "Splash", bundle: nil).instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
+//                         let rootNC = UINavigationController(rootViewController: viewcontroller)
+
+
+           
         }
         
     }

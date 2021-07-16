@@ -117,6 +117,9 @@
 		48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */; };
 		48B39E1D2699FD2E00989C37 /* RegisterPrologBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */; };
 		48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */; };
+		48DFCC6D26A21F5300096E14 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFCC6C26A21F5300096E14 /* SplashViewController.swift */; };
+		48DFCC6F26A21FB800096E14 /* maco_logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 48DFCC6E26A21FB800096E14 /* maco_logo.json */; };
+		48DFCC7126A2238300096E14 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48DFCC7026A2238300096E14 /* Splash.storyboard */; };
 		48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */; };
 		48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */; };
 		96D17F1B29FC3C1D0286D495 /* Pods_MascotaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4802D1E276727F8708ACF18 /* Pods_MascotaTests.framework */; };
@@ -331,6 +334,9 @@
 		48AC0BA726980B9B0012E3D3 /* RegisterMyPetAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterMyPetAPIModel.swift; sourceTree = "<group>"; };
 		48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterPrologBook.storyboard; sourceTree = "<group>"; };
 		48B39E1E2699FD4300989C37 /* RegisterPrologBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPrologBookViewController.swift; sourceTree = "<group>"; };
+		48DFCC6C26A21F5300096E14 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		48DFCC6E26A21FB800096E14 /* maco_logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maco_logo.json; sourceTree = "<group>"; };
+		48DFCC7026A2238300096E14 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		48E6C374269D7E0000E97E8D /* DoneMakingBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneMakingBookViewController.swift; sourceTree = "<group>"; };
 		48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneSignUpViewController.swift; sourceTree = "<group>"; };
 		7DFC7CA3450EF7F1A28DD8AC /* Pods-MascotaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MascotaTests.release.xcconfig"; path = "Target Support Files/Pods-MascotaTests/Pods-MascotaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -526,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				18F5B8A926A2185700B44EF8 /* loading_block.json */,
+				48DFCC6E26A21FB800096E14 /* maco_logo.json */,
 				4881542A268EED4100E1D739 /* Fonts */,
 				18AE88B4268AE58C00EBC129 /* Assets.xcassets */,
 				DD92BCAB268C52CD00A95A75 /* Colors.xcassets */,
@@ -583,6 +590,7 @@
 				1813F2AB2699E20F00D7769E /* DiaryWriteFirst.storyboard */,
 				1828644B269C25A7002C98E0 /* DiaryWriteSecond.storyboard */,
 				48B39E1C2699FD2E00989C37 /* RegisterPrologBook.storyboard */,
+				48DFCC7026A2238300096E14 /* Splash.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -776,6 +784,7 @@
 				DD89E2AF269DC7540078CC57 /* CalendarViewController.swift */,
 				DDD21FB626A09E46006A80DD /* CalendarDiaryDetailViewController.swift */,
 				18F5B8AB26A2264E00B44EF8 /* BaseViewController.swift */,
+				48DFCC6C26A21F5300096E14 /* SplashViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -949,8 +958,10 @@
 				18AE88B8268AE58C00EBC129 /* LaunchScreen.storyboard in Resources */,
 				1813F2B62699EA0200D7769E /* CharacterCollectionViewCell.xib in Resources */,
 				18DF89752692DF9900A9CB2F /* MascotaPeopleImageCell.xib in Resources */,
+				48DFCC7126A2238300096E14 /* Splash.storyboard in Resources */,
 				1813F2B22699E3A100D7769E /* CharacterMoodCollectionReusableView.xib in Resources */,
 				182C1D6B26934518006C6511 /* PartCollectionViewCell.xib in Resources */,
+				48DFCC6F26A21FB800096E14 /* maco_logo.json in Resources */,
 				DD886DE226918ABC0011F8F6 /* NotoSansCJKkr-Bold.otf in Resources */,
 				4888036826919BA3000CB8F2 /* RegisterMyPet.storyboard in Resources */,
 				488803722692132C000CB8F2 /* RegisterMyPetCollectionViewCell.xib in Resources */,
@@ -1152,6 +1163,7 @@
 				18B65AA4269F63B0004EE849 /* MonthlyDiariesModel.swift in Sources */,
 				48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */,
 				18B65AA8269F65D0004EE849 /* IndexDetailModel.swift in Sources */,
+				48DFCC6D26A21F5300096E14 /* SplashViewController.swift in Sources */,
 				18DFD0F0269D9CAC00B4D54A /* CALayer + Extension.swift in Sources */,
 				DDDCA7AD26935ACD00DB1B8F /* RainbowBridgeViewController.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,

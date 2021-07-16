@@ -43,21 +43,26 @@ class MacoTabBarController: UITabBarController {
         let rainbowViewController = RainbowViewController()
         let calendarViewController = CalendarViewController()
         
-        rainbowViewController.tabBarItem.image = UIImage(systemName: "shareplay")
-        rainbowViewController.tabBarItem.selectedImage = UIImage(systemName: "shareplay")
+        rainbowViewController.tabBarItem.image = UIImage(named: "rainbow1")
+        rainbowViewController.tabBarItem.selectedImage = UIImage(named: "rainbow2")
         
-        homeViewController.tabBarItem.image = UIImage(systemName: "house.fill")
-        homeViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+        homeViewController.tabBarItem.image = UIImage(named: "home1")
+        homeViewController.tabBarItem.selectedImage = UIImage(named: "home2")
         
-        calendarViewController.tabBarItem.image = UIImage(systemName: "house.fill")
-        calendarViewController.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-        
-//        calendarViewController.tabBarItem.image = UIImage()
-//        calendarViewController.tabBarItem.selectedImage = UIImage()
+        calendarViewController.tabBarItem.image = UIImage(named: "calendar1")
+        calendarViewController.tabBarItem.selectedImage = UIImage(named: "calendar2")
         
         setViewControllers([calendarViewController, homeViewController, rainbowViewController], animated: true)
         
-//        setViewControllers([homeViewController, rainbowViewController], animated: true)
+        if UIDevice.current.hasNotch {
+            [rainbowViewController, homeViewController, calendarViewController].forEach {
+                $0.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+            }
+        } else {
+            [rainbowViewController, homeViewController, calendarViewController].forEach {
+                $0.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 2, bottom: -5, right: 0)
+            }
+        }
 
     }
     

@@ -163,12 +163,10 @@ extension RainbowViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.TableCells.rainbowButton, for: indexPath) as? RainbowButtonTableViewCell
             else { return UITableViewCell() }
             cell.selectionStyle = .none
-            dump(rainbowPageModel?.rainbowCheck)
             if let rainbowCheck = rainbowPageModel?.rainbowCheck {
                 if rainbowCheck {
                     cell.button.isHidden = true
                 } else {
-                    dump(rainbowCheck)
                     cell.button.isHidden = false
                     cell.button.addTarget(self, action: #selector(tapNextButton(_:)), for: .touchUpInside)
                 }

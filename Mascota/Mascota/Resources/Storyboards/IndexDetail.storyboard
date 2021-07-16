@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Medium.otf">
+            <string>NotoSansCJKkr-Medium</string>
+        </array>
         <array key="NotoSansCJKkr-Regular.otf">
             <string>NotoSansCJKkr-Regular</string>
         </array>
@@ -22,21 +25,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xG5-Qg-ZKW">
-                                <rect key="frame" x="22" y="76" width="370" height="30"/>
+                                <rect key="frame" x="22" y="44" width="370" height="27"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-yS-lER">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="27"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="807-EH-72U"/>
+                                            <constraint firstAttribute="width" constant="26" id="807-EH-72U"/>
+                                            <constraint firstAttribute="height" constant="27" id="va5-i9-gta"/>
                                         </constraints>
                                         <color key="tintColor" name="macoDarkGray"/>
-                                        <state key="normal" image="chevron.left" catalog="system"/>
+                                        <state key="normal" image="btnIconBack"/>
                                         <connections>
                                             <action selector="touchBackButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ks8-qX-7GJ"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qm7-UN-qox">
-                                        <rect key="frame" x="94.5" y="6" width="181" height="18"/>
+                                        <rect key="frame" x="94.5" y="4.5" width="181" height="18"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="idG-lL-aS3">
                                                 <rect key="frame" x="0.0" y="0.0" width="158" height="18"/>
@@ -49,7 +53,7 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-rl-lBT">
                                                         <rect key="frame" x="58" y="0.0" width="100" height="18"/>
-                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="17"/>
                                                         <color key="textColor" name="macoBlack"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -75,8 +79,8 @@
                                     <constraint firstAttribute="bottom" secondItem="YtF-yS-lER" secondAttribute="bottom" id="DO6-Pv-i96"/>
                                     <constraint firstItem="YtF-yS-lER" firstAttribute="top" secondItem="xG5-Qg-ZKW" secondAttribute="top" id="Uwk-71-KiH"/>
                                     <constraint firstItem="YtF-yS-lER" firstAttribute="leading" secondItem="xG5-Qg-ZKW" secondAttribute="leading" id="h2F-AN-NuW"/>
-                                    <constraint firstAttribute="height" constant="30" id="pgP-hJ-nmA"/>
                                     <constraint firstItem="qm7-UN-qox" firstAttribute="centerX" secondItem="xG5-Qg-ZKW" secondAttribute="centerX" id="qal-dh-rUs"/>
+                                    <constraint firstAttribute="height" constant="27" id="rpg-RK-jcb"/>
                                     <constraint firstItem="qm7-UN-qox" firstAttribute="centerY" secondItem="xG5-Qg-ZKW" secondAttribute="centerY" id="rwn-sN-G88"/>
                                 </constraints>
                             </view>
@@ -85,13 +89,14 @@
                         <color key="backgroundColor" name="macoIvory"/>
                         <constraints>
                             <constraint firstItem="xG5-Qg-ZKW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="eeX-yz-NUm"/>
-                            <constraint firstItem="xG5-Qg-ZKW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="kK7-gW-vAt"/>
+                            <constraint firstItem="xG5-Qg-ZKW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kK7-gW-vAt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xG5-Qg-ZKW" secondAttribute="trailing" constant="22" id="v4v-aq-CQ0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="indexLabel" destination="LVS-EZ-BqL" id="9H3-5y-rOM"/>
                         <outlet property="indexTitle" destination="yqf-rl-lBT" id="f7m-r9-bhh"/>
+                        <outlet property="navigationBarHeightConstraint" destination="rpg-RK-jcb" id="5IT-3j-eJ8"/>
                         <outlet property="navigationView" destination="xG5-Qg-ZKW" id="DK3-N5-0ON"/>
                         <outlet property="toggleButton" destination="CyW-LT-jcq" id="sd5-Kf-cwU"/>
                     </connections>
@@ -102,8 +107,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnIconBack" width="26" height="27"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="macoBlack">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

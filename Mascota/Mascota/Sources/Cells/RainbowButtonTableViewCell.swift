@@ -17,7 +17,7 @@ class RainbowButtonTableViewCell: UITableViewCell {
     }
     
     private lazy var macoImageView = UIImageView().then {
-        $0.image = UIImage(named: "illustExample")
+        $0.image = UIImage(named: "illustRainbowHuman")
         $0.contentMode = .scaleAspectFit
     }
     
@@ -53,7 +53,7 @@ class RainbowButtonTableViewCell: UITableViewCell {
             $0.top.equalTo(button.snp.bottom).offset(28)
             $0.leading.equalToSuperview().offset(50)
             $0.trailing.equalToSuperview().inset(50)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(30)
         }
 
         backgroundColor = .macoIvory
