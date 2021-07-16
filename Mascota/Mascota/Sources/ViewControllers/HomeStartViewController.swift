@@ -38,6 +38,7 @@ class HomeStartViewController: UIViewController {
                                                      date: "")
     
     let service = MoyaProvider<HomeAPI>(plugins: [MoyaLoggingPlugin()])
+    var calendarDiaryDetailDelegate: CalendarDiaryDetailDelegator?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -180,12 +181,19 @@ class HomeStartViewController: UIViewController {
     }
     
     @objc
+    func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
+        let diaryDetailViewController = CalendarDiaryDetailViewController()
+        self.calendarDiaryDetailDelegate = diaryDetailViewController
+        self.calendarDiaryDetailDelegate?.sendingDiariesId(id: [firstPage.id])
+        navigationController?.pushViewController(diaryDetailViewController, animated: true)
+    }
+    
+    @objc
     func tapRightBookPage(_ sender: UITapGestureRecognizer) {
         let diaryStoryboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteFirst, bundle: nil)
         guard let diaryWriteFirstViewController = diaryStoryboard.instantiateViewController(identifier: AppConstants.ViewController.diaryWriteFirst) as? DiaryWriteFirstViewController else {
             return
         }
-        
         navigationController?.pushViewController(diaryWriteFirstViewController, animated: true)
     }
     
@@ -221,6 +229,7 @@ extension HomeStartViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.setContentText(page: firstPage)
+            cell.bookHomePageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
             cell.bookHomePageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
             return cell
         case 1:

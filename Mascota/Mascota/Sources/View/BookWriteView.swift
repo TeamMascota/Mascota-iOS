@@ -31,7 +31,8 @@ class BookWriteView: UIView {
     
     private lazy var lineStackView = UIStackView().then {
         $0.axis = .vertical
-        $0.spacing = 26
+        $0.distribution = .equalSpacing
+//        $0.spacing = 26
     }
     
     private lazy var emoji = EmojiStyle()
@@ -112,6 +113,7 @@ class BookWriteView: UIView {
         }
         
         lineStackView.snp.makeConstraints {
+            $0.top.equalTo(emojiStackView.snp.bottom).inset(-30)
             $0.leading.equalTo(titleLabel.snp.leading)
             $0.trailing.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview().inset(45)

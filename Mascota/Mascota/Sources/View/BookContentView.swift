@@ -43,9 +43,8 @@ class BookContentView: UIView {
         } else {
             $0.font = .macoFont(type: .regular, size: 13)
         }
-        $0.sizeToFit()
-        $0.textColor = .macoGray
         $0.numberOfLines = 0
+        $0.textColor = .macoGray
         $0.textAlignment = .left
     }
 
@@ -143,7 +142,7 @@ class BookContentView: UIView {
             contentLabel.text = content
             dateLabel.text = date
 
-            contentLabel.setLineSpacing(lineHeightMultiple: 1.5)
+            contentLabel.setLineSpacing(lineHeightMultiple: 1.2)
             contentLabel.lineBreakMode = .byTruncatingTail
 
             [titleLabel, subtitleLabel, contentLabel, dateLabel, faceImageView].forEach {
