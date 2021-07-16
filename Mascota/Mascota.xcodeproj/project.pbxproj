@@ -31,6 +31,12 @@
 		185091562693500A00ABDE2C /* HomeIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */; };
 		18519AAD2692C0D100933B24 /* BookPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */; };
 		18519AAE2692C0D100933B24 /* BookPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */; };
+		185844A226A0690200F82A95 /* DiaryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A126A0690200F82A95 /* DiaryAPI.swift */; };
+		185844A426A0968900F82A95 /* PetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A326A0968900F82A95 /* PetsAPI.swift */; };
+		185844A626A0978F00F82A95 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A526A0978F00F82A95 /* CharacterModel.swift */; };
+		185844A826A097F700F82A95 /* DiaryWriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A726A097F700F82A95 /* DiaryWriteModel.swift */; };
+		185844AA26A09AC000F82A95 /* PetImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A926A09AC000F82A95 /* PetImageModel.swift */; };
+		185844AC26A09C1300F82A95 /* PetsImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844AB26A09C1300F82A95 /* PetsImageModel.swift */; };
 		185E68A8269EBC2E009061E5 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A7269EBC2E009061E5 /* IndexModel.swift */; };
 		185E68AA269EC2EA009061E5 /* BriefDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */; };
 		185E68AC269EC530009061E5 /* FirstPartMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68AB269EC530009061E5 /* FirstPartMainModel.swift */; };
@@ -74,6 +80,9 @@
 		18AE88F3268AE78100EBC129 /* apimodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE88F2268AE78100EBC129 /* apimodel.swift */; };
 		18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */; };
 		18B49237269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */; };
+		18B65AA4269F63B0004EE849 /* MonthlyDiariesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B65AA3269F63B0004EE849 /* MonthlyDiariesModel.swift */; };
+		18B65AA6269F640E004EE849 /* ChapterMonthlyDiariesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B65AA5269F640E004EE849 /* ChapterMonthlyDiariesModel.swift */; };
+		18B65AA8269F65D0004EE849 /* IndexDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B65AA7269F65D0004EE849 /* IndexDetailModel.swift */; };
 		18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */; };
 		18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C14AA5269E92E80049422E /* UIImageView + Extension.swift */; };
 		18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */; };
@@ -110,6 +119,7 @@
 		DD01C7FA268DAAD80013D5FF /* BookWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */; };
 		DD02622526972EC400C003DC /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */; };
 		DD11DB412693219D001D3CE7 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */; };
+		DD14217026A075160072B4EB /* RainbowPetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14216F26A075160072B4EB /* RainbowPetInfoModel.swift */; };
 		DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */; };
 		DD1DB1E5269EB90900462281 /* GenericModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DB1E4269EB90900462281 /* GenericModel.swift */; };
 		DD1DB1E7269EBC5500462281 /* CalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */; };
@@ -128,6 +138,14 @@
 		DD886DE6269191CF0011F8F6 /* MainNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */; };
 		DD89E2B0269DC7540078CC57 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89E2AF269DC7540078CC57 /* CalendarViewController.swift */; };
 		DD89E2B2269DC9860078CC57 /* MacoCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89E2B1269DC9860078CC57 /* MacoCalendarCell.swift */; };
+		DD8D502726A015FA0098AFF5 /* PutPartingRainbowBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D502626A015FA0098AFF5 /* PutPartingRainbowBridge.swift */; };
+		DD8D502926A016440098AFF5 /* PartingRainbowBridgeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D502826A016440098AFF5 /* PartingRainbowBridgeModel.swift */; };
+		DD8D502B26A022790098AFF5 /* GetRainbowRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D502A26A022790098AFF5 /* GetRainbowRecordModel.swift */; };
+		DD8D502F26A022D90098AFF5 /* BookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D502E26A022D90098AFF5 /* BookInfoModel.swift */; };
+		DD8D503126A036B70098AFF5 /* GetRainbowMomentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D503026A036B70098AFF5 /* GetRainbowMomentModel.swift */; };
+		DD8D503326A037500098AFF5 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D503226A037500098AFF5 /* PetModel.swift */; };
+		DD8D503526A037740098AFF5 /* TheBestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D503426A037740098AFF5 /* TheBestModel.swift */; };
+		DD8D503726A0378A0098AFF5 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8D503626A0378A0098AFF5 /* DiaryModel.swift */; };
 		DD8DE34E269412D6000F03C3 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */; };
 		DD8DE350269419A4000F03C3 /* RainbowEpillogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */; };
 		DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8DE35126941C49000F03C3 /* UIStackView+Extension.swift */; };
@@ -148,7 +166,7 @@
 		DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */; };
 		DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */; };
 		DDC360E026930722003EF8D7 /* RainbowNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */; };
-		DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */; };
+		DDC360E22693167A003EF8D7 /* RainbowMomentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC360E12693167A003EF8D7 /* RainbowMomentViewController.swift */; };
 		DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */; };
 		DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */; };
 		DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */; };
@@ -159,12 +177,17 @@
 		DDCC9EB5269F3C4E0009C00D /* HelpCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */; };
 		DDCC9EB7269F3C6D0009C00D /* MemoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */; };
 		DDCC9EBA269F4E7A0009C00D /* DateProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EB9269F4E7A0009C00D /* DateProcessing.swift */; };
+		DDCC9EBC269F77480009C00D /* GetRainbowPetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC9EBB269F77480009C00D /* GetRainbowPetModel.swift */; };
+		DDD21FB126A09CB7006A80DD /* GetPetDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD21FB026A09CB7006A80DD /* GetPetDiaryModel.swift */; };
+		DDD21FB326A09CE1006A80DD /* PetDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD21FB226A09CE1006A80DD /* PetDiaryModel.swift */; };
+		DDD21FB526A09D1A006A80DD /* FeelingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD21FB426A09D1A006A80DD /* FeelingListModel.swift */; };
+		DDD21FB726A09E46006A80DD /* CalendarDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD21FB626A09E46006A80DD /* CalendarDiaryDetailViewController.swift */; };
 		DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */; };
 		DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */; };
 		DDD2545F269C82A900992540 /* CustomCollectionAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */; };
 		DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD25460269C91E100992540 /* ProfileNameButton.swift */; };
-		DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */; };
-		DDDCA7AF2693644500DB1B8F /* RainbowBookCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */; };
+		DDDCA7AD26935ACD00DB1B8F /* RainbowBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AC26935ACD00DB1B8F /* RainbowBridgeViewController.swift */; };
+		DDDCA7AF2693644500DB1B8F /* RainbowRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7AE2693644500DB1B8F /* RainbowRecordViewController.swift */; };
 		DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */; };
 		DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -211,6 +234,12 @@
 		185091542693500A00ABDE2C /* HomeIndexCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeIndexCollectionReusableView.xib; sourceTree = "<group>"; };
 		18519AAB2692C0D100933B24 /* BookPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		18519AAC2692C0D100933B24 /* BookPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		185844A126A0690200F82A95 /* DiaryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryAPI.swift; sourceTree = "<group>"; };
+		185844A326A0968900F82A95 /* PetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsAPI.swift; sourceTree = "<group>"; };
+		185844A526A0978F00F82A95 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		185844A726A097F700F82A95 /* DiaryWriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryWriteModel.swift; sourceTree = "<group>"; };
+		185844A926A09AC000F82A95 /* PetImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageModel.swift; sourceTree = "<group>"; };
+		185844AB26A09C1300F82A95 /* PetsImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsImageModel.swift; sourceTree = "<group>"; };
 		185E68A7269EBC2E009061E5 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
 		185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefDiaryModel.swift; sourceTree = "<group>"; };
 		185E68AB269EC530009061E5 /* FirstPartMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPartMainModel.swift; sourceTree = "<group>"; };
@@ -260,6 +289,9 @@
 		18AE88F2268AE78100EBC129 /* apimodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apimodel.swift; sourceTree = "<group>"; };
 		18B49234269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEmotionCollectionViewCell.swift; sourceTree = "<group>"; };
 		18B49235269A2C7E00693B26 /* PetEmotionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PetEmotionCollectionViewCell.xib; sourceTree = "<group>"; };
+		18B65AA3269F63B0004EE849 /* MonthlyDiariesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDiariesModel.swift; sourceTree = "<group>"; };
+		18B65AA5269F640E004EE849 /* ChapterMonthlyDiariesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterMonthlyDiariesModel.swift; sourceTree = "<group>"; };
+		18B65AA7269F65D0004EE849 /* IndexDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDetailModel.swift; sourceTree = "<group>"; };
 		18C14AA3269E90660049422E /* MoyaLogginPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLogginPlugin.swift; sourceTree = "<group>"; };
 		18C14AA5269E92E80049422E /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		18CE0B5F2692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeIndexCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -301,6 +333,7 @@
 		DD01C7F9268DAAD80013D5FF /* BookWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWriteView.swift; sourceTree = "<group>"; };
 		DD02622426972EC400C003DC /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		DD11DB402693219D001D3CE7 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		DD14216F26A075160072B4EB /* RainbowPetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowPetInfoModel.swift; sourceTree = "<group>"; };
 		DD15470C2697617100F2E84B /* RainbowDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DD1DB1E4269EB90900462281 /* GenericModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericModel.swift; sourceTree = "<group>"; };
 		DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAPI.swift; sourceTree = "<group>"; };
@@ -319,6 +352,14 @@
 		DD886DE5269191CF0011F8F6 /* MainNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationBarView.swift; sourceTree = "<group>"; };
 		DD89E2AF269DC7540078CC57 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		DD89E2B1269DC9860078CC57 /* MacoCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCalendarCell.swift; sourceTree = "<group>"; };
+		DD8D502626A015FA0098AFF5 /* PutPartingRainbowBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutPartingRainbowBridge.swift; sourceTree = "<group>"; };
+		DD8D502826A016440098AFF5 /* PartingRainbowBridgeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartingRainbowBridgeModel.swift; sourceTree = "<group>"; };
+		DD8D502A26A022790098AFF5 /* GetRainbowRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRainbowRecordModel.swift; sourceTree = "<group>"; };
+		DD8D502E26A022D90098AFF5 /* BookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoModel.swift; sourceTree = "<group>"; };
+		DD8D503026A036B70098AFF5 /* GetRainbowMomentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRainbowMomentModel.swift; sourceTree = "<group>"; };
+		DD8D503226A037500098AFF5 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
+		DD8D503426A037740098AFF5 /* TheBestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBestModel.swift; sourceTree = "<group>"; };
+		DD8D503626A0378A0098AFF5 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		DD8DE34D269412D6000F03C3 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowEpillogueViewController.swift; sourceTree = "<group>"; };
 		DD8DE35126941C49000F03C3 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
@@ -339,7 +380,7 @@
 		DDC360DA2692DAC9003EF8D7 /* MacoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoButton.swift; sourceTree = "<group>"; };
 		DDC360DD2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowButtonTableViewCell.swift; sourceTree = "<group>"; };
 		DDC360DF26930722003EF8D7 /* RainbowNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowNavigationBarView.swift; sourceTree = "<group>"; };
-		DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBestViewController.swift; sourceTree = "<group>"; };
+		DDC360E12693167A003EF8D7 /* RainbowMomentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowMomentViewController.swift; sourceTree = "<group>"; };
 		DDCC9EA6269EE48E0009C00D /* GetCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCalendarModel.swift; sourceTree = "<group>"; };
 		DDCC9EA8269F18A90009C00D /* MacoCaledarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacoCaledarModel.swift; sourceTree = "<group>"; };
 		DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDiaryModel.swift; sourceTree = "<group>"; };
@@ -350,12 +391,17 @@
 		DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCardModel.swift; sourceTree = "<group>"; };
 		DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryModel.swift; sourceTree = "<group>"; };
 		DDCC9EB9269F4E7A0009C00D /* DateProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateProcessing.swift; sourceTree = "<group>"; };
+		DDCC9EBB269F77480009C00D /* GetRainbowPetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRainbowPetModel.swift; sourceTree = "<group>"; };
+		DDD21FB026A09CB7006A80DD /* GetPetDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetDiaryModel.swift; sourceTree = "<group>"; };
+		DDD21FB226A09CE1006A80DD /* PetDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDiaryModel.swift; sourceTree = "<group>"; };
+		DDD21FB426A09D1A006A80DD /* FeelingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingListModel.swift; sourceTree = "<group>"; };
+		DDD21FB626A09E46006A80DD /* CalendarDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545A269C0E0900992540 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDiaryDetailViewController.swift; sourceTree = "<group>"; };
 		DDD2545E269C82A900992540 /* CustomCollectionAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionAlertView.swift; sourceTree = "<group>"; };
 		DDD25460269C91E100992540 /* ProfileNameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameButton.swift; sourceTree = "<group>"; };
-		DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowCommentViewController.swift; sourceTree = "<group>"; };
-		DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBookCoverViewController.swift; sourceTree = "<group>"; };
+		DDDCA7AC26935ACD00DB1B8F /* RainbowBridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowBridgeViewController.swift; sourceTree = "<group>"; };
+		DDDCA7AE2693644500DB1B8F /* RainbowRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainbowRecordViewController.swift; sourceTree = "<group>"; };
 		DDDCA7B0269366E800DB1B8F /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
 		DDE1DF43269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6500F7D598A5EEEC5E6B743 /* Pods_Mascota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mascota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,10 +602,28 @@
 				DDCC9EAA269F18C10009C00D /* DateDiaryModel.swift */,
 				185E68BF269F3CE7009061E5 /* SecondPartMainPageModel.swift */,
 				185E68C1269F3DDC009061E5 /* HomeFirstPartModel.swift */,
+				18B65AA3269F63B0004EE849 /* MonthlyDiariesModel.swift */,
+				18B65AA5269F640E004EE849 /* ChapterMonthlyDiariesModel.swift */,
+				18B65AA7269F65D0004EE849 /* IndexDetailModel.swift */,
 				DDCC9EB0269F3A200009C00D /* GetRainbowHomeModel.swift */,
 				DDCC9EB2269F3C220009C00D /* RainbowMainPageModel.swift */,
 				DDCC9EB4269F3C4E0009C00D /* HelpCardModel.swift */,
 				DDCC9EB6269F3C6D0009C00D /* MemoryModel.swift */,
+				DDCC9EBB269F77480009C00D /* GetRainbowPetModel.swift */,
+				DD8D502626A015FA0098AFF5 /* PutPartingRainbowBridge.swift */,
+				DD8D502826A016440098AFF5 /* PartingRainbowBridgeModel.swift */,
+				DD8D502A26A022790098AFF5 /* GetRainbowRecordModel.swift */,
+				DD8D502E26A022D90098AFF5 /* BookInfoModel.swift */,
+				DD8D503026A036B70098AFF5 /* GetRainbowMomentModel.swift */,
+				DD8D503226A037500098AFF5 /* PetModel.swift */,
+				DD8D503426A037740098AFF5 /* TheBestModel.swift */,
+				DD8D503626A0378A0098AFF5 /* DiaryModel.swift */,
+				DD14216F26A075160072B4EB /* RainbowPetInfoModel.swift */,
+				185844A926A09AC000F82A95 /* PetImageModel.swift */,
+				185844AB26A09C1300F82A95 /* PetsImageModel.swift */,
+				DDD21FB026A09CB7006A80DD /* GetPetDiaryModel.swift */,
+				DDD21FB226A09CE1006A80DD /* PetDiaryModel.swift */,
+				DDD21FB426A09D1A006A80DD /* FeelingListModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -572,7 +636,9 @@
 				185E68B7269EDB14009061E5 /* ChapterAPI.swift */,
 				DD1DB1E6269EBC5500462281 /* CalendarAPI.swift */,
 				185E68BB269F3B43009061E5 /* HomeAPI.swift */,
+				185844A126A0690200F82A95 /* DiaryAPI.swift */,
 				DDCC9EAE269F38E90009C00D /* RainbowAPI.swift */,
+				185844A326A0968900F82A95 /* PetsAPI.swift */,
 			);
 			path = APIServices;
 			sourceTree = "<group>";
@@ -581,6 +647,8 @@
 			isa = PBXGroup;
 			children = (
 				18AE88EE268AE76E00EBC129 /* appmodel.swift */,
+				185844A526A0978F00F82A95 /* CharacterModel.swift */,
+				185844A726A097F700F82A95 /* DiaryWriteModel.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -680,10 +748,10 @@
 				483DA2512690DAA8005DBA86 /* SignUpViewController.swift */,
 				4888036926919BDF000CB8F2 /* RegisterMyPetViewController.swift */,
 				188AD00F26919A8E008F4284 /* HomeStartViewController.swift */,
-				DDC360E12693167A003EF8D7 /* RainbowBestViewController.swift */,
+				DDC360E12693167A003EF8D7 /* RainbowMomentViewController.swift */,
 				18AB719826935C4200FADF9B /* IndexDetailViewController.swift */,
-				DDDCA7AC26935ACD00DB1B8F /* RainbowCommentViewController.swift */,
-				DDDCA7AE2693644500DB1B8F /* RainbowBookCoverViewController.swift */,
+				DDDCA7AC26935ACD00DB1B8F /* RainbowBridgeViewController.swift */,
+				DDDCA7AE2693644500DB1B8F /* RainbowRecordViewController.swift */,
 				18E5B41E26943BB1001927DD /* IndexEditViewController.swift */,
 				DD8DE34F269419A4000F03C3 /* RainbowEpillogueViewController.swift */,
 				1813F2AD2699E22200D7769E /* DiaryWriteFirstViewController.swift */,
@@ -695,6 +763,7 @@
 				DDD2545C269C153B00992540 /* HomeDiaryDetailViewController.swift */,
 				48E6C376269D9E0800E97E8D /* DoneSignUpViewController.swift */,
 				DD89E2AF269DC7540078CC57 /* CalendarViewController.swift */,
+				DDD21FB626A09E46006A80DD /* CalendarDiaryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1040,15 +1109,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */,
+				185844AC26A09C1300F82A95 /* PetsImageModel.swift in Sources */,
 				185E68B6269ECD55009061E5 /* GetChapterPerMonthModel.swift in Sources */,
 				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
 				4809D068268E304C0060F5EB /* LoginViewController.swift in Sources */,
+				DD8D503326A037500098AFF5 /* PetModel.swift in Sources */,
 				185E68BC269F3B43009061E5 /* HomeAPI.swift in Sources */,
 				18B49236269A2C7E00693B26 /* PetEmotionCollectionViewCell.swift in Sources */,
 				18AB719926935C4200FADF9B /* IndexDetailViewController.swift in Sources */,
 				488803712692132C000CB8F2 /* RegisterMyPetCollectionViewCell.swift in Sources */,
-				DDDCA7AF2693644500DB1B8F /* RainbowBookCoverViewController.swift in Sources */,
+				DDDCA7AF2693644500DB1B8F /* RainbowRecordViewController.swift in Sources */,
+				DD8D502B26A022790098AFF5 /* GetRainbowRecordModel.swift in Sources */,
 				DDDCA7B1269366E800DB1B8F /* BookCoverView.swift in Sources */,
 				185E68AE269EC99C009061E5 /* GetChapterModel.swift in Sources */,
 				DD931B2D268DE9C7001DA072 /* UILabel+Extension.swift in Sources */,
@@ -1062,32 +1134,40 @@
 				DD6C9B1C2690A769004223ED /* CircleProfileButton.swift in Sources */,
 				DD1DB1E7269EBC5500462281 /* CalendarAPI.swift in Sources */,
 				DDCC9EA7269EE48E0009C00D /* GetCalendarModel.swift in Sources */,
+				18B65AA4269F63B0004EE849 /* MonthlyDiariesModel.swift in Sources */,
 				48AC0BA826980B9B0012E3D3 /* RegisterMyPetAPIModel.swift in Sources */,
+				18B65AA8269F65D0004EE849 /* IndexDetailModel.swift in Sources */,
 				18DFD0F0269D9CAC00B4D54A /* CALayer + Extension.swift in Sources */,
-				DDDCA7AD26935ACD00DB1B8F /* RainbowCommentViewController.swift in Sources */,
+				DDDCA7AD26935ACD00DB1B8F /* RainbowBridgeViewController.swift in Sources */,
 				DD7112A7268C8F8500E6E2DC /* BookContentView.swift in Sources */,
 				1813F2AE2699E22200D7769E /* DiaryWriteFirstViewController.swift in Sources */,
 				DD886DE426918AF60011F8F6 /* UIFont+Extension.swift in Sources */,
 				DD89E2B2269DC9860078CC57 /* MacoCalendarCell.swift in Sources */,
 				185E68B4269ECC7B009061E5 /* ChapterMonthDiary.swift in Sources */,
+				185844A226A0690200F82A95 /* DiaryAPI.swift in Sources */,
 				18AB71952693578E00FADF9B /* RainbowBestSectionFooterView.swift in Sources */,
 				18C14AA4269E90660049422E /* MoyaLogginPlugin.swift in Sources */,
 				188867E2269C964C0025E471 /* ImageCollectionViewCell.swift in Sources */,
+				DD8D503126A036B70098AFF5 /* GetRainbowMomentModel.swift in Sources */,
 				DDD2545D269C153B00992540 /* HomeDiaryDetailViewController.swift in Sources */,
 				DD878EA22691681900856EE2 /* String+Extension.swift in Sources */,
 				48880377269220D9000CB8F2 /* MakePlusCollectionViewCell.swift in Sources */,
 				18AE88AC268AE58A00EBC129 /* AppDelegate.swift in Sources */,
-				DDC360E22693167A003EF8D7 /* RainbowBestViewController.swift in Sources */,
+				DDC360E22693167A003EF8D7 /* RainbowMomentViewController.swift in Sources */,
 				DD8140A126929B110072C1BD /* RainbowHelpHeaderTableViewCell.swift in Sources */,
 				48E6C375269D7E0000E97E8D /* DoneMakingBookViewController.swift in Sources */,
+				185844A626A0978F00F82A95 /* CharacterModel.swift in Sources */,
 				185F0F752694217F008172C7 /* UIImage + Extension.swift in Sources */,
 				185E68C0269F3CE7009061E5 /* SecondPartMainPageModel.swift in Sources */,
 				188867DE269C95E10025E471 /* PlusCollectionViewCell.swift in Sources */,
 				DDCC9EBA269F4E7A0009C00D /* DateProcessing.swift in Sources */,
+				DD8D502F26A022D90098AFF5 /* BookInfoModel.swift in Sources */,
 				18AE88AE268AE58A00EBC129 /* SceneDelegate.swift in Sources */,
 				18AB71922693577100FADF9B /* RainbowBestSectionHeaderView.swift in Sources */,
 				DD89E2B0269DC7540078CC57 /* CalendarViewController.swift in Sources */,
 				185E68AA269EC2EA009061E5 /* BriefDiaryModel.swift in Sources */,
+				DDD21FB526A09D1A006A80DD /* FeelingListModel.swift in Sources */,
+				DD8D503726A0378A0098AFF5 /* DiaryModel.swift in Sources */,
 				DD8DE35C26945242000F03C3 /* UIButton+Extension.swift in Sources */,
 				182C1D6A26934518006C6511 /* PartCollectionViewCell.swift in Sources */,
 				18AE88EF268AE76E00EBC129 /* appmodel.swift in Sources */,
@@ -1099,13 +1179,18 @@
 				18DFD0F2269DA6A800B4D54A /* TempViewController.swift in Sources */,
 				18C14AA6269E92E80049422E /* UIImageView + Extension.swift in Sources */,
 				DDCC9EB5269F3C4E0009C00D /* HelpCardModel.swift in Sources */,
+				DDD21FB126A09CB7006A80DD /* GetPetDiaryModel.swift in Sources */,
+				DDD21FB326A09CE1006A80DD /* PetDiaryModel.swift in Sources */,
 				182F42AD2693695A0040456B /* IndexDetailHeaderView.swift in Sources */,
 				1828644E269C25C3002C98E0 /* DIaryWriteSecondViewController.swift in Sources */,
 				48B39E1F2699FD4300989C37 /* RegisterPrologBookViewController.swift in Sources */,
+				DDD21FB726A09E46006A80DD /* CalendarDiaryDetailViewController.swift in Sources */,
 				DD931B2F268E0B5A001DA072 /* RainbowViewController.swift in Sources */,
+				18B65AA6269F640E004EE849 /* ChapterMonthlyDiariesModel.swift in Sources */,
 				DDCC9EAB269F18C10009C00D /* DateDiaryModel.swift in Sources */,
 				DDCC9EAF269F38E90009C00D /* RainbowAPI.swift in Sources */,
 				DDCC9EB1269F3A200009C00D /* GetRainbowHomeModel.swift in Sources */,
+				DD8D503526A037740098AFF5 /* TheBestModel.swift in Sources */,
 				18AE88E0268AE6F100EBC129 /* AppConstants.swift in Sources */,
 				18AE88F1268AE77800EBC129 /* APIService.swift in Sources */,
 				DDD25461269C91E100992540 /* ProfileNameButton.swift in Sources */,
@@ -1114,6 +1199,7 @@
 				1813F2B52699EA0200D7769E /* CharacterCollectionViewCell.swift in Sources */,
 				DD8DE35226941C49000F03C3 /* UIStackView+Extension.swift in Sources */,
 				185E68B2269ECC32009061E5 /* DetailDiaryModel.swift in Sources */,
+				DD8D502726A015FA0098AFF5 /* PutPartingRainbowBridge.swift in Sources */,
 				DD15470D2697617100F2E84B /* RainbowDiaryDetailViewController.swift in Sources */,
 				DD8DE354269426E1000F03C3 /* UITextField+Extension.swift in Sources */,
 				DDAD356B26920D8C005559BE /* RainbowBookPageTableViewCell.swift in Sources */,
@@ -1124,6 +1210,7 @@
 				DD8DE35626943EA3000F03C3 /* UITextView+Extension.swift in Sources */,
 				4832574C269F14D1008FF484 /* AccountAPI.swift in Sources */,
 				DD92BCAE268C576B00A95A75 /* BookPageView.swift in Sources */,
+				DDCC9EBC269F77480009C00D /* GetRainbowPetModel.swift in Sources */,
 				1842E1A1269AE61800861067 /* EmptyCollectionReusableView.swift in Sources */,
 				48325750269F64F5008FF484 /* RequestLoginModel.swift in Sources */,
 				483DA2522690DAA8005DBA86 /* SignUpViewController.swift in Sources */,
@@ -1132,6 +1219,7 @@
 				185E68A8269EBC2E009061E5 /* IndexModel.swift in Sources */,
 				DD92BCB0268C604200A95A75 /* Constants.swift in Sources */,
 				4832574A269F12CB008FF484 /* RequestSignUpModel.swift in Sources */,
+				DD8D502926A016440098AFF5 /* PartingRainbowBridgeModel.swift in Sources */,
 				DDCC9EA9269F18A90009C00D /* MacoCaledarModel.swift in Sources */,
 				182F42AA2693667A0040456B /* IndexDetailTableViewCell.swift in Sources */,
 				48325752269F6598008FF484 /* ResponseLoginModel.swift in Sources */,
@@ -1139,9 +1227,12 @@
 				DDCC9EB3269F3C220009C00D /* RainbowMainPageModel.swift in Sources */,
 				18CE0B612692D1C700C8C1E1 /* HomeIndexCollectionViewCell.swift in Sources */,
 				DD95C99F268EC801002B35A1 /* BookHomePageView.swift in Sources */,
+				185844A426A0968900F82A95 /* PetsAPI.swift in Sources */,
 				DDD2545B269C0E0900992540 /* UIBarButtonItem+Extension.swift in Sources */,
 				DDC360DE2692DE9C003EF8D7 /* RainbowButtonTableViewCell.swift in Sources */,
 				48E6C377269D9E0800E97E8D /* DoneSignUpViewController.swift in Sources */,
+				185844A826A097F700F82A95 /* DiaryWriteModel.swift in Sources */,
+				DD14217026A075160072B4EB /* RainbowPetInfoModel.swift in Sources */,
 				DDCC9EAD269F19BE0009C00D /* EmojiStyle.swift in Sources */,
 				18746434269843B100ED57DA /* CustomTextFieldAlertView.swift in Sources */,
 				DDC360D92692AC76003EF8D7 /* RainbowHelpCardTableViewCell.swift in Sources */,
@@ -1151,6 +1242,7 @@
 				DD6C9B1426908D53004223ED /* UIViewController+Extension.swift in Sources */,
 				1813F2B12699E3A100D7769E /* CharacterMoodCollectionReusableView.swift in Sources */,
 				DDC360DB2692DAC9003EF8D7 /* MacoButton.swift in Sources */,
+				185844AA26A09AC000F82A95 /* PetImageModel.swift in Sources */,
 				DD1DB1E5269EB90900462281 /* GenericModel.swift in Sources */,
 				DD95C99D268EC16C002B35A1 /* PageTextModel.swift in Sources */,
 				185E68B0269ECA28009061E5 /* TableContentsModel.swift in Sources */,

@@ -30,21 +30,22 @@ class RegisterPrologBookViewController: UIViewController {
     
     var filledIn: [Bool] = [false, false, false, false]
     let picker = UIImagePickerController()
-    
+    var totalpet = ""
     @IBAction func backButtonTapped(_ sender:UIBarButtonItem!) {
         self.navigationController?.popViewController(animated: true)
     }
  
     private func enableNextButton() {
         for i in 0...3 {
-            print(filledIn)
             if filledIn[i] == false {
-                nextButton.isEnabled = false
-                nextButton.backgroundColor = .macoLightGray
+//                nextButton.isEnabled = false
+//                nextButton.backgroundColor = .macoLightGray
+                disableNextButton()
                 return
             }
         }
-        nextButton.backgroundColor = . macoOrange
+        nextButton.backgroundColor = .macoOrange
+        nextButton.setTitleColor(.macoWhite, for: .selected)
         nextButton.isEnabled = true
     }
     
@@ -60,6 +61,8 @@ class RegisterPrologBookViewController: UIViewController {
         setTextField()
         setTextViewplaceholder()
         setNavigationBar()
+        setNumberOfDoneLabel()
+        disableNextButton()
         setUI()
     }
     
@@ -74,7 +77,11 @@ class RegisterPrologBookViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped() {
-        let nextVC = self.storyboard?.instantiateViewController(identifier: "DoneMakingBookViewController")
+        let nextVC = self.storyboard?.instantiateViewController(identifier: "DoneMakingBookViewController") as? DoneMakingBookViewController
+        nextVC?.bookName = bookNameTextField.text ?? "제목"
+        nextVC?.authorName = authorNameTextField.text ?? "작가"
+        nextVC?.prologBookCover = bookCoverImage.image ?? UIImage(named: "btnImgAddBookEmpty")!
+        nextVC?.totalPet = self.totalpet
         self.navigationController?.pushViewController(nextVC!, animated: true)
     }
     
@@ -87,16 +94,20 @@ class RegisterPrologBookViewController: UIViewController {
     }
     
     func disableNextButton() {
-        nextButton.backgroundColor = .macoLightGray
+        nextButton.backgroundColor = UIColor(red: 229.0/255.0, green: 228/255, blue: 226/255, alpha: 1.0)
+        nextButton.titleLabel?.textColor = .macoLightGray
         nextButton.isEnabled = false
     }
     
     func setUI() {
+        bookCoverImage.image = UIImage(named: "btnImgAddBookEmpty")
         bookCoverView.layer.masksToBounds = true
         bookCoverView.layer.cornerRadius = 3.0
         bookCoverView.layer.borderWidth = 1.0
         bookCoverView.layer.borderColor = UIColor.macoOrange.cgColor
     }
+    
+    
     
     @objc func tapImageView(tapGestureRecognizer: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
@@ -134,16 +145,22 @@ class RegisterPrologBookViewController: UIViewController {
         
         present(alertController, animated: true)
     }
+    
+    func setNumberOfDoneLabel() {
+        numberOfRegisteredPetLabel.textColor = .macoGray
+        numberOfRegisteredPetLabel.attributedText = "현재 작성 완료된 반려동물 주인공 \(totalpet)마리".convertSomeColorFont(color: .macoOrange, fontSize: 20, type: .regular, start: 19, length: 1)
+        numberOfRegisteredPetLabel.font = .macoFont(type: .regular, size: 14.0)
+    }
 }
 
 // MARK: - TextView Delegate
 extension RegisterPrologBookViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-            if(text == "\n") {
-                textView.resignFirstResponder()
-                return true
-            }
+//            if(text == "\n") {
+//                textView.resignFirstResponder()
+//                return true
+//            }
         return true
     }
     
@@ -270,6 +287,7 @@ extension RegisterPrologBookViewController: UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             bookCoverImage.image = image
+            setBlurToImage()
         }
         dismiss(animated: true, completion: nil)
     }
@@ -279,4 +297,13 @@ extension RegisterPrologBookViewController: UIImagePickerControllerDelegate, UIN
         picker.sourceType = .photoLibrary
         present(picker, animated: false, completion: nil)
     }
+    
+    func setBlurToImage() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.alpha = 0.1
+        blurredEffectView.frame = bookCoverImage.bounds
+        bookCoverImage.addSubview(blurredEffectView)
+    }
+
 }

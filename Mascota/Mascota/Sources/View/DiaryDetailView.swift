@@ -25,17 +25,24 @@ class DiaryDetailView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private lazy var textUnderLineStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 0
+    }
+    
+    private lazy var textUnderLineView = UIView().then {
+        $0.backgroundColor = type.color()
+    }
 
     public lazy var dateLabel = UILabel().then {
         $0.font = .macoFont(type: .regular, size: 14)
         $0.textColor = .macoDarkGray
-        $0.text = "2021년 6월 18일"
     }
     
     public lazy var togetherDayLabel = UILabel().then {
         $0.font = .macoFont(type: .regular, size: 14)
         $0.textColor = .macoDarkGray
-        $0.text = "함께한 지 1291일"
     }
     
     private lazy var gridImageView = UIImageView().then {
@@ -146,18 +153,6 @@ class DiaryDetailView: UIView {
             $0.height.equalTo(7)
         }
 
-        addSubviews(textView)
-        
-        textView.isScrollEnabled = false
-        textView.sizeToFit()
-        
-        textView.snp.makeConstraints {
-            $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(32)
-        }
-
         addSubviews(emojiStackView, forwardButton, backwardButton)
 
         emojiStackView.snp.makeConstraints {
@@ -175,30 +170,44 @@ class DiaryDetailView: UIView {
             $0.centerY.equalTo(forwardButton.snp.centerY)
             $0.trailing.equalTo(forwardButton.snp.leading).offset(-17)
         }
-        setEmogi()
     }
     
     public func setTextViewText(text: String) {
+        
+        addSubviews(textUnderLineStackView)
+        textUnderLineStackView.addArrangedSubviews(textView, textUnderLineView)
         textView.setText(text: text)
-        textView.layoutIfNeeded()
+        
+        textView.isScrollEnabled = false
+        textView.sizeToFit()
+        
+        print(textView.contentSize.height)
         
         if textView.contentSize.height <= 190 && !UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
-                $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
-                $0.leading.equalToSuperview().offset(16)
-                $0.trailing.equalToSuperview().inset(16)
                 $0.height.equalTo(Constant.DeviceSize.height / Constant.DesignSize.height * 197)
-                $0.bottom.equalToSuperview().inset(32)
             }
         } else if textView.contentSize.height <= 243 && UIDevice.current.hasNotch {
             textView.snp.remakeConstraints {
-                $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
-                $0.leading.equalToSuperview().offset(16)
-                $0.trailing.equalToSuperview().inset(16)
                 $0.height.equalTo(243)
-                $0.bottom.equalToSuperview().inset(32)
+            }
+        } else {
+            textView.snp.remakeConstraints {
+                $0.height.equalTo(textView.contentSize.height)
             }
         }
+        
+        textUnderLineStackView.snp.makeConstraints {
+            $0.top.equalTo(imageCollectionView.snp.bottom).offset(34)
+            $0.leading.equalToSuperview().offset(16)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(32)
+        }
+        
+        textUnderLineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+        }
+        
     }
     
     public func setPageControlSelectedPage(currentPage: Int) {
@@ -206,7 +215,9 @@ class DiaryDetailView: UIView {
     }
 
     public func setPageControl(pageCount: Int) {
-        pageControl.numberOfPages = pageCount
+        if pageCount != 1 {
+            pageControl.numberOfPages = pageCount
+        }
     }
     
     public func setDate(date: String, togetherDay: String) {
@@ -216,13 +227,15 @@ class DiaryDetailView: UIView {
     
     private lazy var backroundViewArray: [UIView] = []
     
-    public func setEmogi() {
-        for i in 0...3 {
-            let emogiButton = UIButton()
-            emogiButton.setImage( UIImage(named: "emoDogAngry"), for: .normal)
-            emogiButton.tag = i
-            emogiButton.addTarget(self, action: #selector(tapEmogiButton(_:)), for: .touchUpInside)
-            emojiStackView.addArrangedSubviews(emogiButton)
+    public func setEmoji(feelingLists: [FeelingListModel]) {
+        for (index, item) in feelingLists.enumerated() {
+            let emojiButton = UIButton()
+            let emoji = EmojiStyle().getEmoji(kind: item.kind, feeling: item.feeling)
+            emojiButton.setImage(emoji, for: .normal)
+            emojiButton.tag = index
+            print(index)
+            emojiButton.addTarget(self, action: #selector(tapEmojiButton(_:)), for: .touchUpInside)
+            emojiStackView.addArrangedSubviews(emojiButton)
             
             let petProfileStackView = UIStackView().then {
                 $0.axis = .vertical
@@ -240,9 +253,9 @@ class DiaryDetailView: UIView {
             addSubviews(backgroundView)
             
             backgroundView.snp.makeConstraints {
-                $0.top.equalTo(emogiButton.snp.bottom).inset(-5)
-                $0.width.equalTo(emogiButton.snp.width)
-                $0.centerX.equalTo(emogiButton.snp.centerX)
+                $0.top.equalTo(emojiButton.snp.bottom).inset(-5)
+                $0.width.equalTo(emojiButton.snp.width)
+                $0.centerX.equalTo(emojiButton.snp.centerX)
             }
             
             backgroundView.addSubviews(petProfileStackView)
@@ -254,9 +267,9 @@ class DiaryDetailView: UIView {
             }
             
             let circleProfileButton = CircleProfileButton(type: type)
-            let circleProfileButton2 = CircleProfileButton(type: type)
+            circleProfileButton.imageView?.updateServerImage(item.petImgs)
             
-            petProfileStackView.addArrangedSubviews(circleProfileButton, circleProfileButton2)
+            petProfileStackView.addArrangedSubviews(circleProfileButton)
             
             circleProfileButton.snp.makeConstraints {
                 $0.width.height.equalTo(31)
@@ -268,7 +281,9 @@ class DiaryDetailView: UIView {
     }
     
     @objc
-    func tapEmogiButton(_ sender: UIButton) {
+    func tapEmojiButton(_ sender: UIButton) {
+        
+        print(sender.tag)
         if backroundViewArray[sender.tag].alpha == 1 {
             UIView.animate(withDuration: 0.1) {
                 self.backroundViewArray[sender.tag].alpha = 0

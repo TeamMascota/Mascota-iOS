@@ -272,7 +272,6 @@ class IndexEditViewController: UIViewController {
     
     @objc
     func touchChangeButton(_ sender: UIButton) {
-        print(sender.tag)
         selectedContents = self.tableContents[sender.tag]
         self.customTextFieldAlertView.initializeComponents(title: "제 \(sender.tag)장", textField: nil)
         self.presentDoubleCustomAlert(view: customTextFieldAlertView,

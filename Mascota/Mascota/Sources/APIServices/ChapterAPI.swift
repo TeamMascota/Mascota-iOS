@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum ChapterAPI {
-    case getChapterMonth(id: Int)
+    case getChapterMonth(chapterID: String)
     case getChapterList
     case postChapterList(title: String)
     case deleteChapterList(chapterID: String)
@@ -26,8 +26,8 @@ extension ChapterAPI: TargetType {
     
     var path: String {
         switch self {
-        case .getChapterMonth(let id):
-            return "/pet/\(id)"
+        case .getChapterMonth(let chapterID):
+            return "/pet/" + chapterID
         case .getChapterList:
             return "/"+APIService.userID
         case .postChapterList:

@@ -15,8 +15,7 @@ class ProfileNameButton: UIButton {
         $0.image = UIImage(named: "icProfileEmptyBlue")
     }
     
-    private lazy var nameLabel = UILabel().then {
-        $0.text = "ㅋㅋ"
+    public lazy var nameLabel = UILabel().then {
         $0.font = .macoFont(type: .regular, size: 10)
         $0.textColor = .white
     }

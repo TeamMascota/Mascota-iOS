@@ -21,14 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
             
-            //let tabBarController = MacoTabBarController()
-            
-            //let rootNC = UINavigationController(rootViewController: tabBarController)
-            let viewcontroller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                       let rootNC = UINavigationController(rootViewController: viewcontroller)
-                
-            rootNC.navigationBar.isHidden = true
+            let tabBarController = MacoTabBarController()
 
+            let rootNC = UINavigationController(rootViewController: tabBarController)
+            rootNC.navigationBar.isHidden = true
+          
+            let viewcontroller = UIStoryboard(name: "RegisterMyPet", bundle: nil).instantiateViewController(withIdentifier: "RegisterMyPetViewController") as! RegisterMyPetViewController
+            let rootNC = UINavigationController(rootViewController: viewcontroller)
             window.rootViewController = rootNC
             window.backgroundColor = .macoIvory
             window.makeKeyAndVisible()

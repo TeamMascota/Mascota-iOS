@@ -7,7 +7,11 @@
 
 import UIKit
 
+import Moya
+
 class HomeDiaryDetailViewController: UIViewController {
+    
+    private lazy var service = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
     
     public lazy var images: [UIImage] = [.add, .checkmark, .remove]
     
@@ -116,7 +120,7 @@ extension HomeDiaryDetailViewController: UICollectionViewDataSource {
         guard let cell = contentView.imageCollectionView.dequeueReusableCell(withReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier, for: indexPath)
                                                                         as? DiaryDetailImageCollectionViewCell
                                                                         else { return DiaryDetailImageCollectionViewCell() }
-        cell.setImage(image: images[indexPath.row])
+//        cell.setImage(image: images[indexPath.row])
         
         return cell
     }
@@ -144,5 +148,26 @@ extension HomeDiaryDetailViewController {
     @objc
     func tapCloseButton(_ sender: UIBarButtonItem) {
         print("click")
+    }
+}
+
+
+extension HomeDiaryDetailViewController {
+    func requestGetPetDiary(diaryID: String) {
+        service.request(DiaryAPI.getPetDiary(diaryID: diaryID))  { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try JSONDecoder().decode(GenericModel<GetPetDiaryModel>.self, from: response.data)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

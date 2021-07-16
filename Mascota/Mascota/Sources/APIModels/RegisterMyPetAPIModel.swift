@@ -12,7 +12,6 @@ import UIKit
 struct RegisterMyPetModel {
     let pets: [PetInfo]
     let userID: String
-    
     enum CodingKeys: String, CodingKey {
         case pets
         case userID = "userId"
@@ -22,9 +21,9 @@ struct RegisterMyPetModel {
 // MARK: - PetInfo
 struct PetInfo {
     var petImages: UIImage
-    var name: String
-    var kind: Int
-    var startDate: String
-    var gender: Int
+    var name: String?
+    var kind: Int?
+    var startDate: String?
+    var gender: Int?
 }
 

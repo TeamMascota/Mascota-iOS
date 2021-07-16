@@ -13,7 +13,7 @@ protocol CharacterCollectionViewCellProtocol {
 
 class CharacterCollectionViewCell: UICollectionViewCell {
     
-    var pets: [String] = ["몰라", "진짜 몰라", "몰라"]
+    var pets: [PetImageModel] = []
     var selectedCell: [Int] = []
     var characterCollectionViewCellProtocol: CharacterCollectionViewCellProtocol?
     
@@ -34,7 +34,18 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         layoutComponents()
         registerCollectionView()
         registerCollectionViewCell()
+    }
+    
+    func updateVariable(pets: [PetImageModel], selectedCell: [Int], first: Bool = false) {
+        self.pets = pets
+        self.selectedCell = selectedCell
+        print(self.selectedCell)
+        self.characterCollectionView.reloadData()
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
     private func layoutComponents() {
@@ -99,7 +110,8 @@ extension CharacterCollectionViewCell: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.registerMyPetCollectionViewCell, for: indexPath) as? RegisterMyPetCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.characterNumberLabel.text = pets[indexPath.item]
+        cell.characterNumberLabel.text = pets[indexPath.item].name
+        cell.myPetImage.updateServerImage(pets[indexPath.item].img)
         cell.tag = indexPath.item
         cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchCell)))
         
@@ -112,7 +124,6 @@ extension CharacterCollectionViewCell: UICollectionViewDataSource {
             cell.isSelected = false
         }
         
-        cell.isSelected = false
         return cell
     }
     

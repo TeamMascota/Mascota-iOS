@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
+import Moya
 
 class IndexDetailViewController: UIViewController {
 
@@ -19,9 +20,13 @@ class IndexDetailViewController: UIViewController {
     @IBOutlet weak var toggleButton: UIButton!
     
     var tableContents: [IndexModel] = []
+    var monthlyDiaries: [MonthlyDiariesModel] = []
     var currentID: String = ""
     
     var isToggled: Bool = false
+    
+    let chapterService = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
+    let diaryService = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
     
     lazy var indexStackView: UIStackView = UIStackView().then {
         $0.alignment = .center
@@ -29,6 +34,9 @@ class IndexDetailViewController: UIViewController {
         $0.axis = .vertical
         $0.distribution = .fillEqually
         $0.alpha = 0.0
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.macoLightGray.cgColor
+        $0.layer.cornerRadius = 3
     }
     
     lazy var indexDetailTableView: UITableView = UITableView(frame: .zero, style: .grouped).then {
@@ -51,6 +59,21 @@ class IndexDetailViewController: UIViewController {
         layoutStackView()
         registerTableView()
         registerTableViewCells()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        getChapterMonth()
+    }
+    
+    private func updateIndexTitle(title: String, index: Int) {
+        indexTitle.text = title
+        if index > 0 {
+            indexLabel.text = "제 \(index)장"
+        } else {
+            indexLabel.text = "프롤로그"
+        }
     }
     
     private func layoutComponents() {
@@ -77,11 +100,7 @@ class IndexDetailViewController: UIViewController {
     private func layoutStackView() {
         for (index, chapter) in tableContents.enumerated() {
             let view: UIView = UIView().then {
-                $0.backgroundColor = UIColor.macoIvory
-            }
-            
-            let seperateorView: UIView = UIView().then {
-                $0.backgroundColor = UIColor.macoLightGray
+                $0.backgroundColor = UIColor.macoWhite
             }
             
             let dropDownIndexLabel: UILabel = UILabel().then {
@@ -99,7 +118,7 @@ class IndexDetailViewController: UIViewController {
             }
             
             indexStackView.addArrangedSubview(view)
-            view.addSubviews(dropDownIndexLabel, dropDownIndexTitleLabel, seperateorView)
+            view.addSubviews(dropDownIndexLabel, dropDownIndexTitleLabel)
             
             view.snp.makeConstraints {
                 $0.height.equalTo(42)
@@ -107,16 +126,9 @@ class IndexDetailViewController: UIViewController {
                 $0.trailing.equalToSuperview()
             }
             
+            view.tag = index
             view.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                              action: #selector(touchDropDownView(_:))))
-            
-            seperateorView.snp.makeConstraints {
-                $0.height.equalTo(1)
-                $0.leading.equalToSuperview()
-                $0.bottom.equalToSuperview()
-                $0.trailing.equalToSuperview()
-            }
-            
             dropDownIndexLabel.snp.makeConstraints {
                 $0.centerY.equalToSuperview()
                 $0.width.equalTo(55)
@@ -125,12 +137,59 @@ class IndexDetailViewController: UIViewController {
             
             dropDownIndexTitleLabel.snp.makeConstraints {
                 $0.centerY.equalToSuperview()
-                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(-5)
+                $0.leading.equalTo(dropDownIndexLabel.snp.trailing).offset(5)
                 $0.trailing.equalToSuperview().offset(21)
             }
             
         }
     }
+    
+    private func deletePetDiary(diaryID: String) {
+        diaryService.request(.deletePetDiary(diaryID: diaryID)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<IndexDetailModel>.self, from: response.data)
+                    self.getChapterMonth()
+                    
+                } catch(let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
+    private func reloadTableView(paramData: GenericModel<IndexDetailModel>) {
+        guard let unwrappedPetChapterDiary = paramData.data?.petChapterDiary else {return}
+        self.monthlyDiaries = unwrappedPetChapterDiary.monthly
+        self.updateIndexTitle(title: unwrappedPetChapterDiary.chapterTitle,
+                              index: unwrappedPetChapterDiary.chapter)
+        self.indexDetailTableView.reloadData()
+    }
+    
+    private func getChapterMonth() {
+        chapterService.request(.getChapterMonth(chapterID: currentID)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<IndexDetailModel>.self, from: response.data)
+                    self?.reloadTableView(paramData: value)
+                    
+                } catch (let err) {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+            
+        }
+    }
+    
 
     private func registerTableView() {
         self.indexDetailTableView.delegate = self
@@ -147,18 +206,32 @@ class IndexDetailViewController: UIViewController {
     
     @objc
     func touchDropDownView(_ sender: UITapGestureRecognizer) {
-        print(1)
+        guard let index = sender.view?.tag else { return }
+        indexStackView.arrangedSubviews[index].backgroundColor = .macoIvory
+        displayStackViewAnimation(selected: true, index: index)
+        if currentID != tableContents[index].chapterID {
+            currentID = tableContents[index].chapterID
+            getChapterMonth()
+        }
     }
     
-    @IBAction func touchToggleButton(_ sender: Any) {
-    
+    private func displayStackViewAnimation(selected: Bool = false,
+                                           index: Int = 0) {
         UIView.animate(withDuration: 0.5) {
+            self.indexStackView.arrangedSubviews[index].backgroundColor = .macoWhite
             self.toggleButton.transform = self.isToggled ? CGAffineTransform(rotationAngle: .pi * 2): CGAffineTransform(rotationAngle: .pi)
             self.indexStackView.alpha = self.isToggled ? 0.0 : 1.0
         }
         isToggled.toggle()
     }
-  
+    
+    @IBAction func touchToggleButton(_ sender: Any) {
+        displayStackViewAnimation()
+    }
+    
+    @IBAction func touchBackButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension IndexDetailViewController: UITableViewDelegate {
@@ -179,7 +252,7 @@ extension IndexDetailViewController: UITableViewDelegate {
         }
         
         let deleteAction = UIContextualAction(style: .normal, title: "삭제") {_,_,_ in
-            print("deleted")
+            self.deletePetDiary(diaryID: self.monthlyDiaries[indexPath.section].diaries[indexPath.row].diaryID)
         }.then {
             $0.backgroundColor = UIColor.macoOrange
             $0.title = "삭제"
@@ -190,6 +263,13 @@ extension IndexDetailViewController: UITableViewDelegate {
         
         return configuration
     }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let unwrappedCell = cell as? IndexDetailTableViewCell else {
+            return
+        }
+        unwrappedCell.petImageView.kf.cancelDownloadTask()
+    }
 }
 
 extension IndexDetailViewController: UITableViewDataSource {
@@ -197,16 +277,17 @@ extension IndexDetailViewController: UITableViewDataSource {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "IndexDetailHeaderView") as? IndexDetailHeaderView else {
             return nil
         }
-        header.initializeValues(month: "7", total: "11")
+        header.initializeValues(month: "\(monthlyDiaries[section].month)",
+                                total: "\(monthlyDiaries[section].episodePerMonthCount)")
         return header
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return monthlyDiaries.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return monthlyDiaries[section].diaries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -214,7 +295,7 @@ extension IndexDetailViewController: UITableViewDataSource {
                                                        for: indexPath) as? IndexDetailTableViewCell else {
             return UITableViewCell()
         }
-        cell.initializeData()
+        cell.initializeData(data: monthlyDiaries[indexPath.section].diaries[indexPath.item])
         return cell
     }
     
