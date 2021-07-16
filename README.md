@@ -1,6 +1,6 @@
 ![로고](https://user-images.githubusercontent.com/72008879/125953801-c57157c5-b58d-4b8e-9a96-d6df41c3d8ab.gif)
 
-![mascota_blue](https://user-images.githubusercontent.com/72008879/125953813-2042acc4-69c0-4601-87fd-8cbd6e266535.png)!
+![mascota_blue](https://user-images.githubusercontent.com/72008879/125953813-2042acc4-69c0-4601-87fd-8cbd6e266535.png)
 
 
 ## Contributer
@@ -9,6 +9,10 @@
 |:------:|:---:|:---:|
 |**이정엽** | **도연서**|**김윤서**|
 |홈|로그인, 회원가입|캘린더, 무지개|
+| ![illust_home (1)](https://user-images.githubusercontent.com/72008879/125955522-3fdc5ee1-a541-446f-8477-d1d15bd470d3.png)| ![illust_login,signup_small](https://user-images.githubusercontent.com/72008879/125955060-d7d7b0d5-579e-4749-a4e1-fed594095276.png)| ![illust_rainbow_cat](https://user-images.githubusercontent.com/72008879/125955127-ad6336bb-0507-4d36-9981-9ae4c83fef54.png)|
+
+
+
 
 ## Team Convention
 
@@ -23,6 +27,8 @@
 ---
 
 ## Feature
+### 정엽
+![illust_home (1)](https://user-images.githubusercontent.com/72008879/125955570-586b1dfe-2da6-4e84-8934-fef190258d66.png)
 
 > ### TabBar 
 >
@@ -80,6 +86,9 @@
 > - [x] 작성 완료 버튼
 > - [x] 서버 통신
 
+### 연서
+![illust_login,signup_small](https://user-images.githubusercontent.com/72008879/125955588-b597968b-0991-4609-a3f5-4bc34b82fb92.png)
+
 > ### Login 
 >
 > - [x] ID 작성
@@ -120,6 +129,9 @@
 > - [x] 동적 텍스트뷰
 > - [x] 텍스트필드 작성 여부에 따른 버튼 비/활성화
 > - [x] 서버 통신
+
+### 윤서
+![illust_rainbow_cat](https://user-images.githubusercontent.com/72008879/125955618-2fd628b2-da5e-47c0-98a9-acf8f1982763.png)
 
 > ### Calendar
 >
