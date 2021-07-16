@@ -132,7 +132,7 @@ extension RainbowViewController: UITableViewDataSource {
             if let memories = rainbowPageModel?.memories {
                 cell.setContentText(pages: memories)
                 if let leftFeeling = memories[0]?.feeling,
-                   let rightFeeling = memories[1]?.feeling{
+                   let rightFeeling = memories[1]?.feeling {
                     let kind = 1
                     cell.bookPageView.leftPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: leftFeeling)
                     cell.bookPageView.rightPageView.faceImageView.image = EmojiStyle().getEmoji(kind: kind, feeling: rightFeeling)
