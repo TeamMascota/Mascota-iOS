@@ -63,5 +63,4 @@ extension DiaryAPI: TargetType {
         return nil
     }
     
-    
 }

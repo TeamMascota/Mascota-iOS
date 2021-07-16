@@ -13,8 +13,9 @@ class RainbowMomentViewController: UIViewController {
     
     private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
     private var rainbowMomentModel: GetRainbowMomentModel?
-    private var delegate: RainbowBridgeDelegator?
+    private var delegate: RainbowDiaryDetailViewDelegator?
     private var petId: String?
+    private var diariesID: [String?] = []
     
     private lazy var tableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .clear
@@ -181,6 +182,7 @@ extension RainbowMomentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let numberOfRowsInSection = rainbowMomentModel?.theBestMoments[section].diaries?.count {
             return (numberOfRowsInSection + 1) % 2
+            return numberOfRowsInSection / 2
         } else {
             return 0
         }
@@ -192,6 +194,9 @@ extension RainbowMomentViewController: UITableViewDataSource {
         let leftPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row]
         let rightPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row + 1]
         
+        diariesID.append(leftPage?.diaryId ?? nil)
+        diariesID.append(rightPage?.diaryId ?? nil)
+        
         if let feelingCode = rainbowMomentModel?.theBestMoments[indexPath.section].feeling,
            let kind = rainbowMomentModel?.pet.kind,
            let emoji = EmojiStyle().getEmoji(kind: kind, feeling: feelingCode) {
@@ -201,22 +206,36 @@ extension RainbowMomentViewController: UITableViewDataSource {
         cell.setContentText(pages: [leftPage, rightPage])
   
         cell.selectionStyle = .none
-        cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLeftBookPage(_:))))
-        cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapRightBookPage(_:))))
+        cell.bookPageView.leftPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBookPage(_:))))
+        cell.bookPageView.rightPageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBookPage(_:))))
+        
+        var leftTag = 2 * indexPath.row
+        var rightTag = 2 * indexPath.row + 1
+        
+        for i in 0..<indexPath.section {
+            if i != 0 {
+                if let diaries = rainbowMomentModel?.theBestMoments[i - 1].diaries {
+                    leftTag += diaries.count
+                    rightTag += diaries.count
+                }
+            }
+        }
+        
+        cell.bookPageView.leftPageView.tag = leftTag
+        cell.bookPageView.rightPageView.tag = rightTag
+
         return cell
     }
     
     @objc
-    func tapLeftBookPage(_ sender: UITapGestureRecognizer) {
+    func tapBookPage(_ sender: UITapGestureRecognizer) {
         let vc = RainbowDiaryDetailViewController()
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc
-    func tapRightBookPage(_ sender: UITapGestureRecognizer) {
-        
-        navigationController?.pushViewController(RainbowDiaryDetailViewController(), animated: true)
+        self.delegate = vc
+        if let view = sender.view ,
+           let id = diariesID[view.tag] {
+            self.delegate?.sendingDiaryId(id: id)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

@@ -93,7 +93,6 @@ class RainbowRecordViewController: UIViewController {
             $0.leading.equalToSuperview().offset(23)
         }
 
-      
         view.addSubviews(bookCoverView)
         
         if UIDevice.current.hasNotch {
@@ -134,6 +133,9 @@ class RainbowRecordViewController: UIViewController {
             guard let bookTitle = self.rainbowRecordModel?.bookInfo.title else { return }
             guard let bookAuthor = self.rainbowRecordModel?.bookInfo.author else { return }
             self.bookCoverView.setTitleAndWriterLabel(title: bookTitle, author: "작가 \(bookAuthor)")
+            
+            guard let bookCover = self.rainbowRecordModel?.bookInfo.bookImg else { return }
+            self.bookCoverView.setBookCoverImage(cover: bookCover)
         }
     }
     

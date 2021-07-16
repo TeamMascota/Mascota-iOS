@@ -26,8 +26,7 @@ class DiaryDetailImageCollectionViewCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
-        topLineView.backgroundColor = .macoOrange
-        underLindeView.backgroundColor = .macoOrange
+        setLineColor()
         
         topLineView.snp.makeConstraints {
             $0.height.equalTo(1)
@@ -49,5 +48,10 @@ class DiaryDetailImageCollectionViewCell: UICollectionViewCell {
     
     public func setImage(url: String) {
         self.imageView.updateServerImage(url)
+    }
+    
+    public func setLineColor(color: UIColor = .macoOrange) {
+        topLineView.backgroundColor = color
+        underLindeView.backgroundColor = color
     }
 }

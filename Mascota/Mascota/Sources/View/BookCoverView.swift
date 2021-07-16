@@ -106,8 +106,10 @@ class BookCoverView: UIView {
         writerLabel.text = author
     }
     
-    public func setBookCoverImage(cover: UIImage) {
-        coverImageView.image = cover
+    public func setBookCoverImage(cover: String?) {
+        if let cover = cover {
+            coverImageView.updateServerImage(cover)
+        }
     }
 
 }

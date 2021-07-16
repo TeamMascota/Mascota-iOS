@@ -22,6 +22,7 @@ extension UITextView {
     
     func setText(text: String, textColor: UIColor = .macoBlack) {
         attributedText = text.attributedString(font: .macoFont(type: .regular, size: 16), color: textColor, customLineHeight: 28)
+        layoutIfNeeded()
     }
     
     func setUnderLine(color: UIColor? = .macoOrange) {

@@ -7,13 +7,26 @@
 
 import UIKit
 
+import Moya
+
+protocol RainbowDiaryDetailViewDelegator {
+    func sendingDiaryId(id: String)
+}
+
 class RainbowDiaryDetailViewController: UIViewController {
+    
+    private lazy var service = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
+    private var diaries: [PetDiaryModel] = []
+    private var diaryId: String = ""
+    
+    private var nowDiaryIndex: Int = -1
     
     public lazy var images: [UIImage] = [.add, .checkmark, .remove]
     
     private lazy var contentView = DiaryDetailView(type: .rainbow)
     
     private lazy var mainScrollView = UIScrollView().then {
+        $0.alwaysBounceHorizontal = false
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
         $0.isScrollEnabled = true
@@ -23,32 +36,30 @@ class RainbowDiaryDetailViewController: UIViewController {
     private lazy var backButton = UIBarButtonItem().then {
         $0.backBarButtonItem(style: .plain, target: self, action: #selector(tapBackButton(_:)))
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerContentView()
-        
+        initDiary(completion: {
+            self.contentView.backwardButton.isEnabled = false
+            if self.diaries.count == 1 {
+                self.contentView.forwardButton.isEnabled = false
+                self.contentView.setEmoji(feelingLists: self.diaries[0].feelingList)
+            } else {
+                self.contentView.forwardButton.isEnabled = true
+            }
+        })
         setNavigationBar()
-        
         setScrollView()
-        setTextView()
-        
-        contentView.setDate(date: "2020년 쏼라", togetherDay: "2223")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        contentView.textView.setUnderLine(color: .macoBlue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func registerContentView() {
@@ -62,12 +73,12 @@ class RainbowDiaryDetailViewController: UIViewController {
     
     private func setNavigationBar() {
         navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite, underLineColor: .macoDarkGray)
-        navigationItem.setTitle(title: "코봉이의 중성화 날", subtitle: "161화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
         navigationItem.leftBarButtonItem = backButton
+        
+        view.backgroundColor = .macoIvory
     }
     
     private func setScrollView() {
-        view.backgroundColor = .macoIvory
         view.addSubviews(mainScrollView)
 
         mainScrollView.snp.makeConstraints {
@@ -85,8 +96,25 @@ class RainbowDiaryDetailViewController: UIViewController {
         contentView.setDiaryDetailView()
     }
     
-    private func setTextView() {
-        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'od'ov하'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oRㅁ야롱먀놀;ㅏㅇ몰;ㅏ\n\n\n\n\nㅇ뫃;daskfhadkjhf;kdsajhf;kㅏㅓㅗㅁㅇㄹ; ㅓㅈ'ㄷR ojuaef'oi hads;kfhdaksfhkadjhf;aldiur 'eu'oasdifk;dsajhfkdjhfjdahfgkjadflgkjdfhgkhfkjdhfkdsjhfkdjshfksdjhfasdfadfdsaf adf sadf sdsdhf ;ao ih'adoiy'owqy dhdksfhdksjh끝")
+    private func initDiary(completion: @escaping() -> Void) {
+        self.requestGetPetDiary(diaryID: diaryId, completion: {
+            self.nowDiaryIndex = 0
+            self.setDiaryView(index: self.nowDiaryIndex)
+            completion()
+        })
+    }
+    
+    private func setDiaryView(index: Int) {
+        navigationItem.setTitle(title: diaries[index].title, subtitle: "\(diaries[index].episode)화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
+        contentView.setDate(date: diaries[index].date, togetherDay: "\(diaries[index].timeTogether)")
+        contentView.setTextViewText(text: diaries[index].contents)
+        
+        self.contentView.backwardButton.isHidden = true
+        self.contentView.forwardButton.isHidden = true
+
+        self.nowDiaryIndex = index
+        
+        contentView.imageCollectionView.reloadData()
     }
 
 }
@@ -107,15 +135,21 @@ extension RainbowDiaryDetailViewController: UICollectionViewDelegate {
 
 extension RainbowDiaryDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        contentView.setPageControl(pageCount: images.count)
-        return images.count
+        if nowDiaryIndex != -1 {
+            contentView.setPageControl(pageCount: diaries[nowDiaryIndex].bookImg.count)
+            return diaries[nowDiaryIndex].bookImg.count
+        } else { return 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = contentView.imageCollectionView.dequeueReusableCell(withReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier, for: indexPath)
                                                                         as? DiaryDetailImageCollectionViewCell
                                                                         else { return DiaryDetailImageCollectionViewCell() }
-//        cell.setImage(image: images[indexPath.row])
+        
+        if nowDiaryIndex != -1 {
+            cell.setImage(url: diaries[nowDiaryIndex].bookImg[indexPath.row])
+            cell.setLineColor(color: .macoBlue)
+        }
         
         return cell
     }
@@ -131,13 +165,56 @@ extension RainbowDiaryDetailViewController: UITextViewDelegate {
 extension RainbowDiaryDetailViewController {
     @objc
     func moveToEpisode(_ sender: UIButton) {
-
+        switch sender {
+        case contentView.backwardButton:
+            if nowDiaryIndex != 0 {
+                nowDiaryIndex -= 1
+                setDiaryView(index: nowDiaryIndex)
+            }
+        case contentView.forwardButton:
+            if nowDiaryIndex != diaries.count - 1 {
+                nowDiaryIndex += +1
+                setDiaryView(index: nowDiaryIndex)
+            }
+        default:
+            break
+        }
     }
 
     @objc
     func tapBackButton(_ sender: UIBarButtonItem) {
-    
         navigationController?.popViewController(animated: true)
     }
+}
 
+extension RainbowDiaryDetailViewController {
+    func requestGetPetDiary(diaryID: String?, completion: @escaping() -> Void) {
+        guard let diaryID = diaryID
+        else { return }
+        service.request(DiaryAPI.getPetDiary(diaryID: diaryID)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let response):
+                do {
+                    let response = try JSONDecoder().decode(GenericModel<GetPetDiaryModel>.self, from: response.data)
+                    guard let petDiary = response.data?.petDiary else { return }
+                    self.diaries.append(petDiary)
+                    self.nowDiaryIndex = 0
+                    completion()
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension RainbowDiaryDetailViewController: RainbowDiaryDetailViewDelegator {
+    func sendingDiaryId(id: String) {
+        self.diaryId = id
+    }
 }
