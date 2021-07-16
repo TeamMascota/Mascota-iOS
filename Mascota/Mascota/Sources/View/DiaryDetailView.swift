@@ -267,7 +267,7 @@ class DiaryDetailView: UIView {
             }
             
             let circleProfileButton = CircleProfileButton(type: type)
-            circleProfileButton.imageView?.updateServerImage(item.petImgs)
+            circleProfileButton.setProfileButton(url: item.petImgs)
             
             petProfileStackView.addArrangedSubviews(circleProfileButton)
             

@@ -48,7 +48,7 @@ class BookRainbowPageView: BookPageView {
 
         switch pages.count {
         case 1:
-            guard let page = pages[0] else {return}
+            guard let page = pages[0] else { return }
             leftPageView.setText(pageText: page)
             rightPageView.setText()
         case 2:
