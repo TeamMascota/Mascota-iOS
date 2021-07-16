@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUY-Fo-pJK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="fSb-uO-KDd">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="bUY-Fo-pJK" customClass="SplashViewController" customModule="Mascota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u9T-FV-ptN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반려동물의 일상도, 이별의 순간도 아름답게" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-HY-xkw">
+                                <rect key="frame" x="46" y="784" width="324" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="macoWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SRo-Hs-g6E"/>
+                        <color key="backgroundColor" name="macoOrange"/>
+                        <constraints>
+                            <constraint firstItem="ynm-HY-xkw" firstAttribute="leading" secondItem="SRo-Hs-g6E" secondAttribute="leading" constant="46" id="AHP-Vu-d4A"/>
+                            <constraint firstItem="SRo-Hs-g6E" firstAttribute="trailing" secondItem="ynm-HY-xkw" secondAttribute="trailing" constant="44" id="U7J-FV-PpV"/>
+                            <constraint firstItem="SRo-Hs-g6E" firstAttribute="bottom" secondItem="ynm-HY-xkw" secondAttribute="bottom" constant="57" id="VAG-Y9-0J6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="ynm-HY-xkw" id="xy9-gi-74S"/>
+                        <outlet property="view1" destination="u9T-FV-ptN" id="Rxz-M1-Guv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhP-CL-vz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="197"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="macoOrange">
+            <color red="0.90196078431372551" green="0.47058823529411764" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
