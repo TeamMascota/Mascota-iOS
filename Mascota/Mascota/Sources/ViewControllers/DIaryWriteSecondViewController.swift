@@ -18,14 +18,20 @@ class DiaryWriteSecondViewController: UIViewController {
         $0.alpha = 0.0
     }
     
-    let service = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
+    let chapterService = MoyaProvider<ChapterAPI>(plugins: [MoyaLoggingPlugin()])
+    let diaryService = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
     
     var isToggled: Bool = false
     
     var tableContents: [IndexModel] = []
     
-    var characters: [Character] = []
+    var characters: [CharacterModel] = []
     
+    var diaryWrite: DiaryWriteModel = DiaryWriteModel(title: "",
+                                                      diaryImages: [],
+                                                      contents: "",
+                                                      date: "",
+                                                      id: "")
     var journalTitle: String = ""
     var selectedIndex: String = ""
     
@@ -88,18 +94,30 @@ class DiaryWriteSecondViewController: UIViewController {
         registerTextView()
         registerImagePicker()
         registerTextField()
-//        layoutComponents()
-//        layoutStackView()
+        initialieButton()
         setComponents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getChapterList()
+        let encoder: JSONEncoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(characters)
+            dump(data)
+        } catch (let err) {
+            err.localizedDescription
+        }
+    
     }
     
     override func viewDidLayoutSubviews() {
         self.indexStackView.layer.addBorder([.left,.bottom,.right], color: .macoLightGray, width: 1)
+    }
+    
+    private func initialieButton() {
+        self.finishButton.addTarget(self, action: #selector(touchFinishButton), for: .touchUpInside)
     }
     
     private func initializeNavigationItems() {
@@ -143,7 +161,8 @@ class DiaryWriteSecondViewController: UIViewController {
         let date = DateFormatter()
         date.locale = Locale(identifier: "ko_kr")
         date.dateFormat = "yyyy.MM.dd"
-
+        
+        diaryWrite.date = date.string(from: today)
         return date.string(from: today)
     }
     
@@ -168,8 +187,27 @@ class DiaryWriteSecondViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: - Network
+    
+    private func postPetDiary(data: [Data]) {
+        diaryService.request(.postPetDiary(characters: characters, diaryWrite: diaryWrite, images: data)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                if response.statusCode == 200 {
+                    self?.navigationController?.popToRootViewController(animated: true)
+                } else {
+                    print("error haappened")
+                }
+
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+
+        }
+    }
+    
     private func getChapterList() {
-        service.request(ChapterAPI.getChapterList) { [weak self] result in
+        chapterService.request(ChapterAPI.getChapterList) { [weak self] result in
             switch result {
             case .success(let response):
                 do {
@@ -331,11 +369,10 @@ class DiaryWriteSecondViewController: UIViewController {
     }
     
     private func isFinishButtonAvailable() {
-        if journalTitle.count == 0 || selectedIndex.count == 0 {
-            self.finishButton.isEnabled = true
-            return
+        if diaryWrite.isEmpty() {
+            self.finishButton.isEnabled = false
         }
-        self.finishButton.isEnabled = false
+        self.finishButton.isEnabled = true
     }
     
     @objc
@@ -343,16 +380,32 @@ class DiaryWriteSecondViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func touchBegan() {
+    @objc
+    func touchBegan() {
         self.view.endEditing(true)
     }
     
-    @objc func titleTextFieldChanged(_ sender: UITextField) {
+    @objc
+    func titleTextFieldChanged(_ sender: UITextField) {
         guard let cnt = sender.text?.count else {
             return
         }
         titleCountLabel.setCountLabel(current: cnt, limit: 11)
         
+    }
+    
+    @objc
+    func touchFinishButton() {
+        var data: [Data] = []
+        pickedImage.forEach {
+            guard let image = $0.pngData() else {
+                print("cannot convert to PNG")
+                return
+            }
+            data.append(image)
+        }
+        
+        self.postPetDiary(data: data)
     }
     
     @objc
@@ -383,7 +436,9 @@ class DiaryWriteSecondViewController: UIViewController {
         default:
             self.indexLabel.text = "제 \(tableContents[index].chapter)장"
         }
-
+        
+        diaryWrite.id = tableContents[index].chapterID
+        isFinishButtonAvailable()
         self.indexTitleLabel.text = tableContents[index].chapterTitle
         indexStackView.arrangedSubviews[index].backgroundColor = .macoIvory
         displayStackViewAnimation(selected: true, index: index)
@@ -451,6 +506,14 @@ extension DiaryWriteSecondViewController: UICollectionViewDataSource {
 
 extension DiaryWriteSecondViewController: UITextViewDelegate {
     
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text else {
+            return
+        }
+        diaryWrite.contents = text
+        isFinishButtonAvailable()
+    }
+    
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
     
         if textView.attributedText == textViewPlaceholder {
@@ -512,6 +575,8 @@ extension DiaryWriteSecondViewController: UITextFieldDelegate {
         if text.count <= 11 {
             journalTitle = text
             self.titleUnderlineView.backgroundColor = .macoOrange
+            diaryWrite.title = text
+            isFinishButtonAvailable()
             
         } else {
             journalTitle = ""

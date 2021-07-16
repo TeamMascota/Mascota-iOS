@@ -8,9 +8,19 @@
 import UIKit
 
 struct DiaryWriteModel {
-    let title: String
-    let diaryImages: [UIImage]
-    let contents: String
-    let date: String
-    let id: String // 목차 아이디
+    var title: String
+    var diaryImages: [UIImage]
+    var contents: String
+    var date: String
+    var id: String // 목차 아이디
+    
+    
+    func isEmpty() -> Bool {
+        if self.title == "" || self.contents == "" || self.date == "" || self.id == "" {
+            return true
+        }
+        return false
+    }
 }
+
+
