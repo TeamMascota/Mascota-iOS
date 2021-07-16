@@ -285,7 +285,12 @@ class CalendarViewController: UIViewController {
     
     @objc
     func tapWriteButton(_ sender: UIButton) {
-        navigationController?.pushViewController(DiaryWriteFirstViewController(), animated: true)
+        let diaryStoryboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteFirst, bundle: nil)
+        guard let diaryWriteFirstViewController = diaryStoryboard.instantiateViewController(identifier: AppConstants.ViewController.diaryWriteFirst) as? DiaryWriteFirstViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(diaryWriteFirstViewController, animated: true)
     }
 }
 
