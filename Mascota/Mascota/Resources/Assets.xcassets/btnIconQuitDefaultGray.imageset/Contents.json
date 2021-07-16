@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "scale" : "1x",
       "filename" : "btnIconQuitDefaultGray.png",
-      "scale" : "1x"
+      "idiom" : "universal"
     },
     {
       "idiom" : "universal",
@@ -11,8 +11,8 @@
       "filename" : "btnIconQuitDefaultGray@2x.png"
     },
     {
-      "idiom" : "universal",
       "scale" : "3x",
+      "idiom" : "universal",
       "filename" : "btnIconQuitDefaultGray@3x.png"
     }
   ],

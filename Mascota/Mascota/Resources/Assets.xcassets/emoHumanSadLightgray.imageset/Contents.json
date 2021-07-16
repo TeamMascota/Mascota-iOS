@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "emoHumanSadLightgray.png",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "emoHumanSadLightgray.png"
     },
     {
       "scale" : "2x",
@@ -12,8 +12,8 @@
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "emoHumanSadLightgray@3x.png"
+      "filename" : "emoHumanSadLightgray@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

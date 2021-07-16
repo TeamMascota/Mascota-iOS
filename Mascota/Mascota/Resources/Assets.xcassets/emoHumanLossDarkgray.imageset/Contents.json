@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "filename" : "emoHumanLossDarkgray.png",
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "emoHumanLossDarkgray.png"
     },
     {
       "filename" : "emoHumanLossDarkgray@2x.png",

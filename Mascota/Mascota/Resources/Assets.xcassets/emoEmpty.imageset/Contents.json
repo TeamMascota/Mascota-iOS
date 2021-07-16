@@ -11,9 +11,9 @@
       "filename" : "emoEmpty@2x.png"
     },
     {
+      "filename" : "emoEmpty@3x.png",
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "emoEmpty@3x.png"
+      "idiom" : "universal"
     }
   ],
   "info" : {
