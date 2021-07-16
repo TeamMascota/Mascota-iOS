@@ -7,13 +7,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "emoHumanDenyDarkgray@2x.png"
+      "filename" : "emoHumanDenyDarkgray@2x.png",
+      "scale" : "2x"
     },
     {
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "emoHumanDenyDarkgray@3x.png"
+      "filename" : "emoHumanDenyDarkgray@3x.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

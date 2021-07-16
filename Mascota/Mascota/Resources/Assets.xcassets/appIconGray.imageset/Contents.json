@@ -12,8 +12,8 @@
     },
     {
       "scale" : "3x",
-      "filename" : "appIconGray@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "appIconGray@3x.png"
     }
   ],
   "info" : {

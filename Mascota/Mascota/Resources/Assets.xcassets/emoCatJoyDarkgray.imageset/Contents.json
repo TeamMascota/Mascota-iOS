@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "scale" : "1x",
+      "filename" : "emoCatJoyDarkgray.png",
       "idiom" : "universal",
-      "filename" : "emoCatJoyDarkgray.png"
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "filename" : "emoCatJoyDarkgray@2x.png",
       "scale" : "2x",
-      "filename" : "emoCatJoyDarkgray@2x.png"
+      "idiom" : "universal"
     },
     {
-      "scale" : "3x",
       "filename" : "emoCatJoyDarkgray@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

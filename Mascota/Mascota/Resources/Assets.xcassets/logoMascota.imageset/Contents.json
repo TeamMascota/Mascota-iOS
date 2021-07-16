@@ -2,18 +2,18 @@
   "images" : [
     {
       "scale" : "1x",
-      "filename" : "logoMascota.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "logoMascota.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "logoMascota@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "logoMascota@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "logoMascota@3x.png"
+      "filename" : "logoMascota@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

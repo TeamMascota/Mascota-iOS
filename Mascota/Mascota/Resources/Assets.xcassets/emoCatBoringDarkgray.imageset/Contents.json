@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "emoCatBoringDarkgray.png"
+      "filename" : "emoCatBoringDarkgray.png",
+      "scale" : "1x"
     },
     {
-      "idiom" : "universal",
       "scale" : "2x",
+      "idiom" : "universal",
       "filename" : "emoCatBoringDarkgray@2x.png"
     },
     {

@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "filename" : "emoCatAngryLightgray.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "emoCatAngryLightgray.png"
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
@@ -11,9 +11,9 @@
       "filename" : "emoCatAngryLightgray@2x.png"
     },
     {
+      "filename" : "emoCatAngryLightgray@3x.png",
       "scale" : "3x",
-      "idiom" : "universal",
-      "filename" : "emoCatAngryLightgray@3x.png"
+      "idiom" : "universal"
     }
   ],
   "info" : {

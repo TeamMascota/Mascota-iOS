@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "emoDogLoveDarkgray.png",
       "idiom" : "universal",
+      "filename" : "emoDogLoveDarkgray.png",
       "scale" : "1x"
     },
     {
-      "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "emoDogLoveDarkgray@2x.png"
+      "filename" : "emoDogLoveDarkgray@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "emoDogLoveDarkgray@3x.png"
+      "filename" : "emoDogLoveDarkgray@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

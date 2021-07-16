@@ -1,9 +1,9 @@
 {
   "images" : [
     {
+      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "emoDogJoyDarkgray.png",
-      "scale" : "1x"
+      "filename" : "emoDogJoyDarkgray.png"
     },
     {
       "idiom" : "universal",
