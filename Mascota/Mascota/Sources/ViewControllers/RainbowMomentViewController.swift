@@ -191,8 +191,13 @@ extension RainbowMomentViewController: UITableViewDataSource {
         else { return UITableViewCell() }
         let leftPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row]
         let rightPage = rainbowMomentModel?.theBestMoments[indexPath.section].diaries?[2 * indexPath.row + 1]
-        dump(leftPage)
-        dump(rightPage)
+        
+        if let feelingCode = rainbowMomentModel?.theBestMoments[indexPath.section].feeling,
+           let kind = rainbowMomentModel?.pet.kind,
+           let emoji = EmojiStyle().getEmoji(kind: kind, feeling: feelingCode) {
+            cell.bookPageView.leftPageView.faceImageView.image = emoji
+            cell.bookPageView.rightPageView.faceImageView.image = emoji
+          }
         cell.setContentText(pages: [leftPage, rightPage])
   
         cell.selectionStyle = .none

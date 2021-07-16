@@ -1,17 +1,25 @@
 //
-//  HomeDiaryDetailViewController.swift
+//  CalendarDiaryDetailViewController.swift
 //  Mascota
 //
-//  Created by 김윤서 on 2021/07/12.
+//  Created by 김윤서 on 2021/07/16.
 //
 
 import UIKit
 
 import Moya
 
-class HomeDiaryDetailViewController: UIViewController {
+protocol CalendarDiaryDetailDelegator {
+    func sendingDiariesId(id: [String]?)
+}
+
+class CalendarDiaryDetailViewController: UIViewController {
     
     private lazy var service = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
+    private var diaries: [PetDiaryModel] = []
+    private var diariesId: [String]?
+    
+    private var nowDiaryIndex: Int = -1
     
     public lazy var images: [UIImage] = [.add, .checkmark, .remove]
     
@@ -35,18 +43,21 @@ class HomeDiaryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerContentView()
-        
+        initDiary(completion: {
+            self.contentView.backwardButton.isEnabled = false
+            if self.diaries.count == 1 {
+                self.contentView.forwardButton.isEnabled = false
+                self.contentView.setEmoji(feelingLists: self.diaries[0].feelingList)
+            } else {
+                self.contentView.forwardButton.isEnabled = true
+            }
+        })
         setNavigationBar()
-        
         setScrollView()
-        setTextView()
-        
-        contentView.setDate(date: "2020년 쏼라", togetherDay: "2223")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        contentView.textView.setUnderLine(color: .macoOrange)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +76,6 @@ class HomeDiaryDetailViewController: UIViewController {
     
     private func setNavigationBar() {
         navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite, underLineColor: .macoDarkGray)
-        navigationItem.setTitle(title: "코봉이의 중성화 날", subtitle: "161화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = closeButton
         
@@ -90,53 +100,102 @@ class HomeDiaryDetailViewController: UIViewController {
         contentView.setDiaryDetailView()
     }
     
-    private func setTextView() {
-        contentView.setTextViewText(text: "하afj'oi audfldkfjak위dsa;aihf'od'ov하'ov하위dsa;aihf'odisafj'oi audfldkfjak위dsa;aihf'odisafj'oRㅁ야롱먀놀;ㅏㅇ몰;ㅏ\n\n\n\n\nㅇ뫃;daskfhadkjhf;kdsajhf;kㅏㅓㅗㅁㅇㄹ; ㅓㅈ'ㄷR ojuaef'oi hads;kfhdaksfhkadjhf;aldiur 'eu'oasdifk;dsajhfkdjhfjdahfgkjadflgkjdfhgkhfkjdhfkdsjhfkdjshfksdjhfasdfadfdsaf adf sadf sdsdhf ;ao ih'adoiy'owqy dhdksfhdksjh끝")
+    private func initDiary(completion: @escaping() -> Void) {
+            if let diariesId = self.diariesId {
+                for diaryId in diariesId {
+                    dump(diaryId)
+                    self.requestGetPetDiary(diaryID: diaryId, completion: {
+                        self.nowDiaryIndex = 0
+                        self.setDiaryView(index: self.nowDiaryIndex)
+                        dump(self.diaries)
+                        completion()
+                    })
+                }
+                
+            }
+    }
+    
+    private func setDiaryView(index: Int) {
+        navigationItem.setTitle(title: diaries[index].title, subtitle: "\(diaries[index].episode)화", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
+        contentView.setDate(date: diaries[index].date, togetherDay: "\(diaries[index].timeTogether)")
+        contentView.setTextViewText(text: diaries[index].contents)
+        
+        self.contentView.backwardButton.isEnabled = true
+        self.contentView.forwardButton.isEnabled = true
+        
+        switch index {
+        case 0:
+            contentView.backwardButton.isEnabled = false
+        case diaries.count - 1:
+            contentView.forwardButton.isEnabled = false
+        default:
+            break
+        }
+        self.nowDiaryIndex = index
+        
+        contentView.imageCollectionView.reloadData()
     }
 
 }
 
-extension HomeDiaryDetailViewController: UICollectionViewDelegateFlowLayout {
+extension CalendarDiaryDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
 }
 
-extension HomeDiaryDetailViewController: UICollectionViewDelegate {
+extension CalendarDiaryDetailViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         contentView.setPageControlSelectedPage(currentPage: Int(round(scrollView.contentOffset.x / scrollView.frame.maxX)))
     }
     
 }
 
-extension HomeDiaryDetailViewController: UICollectionViewDataSource {
+extension CalendarDiaryDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        contentView.setPageControl(pageCount: images.count)
-        return images.count
+        if nowDiaryIndex != -1 {
+            contentView.setPageControl(pageCount: diaries[nowDiaryIndex].bookImg.count)
+            return diaries[nowDiaryIndex].bookImg.count
+        } else { return 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = contentView.imageCollectionView.dequeueReusableCell(withReuseIdentifier: DiaryDetailImageCollectionViewCell.identifier, for: indexPath)
                                                                         as? DiaryDetailImageCollectionViewCell
                                                                         else { return DiaryDetailImageCollectionViewCell() }
-//        cell.setImage(image: images[indexPath.row])
+        if nowDiaryIndex != -1 {
+            cell.setImage(url: diaries[nowDiaryIndex].bookImg[indexPath.row])
+        }
         
         return cell
     }
     
 }
 
-extension HomeDiaryDetailViewController: UITextViewDelegate {
+extension CalendarDiaryDetailViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         return false
     }
 }
 
-extension HomeDiaryDetailViewController {
+extension CalendarDiaryDetailViewController {
     @objc
     func moveToEpisode(_ sender: UIButton) {
-        print("moveToEpisode")
+        switch sender {
+        case contentView.backwardButton:
+            if nowDiaryIndex != 0 {
+                nowDiaryIndex -= 1
+                setDiaryView(index: nowDiaryIndex)
+            }
+        case contentView.forwardButton:
+            if nowDiaryIndex != diaries.count - 1 {
+                nowDiaryIndex += +1
+                setDiaryView(index: nowDiaryIndex)
+            }
+        default:
+            break
+        }
     }
 
     @objc
@@ -151,10 +210,11 @@ extension HomeDiaryDetailViewController {
     }
 }
 
-
-extension HomeDiaryDetailViewController {
-    func requestGetPetDiary(diaryID: String) {
-        service.request(DiaryAPI.getPetDiary(diaryID: diaryID))  { [weak self] result in
+extension CalendarDiaryDetailViewController {
+    func requestGetPetDiary(diaryID: String?, completion: @escaping() -> Void) {
+        guard let diaryID = diaryID
+        else { return }
+        service.request(DiaryAPI.getPetDiary(diaryID: diaryID)) { [weak self] result in
             guard let self = self else {
                 return
             }
@@ -162,6 +222,10 @@ extension HomeDiaryDetailViewController {
             case .success(let response):
                 do {
                     let response = try JSONDecoder().decode(GenericModel<GetPetDiaryModel>.self, from: response.data)
+                    guard let petDiary = response.data?.petDiary else { return }
+                    self.diaries.append(petDiary)
+                    self.nowDiaryIndex = 0
+                    completion()
                 } catch let err {
                     print(err.localizedDescription)
                 }
@@ -169,5 +233,11 @@ extension HomeDiaryDetailViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+extension CalendarDiaryDetailViewController: CalendarDiaryDetailDelegator {
+    func sendingDiariesId(id: [String]?) {
+        self.diariesId = id
     }
 }

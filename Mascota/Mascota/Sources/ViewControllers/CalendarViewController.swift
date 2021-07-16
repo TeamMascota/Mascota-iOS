@@ -19,6 +19,8 @@ class CalendarViewController: UIViewController {
     private lazy var part: Int = 1
     private lazy var i = 0
     
+    private var delegate: CalendarDiaryDetailDelegator?
+    
     private lazy var topBar = UIView()
     
     private lazy var nameLabel = UILabel().then {
@@ -155,14 +157,13 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        convertGetCalender(date: Date())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         layoutCalender()
-        
-        convertGetCalender(date: Date())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -298,7 +299,10 @@ extension CalendarViewController: FSCalendarDelegate {
                 let day = Int(Calendar.current.component(.day, from: date))
                 if let date = currentCalendar.date[day - 1] {
                     if date.id.count > 0 {
-                        navigationController?.pushViewController(HomeDiaryDetailViewController(), animated: true)
+                        let calendarDiaryDetailViewController = CalendarDiaryDetailViewController()
+                        self.delegate = calendarDiaryDetailViewController
+                        self.delegate?.sendingDiariesId(id: date.id)
+                        navigationController?.pushViewController(calendarDiaryDetailViewController, animated: true)
                     }
                 }
             }
