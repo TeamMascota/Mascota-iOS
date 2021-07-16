@@ -20,17 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-            
-        
-            let viewcontroller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            let rootNC = UINavigationController(rootViewController: viewcontroller)
-                  
-                    
-            /*
+          
             let tabBarController = MacoTabBarController()
 
             let rootNC = UINavigationController(rootViewController: tabBarController)
- */
+
             rootNC.navigationBar.isHidden = true
           
     

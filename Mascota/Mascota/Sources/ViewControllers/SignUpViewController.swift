@@ -103,14 +103,14 @@ class SignUpViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        checkNotch()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        checkNotch()
     }
     
     func checkNotch() {

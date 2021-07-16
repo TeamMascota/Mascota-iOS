@@ -56,7 +56,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="btnIconPlus" width="28" height="28"/>
+        <image name="btnIconPlus" width="28" height="28.5"/>
         <namedColor name="macoIvory">
             <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
