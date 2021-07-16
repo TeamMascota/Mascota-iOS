@@ -13,7 +13,7 @@ import Then
 class BookHomePageView: BookPageView {
     
     private lazy var leftPageView = BookContentView(type: .home)
-    private lazy var rightPageView = BookWriteView()
+    public lazy var rightPageView = BookWriteView()
     
     private lazy var backgroundView = BookPageView(type: .home)
     
