@@ -13,7 +13,7 @@ protocol CalendarDiaryDetailDelegator {
     func sendingDiariesId(id: [String]?)
 }
 
-class CalendarDiaryDetailViewController: UIViewController {
+class CalendarDiaryDetailViewController: BaseViewController {
     
     private lazy var service = MoyaProvider<DiaryAPI>(plugins: [MoyaLoggingPlugin()])
     private var diaries: [PetDiaryModel] = []
@@ -212,7 +212,9 @@ extension CalendarDiaryDetailViewController {
     func requestGetPetDiary(diaryID: String?, completion: @escaping() -> Void) {
         guard let diaryID = diaryID
         else { return }
+        self.attachIndicator(.normal)
         service.request(DiaryAPI.getPetDiary(diaryID: diaryID)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

@@ -12,7 +12,7 @@ import Then
 
 import Moya
 
-class IndexDetailViewController: UIViewController {
+class IndexDetailViewController: BaseViewController {
 
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var indexLabel: UILabel!
@@ -65,7 +65,7 @@ class IndexDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        getChapterMonth()
+        getChapterMonth(isFirst: true)
     }
     
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
@@ -152,7 +152,9 @@ class IndexDetailViewController: UIViewController {
     }
     
     private func deletePetDiary(diaryID: String) {
+        self.attachIndicator(.translucent)
         diaryService.request(.deletePetDiary(diaryID: diaryID)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }
@@ -179,8 +181,15 @@ class IndexDetailViewController: UIViewController {
         self.indexDetailTableView.reloadData()
     }
     
-    private func getChapterMonth() {
+    private func getChapterMonth(isFirst: Bool = false) {
+        if isFirst {
+            self.attachIndicator(.normal)
+        } else {
+            self.attachIndicator(.translucent)
+        }
+        
         chapterService.request(.getChapterMonth(chapterID: currentID)) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {

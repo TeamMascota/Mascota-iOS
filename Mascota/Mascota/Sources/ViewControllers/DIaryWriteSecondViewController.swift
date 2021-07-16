@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class DiaryWriteSecondViewController: UIViewController {
+class DiaryWriteSecondViewController: BaseViewController {
     
     lazy var indexStackView: UIStackView = UIStackView().then {
         $0.alignment = .center
@@ -190,7 +190,9 @@ class DiaryWriteSecondViewController: UIViewController {
     // MARK: - Network
     
     private func postPetDiary(data: [Data]) {
+        self.attachIndicator(.translucent)
         diaryService.request(.postPetDiary(characters: characters, diaryWrite: diaryWrite, images: data)) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 if response.statusCode == 200 {
@@ -207,7 +209,9 @@ class DiaryWriteSecondViewController: UIViewController {
     }
     
     private func getChapterList() {
+        self.attachIndicator(.normal)
         chapterService.request(ChapterAPI.getChapterList) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {
