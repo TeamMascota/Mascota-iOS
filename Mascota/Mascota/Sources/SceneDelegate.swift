@@ -29,8 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.makeKeyAndVisible()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1500)) {
-                let tabBarController = MacoTabBarController()
-                let rootNC = UINavigationController(rootViewController: tabBarController)
+                let viewcontroller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let rootNC = UINavigationController(rootViewController: viewcontroller)
+               // let tabBarController = MacoTabBarController()
+               // let rootNC = UINavigationController(rootViewController: tabBarController)
                 self.window?.rootViewController = rootNC
                 self.window?.makeKeyAndVisible()
                 rootNC.navigationBar.isHidden = true
