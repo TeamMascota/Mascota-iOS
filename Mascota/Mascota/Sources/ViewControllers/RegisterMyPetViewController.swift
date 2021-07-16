@@ -66,7 +66,6 @@ class RegisterMyPetViewController: UIViewController {
     
     @IBOutlet weak var genderLabelBottomLayout: NSLayoutConstraint!
     
-    
     // MARK: - Alert Handlers
     var deleteHandler: ((UIAlertAction) -> Void)?
     var dismissHandler: ((UIAlertAction) -> Void)?
@@ -497,7 +496,8 @@ extension RegisterMyPetViewController: UITextFieldDelegate {
         } else {
             underlineView[0].backgroundColor = .macoOrange
         }
-        namelengthLabel.text = "(" + String(nameTextField.text!.count) + "/6)"
+        namelengthLabel.setCountLabel(current: nameTextField.text!.count, limit: 6)
+       // namelengthLabel.text = "(" + String(nameTextField.text!.count) + "/6)"
         myPetsArray[currentCellNum].name = nameTextField.text ?? ""
     }
 }

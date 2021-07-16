@@ -248,7 +248,8 @@ extension RegisterPrologBookViewController: UITextFieldDelegate {
             filledIn[0] = true
             underlineView[0].backgroundColor = .macoOrange
             }
-            bookNamelengthLabel.text = "(" + String(textField.text!.count) + "/12)"
+            bookNamelengthLabel.setCountLabel(current: textField.text!.count, limit: 12)
+            //bookNamelengthLabel.text = "(" + String(textField.text!.count) + "/12)"
         case authorNameTextField:
             if textField.text?.count == 0 {
                 filledIn[1] = false
@@ -258,7 +259,8 @@ extension RegisterPrologBookViewController: UITextFieldDelegate {
                 filledIn[1] = true
                 underlineView[1].backgroundColor = .macoOrange
             }
-            authorNamelengthLabel.text = "(" + String(textField.text!.count) + "/6)"
+            authorNamelengthLabel.setCountLabel(current: textField.text!.count, limit: 6)
+            //authorNamelengthLabel.text = "(" + String(textField.text!.count) + "/6)"
         case prologNameTextField:
             if textField.text?.count == 0 {
                 filledIn[2] = false
@@ -268,7 +270,8 @@ extension RegisterPrologBookViewController: UITextFieldDelegate {
                 filledIn[2] = true
                 underlineView[2].backgroundColor = .macoOrange
             }
-             prologNamelengthLabel.text = "(" + String(textField.text!.count) + "/10)"
+            prologNamelengthLabel.setCountLabel(current: textField.text!.count, limit: 10)
+            // prologNamelengthLabel.text = "(" + String(textField.text!.count) + "/10)"
         default:
             print("default")
         }
