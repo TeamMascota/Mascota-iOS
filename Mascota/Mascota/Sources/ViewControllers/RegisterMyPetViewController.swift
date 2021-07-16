@@ -51,13 +51,28 @@ class RegisterMyPetViewController: UIViewController {
     var datePickerBackgroundView = UIView()
     var currentCellNum = 0
     
-    // Alert Handlers
+    //MARK: - Layout
+    @IBOutlet weak var collectionViewTopLayout: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var doneLabelBotttomLayout: NSLayoutConstraint!
+    @IBOutlet weak var nameLabelBotttomLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var nameTextFieldBottomLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var stackViewBottomLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var familyLabelBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var startLabelBottomLayout: NSLayoutConstraint!
+    
+    @IBOutlet weak var genderLabelBottomLayout: NSLayoutConstraint!
+    
+    
+    // MARK: - Alert Handlers
     var deleteHandler: ((UIAlertAction) -> Void)?
     var dismissHandler: ((UIAlertAction) -> Void)?
     
     // MARK: - IBActions
     @IBAction func clickCatOrDogButton(_ sender: UIButton) {
-        print(currentCellNum)
         switch sender {
         case catButton:
             dogButton.isSelected = false
@@ -140,7 +155,7 @@ class RegisterMyPetViewController: UIViewController {
     @objc func onDoneButtonClick() {
         becomeFamilyDateLabel.font = .macoFont(type: .regular, size: 16.0)
         becomeFamilyDateLabel.textColor = .macoBlack
-        calendarButton.imageView?.image = UIImage(named: "icCalendarFill")
+        calendarButton.setImage(UIImage(named: "icCalendarFill"), for: .normal)
         datePickerBackgroundView.removeFromSuperview()
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
@@ -191,7 +206,7 @@ class RegisterMyPetViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }, firstText: "취소", secondText: "삭제")
     }
-
+   
     // MARK: - tapImageView
     @objc func tapImageView(tapGestureRecognizer: UITapGestureRecognizer) {
         
@@ -241,6 +256,7 @@ class RegisterMyPetViewController: UIViewController {
         setFirstNumberDoneLabel()
         appendEmptyElement()
         registerCollectionView()
+        disalbeButton(nextButton)
         registerCollectionViewCell()
     }
     
@@ -254,10 +270,25 @@ class RegisterMyPetViewController: UIViewController {
            self.navigationController?.isNavigationBarHidden = false
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        checkNotch()
+    }
+    
+    func checkNotch() {
+        if UIDevice.current.hasNotch {
+        } else {
+            collectionViewBottomLayout.constant = collectionViewBottomLayout.constant / 3
+            nameLabelBotttomLayout.constant = nameLabelBotttomLayout.constant / 2
+            familyLabelBottomLayout.constant = familyLabelBottomLayout.constant / 2
+            startLabelBottomLayout.constant = startLabelBottomLayout.constant / 2
+        }
+    }
+    
     func appendEmptyElement() {
         myPetsArray.append(PetInfo(petImages: UIImage(named: "yeonseo") ?? UIImage(), name: nil, kind: nil, startDate: nil, gender: nil))
     }
-     
+
     // MARK: - Set Navigation Bar
     func setNavigationBar() {
         navigationBar.barTintColor = .macoIvory
@@ -310,7 +341,7 @@ class RegisterMyPetViewController: UIViewController {
         sender.layer.cornerRadius = Constant.round3
         sender.isEnabled = true
         sender.backgroundColor = .macoOrange
-        sender.titleLabel?.textColor = .macoWhite
+        sender.setTitleColor(.macoWhite, for: .normal)
     }
     
     func disalbeButton(_ sender: UIButton) {
@@ -318,7 +349,8 @@ class RegisterMyPetViewController: UIViewController {
         sender.layer.cornerRadius = Constant.round3
         sender.isEnabled = false
         sender.backgroundColor = UIColor(red: 229.0/255.0, green: 228.0/255.0, blue: 226.0/255.0, alpha: 1.0)
-        sender.titleLabel?.textColor = .macoLightGray
+        sender.setTitle("다음", for: .normal)
+        sender.setTitleColor(.macoLightGray, for: .normal)
     }
     
     func setButtons() {
@@ -355,7 +387,8 @@ class RegisterMyPetViewController: UIViewController {
         catButton.setBackgroundColor(.macoWhite, for: .normal)
         dogButton.setBackgroundColor(.macoWhite, for: .normal)
         setDateLabelPlaceholder()
-        calendarButton.imageView?.image = UIImage(named: "icCalendarEmpty")
+        calendarButton.setImage(UIImage(named: "icCalendarEmpty"), for: .normal)
+        //calendarButton.imageView?.image = UIImage(named: "icCalendarEmpty")
         genderButton[0].setBackgroundColor(.macoWhite, for: .normal)
         genderButton[1].setBackgroundColor(.macoWhite, for: .normal)
         genderButton[2].setBackgroundColor(.macoWhite, for: .normal)
@@ -382,8 +415,8 @@ class RegisterMyPetViewController: UIViewController {
             catButton.isSelected = true
         }
         
-        self.calendarButton.imageView?.image
-         = UIImage(named: "icCalendarFill")
+        calendarButton.setImage(UIImage(named: "icCalendarFill"), for: .normal)
+        
         self.becomeFamilyDateLabel.text = self.myPetsArray[currentCellNum-1].startDate
         self.becomeFamilyDateLabel.font = .macoFont(type: .regular, size: 16.0)
         self.becomeFamilyDateLabel.textColor = .macoBlack
@@ -411,8 +444,8 @@ class RegisterMyPetViewController: UIViewController {
             catButton.isSelected = true
         }
         
-        self.calendarButton.imageView?.image
-         = UIImage(named: "icCalendarFill")
+        calendarButton.setImage(UIImage(named: "icCalendarFill"), for: .normal)
+        
         self.becomeFamilyDateLabel.text = self.myPetsArray[deleteNum].startDate
         self.becomeFamilyDateLabel.font = .macoFont(type: .regular, size: 16.0)
         self.becomeFamilyDateLabel.textColor = .macoBlack
@@ -491,8 +524,6 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
                 return UICollectionViewCell()
             }
             
-            
-            
             if myPetsArray.count == 1 && indexPath.row == 0 {
                 cell.closeButton.isHidden = true
             } else {
@@ -542,7 +573,7 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
         }
     }
     
-    func isSelectedFalseAll(){
+    func isSelectedFalseAll() {
         for i in 0...myPetsArray.count - 1 {
             let indexPath = IndexPath(item: i, section: 0);
             guard let cell = registerPetCollectionView.cellForItem(at: indexPath) as? RegisterMyPetCollectionViewCell else {
@@ -570,7 +601,6 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
                    registerPetCollectionView.reloadData()
                 } else {
                     nameLabel.text = "주인공 " + String(indexPath.row) + "의 이름"
-                    print("1개일 때 다채워")
                     setAlertView()
                     temp = .append
                     currentCellNum = 0
@@ -584,7 +614,6 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
                    registerPetCollectionView.reloadData()
                 } else {
                     nameLabel.text = "주인공 " + String(indexPath.row) + "의 이름"
-                    print("여러마리일 떄 다채워")
                     setAlertView()
                     temp = .append
                     registerPetCollectionView.reloadData()
@@ -622,12 +651,12 @@ extension RegisterMyPetViewController: UICollectionViewDataSource,UICollectionVi
             
             if myPetsArray[currentCellNum].startDate != nil {
                 underlineView[1].backgroundColor = .macoOrange
-                calendarButton.imageView?.image = UIImage(named: "icCalendarFill")
+                calendarButton.setImage(UIImage(named: "icCalendarFill"), for: .normal)
                 becomeFamilyDateLabel.text = myPetsArray[currentCellNum].startDate
                 becomeFamilyDateLabel.textColor = .macoBlack
                 becomeFamilyDateLabel.font = .macoFont(type: .regular, size: 16.0)
             } else {
-                calendarButton.imageView?.image = UIImage(named: "icCalendarEmpty")
+                calendarButton.setImage(UIImage(named: "icCalendarEmpty"), for: .normal)
             }
             
             if myPetsArray[currentCellNum].kind == 1 {

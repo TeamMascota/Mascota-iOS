@@ -66,12 +66,6 @@
                                     <action selector="tapSignUpButton" destination="WlA-WL-4x2" eventType="touchUpInside" id="gOh-oU-8dK"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustExample" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-yX-F7E">
-                                <rect key="frame" x="0.0" y="737" width="414" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="UGa-FQ-hPq"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영합니다! 작가님이 어떤 책을  만들게 될지 기대됩니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20i-pT-Ch0">
                                 <rect key="frame" x="28" y="115" width="359" height="68"/>
                                 <constraints>
@@ -119,13 +113,99 @@
                                     <action selector="doubleCheckButtonTapped" destination="WlA-WL-4x2" eventType="touchUpInside" id="Xrn-V7-wuq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입과 동시에 개인정보취급방침과 이용약관에 동의합니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6T-Mk-TtD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6T-Mk-TtD">
                                 <rect key="frame" x="28" y="640" width="359" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="p5U-xi-Kap"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" name="macoGray"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="가입과">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="동시에">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="개인정보취급방침">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="과">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="이용약관">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="에">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="동의합니다">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=".">
+                                        <attributes>
+                                            <color key="NSColor" name="macoGray"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용할 수 있는 아이디입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7G5-vg-iqu">
@@ -160,7 +240,7 @@
                                 <color key="backgroundColor" name="macoIvory"/>
                                 <items>
                                     <navigationItem title="회원가입" id="mFo-Wj-64t">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="9a9-DM-Dmr">
+                                        <barButtonItem key="leftBarButtonItem" image="btnIconBackDarkgray" style="plain" id="9a9-DM-Dmr">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gPX-8l-ujn">
                                                 <rect key="frame" x="20" y="8" width="26" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -187,6 +267,9 @@
                                     <constraint firstAttribute="height" constant="12" id="lGQ-rl-NIo"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustLoginsignupSmall" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-yX-F7E">
+                                <rect key="frame" x="62" y="730.5" width="291" height="119.5"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zek-dZ-nwb"/>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.94509803920000002" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -201,12 +284,12 @@
                             <constraint firstItem="TqZ-nh-8nD" firstAttribute="centerY" secondItem="5Ga-8u-VmK" secondAttribute="centerY" id="5DO-yN-h8o"/>
                             <constraint firstItem="7xo-0a-8P4" firstAttribute="top" secondItem="vT3-3w-IPY" secondAttribute="bottom" constant="33" id="6Lw-io-zD2"/>
                             <constraint firstItem="Zek-dZ-nwb" firstAttribute="trailing" secondItem="5Ga-8u-VmK" secondAttribute="trailing" constant="27" id="6rB-gk-jxK"/>
-                            <constraint firstItem="bO2-yX-F7E" firstAttribute="trailing" secondItem="Zek-dZ-nwb" secondAttribute="trailing" id="6zh-wQ-VuR"/>
                             <constraint firstItem="WRx-yO-sHY" firstAttribute="top" secondItem="3RW-Nm-sMj" secondAttribute="bottom" constant="54" id="AQx-ii-PCc"/>
-                            <constraint firstItem="Zek-dZ-nwb" firstAttribute="bottom" secondItem="bO2-yX-F7E" secondAttribute="bottom" id="BdO-dK-VZl"/>
+                            <constraint firstItem="Zek-dZ-nwb" firstAttribute="trailing" secondItem="bO2-yX-F7E" secondAttribute="trailing" constant="61" id="CmE-qG-hKk"/>
                             <constraint firstItem="20i-pT-Ch0" firstAttribute="top" secondItem="fpo-5n-hDB" secondAttribute="bottom" constant="27" id="DAt-d5-JOe"/>
                             <constraint firstItem="WRx-yO-sHY" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" constant="28" id="EAe-kZ-U53"/>
                             <constraint firstItem="3RW-Nm-sMj" firstAttribute="trailing" secondItem="5Ga-8u-VmK" secondAttribute="trailing" constant="-3" id="G6Y-le-xnB"/>
+                            <constraint firstItem="bO2-yX-F7E" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" constant="62" id="HUZ-IN-wrR"/>
                             <constraint firstItem="7xo-0a-8P4" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" constant="28" id="Hqo-pO-ibW"/>
                             <constraint firstItem="vT3-3w-IPY" firstAttribute="trailing" secondItem="qn0-lZ-jpM" secondAttribute="trailing" constant="-3" id="Ikd-QV-rba"/>
                             <constraint firstItem="vT3-3w-IPY" firstAttribute="leading" secondItem="qn0-lZ-jpM" secondAttribute="leading" constant="3" id="Jpy-4x-7JM"/>
@@ -220,6 +303,7 @@
                             <constraint firstItem="u6T-Mk-TtD" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" constant="28" id="YTO-VI-hgN"/>
                             <constraint firstItem="3RW-Nm-sMj" firstAttribute="leading" secondItem="5Ga-8u-VmK" secondAttribute="leading" constant="3" id="Z4a-0G-c2R"/>
                             <constraint firstItem="9pC-jN-z0B" firstAttribute="trailing" secondItem="QCx-mZ-zWR" secondAttribute="trailing" constant="-16" id="ZzN-B9-s0G"/>
+                            <constraint firstItem="Zek-dZ-nwb" firstAttribute="bottom" secondItem="bO2-yX-F7E" secondAttribute="bottom" constant="12" id="aZK-zG-ORa"/>
                             <constraint firstItem="Qfk-ta-Tzo" firstAttribute="top" secondItem="20i-pT-Ch0" secondAttribute="bottom" constant="55" id="cX1-Q9-rhZ"/>
                             <constraint firstItem="Zek-dZ-nwb" firstAttribute="trailing" secondItem="QCx-mZ-zWR" secondAttribute="trailing" constant="27" id="cet-yi-3Cx"/>
                             <constraint firstItem="u6T-Mk-TtD" firstAttribute="top" secondItem="WRx-yO-sHY" secondAttribute="bottom" constant="20" id="d0l-0h-c30"/>
@@ -237,7 +321,6 @@
                             <constraint firstItem="Huk-6A-FcZ" firstAttribute="top" secondItem="3RW-Nm-sMj" secondAttribute="bottom" constant="4.5" id="mMY-h1-gwt"/>
                             <constraint firstItem="0Od-Nv-8na" firstAttribute="top" secondItem="uci-gP-kmc" secondAttribute="bottom" constant="33" id="nCn-e9-hls"/>
                             <constraint firstItem="fpo-5n-hDB" firstAttribute="trailing" secondItem="Zek-dZ-nwb" secondAttribute="trailing" id="nrr-hW-jUo"/>
-                            <constraint firstItem="bO2-yX-F7E" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" id="pas-1b-lBk"/>
                             <constraint firstItem="HDU-4q-mIJ" firstAttribute="leading" secondItem="Zek-dZ-nwb" secondAttribute="leading" constant="29" id="sVq-Rp-k7l"/>
                             <constraint firstItem="uci-gP-kmc" firstAttribute="top" secondItem="QCx-mZ-zWR" secondAttribute="bottom" id="uVd-Ok-WAV"/>
                             <constraint firstItem="TqZ-nh-8nD" firstAttribute="trailing" secondItem="5Ga-8u-VmK" secondAttribute="trailing" constant="-15" id="w6l-4L-urg"/>
@@ -248,6 +331,7 @@
                         <outlet property="doubleCheckButton" destination="wph-8B-zCH" id="HvZ-Pg-hp5"/>
                         <outlet property="iDLabel" destination="Qfk-ta-Tzo" id="DHW-x2-8FY"/>
                         <outlet property="idEmailTextField" destination="qn0-lZ-jpM" id="bPP-zD-fR9"/>
+                        <outlet property="macoimage" destination="bO2-yX-F7E" id="STz-Ax-HRP"/>
                         <outlet property="navigationBar" destination="fpo-5n-hDB" id="N4M-KV-HpM"/>
                         <outlet property="passwordCheckLabel" destination="0Od-Nv-8na" id="CD9-qU-SxP"/>
                         <outlet property="passwordCheckTextField" destination="5Ga-8u-VmK" id="MRD-X2-JTy"/>
@@ -278,22 +362,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CG-om-G6s">
-                                <rect key="frame" x="28" y="640" width="359" height="50"/>
+                                <rect key="frame" x="28" y="629.5" width="359" height="50"/>
                                 <color key="backgroundColor" name="macoOrange"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1sI-r4-Z96"/>
+                                    <constraint firstAttribute="height" constant="50" id="i9O-yY-w7O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="반려동물 등록하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustExample" translatesAutoresizingMaskIntoConstraints="NO" id="mSx-vK-lnf">
-                                <rect key="frame" x="0.0" y="737" width="414" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="nQb-az-u6P"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE6-q2-oTn">
                                 <rect key="frame" x="28" y="144" width="250" height="150"/>
                                 <constraints>
@@ -311,20 +389,23 @@
                                     <constraint firstAttribute="height" constant="22" id="fOz-SG-tBP"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustLoginsignupMedium" translatesAutoresizingMaskIntoConstraints="NO" id="mSx-vK-lnf">
+                                <rect key="frame" x="35" y="705.5" width="343" height="143.5"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ihc-54-hTc"/>
                         <color key="backgroundColor" name="macoIvory"/>
                         <constraints>
-                            <constraint firstItem="mSx-vK-lnf" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" id="5Gs-HU-r5W"/>
-                            <constraint firstItem="mSx-vK-lnf" firstAttribute="bottom" secondItem="ihc-54-hTc" secondAttribute="bottom" id="MPv-E7-1Jr"/>
+                            <constraint firstItem="ihc-54-hTc" firstAttribute="trailing" secondItem="mSx-vK-lnf" secondAttribute="trailing" constant="36" id="09n-f8-TPi"/>
                             <constraint firstItem="dE6-q2-oTn" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" constant="28" id="QMw-0N-0cr"/>
                             <constraint firstItem="Qq6-PX-dKh" firstAttribute="top" secondItem="ihc-54-hTc" secondAttribute="top" constant="25" id="TnV-T2-Szy"/>
-                            <constraint firstItem="mSx-vK-lnf" firstAttribute="top" secondItem="7CG-om-G6s" secondAttribute="bottom" constant="47" id="YT7-zL-Rb6"/>
+                            <constraint firstItem="7CG-om-G6s" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" constant="28" id="YaQ-b2-cCL"/>
+                            <constraint firstItem="ihc-54-hTc" firstAttribute="bottom" secondItem="mSx-vK-lnf" secondAttribute="bottom" constant="13" id="aOv-tN-1jp"/>
                             <constraint firstItem="Qq6-PX-dKh" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" constant="30" id="bmA-Kg-paC"/>
-                            <constraint firstItem="7CG-om-G6s" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" constant="28" id="dUZ-Yy-g65"/>
+                            <constraint firstItem="ihc-54-hTc" firstAttribute="trailing" secondItem="7CG-om-G6s" secondAttribute="trailing" constant="27" id="coh-Yl-KXf"/>
                             <constraint firstItem="dE6-q2-oTn" firstAttribute="top" secondItem="Qq6-PX-dKh" secondAttribute="bottom" constant="53" id="gJ8-Up-86b"/>
-                            <constraint firstItem="ihc-54-hTc" firstAttribute="trailing" secondItem="7CG-om-G6s" secondAttribute="trailing" constant="27" id="jnM-Ws-jjC"/>
-                            <constraint firstItem="mSx-vK-lnf" firstAttribute="trailing" secondItem="ihc-54-hTc" secondAttribute="trailing" id="opc-Ei-Sfe"/>
+                            <constraint firstItem="mSx-vK-lnf" firstAttribute="leading" secondItem="ihc-54-hTc" secondAttribute="leading" constant="35" id="hdN-Nb-six"/>
+                            <constraint firstItem="mSx-vK-lnf" firstAttribute="top" secondItem="7CG-om-G6s" secondAttribute="bottom" constant="26" id="zTd-9L-44D"/>
                         </constraints>
                     </view>
                     <connections>
@@ -340,9 +421,11 @@
     <resources>
         <image name="btnDoublecheck" width="58" height="26"/>
         <image name="btnIconBack" width="26" height="27"/>
+        <image name="btnIconBackDarkgray" width="26" height="27"/>
         <image name="group66" width="16" height="13"/>
-        <image name="illustExample" width="375" height="142.5"/>
-        <image name="logoMascota" width="167" height="31.5"/>
+        <image name="illustLoginsignupMedium" width="305.5" height="143.5"/>
+        <image name="illustLoginsignupSmall" width="253" height="119.5"/>
+        <image name="logoMascota" width="167" height="31"/>
         <namedColor name="macoDarkGray">
             <color red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

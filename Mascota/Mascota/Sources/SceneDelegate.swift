@@ -20,10 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-            
+          
             let tabBarController = MacoTabBarController()
 
             let rootNC = UINavigationController(rootViewController: tabBarController)
+
             rootNC.navigationBar.isHidden = true
           
     

@@ -31,6 +31,7 @@ class RegisterPrologBookViewController: UIViewController {
     var filledIn: [Bool] = [false, false, false, false]
     let picker = UIImagePickerController()
     var totalpet = ""
+    
     @IBAction func backButtonTapped(_ sender:UIBarButtonItem!) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -38,14 +39,12 @@ class RegisterPrologBookViewController: UIViewController {
     private func enableNextButton() {
         for i in 0...3 {
             if filledIn[i] == false {
-//                nextButton.isEnabled = false
-//                nextButton.backgroundColor = .macoLightGray
                 disableNextButton()
                 return
             }
         }
         nextButton.backgroundColor = .macoOrange
-        nextButton.setTitleColor(.macoWhite, for: .selected)
+        nextButton.setTitleColor(.macoWhite, for: .normal)
         nextButton.isEnabled = true
     }
     
@@ -95,7 +94,7 @@ class RegisterPrologBookViewController: UIViewController {
     
     func disableNextButton() {
         nextButton.backgroundColor = UIColor(red: 229.0/255.0, green: 228/255, blue: 226/255, alpha: 1.0)
-        nextButton.titleLabel?.textColor = .macoLightGray
+        nextButton.setTitleColor(.macoLightGray, for: .normal)
         nextButton.isEnabled = false
     }
     
@@ -106,8 +105,6 @@ class RegisterPrologBookViewController: UIViewController {
         bookCoverView.layer.borderWidth = 1.0
         bookCoverView.layer.borderColor = UIColor.macoOrange.cgColor
     }
-    
-    
     
     @objc func tapImageView(tapGestureRecognizer: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
@@ -157,10 +154,6 @@ class RegisterPrologBookViewController: UIViewController {
 extension RegisterPrologBookViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//            if(text == "\n") {
-//                textView.resignFirstResponder()
-//                return true
-//            }
         return true
     }
     
@@ -170,7 +163,7 @@ extension RegisterPrologBookViewController: UITextViewDelegate {
     }
     
     func setTextViewplaceholder() {
-         prologTextView.delegate = self // txtvReview가 유저가 선언한 outlet
+         prologTextView.delegate = self
          prologTextView.text = " Q.지금까지 코봉이는 어떤 삶을 살았나요?"
          prologTextView.textColor = UIColor.macoLightGray
      }
@@ -305,5 +298,4 @@ extension RegisterPrologBookViewController: UIImagePickerControllerDelegate, UIN
         blurredEffectView.frame = bookCoverImage.bounds
         bookCoverImage.addSubview(blurredEffectView)
     }
-
 }

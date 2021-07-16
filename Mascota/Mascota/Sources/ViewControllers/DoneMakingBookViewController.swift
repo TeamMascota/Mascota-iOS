@@ -11,7 +11,6 @@ class DoneMakingBookViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var backButtton: UIButton!
-    @IBOutlet weak var startTextLabel: UILabel!
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var bookCoverView: UIView!
@@ -57,7 +56,6 @@ class DoneMakingBookViewController: UIViewController {
         bookCoverView.layer.masksToBounds = true
         bookCoverView.layer.cornerRadius = 3.0
         goToHomeBUtton.layer.cornerRadius = 3.0
-        startTextLabel.font = .macoFont(type: .regular, size: 20.0)
         bookNameLabel.font = .macoFont(type: .medium, size: 20.0)
         authorNameLabel.font = .macoFont(type: .regular, size: 17.0)
         goToHomeBUtton.titleLabel?.font = .macoFont(type: .medium, size: 20.0)
@@ -72,7 +70,7 @@ class DoneMakingBookViewController: UIViewController {
     func setNumberOfDoneLabel() {
         numberOfPetLabel.textColor = .macoGray
         numberOfPetLabel.attributedText = "주인공 \(totalPet)마리를 위한 이야기를\n이제 시작해 보세요!".convertSomeColorFont(color: .macoOrange, fontSize: 20, type: .regular, start: 4, length: 1)
-        numberOfPetLabel.font = .macoFont(type: .regular, size: 20.0)
+        numberOfPetLabel.font = .macoFont(type: .regular, size: 18.0)
     }
     
     func setBlurToImage() {
