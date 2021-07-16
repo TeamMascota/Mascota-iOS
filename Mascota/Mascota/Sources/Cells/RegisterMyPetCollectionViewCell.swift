@@ -22,6 +22,7 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         characterNumberLabel.font = .macoFont(type: .regular, size: 15.0)
+        characterNumberLabel.textColor = .macoWhite
     }
     
     override func layoutIfNeeded() {
@@ -46,5 +47,9 @@ class RegisterMyPetCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         myPetImage.image = nil
+    }
+    
+    func setPetName(name: String) {
+        self.characterNumberLabel.text = name
     }
 }

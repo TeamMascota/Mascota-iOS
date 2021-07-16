@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
 
-    
     // MARK: - set Functions
     func setTextField() {
         self.idEmailTextField.delegate = self

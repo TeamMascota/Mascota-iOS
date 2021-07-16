@@ -292,7 +292,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 작성 완료된 반려동물 주인공 0마리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flJ-02-1bk">
                                 <rect key="frame" x="28" y="277" width="221.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="macoGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMz-lB-hLN">
@@ -364,6 +364,7 @@
                         <outlet property="nameTextField" destination="WVG-ZV-vxy" id="gxX-l2-fnt"/>
                         <outlet property="namelengthLabel" destination="kq6-89-2qV" id="O22-26-61m"/>
                         <outlet property="navigationBar" destination="lDt-JQ-wD9" id="9W4-Xb-Rbq"/>
+                        <outlet property="nextButton" destination="Zcx-Ty-JFI" id="tIo-yV-Mf0"/>
                         <outlet property="numberOfDonePetLabel" destination="flJ-02-1bk" id="i1v-88-URB"/>
                         <outlet property="pageNumberLabel" destination="gMz-lB-hLN" id="VIx-aP-P6a"/>
                         <outlet property="registerPetCollectionView" destination="2ty-nU-7M3" id="r2l-QK-wtp"/>
@@ -515,8 +516,8 @@
                                                     <constraint firstAttribute="height" constant="21" id="9Oq-Ks-eLk"/>
                                                     <constraint firstAttribute="width" constant="298" id="uye-EU-FPb"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" name="macoGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="책 제목을 입력해 주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1cS-tM-F07">
@@ -784,7 +785,7 @@
                                             <constraint firstAttribute="width" constant="157" id="j6g-aG-xQV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="macoWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작가 최소은" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYV-rD-Bfd">
@@ -794,7 +795,7 @@
                                             <constraint firstAttribute="width" constant="83" id="qYB-zN-VR7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="macoWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -862,6 +863,7 @@
                         <outlet property="bookNameLabel" destination="nTf-JY-gXI" id="0HP-3Y-0km"/>
                         <outlet property="goToHomeBUtton" destination="91R-g1-AuI" id="jSh-o4-mkh"/>
                         <outlet property="navigationBar" destination="tXX-OW-2dc" id="dTf-gW-IP1"/>
+                        <outlet property="numberOfPetLabel" destination="hfV-Mw-Pcp" id="thb-q2-XUW"/>
                         <outlet property="startTextLabel" destination="hfV-Mw-Pcp" id="lmm-qj-xQy"/>
                     </connections>
                 </viewController>
@@ -876,6 +878,9 @@
         <image name="calendar1" width="20" height="19.5"/>
         <namedColor name="macoDarkGray">
             <color red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="macoGray">
+            <color red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="macoIvory">
             <color red="0.95294117647058818" green="0.94509803921568625" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
