@@ -8,8 +8,11 @@
 import Foundation
 
 struct PetImageModel: Codable {
-    let name: String
-    let image: String
+    let id, img, name: String
     let kind: Int
-    let pedId: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case img, name, kind
+    }
 }

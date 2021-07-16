@@ -82,22 +82,35 @@ class DiaryWriteFirstViewController: UIViewController {
         addNextButtonTarget()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getPetsInfo()
+    }
+    
     private func addNextButtonTarget() {
         self.nextButton.addTarget(self, action: #selector(pushToDiaryWriteSecond), for: .touchUpInside)
     }
     
-//    private func getPetsInfo() {
-//        petsService.request(.getPetsInfo) { [weak self] result in
-//            switch result {
-//            case .success(let response):
-//                let value = try JSONDecoder().decode(GenericModel<>, from: <#T##Data#>)
-//            case .failure(let err):
-//                print(err.localizedDescription)
-//            }
-//            
-//        }
-//    }
-//    
+    private func getPetsInfo() {
+        print("!@#@!#!@#!@#!@#!@#!@2")
+        petsService.request(.getPetsInfo) { [weak self] result in
+            print("!@#@!#!@#!@#!@#!@#!@3")
+            print(11111111111111111)
+            switch result {
+            case .success(let response):
+                do {
+                    let value = try JSONDecoder().decode(GenericModel<HomeFirstPartModel>.self, from: response.data)
+                    print(value)
+                } catch (let err) {
+                    print(err.localizedDescription)
+                }
+            
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
     @objc
     func pushToDiaryWriteSecond() {
         let storyboard = UIStoryboard(name: AppConstants.Storyboard.diaryWriteSecond, bundle: nil)

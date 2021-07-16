@@ -36,6 +36,7 @@
 		185844A626A0978F00F82A95 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A526A0978F00F82A95 /* CharacterModel.swift */; };
 		185844A826A097F700F82A95 /* DiaryWriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A726A097F700F82A95 /* DiaryWriteModel.swift */; };
 		185844AA26A09AC000F82A95 /* PetImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844A926A09AC000F82A95 /* PetImageModel.swift */; };
+		185844AC26A09C1300F82A95 /* PetsImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185844AB26A09C1300F82A95 /* PetsImageModel.swift */; };
 		185E68A8269EBC2E009061E5 /* IndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A7269EBC2E009061E5 /* IndexModel.swift */; };
 		185E68AA269EC2EA009061E5 /* BriefDiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */; };
 		185E68AC269EC530009061E5 /* FirstPartMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E68AB269EC530009061E5 /* FirstPartMainModel.swift */; };
@@ -229,6 +230,7 @@
 		185844A526A0978F00F82A95 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		185844A726A097F700F82A95 /* DiaryWriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryWriteModel.swift; sourceTree = "<group>"; };
 		185844A926A09AC000F82A95 /* PetImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageModel.swift; sourceTree = "<group>"; };
+		185844AB26A09C1300F82A95 /* PetsImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsImageModel.swift; sourceTree = "<group>"; };
 		185E68A7269EBC2E009061E5 /* IndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModel.swift; sourceTree = "<group>"; };
 		185E68A9269EC2EA009061E5 /* BriefDiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefDiaryModel.swift; sourceTree = "<group>"; };
 		185E68AB269EC530009061E5 /* FirstPartMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPartMainModel.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 				DD8D503626A0378A0098AFF5 /* DiaryModel.swift */,
 				DD14216F26A075160072B4EB /* RainbowPetInfoModel.swift */,
 				185844A926A09AC000F82A95 /* PetImageModel.swift */,
+				185844AB26A09C1300F82A95 /* PetsImageModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1850441F26982212009C0F50 /* CustomLabelAlertView.swift in Sources */,
+				185844AC26A09C1300F82A95 /* PetsImageModel.swift in Sources */,
 				185E68B6269ECD55009061E5 /* GetChapterPerMonthModel.swift in Sources */,
 				DDE1DF44269AE2D2001A4875 /* DiaryDetailImageCollectionViewCell.swift in Sources */,
 				18DF89742692DF9900A9CB2F /* MascotaPeopleImageCell.swift in Sources */,
