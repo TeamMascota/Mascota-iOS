@@ -114,7 +114,14 @@ class IndexDetailViewController: BaseViewController {
                 $0.font = UIFont.macoFont(type: .regular, size: 14)
                 $0.textColor = UIColor.macoDarkGray
                 $0.textAlignment = .left
-                $0.text = index == 0 ? "프롤로그" : "제 \(index)장"
+                switch chapter.chapter {
+                case -1:
+                    $0.text = "에필로그"
+                case 0:
+                    $0.text = "프롤로그"
+                default:
+                    $0.text = "제 \(chapter.chapter)장"
+                }
             }
             
             let dropDownIndexTitleLabel: UILabel = UILabel().then {
