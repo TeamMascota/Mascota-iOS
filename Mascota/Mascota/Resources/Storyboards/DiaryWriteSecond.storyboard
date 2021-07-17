@@ -167,7 +167,7 @@
                                                 <rect key="frame" x="28" y="422" width="358" height="40"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1화" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxy-mf-MGb">
-                                                        <rect key="frame" x="13" y="9" width="280.5" height="22.5"/>
+                                                        <rect key="frame" x="13" y="9" width="280" height="22.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22.5" id="jCL-wo-rjL"/>
                                                         </constraints>
@@ -175,8 +175,8 @@
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/10)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlx-Oc-lTS">
-                                                        <rect key="frame" x="306.5" y="9.5" width="38.5" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/11)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlx-Oc-lTS">
+                                                        <rect key="frame" x="306" y="9.5" width="39" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="dbN-rO-2E2"/>
                                                         </constraints>
