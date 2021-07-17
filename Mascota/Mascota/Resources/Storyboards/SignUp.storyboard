@@ -119,28 +119,7 @@
                                     <constraint firstAttribute="height" constant="18" id="p5U-xi-Kap"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="가입과">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" metaFont="system"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="동시에">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
+                                    <fragment content="가입과 동시에 ">
                                         <attributes>
                                             <color key="NSColor" name="macoGray"/>
                                             <font key="NSFont" metaFont="system"/>
@@ -150,19 +129,12 @@
                                     <fragment content="개인정보취급방침">
                                         <attributes>
                                             <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="과">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
+                                    <fragment content="과 ">
                                         <attributes>
                                             <color key="NSColor" name="macoGray"/>
                                             <font key="NSFont" metaFont="system"/>
@@ -172,33 +144,12 @@
                                     <fragment content="이용약관">
                                         <attributes>
                                             <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" metaFont="system"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             <integer key="NSUnderline" value="1"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="에">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" metaFont="system"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="동의합니다">
-                                        <attributes>
-                                            <color key="NSColor" name="macoGray"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=".">
+                                    <fragment content="에 동의합니다.">
                                         <attributes>
                                             <color key="NSColor" name="macoGray"/>
                                             <font key="NSFont" metaFont="system"/>
@@ -331,6 +282,7 @@
                         <outlet property="doubleCheckButton" destination="wph-8B-zCH" id="HvZ-Pg-hp5"/>
                         <outlet property="iDLabel" destination="Qfk-ta-Tzo" id="DHW-x2-8FY"/>
                         <outlet property="idEmailTextField" destination="qn0-lZ-jpM" id="bPP-zD-fR9"/>
+                        <outlet property="illustrateImageView" destination="bO2-yX-F7E" id="W0i-QR-6vY"/>
                         <outlet property="macoimage" destination="bO2-yX-F7E" id="STz-Ax-HRP"/>
                         <outlet property="navigationBar" destination="fpo-5n-hDB" id="N4M-KV-HpM"/>
                         <outlet property="passwordCheckLabel" destination="0Od-Nv-8na" id="CD9-qU-SxP"/>

@@ -12,7 +12,7 @@ import Then
 
 import Moya
 
-class IndexDetailViewController: UIViewController {
+class IndexDetailViewController: BaseViewController {
 
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var indexLabel: UILabel!
@@ -65,7 +65,7 @@ class IndexDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        getChapterMonth()
+        getChapterMonth(isFirst: true)
     }
     
     @IBOutlet weak var navigationBarHeightConstraint: NSLayoutConstraint!
@@ -114,7 +114,14 @@ class IndexDetailViewController: UIViewController {
                 $0.font = UIFont.macoFont(type: .regular, size: 14)
                 $0.textColor = UIColor.macoDarkGray
                 $0.textAlignment = .left
-                $0.text = index == 0 ? "프롤로그" : "제 \(index)장"
+                switch chapter.chapter {
+                case -1:
+                    $0.text = "에필로그"
+                case 0:
+                    $0.text = "프롤로그"
+                default:
+                    $0.text = "제 \(chapter.chapter)장"
+                }
             }
             
             let dropDownIndexTitleLabel: UILabel = UILabel().then {
@@ -152,7 +159,9 @@ class IndexDetailViewController: UIViewController {
     }
     
     private func deletePetDiary(diaryID: String) {
+        self.attachIndicator(.translucent)
         diaryService.request(.deletePetDiary(diaryID: diaryID)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }
@@ -179,8 +188,15 @@ class IndexDetailViewController: UIViewController {
         self.indexDetailTableView.reloadData()
     }
     
-    private func getChapterMonth() {
+    private func getChapterMonth(isFirst: Bool = false) {
+        if isFirst {
+            self.attachIndicator(.normal)
+        } else {
+            self.attachIndicator(.translucent)
+        }
+        
         chapterService.request(.getChapterMonth(chapterID: currentID)) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 do {

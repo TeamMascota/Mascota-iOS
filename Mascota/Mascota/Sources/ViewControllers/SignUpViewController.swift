@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: BaseViewController {
     // MARK: - Properties
     let service = MoyaProvider<AccountAPI>(plugins: [MoyaLoggingPlugin()])
     
@@ -21,6 +21,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordCheckLabel: UILabel!
     @IBOutlet weak var welcomeTextLabel: UILabel!
+    @IBOutlet weak var illustrateImageView: UIImageView!
     
     @IBOutlet var underlineView: [UIView]!
     @IBOutlet var infoLabel: [UILabel]!
@@ -47,7 +48,9 @@ class SignUpViewController: UIViewController {
     }
     
     private func connectServer() {
+        self.attachIndicator(.normal)
         service.request(AccountAPI.postSignUp(email: idEmailTextField.text!, password: passwordTextField.text!)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }
@@ -136,6 +139,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setView() {
+        illustrateImageView.image = UIImage(named: "illustLoginsignupSmall")
         signUpButton.backgroundColor = UIColor(red: 229/255, green: 228/255, blue: 226/255, alpha: 1.0)
         signUpButton.layer.cornerRadius = Constant.round3
         signUpButton.titleLabel?.font = .macoFont(type: .medium, size: 20.0)

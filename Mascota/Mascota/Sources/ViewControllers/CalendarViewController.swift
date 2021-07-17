@@ -12,7 +12,7 @@ import Moya
 import SnapKit
 import Then
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: BaseViewController {
     
     private lazy var service = MoyaProvider<CalendarAPI>(plugins: [MoyaLoggingPlugin()])
     private var currentCalendar: GetCalendarModel?
@@ -365,7 +365,9 @@ extension CalendarViewController: FSCalendarDataSource {
 
 extension CalendarViewController {
     private func getCalendar(year: String, month: String, part: String) {
+        self.attachIndicator(.normal)
         service.request(CalendarAPI.getCalendar(year: year, month: month, part: part)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

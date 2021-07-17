@@ -9,7 +9,7 @@ import UIKit
 
 import Moya
 
-class RainbowRecordViewController: UIViewController {
+class RainbowRecordViewController: BaseViewController {
     private var petId: String?
     private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
     private var rainbowRecordModel: GetRainbowRecordModel?
@@ -205,7 +205,9 @@ extension RainbowRecordViewController: RainbowBridgeDelegator {
 extension RainbowRecordViewController {
     func requesttCancelRainbowBridge(petId: String?, completion: @escaping () -> Void ) {
         guard let petId = petId else { return }
+        self.attachIndicator(.translucent)
         service.request(RainbowAPI.deleteRainbowBridge(petId: petId)) { [weak self] result in
+            self?.detachIndicator()
             guard self != nil else {
                 return
             }
@@ -225,7 +227,9 @@ extension RainbowRecordViewController {
     
     func requestRainbowRecord(petId: String?, completion: @escaping () -> Void ) {
         guard let petId = petId else { return }
+        self.attachIndicator(.rainbow)
         service.request(RainbowAPI.getRainbowRecord(petId: petId)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

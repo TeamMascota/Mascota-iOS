@@ -115,7 +115,6 @@ class HomeStartViewController: BaseViewController {
         self.tableContents = contents
         self.firstPage = diary
         self.mainNavigationBar.setNavigationBarText(part: "1부", title: title)
-        dump(url)
         self.mainNavigationBar.setNavigationBarButtonImage(url: url)
         self.homeStartCollectionView.reloadData()
     }

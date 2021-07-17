@@ -11,7 +11,7 @@ import SnapKit
 import Moya
 import Then
 
-class RainbowViewController: UIViewController {
+class RainbowViewController: BaseViewController {
     private var rainbowBridgeDelegate: RainbowBridgeDelegator?
     private var rainbowDiaryDetailDelegate: RainbowDiaryDetailViewDelegator?
     
@@ -248,7 +248,10 @@ extension RainbowViewController: UITableViewDataSource {
 extension RainbowViewController {
     func getRainbowHome() {
         let petID = "60edf6e5e5003a744892ce39"
-            service.request(RainbowAPI.getRainbowHome(userId: APIService.userID, petId: petID)) { [weak self] result in
+        self.attachIndicator(.rainbow)
+            service.request(RainbowAPI.getRainbowHome(userId: APIService.userID, petId: petID)) {
+                [weak self] result in
+                self?.detachIndicator()
                 guard let self = self else {
                     return
                 }

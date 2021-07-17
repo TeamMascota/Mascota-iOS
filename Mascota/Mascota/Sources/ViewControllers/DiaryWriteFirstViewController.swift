@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-class DiaryWriteFirstViewController: UIViewController {
+class DiaryWriteFirstViewController: BaseViewController {
     
     var pets: [PetImageModel] = []
     var selectedPets: [Int] = [-1, -1, -1, -1]
@@ -53,21 +53,6 @@ class DiaryWriteFirstViewController: UIViewController {
         $0.text = "1/2"
     }
     
-    let leftProgressBar: UIView = UIView().then {
-        $0.backgroundColor = UIColor.macoOrange
-    }
-    
-    let rightProgressBar: UIView = UIView().then {
-        $0.backgroundColor = UIColor.macoLightGray
-    }
-    
-    let stackView: UIStackView = UIStackView().then {
-        $0.alignment = .center
-        $0.distribution = .fillEqually
-        $0.spacing = 0
-        $0.axis = .horizontal
-    }
-    
     @objc
     private func touchBackButton() {
         self.navigationController?.popViewController(animated: true)
@@ -75,9 +60,7 @@ class DiaryWriteFirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackView.addArrangedSubview(leftProgressBar)
         layoutComponents()
-        initializeNavigationItems()
         registerCollectionView()
         registerCollectionViewCell()
         setViews()
@@ -87,6 +70,8 @@ class DiaryWriteFirstViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        initializeNavigationItems()
+
         self.getPetsInfo()
     }
     
@@ -95,7 +80,9 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func getPetsInfo() {
+        self.attachIndicator(.normal)
         petsService.request(.getPetsInfo) { [weak self] result in
+            self?.detachIndicator()
             switch result {
             case .success(let response):
                 print("success")
@@ -145,8 +132,9 @@ class DiaryWriteFirstViewController: UIViewController {
     }
     
     private func initializeNavigationItems() {
-        navigationTitleLabel.text = "이야기 작성"
-        self.navigationItem.titleView = navigationTitleLabel
+        self.navigationController?.setHalfMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite)
+        self.navigationItem.setTitle(title: "이야기 작성", subtitle: "", titleColor: .macoBlack, subtitleColor: .clear)
+//        self.navigationItem.titleView = navigationTitleLabel
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnIconBack"), style: .plain, target: self, action: #selector(touchBackButton))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigiationRightView)
     }
@@ -204,22 +192,8 @@ class DiaryWriteFirstViewController: UIViewController {
     }
 
     private func layoutComponents() {
-        stackView.addArrangedSubviews(leftProgressBar, rightProgressBar)
         
         self.view.addSubviews(diaryWriteCollectionView, nextButton, stackView)
-        
-        leftProgressBar.snp.makeConstraints {
-            $0.top.equalTo(stackView.snp.top)
-            $0.leading.equalTo(stackView.snp.leading)
-            $0.bottom.equalTo(stackView.snp.bottom)
-        }
-
-        rightProgressBar.snp.makeConstraints {
-            $0.top.equalTo(stackView.snp.top)
-            $0.trailing.equalTo(stackView.snp.trailing)
-            $0.leading.equalTo(leftProgressBar.snp.trailing)
-            $0.bottom.equalTo(stackView.snp.bottom)
-        }
         
         diaryWriteCollectionView.snp.makeConstraints {
             $0.bottom.equalToSuperview()

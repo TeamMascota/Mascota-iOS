@@ -558,11 +558,11 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/6)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDY-Xh-h77">
-                                                <rect key="frame" x="333" y="493" width="42" height="16"/>
+                                                <rect key="frame" x="333" y="494" width="42" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="42" id="bE8-zo-2Zy"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" name="macoLightGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -602,20 +602,20 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/12)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iet-zA-azZ">
-                                                <rect key="frame" x="335" y="395.5" width="40" height="16"/>
+                                                <rect key="frame" x="335" y="396.5" width="40" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="3hK-Qq-ur4"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" name="macoLightGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0/10)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enD-R6-rwb">
-                                                <rect key="frame" x="333" y="590.5" width="42" height="16"/>
+                                                <rect key="frame" x="333" y="591.5" width="42" height="14.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="42" id="OxU-p6-EPl"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" name="macoLightGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
