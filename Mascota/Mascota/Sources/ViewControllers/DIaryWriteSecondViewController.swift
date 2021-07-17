@@ -63,6 +63,8 @@ class DiaryWriteSecondViewController: BaseViewController {
         $0.setAttributedTitle("작성완료".convertColorFont(color: .macoLightGray, fontSize: 20, type: .medium), for: .disabled)
         $0.setAttributedTitle("작성완료".convertColorFont(color: .macoWhite, fontSize: 20, type: .medium), for: .normal)
         $0.isEnabled = false
+        
+        $0.addTarget(self, action: #selector(touchFinishButton(_:)), for: .touchUpInside)
     }
     
     let navigationTitleLabel: UILabel = UILabel().then {
@@ -83,7 +85,6 @@ class DiaryWriteSecondViewController: BaseViewController {
     }
 
 
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeNavigationBarColor()
@@ -94,7 +95,7 @@ class DiaryWriteSecondViewController: BaseViewController {
         registerTextView()
         registerImagePicker()
         registerTextField()
-        initialieButton()
+        layoutFinishButton()
         setComponents()
     }
     
@@ -117,7 +118,7 @@ class DiaryWriteSecondViewController: BaseViewController {
     }
     
     private func initialieButton() {
-        self.finishButton.addTarget(self, action: #selector(touchFinishButton), for: .touchUpInside)
+        self.finishButton.addTarget(self, action: #selector(touchFinishButton(_:)), for: .touchUpInside)
     }
     
     private func initializeNavigationItems() {
@@ -237,15 +238,18 @@ class DiaryWriteSecondViewController: BaseViewController {
         }
     }
     
-    private func layoutComponents() {
-        scrollViewBackgroundView.addSubviews(indexStackView, finishButton, progressBar)
-        
+    private func layoutFinishButton() {
+        self.view.addSubview(finishButton)
         finishButton.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom) //
             $0.leading.equalToSuperview().inset(27)
             $0.trailing.equalToSuperview().inset(27)
             $0.height.equalTo(50)
         }
+    }
+    
+    private func layoutComponents() {
+        scrollViewBackgroundView.addSubviews(indexStackView, progressBar)
         
         indexStackView.snp.makeConstraints {
             $0.width.equalTo(indexView.snp.width)
@@ -378,8 +382,10 @@ class DiaryWriteSecondViewController: BaseViewController {
     private func isFinishButtonAvailable() {
         if diaryWrite.isEmpty() {
             self.finishButton.isEnabled = false
+        } else {
+            self.finishButton.isEnabled = true
         }
-        self.finishButton.isEnabled = true
+        
     }
     
     @objc
@@ -402,7 +408,7 @@ class DiaryWriteSecondViewController: BaseViewController {
     }
     
     @objc
-    func touchFinishButton() {
+    func touchFinishButton(_ sender: UIButton) {
         var data: [Data] = []
         pickedImage.forEach {
             guard let image = $0.pngData() else {
@@ -450,7 +456,6 @@ class DiaryWriteSecondViewController: BaseViewController {
         indexStackView.arrangedSubviews[index].backgroundColor = .macoIvory
         displayStackViewAnimation(selected: true, index: index)
     }
-    
     
     @IBAction func touchToggleButton(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
