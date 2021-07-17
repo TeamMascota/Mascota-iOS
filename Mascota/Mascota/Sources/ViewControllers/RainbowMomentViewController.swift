@@ -9,7 +9,7 @@ import UIKit
 
 import Moya
 
-class RainbowMomentViewController: UIViewController {
+class RainbowMomentViewController: BaseViewController {
     
     private lazy var service = MoyaProvider<RainbowAPI>(plugins: [MoyaLoggingPlugin()])
     private var rainbowMomentModel: GetRainbowMomentModel?
@@ -243,7 +243,9 @@ extension RainbowMomentViewController {
     func requestGetRainMoment(petId: String?) {
         let userId = APIService.userID
         guard let petId = petId else { return }
+        self.attachIndicator(.rainbow)
         service.request(RainbowAPI.getRainbowMoment(userId: userId, petId: petId)) { [weak self] result in
+            self?.detachIndicator()
             guard let self = self else {
                 return
             }

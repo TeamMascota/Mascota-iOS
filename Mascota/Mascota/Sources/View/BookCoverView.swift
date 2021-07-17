@@ -9,6 +9,16 @@ import UIKit
 
 class BookCoverView: UIView {
     
+    public func setAlpha(alpha: CGFloat) {
+        coverImageView.alpha = alpha
+        verticalView.alpha = alpha
+        horizontalView.alpha = alpha
+        bookTitleLabel.alpha = alpha
+        writerLabel.alpha = alpha
+        logoImageView.alpha = alpha
+        dimColorView.alpha = alpha
+    }
+    
     private lazy var coverImageView = UIImageView()
     
     private lazy var verticalView = UIView().then {

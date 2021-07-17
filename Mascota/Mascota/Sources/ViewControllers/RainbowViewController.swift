@@ -33,12 +33,12 @@ class RainbowViewController: BaseViewController {
         initRainbowViewController()
         setMainNavigationBar()
         setTableView()
-        getRainbowHome()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        getRainbowHome()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
