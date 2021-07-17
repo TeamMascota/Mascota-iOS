@@ -121,8 +121,11 @@ class DiaryWriteSecondViewController: BaseViewController {
     }
     
     private func initializeNavigationItems() {
-        navigationTitleLabel.text = "asdfadsf"
-        self.navigationItem.titleView = navigationTitleLabel
+        self.navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoWhite, underLineColor: .macoOrange)
+        self.navigationItem.setTitle(title: "이야기 작성",
+                                subtitle: "",
+                                titleColor: .macoBlack,
+                                subtitleColor: .clear)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "btnIconBack"), style: .plain, target: self, action: #selector(touchBackButton))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigiationRightView)
     }
