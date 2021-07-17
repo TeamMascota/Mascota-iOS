@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - FSCalendar (2.8.2)
+  - IQKeyboardManagerSwift (6.5.6)
   - Kingfisher (6.3.0)
   - lottie-ios (3.2.3)
   - Moya (14.0.0):
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - FSCalendar
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 6.0)
   - lottie-ios
   - Moya (~> 14.0)
@@ -24,6 +26,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - FSCalendar
+    - IQKeyboardManagerSwift
     - Kingfisher
     - lottie-ios
     - Moya
@@ -34,6 +37,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 742f1a6f0cc6f2fb0acb99b20199e60eb3c683b4
+PODFILE CHECKSUM: 39af038ad2d1fd9a334fd7202a5d83734d3d129f
 
 COCOAPODS: 1.10.1
