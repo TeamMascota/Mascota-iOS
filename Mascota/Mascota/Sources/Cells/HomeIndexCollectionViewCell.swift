@@ -72,12 +72,16 @@ class HomeIndexCollectionViewCell: UICollectionViewCell {
     }
 
     func initializeData(data: IndexModel, tag: Int) {
-        if data.chapter == 0 {
+        switch data.chapter {
+        case -1:
+            self.indexLabel.text = "에필로그"
+        case 0:
             self.indexLabel.text = "프롤로그"
             self.episodeLabel.isHidden = true
-        } else {
-            self.indexLabel.text = "제 \(tag)장"
+        default:
+            self.indexLabel.text = "제 \(data.chapter)장"
         }
+       
         self.indexTitleLabel.text = data.chapterTitle
         self.episodeLabel.text = "총 \(data.episodePerchapterCount ?? 0)화"
     }

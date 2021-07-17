@@ -53,26 +53,30 @@ class IndexEditViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getChapterList()
-        setRainbowNavigationBar()
+        getChapterList(isFirst: true)
+        setHomeNavigationBar()
     }
     
     private lazy var backButton = UIBarButtonItem().then {
-        $0.backBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(touchBackButton(_:)))
+        $0.backBarButtonItem(color: .macoDarkGray, style: .plain, target: self, action: #selector(touchBackButton(_:)))
     }
     private lazy var plusButton = UIBarButtonItem().then {
-        $0.plusBarButtonItem(color: .macoWhite, style: .plain, target: self, action: #selector(touchPlusButton(_:)))
+        $0.plusBarButtonItem(color: .macoDarkGray, style: .plain, target: self, action: #selector(touchPlusButton(_:)))
     }
     
-    private func setRainbowNavigationBar() {
-        navigationController?.setMacoNavigationBar(barTintColor: .macoBlue, tintColor: .macoWhite, underLineColor: .macoWhite)
-        navigationItem.setTitle(title: "목차 편집")
+    private func setHomeNavigationBar() {
+        navigationController?.setMacoNavigationBar(barTintColor: .macoIvory, tintColor: .macoBlack, underLineColor: .macoDarkGray)
+        navigationItem.setTitle(title: "목차 편집", subtitle: "", titleColor: .macoBlack, subtitleColor: .macoDarkGray)
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = plusButton
     }
     
-    private func getChapterList() {
-        self.attachIndicator(.translucent)
+    private func getChapterList(isFirst: Bool = false) {
+        if isFirst {
+            self.attachIndicator(.normal)
+        } else {
+            self.attachIndicator(.translucent)
+        }
         service.request(ChapterAPI.getChapterList) { [weak self] result in
             self?.detachIndicator()
             switch result {
@@ -295,7 +299,16 @@ class IndexEditViewController: BaseViewController {
     @objc
     func touchChangeButton(_ sender: UIButton) {
         selectedContents = self.tableContents[sender.tag]
-        self.customTextFieldAlertView.initializeComponents(title: "제 \(sender.tag)장", textField: nil)
+        guard let selectedContent = selectedContents else { return }
+        switch selectedContent.chapter {
+        case -1:
+            self.customTextFieldAlertView.initializeComponents(title: "에필로그", textField: nil)
+        case 0:
+            self.customTextFieldAlertView.initializeComponents(title: "프롤로그", textField: nil)
+        default:
+            self.customTextFieldAlertView.initializeComponents(title: "제 \(selectedContent.chapter)장", textField: nil)
+        }
+        
         self.presentDoubleCustomAlert(view: customTextFieldAlertView,
                                       preferredSize: CGSize(width: 270, height: 100),
                                       firstHandler: dismissHandler,
@@ -340,7 +353,7 @@ extension IndexEditViewController: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             // 셀이 2개 사용되기 때문에 분기
-            if indexPath.item == 0 {
+            if tableContents[indexPath.item].chapter == 0 {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.CollectionViewCells.indexEditPrologueCollectionViewCell,
                                                                     for: indexPath) as? IndexEditPrologueCollectionViewCell else {
                     return UICollectionViewCell()
