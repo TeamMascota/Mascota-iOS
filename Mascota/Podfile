@@ -11,6 +11,7 @@ target 'Mascota' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Then'
   pod 'SwiftLint'
+  pod 'IQKeyboardManagerSwift'
   pod 'FSCalendar'
   pod 'Kingfisher', '~> 6.0'
 
