@@ -9,4 +9,6 @@ import Foundation
 
 struct CharactersModel: Codable {
     let character: [CharacterModel]
+    
+    
 }

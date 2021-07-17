@@ -193,7 +193,7 @@ class DiaryWriteFirstViewController: BaseViewController {
 
     private func layoutComponents() {
         
-        self.view.addSubviews(diaryWriteCollectionView, nextButton, stackView)
+        self.view.addSubviews(diaryWriteCollectionView, nextButton)
         
         diaryWriteCollectionView.snp.makeConstraints {
             $0.bottom.equalToSuperview()

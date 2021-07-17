@@ -55,37 +55,49 @@ extension DiaryAPI: TargetType {
             return .requestPlain
         case .postPetDiary(let characters, let diaryWrite, let images):
             let charactersModel: CharactersModel = CharactersModel(character: characters)
+            var params: [String: Any] = [String: Any]()
             var multipartData: [MultipartFormData] = []
-            
-            var character: [[String: Any]] = []
-            
-            for i in 0..<characters.count {
-                var temp: [String: Any] = [String: Any]()
-                temp["id"] = characters[i].id
-                temp["feeling"] = characters[i].feeling
-                character.append(temp)
+                
+            var character: Data = Data()
+                
+            let encoder = JSONEncoder()
+            do {
+                let characterJson = try encoder.encode(charactersModel)
+                character = characterJson
+            } catch (let err) {
+                print(err.localizedDescription)
             }
             
-            let temp = MultipartFormData(provider: .data("\(character)".data(using: .utf8)!), name: "character")
-            multipartData.append(temp)
-//
-//
+            let characterData = MultipartFormData(provider: .data(character), name: "character")
+            
+            multipartData.append(characterData)
+            print(character)
+    //                character.append(Data(temp))
+
+                
+    //            print(type(of: Data(character)))
+                
+    //            let temp = MultipartFormData(provider: .data(Data(character)), name: "character")
+    //            multipartData.append(temp)
+    //
+    //
 
             images.forEach {
                 let temp = MultipartFormData(provider: .data($0), name: "images", fileName: "image.png", mimeType: "image/png")
                 multipartData.append(temp)
             }
-//
+    //
             let title = MultipartFormData(provider: .data(diaryWrite.title.data(using: .utf8)!), name: "title")
             multipartData.append(title)
             let contents = MultipartFormData(provider: .data(diaryWrite.contents.data(using: .utf8)!), name: "contents")
             let date = MultipartFormData(provider: .data(diaryWrite.date.data(using: .utf8)!), name: "date")
             let id = MultipartFormData(provider: .data(diaryWrite.id.data(using: .utf8)!), name: "_id")
-            
+                
             multipartData.append(contents)
             multipartData.append(date)
             multipartData.append(id)
-            
+                
+    //            return .uploadCompositeMultipart(multipartData, urlParameters: [String : Any])
             return .uploadMultipart(multipartData)
         case .deletePetDiary:
             return .requestPlain
